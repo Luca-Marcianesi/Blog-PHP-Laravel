@@ -15,6 +15,6 @@
         </form>
     @endauth    
     @guest
-        <li><a href="{{ route('login') }}" class="highlight" title="Accedi all'area riservata del sito">Accedi</a></li>  
+        <li onclick=togglePopup1()> Accedi</li>  
     @endguest
 </ul>

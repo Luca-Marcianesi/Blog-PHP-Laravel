@@ -3,7 +3,7 @@
 <p class="invito_register">Registrati subito per connetterti con i tuoi amici e iniziare anche tu un blog</p>
 <div>
     <div class="register_option">
-       <p class="register_button"><a  href="{{ route('register') }}"> Registrati subito </a></p>
+       <p class="register_button" onclick=togglePopup2() > Registrati subito </p>
     </div>
 </div>
 </div>

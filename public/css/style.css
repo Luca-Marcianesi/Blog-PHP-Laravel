@@ -363,14 +363,84 @@ nav ul li a{
 	color: #3D444F;
 }
 
+.tema_blog{
+	color: var(--main-color);
+	background-color: red;
+	width:fit-content;
+
+}
+
+.stato_blog{
+	float: right;
+	color: black;
+	background-color: rebeccapurple;
+
+}
+
+/* pop up */
+
+.popup .overlay{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	display:none ;
+}
+
+.popup .content{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%) scale(0);
+	background: linear-gradient(136deg,rgb(82,105,254) 0%, rgb(255,255,255) 100%);
+	width: 450px;
+	height:auto;
+	z-index: 2;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 30px;
+}
+
+.popup .close-btn{
+	position: absolute;
+	right:20px ;
+	top: 20px;
+	width: 30px;
+	height: 30px;
+	background: black;
+	color: white;
+	font-size: 25px;
+	font-weight: 600;
+	line-height: 30px;
+	text-align: center;
+	border-radius:50% ;
+}
+
+.popup.active .overlay{
+	display: block;
+}
+
+.popup.active .content{
+	transition: all 600ms ease-in-out;
+	transform: translate(-50%,-50%) scale(1);
+}
+
+
+
+
 /*  my input form */
 
-.wrap-form-main-space{
-	max-width: 100%;
-	background: whitesmoke;
-	border-color: var(--main-color);
-	border-style: solid;
+.wrap-form{
+	max-width: 300px;
+ 	border-radius: 2px;
+  	position: relative;
+	padding-left: 55px;
 	
+
 }
 
 .wrap-element-form{
@@ -439,7 +509,7 @@ nav ul li a{
 }
 
 
-/* input form */
+/* input form  prof*/
 
 .wrap-input {
   width: 100%;

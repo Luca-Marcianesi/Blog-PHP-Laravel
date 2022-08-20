@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
+        <script defer src="/js/popup.js"></script>
         <title>Home</title>
     </head>
     <body>
@@ -26,6 +27,22 @@
                 @include('auth/register_main')
             </section>
             @endguest
+            <div class="popup" id="popuplog">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="togglePopup1()">&times;</div>
+                    @include('auth/login')
+                </div>
+            </div>
+            <div class="popup" id="popupreg">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="togglePopup2()">&times;</div>
+                    @include('auth/register')
+                </div>
+            </div>
+
+            
 
         <footer id="footer">
             <h1>footer</h1>
