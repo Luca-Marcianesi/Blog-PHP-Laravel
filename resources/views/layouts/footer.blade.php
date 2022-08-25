@@ -5,7 +5,7 @@
                     <li>|</li>
                     <li><a href="https://policies.google.com/privacy?hl=it" target="_blank">Privacy </a></li>
                     <li>|</li>
-                    <li onclick="togglePopupNorme()">Norme relative ai contenuti</li>
+                    <li style="cursor: pointer" onclick="togglePopupNorme()">Norme relative ai contenuti</li>
                 </ul>
             </div>
 </footer>
@@ -23,5 +23,4 @@
                 bla bla bla
                 </p>
             </div>
-
 </div>

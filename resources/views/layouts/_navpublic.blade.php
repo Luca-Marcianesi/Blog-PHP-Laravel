@@ -1,4 +1,5 @@
 <ul>
+    <li><a href="{{ route('home') }}" title="Torna alla home del sito">Home</a></li>
     <li><a href="{{ route('who') }}" title="Il nostro profilo aziendale">Chi siamo</a></li>
     <li><a href="{{ route('where') }}" title="Dove trovarci">Dove Siamo</a></li>
     <li><a href="mailto:info@blog+.it" title="Mandaci un messaggio">Contattaci</a></li>
