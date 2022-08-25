@@ -4,83 +4,111 @@ http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
 */
 :root{
---main-color: #5269fe;	
+--color-scritte: white;
+--blu: rgb(82,105,254);
+--rosa: rgb(217, 175, 255);
 }
 
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+}
 
 a {
 	text-decoration: none;
 }
 
-#body{
-	background-color: #5269fe;
+body {
+	background: linear-gradient(-45deg, var(--blu), var(--rosa));
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	
 }
 
-.main{
-	margin-top: 0;
-	background-color: #5269fe;
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
-#wrapper {
-	width: 968px;
-	margin: 0 auto;
-	padding: 0;
+footer{
+	position:absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: 100px;
+	width: 100%;
+	margin-left: 0%;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	color: white;
+	clear: left;
+	background-color:#353535;
 }
 
-/* titolo*/
-#title{
-	text-align: center;
-	color: var(--main-color);
-	font-weight: bold;
-	font-size: 50px;
+footer ul{
+	margin-top: 20px;
+	list-style-type: none; /*levo il puntino a sinistra*/
+	display: flex;
+	justify-content:start;
+}
+
+
+
+footer ul li{
+	display: inline-block;
+	padding-left: 40px;
+}
+
+footer a:visited{
+	color: white;
 }
 
 /* spazio  centrale*/
-#main_content{
+.main-content{
 	background-color: transparent;
-	float: left;
-	width:35%;
-	margin-left: 2%;
-	margin-right: 2%;
+	margin-top: 100px;
+	padding-bottom: 100px;
+	
 }
 
 /* elementi della parte main delle pag*/
 
 .main_element{
-	border: var(--main-color);
-	border-style:solid;
-	border-width: 2px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	border-top: transparent;
-	margin-top: 0;
+	color: var(--color-scritte);
+	padding-top: 20px;	
 }
 
-/* spazio home destra */
-
-#register_main{
-	padding: 1px 1px 1px 1px;
-	float: left;
-	margin-right: 10%;
-	width:19%;
-}
-
-/* domanda home destra*/
-.domanda_register{
-	padding-left: 10px;
+.main_element h1 {
+	size: 1.5rem;
 	color: black;
-	font-size: large;
-	font-weight: bold;
-
 }
 
-/* invito home destra*/
+.main_element p {
+	size: 1rem;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 
-.invito_register{
-	padding-left: 15px;
-	color: var(--main-color);
-	font-size: small;
+/* sezioni  */
 
+.unisciti{
+	
+	text-align: center;
+	
+}
+
+.profilo-blog{
+	
+	text-align: center;
 }
 
 .register_option{
@@ -91,57 +119,55 @@ a {
 
 .register_button{
 
-	background-color:transparent ;
+	background-color:var(--blu) ;
 	padding: 0px 30px;
     color: var(--main-color);
     font-size: 13px;
     font-weight: bold;
 	padding-left: 60px;
 	padding-right: 60px;
-    border-color: var(--main-color);
+    border-color: var(--color-scritte);
 	border-style:groove;
 	border-width: 3px;
     border-radius: 20px;
-    line-height: 30px;
+    line-height: 10px;
 	display:inline-flex;
 }
 
 /* spazio home sinistra (navbar)  */
 
 #nav{
-    width: 14%;
-    float: left;
-	margin-left: 14%;
+	position: absolute;
+	top: 20px;
+	width: 100%;
+    
 }
 
 /* navbar style*/
 
 nav ul{
 	list-style-type: none; /*levo il puntino a sinistra*/
+	display: flex;
+	justify-content: center;
 }
 
 nav ul li{
 	margin-bottom: 5%;
+	display: inline-block;
+	padding-left: 40px;
 }
 
 nav ul li a{
-	font-size: 25px;
-	font-weight: bold;
+	font-size: 20px;
+	color: white;
+	text-transform: uppercase;
+	padding: 5px 10px;
+}
+
+nav ul li a:hover{
+	background-color: white;
 	color: black;
 }
-
-
-/*footer*/
-
-#footer {
-	width: 100%;
-	clear:left;
-}
-
-
-
-
-
 
 /* Search */
 
@@ -215,7 +241,11 @@ nav ul li a{
 	text-decoration: underline;
 }
 
-/* Page */
+/* Who */
+.who{
+	font-size: 35px;
+	color: white;
+}
 
 
 
@@ -341,30 +371,9 @@ nav ul li a{
 	text-align: right;
 }
 
-/* Footer */
-
-#footer {
-	height: 50px;
-	margin: 0 auto;
-	padding: 0px 0 15px 0;
-	font-family: Arial, Helvetica, sans-serif;
-	color: #B2B2B2;
-}
-
-#footer p {
-	margin: 0;
-	line-height: normal;
-	font-size: 9px;
-	text-transform: uppercase;
-	text-align: center;
-}
-
-#footer a {
-	color: #3D444F;
-}
 
 .tema_blog{
-	color: var(--main-color);
+	color: var(--color-scritte);
 	background-color: red;
 	width:fit-content;
 
@@ -385,7 +394,7 @@ nav ul li a{
 	left: 0px;
 	width: 100vw;
 	height: 100vh;
-	background: rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.7);
 	z-index: 1;
 	display:none ;
 }
@@ -452,7 +461,7 @@ nav ul li a{
 .label-form{
 	font-family: Arial, Helvetica, sans-serif;
   	font-size: 20px;
-  	color: var(--main-color);
+  	color: var(--color-scritte);
   	line-height: 1,5;
 	margin-left: 10px;
 }
@@ -470,7 +479,7 @@ nav ul li a{
   	background: transparent;
   	font-family: Arial, Helvetica, sans-serif;
   	font-size: 12px;
-  	color: var(--main-color);
+  	color: var(--color-scritte);
   	line-height: 1.2;
 	margin-left: 15px;
 	margin-right: 5px;
@@ -494,7 +503,7 @@ nav ul li a{
 
 .form-button{
 	background-color: white;
-	color: var(--main-color);
+	color: var(--color-scritte);
 	font-size: medium;
 	font-family: Arial, Helvetica, sans-serif
 }
@@ -506,107 +515,4 @@ nav ul li a{
 	font-size: large;
 	text-transform: uppercase;
 	padding-left: 15px;
-}
-
-
-/* input form  prof*/
-
-.wrap-input {
-  width: 100%;
-  position: relative;
-  background-color: transparent;
-  margin-bottom: 12px;
-}
-
-.rs1-wrap-input {
-  width: calc((100% - 30px) / 2);
-}
-
-.label-input {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  color: #555555;
-  line-height: 1,5;
-}
-
-.input {
-  display: block;
-  width: 90%; 
-  background: #f2f2f2;
-  border-radius: 2px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  color: #686868;
-  line-height: 1.2;
-  padding: 5px;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-
-  margin-top: 5px;
-}
-
-.container-contact {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-}
-
-.wrap-contact {
-  max-width: 960px;
-  background: #dbecf6;
-  border-radius: 2px;
-  padding: 30px 120px;
-  position: relative;
-}
-
-.wrap-contact1 {
-  max-width: 300px;
-  background: #dbecf6;
-  border-radius: 2px;
-  padding: 30px 30px;
-  position: relative;
-}
-
-.contact-form {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.container-form-btn {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 5px;
-}
-
-.form-btn1 {
-  justify-content: center;
-  padding: 0 20px;
-  height: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  color: #555555;
 }

@@ -1,5 +1,5 @@
-function togglePopup1(){
-    document.getElementById("popuplog").classList.toggle("active")
+function togglePopupNorme(){
+    document.getElementById("norme-privacy").classList.toggle("active")
 }
 
 function togglePopup2(){

@@ -11,26 +11,15 @@
   |
  */
 
-Route::get('/selTopCat/{topCatId}/selCat/{catId}', 'PublicController@showCatalog3')
-        ->name('catalog3');
 
-Route::get('/selTopCat/{topCatId}', 'PublicController@showCatalog2')
-        ->name('catalog2');
-
-Route::get('/', 'PublicController@showCatalog1')
-        ->name('catalog1');
-
-Route::get('/admin/newproduct', 'AdminController@addProduct')
-        ->name('newproduct');
-
-Route::post('/admin/newproduct', 'AdminController@storeProduct')
-        ->name('newproduct.store');
-
-Route::get('/admin', 'AdminController@index')
-        ->name('admin');
+Route::view('/admin', 'homeAdmin')
+        ->name('admin')->middleware('can:isAdmin');
 
 Route::view('/user', 'homeUser')
         ->name('user')->middleware('can:isUser');
+
+Route::view('/staf', 'homeStaf')
+        ->name('staf')->middleware('can:isStaf');
 
 // Rotte per l'autenticazione
 Route::get('login', 'Auth\LoginController@showLoginForm')
@@ -59,12 +48,15 @@ Route::view('/who', 'who')
 
 Auth::routes();
 
-Route::view('/home', 'layouts\public')->name('home');
+Route::view('/', 'home')->name('home');
 
 // User routes
 
 Route::view('/newBlog', 'newBlog')
         ->name('newBlog')->middleware('can:isUser');
+
+Route::get('/amici','UserController@getAmici')
+        ->name('amici')->middleware('can:isUser');
 
 Route::post('/newBlog','UserController@newBlog')
         ->name('newBlog')->middleware('can:isUser');
@@ -74,3 +66,8 @@ Route::get('/myBlogs','UserController@getMyBlogs')
 
 Route::post('/searchFriends','UserController@searchFriends')
         ->name('searchFriends')->middleware('can:isUser');
+
+        
+Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
+        ->name('sedRequest');
+

@@ -1,3 +1,9 @@
+@extends('layouts.public')
+
+@section('title', 'Login')
+
+@section('content')   
+    
     <h1>Login</h1>
     <div class="wrap-form">
             {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
@@ -34,5 +40,6 @@
             {{ Form::close() }}
         </div>
         <div>
-            <h4> Non sei ancora registrato?<p onclick="togglePopup2(),togglePopup1()">registrati</a></h4>
+            <h4> Non sei ancora registrato?<p>registrati</a></h4>
         </div>
+@endsection

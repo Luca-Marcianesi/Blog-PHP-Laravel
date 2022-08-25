@@ -19,7 +19,21 @@ class DatabaseSeeder extends Seeder {
             ['name' => 'luca', 'surname' => 'marcia', 'email' => 'luca@libero.it', 'username' => 'lucaluca',
                 'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")],
+            ['name' => 'staf', 'surname' => 'marcia', 'email' => 'luca@libero.it', 'username' => 'stafstaf',
+                'password' => Hash::make('lucaluca'), 'role' => 'staf','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")],
+            ['name' => 'admin', 'surname' => 'marcia', 'email' => 'luca@libero.it', 'username' => 'adminadmin',
+                'password' => Hash::make('lucaluca'), 'role' => 'admin','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")],
+           
+                
             
+        ]);
+
+
+        DB::table('amicizia')->insert([
+            ['richiedente' => '1', 'destinatario' => '2', 'stato' => true],
+            ['richiedente' => '3', 'destinatario' => '1', 'stato' => true]   
         ]);
     }
 

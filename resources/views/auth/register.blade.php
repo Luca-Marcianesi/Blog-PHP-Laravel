@@ -1,3 +1,9 @@
+@extends('layouts.public')
+
+@section('title', 'Registrati')
+
+@section('content')
+  
 <h1>Non sei ancora registaro?</h1>
 <br>
 <h6>Registrati subito per connetterti con i tuoi amici e cominciare a dire la tua opinione</h6>
@@ -98,4 +104,5 @@
     </div>
 
     {{ Form::close() }}
+@endsection
 

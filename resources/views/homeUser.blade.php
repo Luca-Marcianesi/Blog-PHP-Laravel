@@ -4,8 +4,9 @@
 
 @section('content')
 <div>
-    <h3>Cerca i tuoi amici<h3>
-    <div class="wrap-contact1">
+    <section>
+        <h3>Cerca i tuoi amici<h3>
+        <div class="wrap-contact1">
             {{ Form::open(array('route' => 'searchFriends', 'class' => 'contact-form')) }}
             
       
@@ -39,7 +40,6 @@
             
             {{ Form::close() }}
         </div>
-    <p>Benvenuto {{ Auth::user()->name }} {{ Auth::user()->surname }}</p>
-    <p>Seleziona la funzione da attivare</p>
+    </section>
 </div>
 @endsection

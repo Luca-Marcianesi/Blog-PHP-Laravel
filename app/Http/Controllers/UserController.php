@@ -6,12 +6,18 @@ use App\Http\Requests\NewSearchRequest;
 use App\Models\Resources\Blog;
 use App\User;
 use App\Models\Resources\Messaggio;
+use App\Models\Resources\Amicizia;
+use App\Models\GestoreAmici;
 
 class userController extends Controller {
 
+    protected $_AmiciModel;
+
     public function __construct() {
         $this->middleware('auth');
+        $this->_AmiciModel = new GestoreAmici;
     }
+
 
     public function newBlog(NewBlogRequest $request){ 
 
@@ -41,66 +47,58 @@ class userController extends Controller {
 
     public function searchFriends(NewSearchRequest $request){
 
-        $friends = User::where(function ($query) use ($request) {
-            if(substr($request->name, -1) == '*'){
-                $name = rtrim($request->name, "*");
-                $query->orWhereLike('name',$name); 
-            }
-            else{
-                $query->orWhere('name', $request->name);
-            }
-            if(substr($request->surname, -1) == '*'){
-                $surname = rtrim($request->surname, "*");
-                $query->orWhereLike('surname',$surname); 
-            }
-            else{
-                $query->orWhere('surname', $request->surname);
-            }
+        $users = User::where('role','user')
+                        ->where('id','!=',auth()->user()->id)
+                        ->where(function ($query) use ($request) {
+                                    if(substr($request->name, -1) == '*'){
+                                            $name = rtrim($request->name, "*");
+                                            $query->orWhereLike('name',$name); 
+                                    }
+                                    else{
+                                        $query->orWhere('name', $request->name);
+                                    }
+                                    if(substr($request->surname, -1) == '*'){
+                                            $surname = rtrim($request->surname, "*");
+                                            $query->orWhereLike('surname',$surname); 
+                                    }
+                                    else{
+                                        $query->orWhere('surname', $request->surname);
+                                    }
 
                
-           })
-           ->get();
-        /*
-        $friends->get();
-        */
-
-
-        /*
-        if(substr($request->name, -1) == '*'){
-            $name = rtrim($request->name, "*");
-            $friends = User::orWhereLike('name',$name)->get(); 
-        }
-
-        if(substr($request->surname, -1) == '*'){
-            $surname = rtrim($request->surname, "*");
-        }
-        
-        $friends = User::where('name',$request->name)
-                        ->orWhereLike('name',$name)->get();
-        
-        /*
-
-
-        $friends = User::where(function ($query) use ($request){
-            if(substr($request->name, -1) == '*'){
-
-                $name = rtrim($request->name, "*"); //levo l'asterisco finale
-                $query->orWhereLike('name',$name);
-
-                }
-            else{
-                $query->orWhere('name',$request->name);
-                }
-        });
-        
-        $friends->get();
-        */
+                                    })
+                                ->get();
         return view('searchResult')
-            ->with('friends', $friends);
+            ->with('users', $users);
 
     }
 
 
+    
+    public function amicizia($id){
+        $amicizia = new Amicizia;
+        $amicizia->richiedente = auth()->user()->id;
+        $amicizia->destinatario = $id;
+        $amicizia->save();
+
+        return view('homeUser');
+    }
+
+
+    public function rispostaAmicizia($id,$risposta){
+        $amicizia =  Amicizia::find($id);
+        $amicizia->stato = $risposta; 
+        $amicizia->visualizzata = true;
+        $amicizia->save();
+
+    }
+
+    public function getAmici(){
+        $amici = $this->_AmiciModel->getAmici(auth()->user()->id);
+        return view('listaAmici')
+                        ->with('amici', $amici);
+
+    }
     public function index() {
         return view('user');
     }

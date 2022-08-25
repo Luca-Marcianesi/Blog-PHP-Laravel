@@ -7,10 +7,10 @@
     </head>
     <body>
         <nav id="nav">
-            @include('layouts/_navuser')
+            @include('layouts/_navstaf')
         </nav>
 
-        <div class="main-content">
+        <div>
             @yield('content')
         </div>
 

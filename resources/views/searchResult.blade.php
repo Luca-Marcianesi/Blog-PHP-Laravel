@@ -6,12 +6,15 @@
 <div>
    
 
-    @isset($friends)
+    @isset($users)
 
-    @foreach($friends as $friend)
+    @foreach($users as $user)
     <div class="main_element">
-        <div class="tema_blog">Nome: {{$friend->name}}</div>
-        <div class="stato_blog">Cognome:{{$friend->surname}}</div>
+        <div class="tema_blog">Nome: {{$user->name}}</div>
+        <div class="stato_blog">Cognome:{{$user->surname}}</div>
+        <a href="{{ route('sedRequest', [$user->id])}}">Invia richiesta</a>
+        
+
         
     </div>         
     @endforeach
