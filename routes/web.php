@@ -67,6 +67,9 @@ Route::get('/myBlogs','UserController@getMyBlogs')
 Route::post('/searchFriends','UserController@searchFriends')
         ->name('searchFriends')->middleware('can:isUser');
 
+Route::get('/profilo/{id}', 'UserController@getProfilo')
+        ->name('visualizzaProfilo');
+
         
 Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
         ->name('sedRequest');
