@@ -64,6 +64,9 @@ Route::post('/newBlog','UserController@newBlog')
 Route::get('/myBlogs','UserController@getMyBlogs')
         ->name('myBlogs')->middleware('can:isUser');
 
+Route::get('/blog/{id}','UserController@index')
+        ->name('blog')->middleware('can:isUser');
+
 Route::post('/searchFriends','UserController@searchFriends')
         ->name('searchFriends')->middleware('can:isUser');
 

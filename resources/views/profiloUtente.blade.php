@@ -8,37 +8,47 @@
 
     @isset($utente)
     @isset($amicizia)
+    @isset($blogs)
 
 
   
     <div class="main_element">
-        <div class="tema_blog">Nome: {{$utente->name}}</div>
-        <div class="stato_blog">Cognome:{{$utente->surname}}</div>
+        <h1>Dati anagrafici</h1>
+        <div >Nome: {{$utente->name}}</div>
+        <div>Cognome:{{$utente->surname}}</div>
+        <div>E-mail:{{$utente->email}}</div>
+        <div>Data di Nascita:{{$utente->data_nascita}}</div>
+        <div>Bio:{{$utente->descrizione}}</div>
         
 
-    </div>         
+    </div>
+    @empty($amicizia)
+          <a href="{{ route('sedRequest',$utente->id) }}" class="highlight" title="richiesta">Invia richiesta</a>
+    @endempty  
+    
+    
 
-    @if($utente->visibilita)
-        <div class="tema_blog">account publico  </div> 
-        @empty($amicizia){
-            <a href="{{ route('sedRequest',$utente->id) }}" class="highlight" title="richiesta">Invia richiesta</a>
-        }
-        @endempty
-            {{$amicizia}}
-       
+    @if($utente->visibilita or $amicizia->stato)
+
+        @if(!@empty($blogs))
+            non ci sono blog pubblicati
         
+        @endif()
+            
+         
+         
+        @foreach($blogs as $blog)
+            <a href="{{ route('blog',$blog->id) }}" class="highlight" >Tema : {{$blog->tema}}</a>
+        
+        @endforeach
+
     @else
-        
-        
-        
-    @endif()
-
-   
-
-
+        Devi far parte del gruppo di amici per visualizzare i blog 
     
-    
+    @endif() 
+        
 
+    @endisset()
     @endisset()
     @endisset()
     

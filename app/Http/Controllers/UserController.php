@@ -85,10 +85,14 @@ class userController extends Controller {
                                     })
                                     ->take(1)
                                     ->get();
+
+        $blogs = Blog::where('proprietario',$id)->get();
+
         if($utente->visibilita){
             return view('profiloUtente')
                 ->with('utente',$utente)
-                ->with('amicizia',$amicizia);
+                ->with('amicizia',$amicizia)
+                ->with('blogs',$blogs);
         }
         else{
             if(count($amicizia) == 0){
@@ -98,7 +102,8 @@ class userController extends Controller {
             else{
                 return view('profiloUtente')
                     ->with('utente',$utente)
-                    ->with('amicizia',$amicizia);
+                    ->with('amicizia',$amicizia)
+                    ->with('blogs',$blogs);;
             }
 
         }
