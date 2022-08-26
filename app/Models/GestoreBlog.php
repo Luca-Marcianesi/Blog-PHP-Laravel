@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\Resources\Messaggio;
+use App\Models\Resources\Post;
 use App\Models\Resources\Blog;
 
 class GestoreBlog {
 
-    public function getMessaggiByBlogId($blogId) {
-        return Messaggio::where('id', $blogId)->get();
+    public function getPostByBlogId($blogId) {
+        return Post::where('blog', $blogId)->get();
     }
 
-    public function deleteAllBlogByBlogId($blogId) {
+    public function deleteBlogByBlogId($blogId) {
         $blog = Blog::find($blogId);
         $blog->delete();
         $messaggi = getMessaggiByBlogId($blogId);

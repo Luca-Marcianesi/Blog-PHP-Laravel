@@ -33,6 +33,26 @@ class GestoreAmici {
 
     }
 
+    public static function isFriend($id){
+        $amicizia = Amicizia::where(function ($query)  use ($id){
+                                $query->where('richiedente', $id)
+                                        ->where('destinatario',auth()->user()->id)
+                                        ->where('stato',true);
+                                     })
+                            ->orWhere(function ($query)  use ($id){
+                                $query->where('richiedente', auth()->user()->id)
+                                        ->where('destinatario', $id)
+                                        ->where('stato',true);;
+                                    })
+                                    ->get();
+        if(empty($amicizia)) return false;
+        else return true;
+
+
+    }
+
+
+
     
 
    

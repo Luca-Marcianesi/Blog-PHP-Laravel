@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Carbon\Carbon;
 
-class CreateMessaggioTable extends Migration
+class CreatePostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,13 @@ class CreateMessaggioTable extends Migration
      */
     public function up()
     {
-        Schema::create('messaggio', function (Blueprint $table) {
+        Schema::create('post', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('autore');
             $table->integer('blog');
             $table->string('testo',255);
             $table->date('data')->default(Carbon::now());
+            $table->boolean('visualizzato')->default(false);
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateMessaggioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messaggio');
+        Schema::dropIfExists('post');
     }
 }

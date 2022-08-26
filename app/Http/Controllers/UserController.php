@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\NewBlogRequest;
 use App\Http\Requests\NewSearchRequest;
+use App\Http\Requests\NewPostRequest;
 use App\Models\Resources\Blog;
 use App\User;
-use App\Models\Resources\Messaggio;
+use App\Models\Resources\Post;
 use App\Models\Resources\Amicizia;
 use App\Models\GestoreAmici;
 
@@ -26,7 +27,7 @@ class userController extends Controller {
         $blog->tema = $request->tema;
         $blog->save();
 
-        $primoMessaggio = new Messaggio;
+        $primoMessaggio = new Post;
         $primoMessaggio->autore = auth()->user()->id;
         $primoMessaggio->blog =$blog->id;
         $primoMessaggio->testo =$request->messaggio;
@@ -42,6 +43,17 @@ class userController extends Controller {
         $blogs = Blog::where('proprietario',auth()->user()->id)->get();
         return view('myBlogs')
             ->with('blogs', $blogs);
+
+    }
+
+    public function newPost(NewPostRequest $request , $id){
+        $post = new Post;
+        $post->autore = auth()->user()->id;
+        $post->blog = $id;
+        $post->testo = $request->testo;
+        $post->save();
+
+        return view('homeUser');
 
     }
 
@@ -70,6 +82,23 @@ class userController extends Controller {
                                 ->get();
         return view('searchResult')
             ->with('users', $users);
+
+    }
+
+    public function getBlog($id){
+        $blog = Blog::find($id);
+
+        $proprietario = User::find($blog->proprietario);
+
+        $posts = Post::Where('blog',$id)
+                    ->join('users', 'users.id', '=', 'post.autore')
+                    ->select('users.*','post.*')
+                    ->get();
+
+        return view('blog')
+            ->with('blog',$blog)
+            ->with('proprietario',$proprietario)
+            ->with('posts',$posts);
 
     }
 
@@ -130,12 +159,27 @@ class userController extends Controller {
         $amicizia->visualizzata = true;
         $amicizia->save();
 
+        return view('homeUser');
+
     }
 
     public function getAmici(){
         $amici = $this->_AmiciModel->getAmici(auth()->user()->id);
+        $amicizie = Amicizia::where('destinatario',auth()->user()->id)
+                            ->where('visualizzata',false)
+                            ->join('users', 'users.id', '=', 'amicizia.richiedente')
+                            ->select('users.*','amicizia.*')
+                            ->get();
+        $rifiutate = Amicizia::where('destinatario',auth()->user()->id)
+                            ->where('visualizzata',true)
+                            ->where('stato',false)
+                            ->join('users', 'users.id', '=', 'amicizia.richiedente')
+                            ->select('users.*','amicizia.*')
+                            ->get();
         return view('listaAmici')
-                        ->with('amici', $amici);
+                        ->with('amici', $amici)
+                        ->with('rifiutate', $rifiutate)
+                        ->with('amicizie', $amicizie);
 
     }
     public function index() {

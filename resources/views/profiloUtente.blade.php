@@ -22,15 +22,16 @@
         
 
     </div>
-    @empty($amicizia)
-          <a href="{{ route('sedRequest',$utente->id) }}" class="highlight" title="richiesta">Invia richiesta</a>
-    @endempty  
+    @if(@empty($amicizia))
+        <a href="{{ route('sedRequest',$utente->id) }}" class="highlight" title="richiesta">Invia richiesta</a>
+    @endif() 
+    
     
     
 
     @if($utente->visibilita or $amicizia->stato)
 
-        @if(!@empty($blogs))
+        @if(@empty($blogs))
             non ci sono blog pubblicati
         
         @endif()
