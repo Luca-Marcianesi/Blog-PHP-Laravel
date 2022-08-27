@@ -4,13 +4,13 @@
 
 @section('content')   
     
-    <h1>Login</h1>
+    <h1 style="text-align: center">Accedi</h1>
+    <br>
     <div class="wrap-form">
             {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
             
-      
-             <div  class="wrap-input">
-                {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
+             <div class="input-form">
+                {{ Form::label('username', 'Username', ['class' => 'label-input']) }}
                 {{ Form::text('username', '', ['class' => 'input','id' => 'username']) }}
                 @if ($errors->first('username'))
                 <ul class="errors">
@@ -19,9 +19,8 @@
                     @endforeach
                 </ul>
                 @endif
-            </div>
+                <hr style="height: 20px; border: none; background: none">
             
-             <div  class="wrap-input">
                 {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
                 {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
                 @if ($errors->first('password'))
@@ -31,15 +30,15 @@
                     @endforeach
                 </ul>
                 @endif
-            </div>
-            
-            <div class="container-form-btn">                
+                <hr style="height: 20px; border: none; background: none">
+                <div class="form-button">                
                 {{ Form::submit('Login', ['class' => 'button']) }}
+                </div>
             </div>
-            
             {{ Form::close() }}
         </div>
-        <div>
-            <h4> Non sei ancora registrato?<p>registrati</a></h4>
+        <div style="margin-left: 40%; text-align: center; height: auto; width: 300px; border: groove; border-color: black">
+            <h4 style="color: white"> Non sei ancora registrato?
+            <p>Registrati</a></h4>
         </div>
 @endsection
