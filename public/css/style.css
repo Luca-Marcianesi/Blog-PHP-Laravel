@@ -39,14 +39,13 @@ body {
 }
 
 footer{
-	position:absolute;
 	bottom: 0;
 	right: 0;
 	left: 0;
 	height: 100px;
 	width: 100%;
 	margin-left: 0%;
-	margin-top: 10px;
+	margin-top: 100px;
 	padding-top: 10px;
 	padding-bottom: 15px;
 	color: white;
@@ -113,6 +112,15 @@ footer a:visited{
 
 .register_option{
 	text-align: center;
+}
+
+.cloud-organization{
+	color:rebeccapurple ;
+	font-size: large;
+	padding-top: 12%;
+	text-align: center;
+	height: 360px;
+	width: 690px
 }
 
 
@@ -445,10 +453,8 @@ nav ul li a:hover{
 /*  my input form */
 
 .wrap-form{
-	border-radius: 5%;
 	border: groove;
-	border-color: #f93d00;
-	height: 200px;
+	height: 180px;
 	margin-left: 40%;
 	max-width: 300px;
  	border-radius: 2px;
@@ -521,4 +527,10 @@ nav ul li a:hover{
 	font-size: large;
 	text-transform: uppercase;
 	padding-left: 15px;
+}
+
+/*Css per la form e la pagina di registrazione */
+.informazioni-richieste{
+	text-align: center;
+
 }

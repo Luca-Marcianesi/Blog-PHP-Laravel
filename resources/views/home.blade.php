@@ -4,6 +4,16 @@
 
 @section('content')            
             <section>
+                <div style="float: left; height: 392px; width: 690px">
+                    <p class="cloud-organization" style="background-image: url('images/products/nuvola-removebg-preview.png')">
+                        Condividi i tuoi pensieri,<br>
+                        leggi quelli dei tuoi amici<br>
+                        e discutete su un argomento<br>
+                        a vostro piacimento all'interno<br>
+                        del vostro blog!<br>
+                        Tutto con semplicità
+                    </p>
+                </div>
                 <div class="main_element">
                     <div class="unisciti">
                         <h1>Unisciti ad altri utenti</h1>
