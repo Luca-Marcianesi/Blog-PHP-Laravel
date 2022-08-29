@@ -52,6 +52,9 @@ Route::view('/', 'home')->name('home');
 
 // User routes
 
+Route::view('/profilo','profilo')
+        ->name('profilo')->middleware('can:isUser');
+
 Route::view('/newBlog', 'newBlog')
         ->name('newBlog')->middleware('can:isUser');
 

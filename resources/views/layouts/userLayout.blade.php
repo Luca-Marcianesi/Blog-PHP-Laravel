@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
+        <script defer src="/js/popup.js"></script>
         <title>LaProj5 | @yield('title', 'User')</title>
     </head>
     <body>
