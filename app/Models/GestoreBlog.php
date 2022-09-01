@@ -49,13 +49,13 @@ class GestoreBlog {
         else{
 
             //manda  la notifica tutti gli amici che hanno accesso al blog
-           $idAccesso = Accesso::select('utente')
+           $idAccesso = Accesso::select('utente as id')
                                 ->where('blog',$blogId)
                                 ->get();
 
             foreach($idAccesso as $id ){
                     $notifica = new Notifica;
-                    $notifica->destinatario = $id;
+                    $notifica->destinatario = $id->id;
                     $notifica->messaggio = "Un nuovo messaggio sul blog ". $blog->tema;
                     $notifica->save();
             }
