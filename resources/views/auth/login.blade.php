@@ -4,6 +4,7 @@
 
 @section('content')   
     
+    <hr style="width: 100%; height: 50px; border: none">
     <h1 style="text-align: center">Accedi</h1>
     <br>
     <div class="wrap-form">
@@ -37,8 +38,9 @@
             </div>
             {{ Form::close() }}
         </div>
-        <div style="margin-left: 40%; text-align: center; height: auto; width: 300px; border: groove; border-color: black">
+        <div style="margin-left: 40%; text-align: center; height: auto; width: 300px">
             <h4 style="color: white"> Non sei ancora registrato?
-            <p>Registrati</a></h4>
+            <hr style="height: 5px; border: none">
+            <p><a href="{{ route('register') }}" class="highlight" title="Vai alla pagina di registrazione">Registrati</a></h4>
         </div>
 @endsection
