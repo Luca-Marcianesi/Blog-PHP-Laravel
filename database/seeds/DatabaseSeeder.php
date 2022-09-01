@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder {
                 'password' => Hash::make('lucaluca'), 'role' => 'admin','created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'luca'],
             ['name' => 'pippo', 'surname' => 'coca', 'email' => 'pippo@coca.it', 'username' => 'pippococa',
-                'password' => Hash::make('pippococa'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
+                'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'pippo'],
            
                 

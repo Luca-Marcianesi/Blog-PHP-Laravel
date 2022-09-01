@@ -2,6 +2,26 @@
 
 @section('title', 'Profilo')
 
+@section('scripts')
+
+@parent
+
+<script src="{{ asset('js/functions.js') }}" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(function () {
+    var actionUrl = "{{ route('modificaProfilo') }}";
+    var formId = 'modificaProfilo';
+    
+    $("#modificaProfilo").on('submit', function (event) {
+        event.preventDefault();
+        doFormValidation(actionUrl, formId);
+    });
+});
+</script>
+
+@endsection
+
 @section('content')
 <div>
  <div>
@@ -20,95 +40,40 @@
  </div>
 </div>
 
+
 <div id="modificaProfilo" class="popup">
             <div class="overlay"></div>
             <div class="content">
                 <div class="close-btn" onclick="togglePopupProfilo()">&times;</div>
                 <br>
                 <h1>Modifica rofilo </h1>
-                {{ Form::open(array('route' => 'register')) }}
+
+                
+                {{ Form::open(array('route' => 'modificaProfilo', 'id' => 'modificaProfilo')) }}
 
                 <div>
                 {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
-                {{ Form::text('name', '', ['class' => 'w3-input w3-border w3-margin-bottom', 'id' => 'name']) }}
-                @if ($errors->first('name'))
-                    <ul>
-                    @foreach ($errors->get('name') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                    </ul>
-                @endif
+                {{ Form::text('name', '', ['class' => 'input-form', 'id' => 'name']) }}
                 </div>
 
-                <div>
-                {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
-                {{ Form::text('name', '', ['class' => 'w3-input w3-border w3-margin-bottom', 'id' => 'name']) }}
-                @if ($errors->first('name'))
-                    <ul>
-                    @foreach ($errors->get('name') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                    </ul>
-                @endif
-                </div>
 
                 <div>
                 {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
-                {{ Form::text('surname', '', ['class' => 'w3-input w3-border w3-margin-bottom', 'id' => 'surname']) }}
-                @if ($errors->first('surname'))
-                    <ul>
-                    @foreach ($errors->get('surname') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                    </ul>
-                @endif
+                {{ Form::text('surname', '', ['class' => 'input-form', 'id' => 'surname']) }}
                 </div>
 
                 <div>
                 {{ Form::label('email', 'E-mail', ['class' => 'label-input']) }}
-                {{ Form::text('email', '', ['class' => 'w3-input w3-border w3-margin-bottom', 'id' => 'email']) }}
-                @if ($errors->first('email'))
-                    <ul>
-                    @foreach ($errors->get('email') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                    </ul>
-                @endif
-                </div>
-
-                <div>
-                {{ Form::label('descrizione', 'Bio', ['class' => 'label-input']) }}
-                {{ Form::text('descrizione', '', ['class' => 'w3-input w3-border w3-margin-bottom', 'id' => 'descrizione']) }}
-                @if ($errors->first('descrizione'))
-                    <ul>
-                    @foreach ($errors->get('descrizione') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                    </ul>
-                @endif
-                </div>
-
-                <div>
-                {{ Form::label('visibilita', 'Visibilità', ['class' => 'label-input']) }}
-                {{ Form::text('visibilita', '', ['class' => 'w3-input w3-border w3-margin-bottom', 'id' => 'visibilita']) }}
-                @if ($errors->first('visibilita'))
-                    <ul>
-                    @foreach ($errors->get('visibilita') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                    </ul>
-                @endif
-                </div>
-
-    
+                {{ Form::text('email', '', ['class' => 'input-form', 'id' => 'email']) }}
+                </div>    
 
 
                 <div class="container-form-btn">                
                     {{ Form::submit('Modifica', ['class' => '']) }}
                 </div>
 
+
                 {{ Form::close() }}
-                
                 
             </div>
 </div>

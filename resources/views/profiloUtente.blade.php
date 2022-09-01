@@ -22,12 +22,24 @@
         
 
     </div>
-    @if(@empty($amicizia))
+
+    @can('isFriend',$utente->id)
+        <div>Siete Amici</div>
+    @endcan
+
+        
+    @can('isRifiutata',$utente->id)
+        <div>La tua richiesta è stata rifiutata</div>
+    @endcan
+
+    @can('isSospesa',$utente->id)
+        <div>Amicizia in attesa di risposta</div>
+    @endcan
+
+    @can('richiedereAmicizia',$utente->id)
         <a href="{{ route('sedRequest',$utente->id) }}" class="highlight" title="richiesta">Invia richiesta</a>
-    @endif() 
-    
-    
-    
+    @endcan
+            
 
     @if($utente->visibilita or $amicizia->stato)
 

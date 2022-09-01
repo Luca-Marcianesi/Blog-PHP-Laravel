@@ -36,8 +36,24 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasRole('staf');
         });
 
+        Gate::define('isPublic', function ($user) {
+            return $user->visibility();
+        });
+
         Gate::define('isFriend', function ($user,$id) {
             return  \App\Models\GestoreAmici::isFriend($id);
+        });
+
+        Gate::define('isRifiutata', function ($user,$id) {
+            return  \App\Models\GestoreAmici::isRifiutata($id);
+        });
+
+        Gate::define('isSospesa', function ($user,$id) {
+            return  \App\Models\GestoreAmici::isSospesa($id);
+        });
+
+        Gate::define('richiedereAmicizia', function ($user,$id) {
+            return  \App\Models\GestoreAmici::richiedereAmicizia($id);
         });
 
 

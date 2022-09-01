@@ -1,22 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\NewBlogRequest;
 use App\Http\Requests\NewSearchRequest;
 use App\Http\Requests\NewPostRequest;
+use App\Http\Requests\ProfiloRequest;
 use App\Models\Resources\Blog;
+use App\Models\Resources\Notifica;
 use App\User;
 use App\Models\Resources\Post;
 use App\Models\Resources\Amicizia;
 use App\Models\GestoreAmici;
+use App\Models\GestoreBlog;
+
+use Illuminate\Support\Facades\Validator;
 
 class userController extends Controller {
 
     protected $_AmiciModel;
+    protected $_GestoreBlog;
+
 
     public function __construct() {
         $this->middleware('auth');
         $this->_AmiciModel = new GestoreAmici;
+        $this->_GestoreBlog= new GestoreBlog;
+    }
+
+    public function index() {
+        return view('profilo');
     }
 
 
@@ -52,6 +65,8 @@ class userController extends Controller {
         $post->blog = $id;
         $post->testo = $request->testo;
         $post->save();
+
+        $this->_GestoreBlog->sedNotifiche($id);
 
         return view('homeUser');
 
@@ -141,6 +156,20 @@ class userController extends Controller {
         
     }
 
+    public function modificaProfilo(ProfiloRequest $request){
+
+
+        $profilo = User::find(auth()->user()->id);
+        $profilo->fill($request->validated());    
+        
+        $profilo->save();
+
+      
+
+        return response()->json(['redirect' => route('profilo')]);
+
+    }
+
 
     
     public function amicizia($id){
@@ -152,6 +181,23 @@ class userController extends Controller {
         return view('homeUser');
     }
 
+    
+
+    public function eliminaAmico($id_amicizia,$id_user){
+        $amicizia =  Amicizia::find($id_amicizia);
+        $amicizia->stato = false; 
+        $amicizia->visualizzata = true;
+        $amicizia->save();
+
+        $notifica = new Notifica;
+        $notifica->messaggio =  auth()->user()->name . " ". auth()->user()->surname. " non è più tuo amico";
+        $notifica->destinatario = $id_user;
+        $notifica->save();
+
+        return $this->getAmici();
+
+    }
+    
 
     public function rispostaAmicizia($id,$risposta){
         $amicizia =  Amicizia::find($id);
@@ -159,31 +205,32 @@ class userController extends Controller {
         $amicizia->visualizzata = true;
         $amicizia->save();
 
-        return view('homeUser');
+        return $this->getAmici();
 
     }
 
     public function getAmici(){
-        $amici = $this->_AmiciModel->getAmici(auth()->user()->id);
-        $amicizie = Amicizia::where('destinatario',auth()->user()->id)
-                            ->where('visualizzata',false)
-                            ->join('users', 'users.id', '=', 'amicizia.richiedente')
-                            ->select('users.*','amicizia.*')
-                            ->get();
-        $rifiutate = Amicizia::where('destinatario',auth()->user()->id)
-                            ->where('visualizzata',true)
-                            ->where('stato',false)
-                            ->join('users', 'users.id', '=', 'amicizia.richiedente')
-                            ->select('users.*','amicizia.*')
-                            ->get();
+
+        $amici = $this->_AmiciModel->getAmici();
+
+        $rifiutate = $this->_AmiciModel->getAmicizieRifiutate();
+
+        $richieste = $this->_AmiciModel->getRichiesteRicevute();
+
+
         return view('listaAmici')
                         ->with('amici', $amici)
-                        ->with('rifiutate', $rifiutate)
-                        ->with('amicizie', $amicizie);
+                        ->with('richieste',$richieste)
+                        ->with('rifiutate',$rifiutate);
 
     }
-    public function index() {
-        return view('user');
+  
+    public function getNotifiche(){
+        $notifiche = Notifica::where('destinatario',auth()->user()->id)
+                                ->get();
+        
+        return view('notifiche')
+                ->with('notifiche', $notifiche);
     }
 
 }

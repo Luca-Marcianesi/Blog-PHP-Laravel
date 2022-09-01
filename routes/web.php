@@ -55,8 +55,14 @@ Route::view('/', 'home')->name('home');
 Route::view('/profilo','profilo')
         ->name('profilo')->middleware('can:isUser');
 
+Route::post('/modificaProfilo', 'UserController@modificaProfilo')
+        ->name('modificaProfilo');
+
 Route::view('/newBlog', 'newBlog')
         ->name('newBlog')->middleware('can:isUser');
+
+Route::get('/notifiche', 'UserController@getNotifiche')
+        ->name('notifiche')->middleware('can:isUser');
 
 Route::get('/amici','UserController@getAmici')
         ->name('amici')->middleware('can:isUser');
@@ -83,5 +89,9 @@ Route::get('/profilo/{id}', 'UserController@getProfilo')
 Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
         ->name('sedRequest');
 
+
 Route::get('/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
         ->name('risposta');
+
+Route::get('/elimina/{id_amicizia}/{user_id}','UserController@eliminaAmico')
+        ->name('eliminaAmico');
