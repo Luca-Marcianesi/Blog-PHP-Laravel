@@ -6,31 +6,61 @@ use App\Models\Resources\Amicizia;
 use App\User;
 
 class GestoreAmici {
+    
+    
+   
 
-    public function getAmicizieInviateId($myID) {
+    public function getAmici() {
         
-        $users = Amicizia::select('destinatario')
-                    ->where('richiedente', $myID)
-                    ->where('stato',true)->get();
-
-        return $users;
+        return Amicizia::where(function ($query)  {
+                                $query->where('richiedente', auth()->user()->id)
+                                        ->where('stato',true); 
+                                })
+                        ->orWhere(function ($query)  {
+                                $query->where('destinatario',auth()->user()->id)
+                                        ->where('stato',true); 
+                                })
+                        ->join('users', function ($join) {
+                                $join->on('users.id', '=', 'amicizia.destinatario')
+                                        ->where('users.id', '!=',auth()->user()->id )
+                                        ->orOn('users.id', '=', 'amicizia.richiedente')
+                                            ->where('users.id', '!=',auth()->user()->id );
+                                })
+                        ->select('users.name','users.surname','amicizia.data','users.id as user_id','amicizia.id as amicizia_id')
+                        ->get();
     }
 
-    public function getAmicizieRicevuteId($myID) {
 
-        $users = Amicizia::select('richiedente')
-                    ->where('destinatario', $myID)
-                    ->where('stato',true)->get();
+    public function getRichiesteRicevute(){
+        return Amicizia::where('destinatario',auth()->user()->id)
+                            ->where('visualizzata',false)
+                            ->where('stato',false)
+                            ->join('users', 'users.id', '=', 'amicizia.richiedente')
+                            ->select('users.*','amicizia.*')
+                            ->get();
 
-        return $users;
     }
 
-    public function getAmici($myId){
+    public function getAmicizieRifiutate(){
 
-        return User::whereIn('id',$this->getAmicizieRicevuteId($myId))
-                    ->orWhereIn('id',$this->getAmicizieInviateId($myId))
+        return Amicizia::where(function ($query)  {
+                                $query->where('richiedente', auth()->user()->id)
+                                        ->where('visualizzata',true)
+                                        ->where('stato',false); 
+                                })
+                        ->orWhere(function ($query)  {
+                                $query->where('destinatario',auth()->user()->id)
+                                        ->where('visualizzata',true)
+                                        ->where('stato',false); 
+                                })
+                        ->join('users', function ($join) {
+                                $join->on('users.id', '=', 'amicizia.destinatario')
+                                        ->where('users.id', '!=',auth()->user()->id )
+                                        ->orOn('users.id', '=', 'amicizia.richiedente')
+                                        ->where('users.id', '!=',auth()->user()->id );
+                                })
+                        ->select('users.name','users.surname','amicizia.data','users.id as user_id','amicizia.id as amicizia_id')
                     ->get();
-
     }
 
     public static function isFriend($id){
@@ -45,11 +75,67 @@ class GestoreAmici {
                                         ->where('stato',true);;
                                     })
                                     ->get();
-        if(empty($amicizia)) return false;
+        if(count($amicizia) == 0) return false;
         else return true;
-
-
     }
+
+
+    public static function isRifiutata($id){
+        $amicizia = Amicizia::where(function ($query)  use ($id){
+                                $query->where('richiedente', $id)
+                                        ->where('destinatario',auth()->user()->id)
+                                        ->where('visualizzata',true)
+                                        ->where('stato',false);
+
+                                     })
+                            ->orWhere(function ($query)  use ($id){
+                                $query->where('richiedente', auth()->user()->id)
+                                        ->where('destinatario', $id)
+                                        ->where('visualizzata',true)
+                                        ->where('stato',false);
+                                    })
+                                    ->get();
+        if(count($amicizia) == 0) return false;
+        else return true;
+    }
+
+    public static function isSospesa($id){
+        $amicizia = Amicizia::where(function ($query)  use ($id){
+                                $query->where('richiedente', $id)
+                                        ->where('destinatario',auth()->user()->id)
+                                        ->where('visualizzata',false)
+                                        ->where('stato',false);
+
+                                     })
+                            ->orWhere(function ($query)  use ($id){
+                                $query->where('richiedente', auth()->user()->id)
+                                        ->where('destinatario', $id)
+                                        ->where('visualizzata',false)
+                                        ->where('stato',false);
+                                    })
+                                    ->get();
+        if(count($amicizia) == 0) return false;
+        else return true;
+    }
+
+    public static function richiedereAmicizia($id){
+        $amicizia = Amicizia::where(function ($query)  use ($id){
+                                $query->where('richiedente', $id)
+                                        ->where('destinatario',auth()->user()->id);
+                                     })
+                            ->orWhere(function ($query)  use ($id){
+                                $query->where('richiedente', auth()->user()->id)
+                                        ->where('destinatario', $id);
+                                    })
+                                    ->get();
+        if(count($amicizia) == 0) return true;
+        else return false;
+    }
+
+
+
+
+    
 
 
 
