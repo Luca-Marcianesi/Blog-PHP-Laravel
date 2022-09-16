@@ -22,8 +22,7 @@ a {
 body {
 	background: linear-gradient(-45deg, var(--blu), var(--rosa));
 	background-size: 400% 400%;
-	animation: gradient 10s ease infinite;
-	
+	animation: gradient 10s ease infinite;	
 }
 
 @keyframes gradient {
@@ -461,9 +460,10 @@ nav ul li a:hover{
 }
 
 .wrap-element-form{
+	text-align: center;
 	width: 100%;
   	background-color: transparent;
-	margin-top: 20px;
+	align-items: center;
 }
 
 .label-form{
@@ -477,25 +477,25 @@ nav ul li a:hover{
 .subtitleform{
 	margin-left: 15px;
 	font-size: small;
-	color: #787878;
+	color: rebeccapurple
 
 }
 
 .input-form{
 	height: 200px;
-	text-align: center;
 	display: block;
   	width: 80%; 
   	font-family: Arial, Helvetica, sans-serif;
   	font-size: 12px;
-  	color: var(--color-scritte);
+  	color: black;
   	line-height: 1.2;
   	-webkit-transition: all 0.4s;
   	-o-transition: all 0.4s;
   	-moz-transition: all 0.4s;
   	transition: all 0.4s;
 	margin-top: 20px;
-
+	margin-left: 10%;
+	padding-bottom: 11%;
 }
 
 .container-login-button{
@@ -514,9 +514,20 @@ nav ul li a:hover{
 }
 
 .form-button{
-	color: var(--color-scritte);
+	color: rebeccapurple;
 	font-size: medium;
-	font-family: Arial, Helvetica, sans-serif
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	outline: none;
+	transition: 0.3s;
+}
+
+.form-button-newblog{
+	color: rebeccapurple;
+	font-size: medium;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	
 }
 
 .form h1{
@@ -532,4 +543,12 @@ nav ul li a:hover{
 .informazioni-richieste{
 	text-align: center;
 
+}
+
+.spaziaturahr{
+	border: none;
+	height: 60px;
+	width: 50%;
+	color: none;
+	background-color:none
 }
