@@ -1,9 +1,8 @@
-@extends('layouts.userLayout')
+@extends('layouts.stafLayout')
 
 @section('title', 'Home Staf')
 
 @section('content')
-<div>
-    home staf
-</div>
+<hr class="spaziaturahr">
+ home staf
 @endsection
