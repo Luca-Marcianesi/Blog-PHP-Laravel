@@ -10,21 +10,21 @@ class GestoreAmici {
     
    
 
-    public function getAmici() {
+    public function getAmici($id) {
         
-        return Amicizia::where(function ($query)  {
-                                $query->where('richiedente', auth()->user()->id)
+        return Amicizia::where(function ($query) use ($id) {
+                                $query->where('richiedente', $id)
                                         ->where('stato',true); 
                                 })
-                        ->orWhere(function ($query)  {
-                                $query->where('destinatario',auth()->user()->id)
+                        ->orWhere(function ($query) use($id) {
+                                $query->where('destinatario',$id)
                                         ->where('stato',true); 
                                 })
-                        ->join('users', function ($join) {
+                        ->join('users', function ($join) use ($id){
                                 $join->on('users.id', '=', 'amicizia.destinatario')
-                                        ->where('users.id', '!=',auth()->user()->id )
+                                        ->where('users.id', '!=', $id )
                                         ->orOn('users.id', '=', 'amicizia.richiedente')
-                                            ->where('users.id', '!=',auth()->user()->id );
+                                            ->where('users.id', '!=', $id );
                                 })
                         ->select('users.name','users.surname','amicizia.data','users.id as user_id','amicizia.id as amicizia_id')
                         ->get();

@@ -1,4 +1,4 @@
-@extends('layouts.userLayout')
+@extends('layouts.adminLayout')
 
 @section('title', 'Home Admin')
 

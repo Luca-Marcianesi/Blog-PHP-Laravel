@@ -6,6 +6,7 @@ use App\Http\Requests\NewBlogRequest;
 use App\Http\Requests\NewSearchRequest;
 use App\Http\Requests\NewPostRequest;
 use App\Http\Requests\ProfiloRequest;
+use App\Http\Requests\StatoBlogRequest;
 use App\Models\Resources\Blog;
 use App\Models\Resources\Notifica;
 use App\User;
@@ -59,6 +60,14 @@ class userController extends Controller {
 
     }
 
+    public function modificaBlog(StatoBlogRequest $request,$id){
+        $blog = Blog::find($id);
+        $blog->stato = $request->stato;
+        $blog->save();
+
+        return $this->getMyBlogs();
+    }
+
     public function newPost(NewPostRequest $request , $id){
         $post = new Post;
         $post->autore = auth()->user()->id;
@@ -79,17 +88,17 @@ class userController extends Controller {
                         ->where(function ($query) use ($request) {
                                     if(substr($request->name, -1) == '*'){
                                             $name = rtrim($request->name, "*");
-                                            $query->orWhereLike('name',$name); 
+                                            $query->whereLike('name',$name); 
                                     }
                                     else{
-                                        $query->orWhere('name', $request->name);
+                                        $query->Where('name', $request->name);
                                     }
                                     if(substr($request->surname, -1) == '*'){
                                             $surname = rtrim($request->surname, "*");
-                                            $query->orWhereLike('surname',$surname); 
+                                            $query->whereLike('surname',$surname); 
                                     }
                                     else{
-                                        $query->orWhere('surname', $request->surname);
+                                        $query->Where('surname', $request->surname);
                                     }
 
                
@@ -211,7 +220,7 @@ class userController extends Controller {
 
     public function getAmici(){
 
-        $amici = $this->_AmiciModel->getAmici();
+        $amici = $this->_AmiciModel->getAmici(auth()->user()->id);
 
         $rifiutate = $this->_AmiciModel->getAmicizieRifiutate();
 

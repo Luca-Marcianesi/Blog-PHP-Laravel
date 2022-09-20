@@ -1,5 +1,6 @@
 <ul>
     <li><a href="{{ route('home') }}" title="Va alla Home del sito">Home Sito</a></li>
+    <li><a href="{{ route('user') }}" title="Home User">Home User</a></li>
     <li><a href="{{ route('newBlog') }}" title="Azione1">Nuovo Blog</a></li>
     <li><a href="{{ route('myBlogs') }}" title="Azione2">I miei Blog</a></li>
     <li><a href="{{ route('amici') }}" title="Azione3">Amici</a></li>

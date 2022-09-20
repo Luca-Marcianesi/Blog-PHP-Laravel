@@ -10,7 +10,15 @@
   | contains the "web" middleware group. Now create something great!
   |
  */
+Auth::routes();
 
+Route::view('/', 'home')->name('home');
+
+Route::view('/where', 'where')
+        ->name('where');
+
+Route::view('/who', 'who')
+        ->name('who');
 
 Route::view('/admin', 'homeAdmin')
         ->name('admin')->middleware('can:isAdmin');
@@ -36,19 +44,13 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')
 
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::view('/where', 'where')
-        ->name('where');
 
-Route::view('/who', 'who')
-        ->name('who');
 
 // Rotte inserite dal comando artisan "ui vue --auth" 
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::view('/', 'home')->name('home');
 
 // User routes
 
@@ -73,6 +75,10 @@ Route::post('/newBlog','UserController@newBlog')
 Route::get('/myBlogs','UserController@getMyBlogs')
         ->name('myBlogs')->middleware('can:isUser');
 
+Route::post('/modificaBlog/{id}','UserController@modificaBlog')
+        ->name('modificaBlog')->middleware('can:isUser');
+
+
 Route::get('/blog/{id}','UserController@getBlog')
         ->name('blog')->middleware('can:isUser');
 
@@ -95,3 +101,33 @@ Route::get('/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
 
 Route::get('/elimina/{id_amicizia}/{user_id}','UserController@eliminaAmico')
         ->name('eliminaAmico');
+
+
+// Admin routes
+
+Route::get('/statistiche','AdminController@getMainStatistiche')
+        ->name('statistiche');
+
+Route::post('/getStatisticheSpecifiche','AdminController@getStatisticheSpecifiche')
+        ->name('statisticheSpecifiche');
+
+Route::view('/aggiungiStaf','newStaf')
+        ->name('staf');
+
+Route::post('/newStaf','AdminController@newStaf')
+        ->name('newStaf')->middleware('can:isAdmin');
+
+Route::get('/eliminaStaf/{id}','AdminController@eliminaStaf')
+        ->name('eliminaStaf')->middleware('can:isAdmin');
+
+Route::get('/modificaStaf/{id}','AdminController@getModificaStaf')
+        ->name('getModificaStaf')->middleware('can:isAdmin');
+
+Route::post('/modificaStaf/{id}','AdminController@modificaStaf')
+        ->name('modificaStaf')->middleware('can:isAdmin');
+
+
+Route::get('/gestioneStaf','AdminController@getStaf')
+        ->name('gestioneStaf');
+
+

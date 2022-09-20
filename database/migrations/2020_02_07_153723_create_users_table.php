@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();  
 
             $table->date('data_nascita');
-            $table->string('descrizione',255);
+            $table->string('descrizione',255)->nullable();
             $table->boolean('visibilita')->default(true);
 
             $table->string('role')->default('user');

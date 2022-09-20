@@ -10,7 +10,7 @@
             @include('layouts/_navadmin')
         </nav>
 
-        <div>
+        <div class="main-content">
             @yield('content')
         </div>
 
