@@ -5,11 +5,8 @@
 @section('content')
 <hr class="spaziaturahr">
 <div>
-   
-
-    
-
-    <h1 style="text-align: center">Questa è la lista delle tue amicizie accettate</h1>
+    <h1 style="text-align: center">Questa è la lista delle tue amicizie</h1>
+    <br>
 
     @isset($amici)
     @foreach($amici as $amico)
