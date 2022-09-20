@@ -25,30 +25,39 @@
     @endisset() 
     <div style="text-align: center; font-size: large">Amicizie sospese:
     </div>
-    <hr class="spaziaturahr">
     
     @isset($richieste)
     @foreach($richieste as $richiesta)
     <div class="main_element">
         <div > {{$richiesta->name}} {{$richiesta->surname}} ha chiesto di entrare nel tuo gruppo di amici</div>
         <div ><a href="{{ route('risposta',[$richiesta->id,true]) }}" class="highlight" >Accetta</a></div>
-        <div ><a href="{{ route('risposta',[$richiesta->id,false]) }}" class="highlight" >Rifiuta</a></div>
-        
+        <div ><a href="{{ route('risposta',[$richiesta->id,false]) }}" class="highlight" >Rifiuta</a></div>     
     </div>     
     @endforeach
+
+    @empty($richieste->first)
+    <div class="main_element" style="text-align: center; font-size: large">
+        <div>nesuuna amicizia sospesa</div>  
+    </div>   
+    @endempty
     @endisset() 
 
-    <br>
-    <div style="text-align: center; font-size: large">Amicizie rifiutate:
-    </div>
+    <div style="text-align: center; font-size: large">Amicizie rifiutate:</div>
 
     @isset($rifiutate)
+    
+    
     @foreach($rifiutate as $rifiutata)
     <div class="main_element" style="text-align: center; font-size: large">
         <div>{{$rifiutata->name}} {{$rifiutata->surname}}</div>
         
     </div>     
     @endforeach
+    @empty($rifiutate->first)
+    <div class="main_element" style="text-align: center; font-size: large">
+        <div>nesuuna richiesta rifiutata</div>  
+    </div>   
+    @endempty
     @endisset()
     
     
