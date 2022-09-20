@@ -16,8 +16,10 @@
                 <div class="close-btn" onclick="togglePopupNorme()">&times;</div>
                 <br>
                 <h1>Norme</h1>
+                <br>
                 <p>
                     <u>Leggere con attenzione</u><br>
+                    <br>
                     Ci impegniamo a mantenere un comportamento idoneo all'interno del nostro sito web, non
                     tolleriamo alcuna forma di razzismo, sessismo e parole/pensieri che possano offendere
                     le persone che si stanno godendo l'esperienza offerta dal nostro sito. Il nostro obbiettivo 
