@@ -12,24 +12,25 @@
 
 
   
-    <div class="main_element">
+    <div class="main_element" style="text-align: center; font-size: large">
         <h1>Dati anagrafici</h1>
-        <div >Nome: {{$utente->name}}</div>
-        <div>Cognome:{{$utente->surname}}</div>
-        <div>E-mail:{{$utente->email}}</div>
-        <div>Data di Nascita:{{$utente->data_nascita}}</div>
-        <div>Bio:{{$utente->descrizione}}</div>
+        <hr class="spaziaturahr">
+        <div >Nome: {{$utente->name}}</div><br>
+        <div>Cognome: {{$utente->surname}}</div><br>
+        <div>E-mail: {{$utente->email}}</div><br>
+        <div>Data di Nascita: {{$utente->data_nascita}}</div><br>
+        <div>Biografia: {{$utente->descrizione}}</div>
         
 
     </div>
-
+    <hr class="spaziaturahr">
     @can('isFriend',$utente->id)
-        <div>Siete Amici</div>
+        <div style="text-align: center; font-size: large">Attualmente siete amici</div>
     @endcan
 
         
     @can('isRifiutata',$utente->id)
-        <div>La tua richiesta è stata rifiutata</div>
+        <div style="text-align: center; font-size: large">La tua richiesta di amicizia è stata rifiutata</div>
     @endcan
 
     @can('isSospesa',$utente->id)
@@ -44,14 +45,14 @@
     @if($utente->visibilita or $amicizia->stato)
 
         @if(@empty($blogs))
-            non ci sono blog pubblicati
+            Non ci sono blog pubblicati
         
         @endif()
             
          
          
         @foreach($blogs as $blog)
-            <a href="{{ route('blog',$blog->id) }}" class="highlight" >Tema : {{$blog->tema}}</a>
+            <a href="{{ route('blog',$blog->id) }}" class="highlight" >Tema: {{$blog->tema}}</a>
         
         @endforeach
 

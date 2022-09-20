@@ -23,19 +23,34 @@ $(function () {
 @endsection
 
 @section('content')
+<hr class="spaziaturahr">
 <div>
- <div>
-    Benvenuto {{ Auth::user()->name }} {{ Auth::user()->surname }}
+ <div style="text-align: center; font-size: large">
+ <h1> Il tuo profilo utente </h1>
+ <hr class="spaziaturahr">
+    Benvenuto {{ Auth::user()->name }} {{ Auth::user()->surname}}!<br>
+    <br>
+    Di seguito sono riportati i tuoi dati inseriti in fase di registrazione:<br>
+    <hr class="spaziaturahr"></hr>
+    Nome: {{ Auth::user()->name}}<br>
+    Cognome: {{ Auth::user()->surname}}<br>
+    E-Mail: {{ Auth::user()->email}}<br>
+    Data di nascita: {{ Auth::user()->data_nascita}}<br>
+    Biografia: {{ Auth::user()->descrizione}}<br>
  </div>
-<div>
-    <p onclick="togglePopupProfilo()">Modifica Profilo</p>
+<hr class="spaziaturahr">
+<div style="text-align: center; font-size: large">
+Se desideri modificare i dati del tuo profilo clicca qui sotto!<br>
 </div>
- 
- <div>
+<div style="text-align: center; font-size: large; color: rebeccapurple">
+    <p onclick="togglePopupProfilo()" style="cursor: pointer">Modifica Profilo</p>
+</div>
+ <br>
+ <div style="text-align: center; font-size: large">
     @if(Auth::user()->visibilita)
-        account visibile a tutti
+        Il tuo account è visibile a tutti
     @else
-         account visibile solo ai tuoi amici
+         Il tuo account è visibile solo ai tuoi amici
     @endif()
  </div>
 </div>
@@ -46,14 +61,14 @@ $(function () {
             <div class="content">
                 <div class="close-btn" onclick="togglePopupProfilo()">&times;</div>
                 <br>
-                <h1>Modifica rofilo </h1>
-
+                <h1>Modifica il tuo profilo </h1>
+                <br>
                 
                 {{ Form::open(array('route' => 'modificaProfilo', 'id' => 'modificaProfilo')) }}
 
                 <div>
                 {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
-                {{ Form::text('name', '', ['class' => 'input-form', 'id' => 'name']) }}
+                {{ Form::textarea('name', '', ['class' => 'modifica-profilo', 'id' => 'name']) }}
                 </div>
 
 
@@ -66,7 +81,7 @@ $(function () {
                 {{ Form::label('email', 'E-mail', ['class' => 'label-input']) }}
                 {{ Form::text('email', '', ['class' => 'input-form', 'id' => 'email']) }}
                 </div>    
-
+                <br>
 
                 <div class="container-form-btn">                
                     {{ Form::submit('Modifica', ['class' => '']) }}

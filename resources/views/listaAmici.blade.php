@@ -3,30 +3,30 @@
 @section('title', 'I Miei Amici')
 
 @section('content')
+<hr class="spaziaturahr">
 <div>
    
 
     
 
-    <div>Amicizie Accettate</div>
+    <h1 style="text-align: center">Questa è la lista delle tue amicizie accettate</h1>
 
     @isset($amici)
     @foreach($amici as $amico)
-    <div class="main_element">
-        <div >Nome: {{$amico->name}} Cognome: {{$amico->surname}}</div>
+    <div class="main_element" style="text-align: center; font-size: large">
+        <div >Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</div>
         <div>L'amicizia è stata chiesta il {{$amico->data}}</div>
 
         <div ><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}" class="highlight" >Visualizza Profilo</a></div>
-        <div ><a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}" class="highlight" >Elimina Amicizia</a></div>
-        
-        
+        <div ><a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}" class="highlight">Elimina Amicizia</a></div>   
     </div>
+    <hr class="spaziaturahr"> 
     @endforeach 
     @endisset() 
+    <div style="text-align: center; font-size: large">Amicizie sospese:
+    </div>
+    <hr class="spaziaturahr">
     
-    <br>
-    <div>Amicizie sospese</div>
-
     @isset($richieste)
     @foreach($richieste as $richiesta)
     <div class="main_element">
@@ -39,12 +39,13 @@
     @endisset() 
 
     <br>
-    <div>Amicizie rifiutate</div>
+    <div style="text-align: center; font-size: large">Amicizie rifiutate:
+    </div>
 
     @isset($rifiutate)
     @foreach($rifiutate as $rifiutata)
-    <div class="main_element">
-        <div > {{$rifiutata->name}} {{$rifiutata->surname}}</div>
+    <div class="main_element" style="text-align: center; font-size: large">
+        <div>{{$rifiutata->name}} {{$rifiutata->surname}}</div>
         
     </div>     
     @endforeach

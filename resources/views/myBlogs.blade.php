@@ -3,16 +3,25 @@
 @section('title', 'I Miei Blog')
 
 @section('content')
+<hr class="spaziaturahr">
 <div>
-    <div class="main_element">
-        Ciao {{Auth::user()->name}} {{Auth::user()->surname}},<br>
+    <div class="main_element" style="text-align: center; font-size: large">
+        <h1> Questi sono i tuoi blogs! </h1>
+        <hr class="spaziaturahr">
+        Ciao {{Auth::user()->name}} {{Auth::user()->surname}}!,<br>
         il tuo account è @if(Auth::user()->visibility())
                             pubblico
                         @else
                             privato 
                         @endif() <br>
-                        questi sono i tuoi blog
+                        Di seguito è riportata la lista di tutti i tuoi blog e, per ognuno, lo stato e il tema!
+                        <hr class="spaziaturahr">
+                        @if(count($blogs)===0)
+                            Attualmente non hai postato nessun blog
     </div>
+
+    
+    @else
 
     @isset($blogs)
 
@@ -46,13 +55,12 @@
       
         
     </div>
-            
-
-          
+                
     @endforeach
 
     @endisset()
-    
-    
+
+    @endif
+<hr class="spaziaturahr">
 </div>
 @endsection

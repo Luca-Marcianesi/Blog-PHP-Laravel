@@ -3,15 +3,18 @@
 @section('title', 'Home User')
 
 @section('content')
+<hr class="spaziaturahr">
 <div>
     <section>
-        <h3>Cerca i tuoi amici<h3>
-        <div class="wrap-contact1">
+        <h3 style="text-align: center">Cerca i tuoi amici!<h3>
+        <hr class="spaziaturahr">
+        <div style="text-align: center">
             {{ Form::open(array('route' => 'searchFriends', 'class' => 'contact-form')) }}
             
       
-             <div  class="wrap-input">
+             <div>
                 {{ Form::label('name', 'Nome', ['class' => '']) }}
+                <br>
                 {{ Form::text('name', '', ['class' => '','id' => 'name']) }}
                 @if ($errors->first('name'))
                 <ul class="errors">
@@ -21,9 +24,10 @@
                 </ul>
                 @endif
             </div>
-
+            <br>
             <div  class="wrap-input">
                 {{ Form::label('surname', 'Cognome', ['class' => '']) }}
+                <br>
                 {{ Form::text('surname', '', ['class' => '','id' => 'surname']) }}
                 @if ($errors->first('surname'))
                 <ul class="errors">
@@ -33,11 +37,11 @@
                 </ul>
                 @endif
             </div>
-            
+            <br>
             <div class="container-form-btn">                
                 {{ Form::submit('Cerca', ['class' => 'button']) }}
             </div>
-            
+            <hr class="spaziaturahr">
             {{ Form::close() }}
         </div>
     </section>

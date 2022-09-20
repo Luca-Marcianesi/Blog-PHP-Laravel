@@ -20,7 +20,7 @@
                     @endforeach
                 </ul>
                 @endif
-                <hr style="height: 20px; border: none; background: none">
+                <hr style="height: 45px; border: none; background: none">
             
                 {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
                 {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
@@ -38,7 +38,7 @@
             </div>
             {{ Form::close() }}
         </div>
-        <div style="margin-left: 40%; text-align: center; height: auto; width: 300px">
+        <div style="margin-left: 40.3%; text-align: center; height: auto; width: 300px">
             <h4 style="color: white"> Non sei ancora registrato?
             <hr style="height: 5px; border: none">
             <p><a href="{{ route('register') }}" class="highlight" title="Vai alla pagina di registrazione">Registrati</a></h4>

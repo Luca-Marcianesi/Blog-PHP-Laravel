@@ -2,7 +2,8 @@
 
 @section('title', 'Home')
 
-@section('content')            
+@section('content')
+            <hr class="spaziaturahr">           
             <section>
                 <div style="float: left; height: 392px; width: 690px">
                     <p class="cloud-organization" style="background-image: url('images/products/nuvola-removebg-preview.png')">

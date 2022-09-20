@@ -11,7 +11,7 @@
        tecnologie avanzate al servizio di progettazioni particolari e specifiche... <br>
        creiamo dei supporti che poi serviranno per progettare grosse situazioni <br>
        per una svolta futura nell'informatica di precisione. <br>
-       Si insomma abbiaomo sviluppato un sito web per un esame.
+       Si insomma abbiamo sviluppato un sito web per un esame.
 
     </center>
   </p>
