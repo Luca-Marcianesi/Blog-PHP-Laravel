@@ -18,7 +18,7 @@
                 <div class="main_element">
                     <div class="unisciti">
                         <h1>Unisciti ad altri utenti</h1>
-                        <p>Che tu stia condividendo la tua esperienza,<br>
+                        <p> Che tu stia condividendo la tua esperienza,<br>
                             le ultime notizie o qualunque cosa tu abbia in mente,<br> 
                             sei nel posto giusto. <br>
                             Registrati e inizia a creare il tuo blog.</p>  
@@ -33,10 +33,10 @@
                 <div class="main_element ">
                     <div class="profilo-blog">
                         <h1>Chi può vedere il mio profilo e miei blog?</h1>
-                        <p>Normalmente il tuo profilo e i tuoi blog <br>
-                            sono visibili da tutti ma, <br>andando nel sezione profilo, <br>
+                        <p> Normalmente il tuo profilo e i tuoi blog <br>
+                            sono visibili da tutti ma, <br>andando nella sezione profilo, <br>
                             potrai rendere visibili i tuoi blog solo dai tuoi amici.
-                    </p>  
+                        </p>  
                     </div>
                 </div>
             </section>

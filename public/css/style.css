@@ -41,7 +41,7 @@ footer{
 	bottom: 0;
 	right: 0;
 	left: 0;
-	height: 100px;
+	height: 120px;
 	width: 100%;
 	margin-left: 0%;
 	margin-top: 100px;
@@ -74,8 +74,7 @@ footer a:visited{
 .main-content{
 	background-color: transparent;
 	margin-top: 100px;
-	padding-bottom: 100px;
-	
+	min-height: 100vh;	
 }
 
 /* elementi della parte main delle pag*/
@@ -485,9 +484,8 @@ nav ul li a:hover{
 .input-form{
 	height: 100px;
 	display: block;
-  	width: 60%;
+	width: 60%;
 	max-width: 60%;
-	max-height: 300px;
   	font-family: Arial, Helvetica, sans-serif;
   	font-size: 12px;
   	color: black;
@@ -499,7 +497,7 @@ nav ul li a:hover{
 	margin-top: 20px;
 	margin-left: 20%;
 	padding-bottom: 11%;
-	resize: vertical;
+	resize: none;
 }
 
 
@@ -547,7 +545,6 @@ nav ul li a:hover{
 /*Css per la form e la pagina di registrazione */
 .informazioni-richieste{
 	text-align: center;
-
 }
 
 .spaziaturahr{
@@ -573,5 +570,11 @@ nav ul li a:hover{
 	max-width: 60%;
 	margin-top: 20px;
 	margin-left: 20%;
+	resize: none;
+}
+
+.descrizioneparam{
+	height: 100px;
+	width: 400px;
 	resize: none;
 }

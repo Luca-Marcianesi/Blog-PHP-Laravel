@@ -5,11 +5,8 @@
 @section('content')
 <hr class="spaziaturahr">
 <div>
-   
-
-    
-
-    <h1 style="text-align: center">Questa è la lista delle tue amicizie accettate</h1>
+    <h1 style="text-align: center">Questa è la lista delle tue amicizie</h1>
+    <br>
 
     @isset($amici)
     @foreach($amici as $amico)
@@ -37,11 +34,11 @@
 
     @empty($richieste->first)
     <div class="main_element" style="text-align: center; font-size: large">
-        <div>nesuuna amicizia sospesa</div>  
+        <div>Nessuna amicizia sospesa</div>  
     </div>   
     @endempty
     @endisset() 
-
+    <hr class="spaziaturahr">
     <div style="text-align: center; font-size: large">Amicizie rifiutate:</div>
 
     @isset($rifiutate)
@@ -55,7 +52,7 @@
     @endforeach
     @empty($rifiutate->first)
     <div class="main_element" style="text-align: center; font-size: large">
-        <div>nesuuna richiesta rifiutata</div>  
+        <div>Nessuna richiesta rifiutata</div>  
     </div>   
     @endempty
     @endisset()

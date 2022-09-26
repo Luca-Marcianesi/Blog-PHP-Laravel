@@ -5,7 +5,7 @@
 @section('content')
 <hr class="spaziaturahr">
 <div>
-    <div class="main_element" style="text-align: center; font-size: large">
+    <div class="main_element" style="text-align: center; font-size: large;">
         <h1> Questi sono i tuoi blogs! </h1>
         <hr class="spaziaturahr">
         Ciao {{Auth::user()->name}} {{Auth::user()->surname}}!,<br>
@@ -18,7 +18,7 @@
                         <hr class="spaziaturahr">
                         @if(count($blogs)===0)
                             Attualmente non hai postato nessun blog
-    </div>
+    
 
     
     @else
@@ -26,9 +26,8 @@
     @isset($blogs)
 
     @foreach($blogs as $blog)
-    <div class="main_element">
         <div class="tema_blog">Tema: {{$blog->tema}}</div>
-
+        <hr class="spaziaturahr">
         <div>
 
         {{ Form::open(array('route' => ['modificaBlog',$blog->id], 'class' => '')) }}
@@ -50,17 +49,14 @@
             </div>
             
             {{ Form::close() }}
+       
         </div>
-
-      
-        
-    </div>
                 
     @endforeach
 
     @endisset()
 
     @endif
-<hr class="spaziaturahr">
+    </div>
 </div>
 @endsection
