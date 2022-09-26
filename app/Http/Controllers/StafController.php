@@ -66,7 +66,10 @@ class StafController extends Controller {
     public function visualizzaUtente(CercaRequest $request){
         $utente = User::find($request->id);
         $blogs = Blog::where('proprietario',$request->id)->get();
-        $posts = Post::where('autore',$request->id)->get();
+        $posts = Post::where('autore',$request->id)
+                        ->join('blog', 'blog.id', '=', 'post.blog')
+                        ->select('blog.*','post.*')
+                        ->get();
 
         return view('attivitaUtente')
                 ->with('user',$utente)
