@@ -62,6 +62,20 @@ class StafController extends Controller {
         $post->delete();
     }
 
+    public function visualizzaUtente(UtenteRequest $request){
+        $utente = User::find($id);
+        $blogs = Blog::where('proprietario',$id)->get();
+        $posts = Post::where('autore',$id)->get();
+
+        return view('attivitaUtente')
+                ->with('user',$utente)
+                ->with('blogs',$blogs)
+                ->with('posts',$posts);
+        
+    }
+
+
+
     
 
   
