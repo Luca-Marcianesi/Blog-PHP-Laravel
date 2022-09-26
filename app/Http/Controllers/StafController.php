@@ -6,6 +6,7 @@ use App\Http\Requests\NewBlogRequest;
 use App\Http\Requests\NewSearchRequest;
 use App\Http\Requests\NewPostRequest;
 use App\Http\Requests\ProfiloRequest;
+use App\Http\Requests\CercaRequest;
 use App\Http\Requests\StatoBlogRequest;
 use App\Models\Resources\Blog;
 use App\Models\Resources\Notifica;
@@ -61,6 +62,37 @@ class StafController extends Controller {
         $notifica->save();
         $post->delete();
     }
+
+    public function visualizzaUtente(CercaRequest $request){
+        $utente = User::find($request->id);
+        $blogs = Blog::where('proprietario',$request->id)->get();
+        $posts = Post::where('autore',$request->id)->get();
+
+        return view('attivitaUtente')
+                ->with('user',$utente)
+                ->with('blogs',$blogs)
+                ->with('posts',$posts);
+        
+    }
+
+    public function visualizzaBlog(CercaRequest $request){
+        $blog = Blog::find($request->id);
+
+        $proprietario = User::find($blog->proprietario);
+
+        $posts = Post::Where('blog',$request->id)
+                    ->join('users', 'users.id', '=', 'post.autore')
+                    ->select('users.*','post.*')
+                    ->get();
+
+        return view('blog')
+            ->with('blog',$blog)
+            ->with('proprietario',$proprietario)
+            ->with('posts',$posts);
+        
+    }
+
+
 
     
 

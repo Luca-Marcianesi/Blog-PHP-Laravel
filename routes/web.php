@@ -131,3 +131,12 @@ Route::get('/gestioneStaf','AdminController@getStaf')
         ->name('gestioneStaf');
 
 
+// Staf routes
+
+
+
+Route::get('/utente','StafController@visualizzaUtente')
+        ->name('attivitaUtente');
+
+Route::post('/blog','StafController@visualizzaBlog')
+        ->name('cercaBlog');
