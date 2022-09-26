@@ -36,6 +36,7 @@ $(function () {
     Cognome: {{ Auth::user()->surname}}<br>
     E-Mail: {{ Auth::user()->email}}<br>
     Data di nascita: {{ Auth::user()->data_nascita}}<br>
+    <hr class="spaziaturahr">
     Biografia: {{ Auth::user()->descrizione}}<br>
  </div>
 <hr class="spaziaturahr">
@@ -67,22 +68,24 @@ Se desideri modificare i dati del tuo profilo clicca qui sotto!<br>
                 {{ Form::open(array('route' => 'modificaProfilo', 'id' => 'modificaProfilo')) }}
 
                 <div>
-                {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
-                {{ Form::textarea('name', '', ['class' => 'modifica-profilo', 'id' => 'name']) }}
+                {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}<br>
+                {{ Form::text('name', '', ['placeholder' => 'Nuovo nome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'name']) }}
                 </div>
-
-
+                <br>
+                <br>
                 <div>
-                {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
-                {{ Form::text('surname', '', ['class' => 'input-form', 'id' => 'surname']) }}
+                {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}<br>
+                {{ Form::text('surname', '', ['placeholder' => 'Nuovo cognome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'surname']) }}
                 </div>
-
+                <br>
+                <br>
                 <div>
-                {{ Form::label('email', 'E-mail', ['class' => 'label-input']) }}
-                {{ Form::text('email', '', ['class' => 'input-form', 'id' => 'email']) }}
+                {{ Form::label('email', 'E-mail:', ['class' => 'label-input']) }}
+                <br>
+                {{ Form::text('email', '', ['placeholder' => 'Nuova e-mail', 'maxlength' => 30, 'size' => 35], ['class' => 'input-form', 'id' => 'email']) }}
                 </div>    
                 <br>
-
+                <br>
                 <div class="container-form-btn">                
                     {{ Form::submit('Modifica', ['class' => '']) }}
                 </div>

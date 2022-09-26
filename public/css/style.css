@@ -484,9 +484,8 @@ nav ul li a:hover{
 .input-form{
 	height: 100px;
 	display: block;
-  	width: 60%;
+	width: 60%;
 	max-width: 60%;
-	max-height: 300px;
   	font-family: Arial, Helvetica, sans-serif;
   	font-size: 12px;
   	color: black;
@@ -498,7 +497,7 @@ nav ul li a:hover{
 	margin-top: 20px;
 	margin-left: 20%;
 	padding-bottom: 11%;
-	resize: vertical;
+	resize: none;
 }
 
 
@@ -546,7 +545,6 @@ nav ul li a:hover{
 /*Css per la form e la pagina di registrazione */
 .informazioni-richieste{
 	text-align: center;
-
 }
 
 .spaziaturahr{
@@ -572,5 +570,11 @@ nav ul li a:hover{
 	max-width: 60%;
 	margin-top: 20px;
 	margin-left: 20%;
+	resize: none;
+}
+
+.descrizioneparam{
+	height: 100px;
+	width: 400px;
 	resize: none;
 }

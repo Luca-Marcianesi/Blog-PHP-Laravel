@@ -112,7 +112,7 @@ Route::post('/getStatisticheSpecifiche','AdminController@getStatisticheSpecifich
         ->name('statisticheSpecifiche');
 
 Route::view('/aggiungiStaf','newStaf')
-        ->name('staf');
+        ->name('nuovoStaf');
 
 Route::post('/newStaf','AdminController@newStaf')
         ->name('newStaf')->middleware('can:isAdmin');
