@@ -10,7 +10,7 @@
             @include('layouts/_navstaf')
         </nav>
         <hr class="spaziaturahr">
-        <div>
+        <div class="main-content">
             @yield('content')
         </div>
 
