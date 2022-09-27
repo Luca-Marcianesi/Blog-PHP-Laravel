@@ -18,9 +18,17 @@
     registrati oppure i blog che sono stati creati!
     <hr class="spaziaturahr">
 
-    @if ($errors->first('id'))
+    @if ($errors->first('idUtente'))
         <ul class="errors">
-            @foreach ($errors->get('id') as $message)
+            @foreach ($errors->get('idUtente') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+    @endif
+
+    @if ($errors->first('idBlog'))
+        <ul class="errors">
+            @foreach ($errors->get('idBlog') as $message)
             <li>{{ $message }}</li>
             @endforeach
         </ul>
@@ -29,9 +37,9 @@
     {{ Form::open(array('route' => ['attivitaUtente'], 'class' => '')) }}
 
     <div  class="wrap-input">
-        {{ Form::label('id', 'Id utente', ['class' => 'label-input']) }}
+        {{ Form::label('idUtente', 'Id utente', ['class' => 'label-input']) }}
         <br>
-        {{ Form::number('id','', ['class' => 'input','id' => 'id']) }}
+        {{ Form::number('idUtente','', ['class' => 'input','id' => 'idUtente']) }}
        
     </div>
     <br>
@@ -45,9 +53,9 @@
     {{ Form::open(array('route' => ['cercaBlog'], 'class' => '')) }}
 
     <div  class="wrap-input">
-        {{ Form::label('id', 'Id blog', ['class' => 'label-input']) }}
+        {{ Form::label('idBlog', 'Id blog', ['class' => 'label-input']) }}
         <br>
-        {{ Form::number('id','', ['class' => 'input','id' => 'id']) }}
+        {{ Form::number('idBlog','', ['class' => 'input','id' => 'idBlog']) }}
     </div>
     <br>
     <div class="container-form-btn">                
