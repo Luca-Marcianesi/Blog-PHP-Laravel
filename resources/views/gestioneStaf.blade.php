@@ -9,7 +9,7 @@
     <br>
     <br>
 
-    <div ><a href="{{ route('aggiungiStaf') }}" class="highlight" >Aggiungi  un membro allo staf</a></div>
+    <div ><a href="{{ route('nuovoStaf') }}" class="highlight" >Aggiungi  un membro allo staf</a></div>
 
     <div>Membri dello staf</div>
 
