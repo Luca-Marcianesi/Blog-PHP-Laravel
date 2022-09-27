@@ -81,6 +81,8 @@ class StafController extends Controller {
     public function visualizzaBlog(CercaRequest $request){
         $blog = Blog::find($request->id);
 
+        
+        if(!empty($blog)){
         $proprietario = User::find($blog->proprietario);
 
         $posts = Post::Where('blog',$request->id)
@@ -89,9 +91,17 @@ class StafController extends Controller {
                     ->get();
 
         return view('blog')
-            ->with('blog',$blog)
-            ->with('proprietario',$proprietario)
-            ->with('posts',$posts);
+                ->with('blog',$blog)
+                ->with('proprietario',$proprietario)
+                ->with('posts',$posts);
+                    
+        }
+        
+        
+        else{
+            return view('blog');
+        }
+            
         
     }
 

@@ -25,7 +25,7 @@ class CercaRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'id' => 'required|integer|min:0',
+            'id' => 'required|integer|min:1',
         ];
     }
 
