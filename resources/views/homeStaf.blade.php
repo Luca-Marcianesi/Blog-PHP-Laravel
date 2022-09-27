@@ -18,19 +18,21 @@
     registrati oppure i blog che sono stati creati!
     <hr class="spaziaturahr">
 
+    @if ($errors->first('id'))
+        <ul class="errors">
+            @foreach ($errors->get('id') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+    @endif
+
     {{ Form::open(array('route' => ['attivitaUtente'], 'class' => '')) }}
 
     <div  class="wrap-input">
         {{ Form::label('id', 'Id utente', ['class' => 'label-input']) }}
         <br>
         {{ Form::number('id','', ['class' => 'input','id' => 'id']) }}
-        @if ($errors->first('id'))
-        <ul class="errors">
-            @foreach ($errors->get('id') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
+       
     </div>
     <br>
     <div class="container-form-btn">                
@@ -46,13 +48,6 @@
         {{ Form::label('id', 'Id blog', ['class' => 'label-input']) }}
         <br>
         {{ Form::number('id','', ['class' => 'input','id' => 'id']) }}
-        @if ($errors->first('id'))
-        <ul class="errors">
-            @foreach ($errors->get('id') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
     </div>
     <br>
     <div class="container-form-btn">                
