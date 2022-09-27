@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CercaRequest extends FormRequest {
+class CercaBlogRequest extends FormRequest {
 
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class CercaRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'id' => 'required|integer|min:1',
+            'idBlog' => 'required|integer|min:1',
         ];
     }
 
