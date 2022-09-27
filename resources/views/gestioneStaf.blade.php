@@ -11,8 +11,6 @@
         <br>
         <h2>Di seguito è riportato l'elenco degli utenti che fanno parte dello staff del sito <br><br>
     </div> 
-<div>
->>>>>>> 3067e78964f40b5e94a495e4b18d7f67c3c1b255
 
     @isset($staf)
     @if(count($staf)===0)

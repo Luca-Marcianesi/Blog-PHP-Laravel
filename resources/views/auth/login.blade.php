@@ -38,6 +38,7 @@
             </div>
             {{ Form::close() }}
         </div>
+        <hr class="spaziaturahr">
         <div style="margin-left: 40.3%; text-align: center; height: auto; width: 300px">
             <h4 style="color: white"> Non sei ancora registrato?
             <hr style="height: 5px; border: none">
