@@ -32,12 +32,6 @@ class DatabaseSeeder extends Seeder {
                 
             
         ]);
-
-
-        DB::table('amicizia')->insert([
-            ['richiedente' => '1', 'destinatario' => '2', 'stato' => true],
-            ['richiedente' => '3', 'destinatario' => '1', 'stato' => true]   
-        ]);
     }
 
 }

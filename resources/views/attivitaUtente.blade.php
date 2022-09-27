@@ -13,24 +13,25 @@
 
         <hr class="spaziaturahr">
         Di seguito sono elencati i blog creati dall'utente
-        <hr class="spaziaturahr">
-        
+        <br>
+        <br>
         @isset($blogs)
             @if(count($blogs)===0)
                 Attualmente non ha creato nessun blog
                 @else
                 @foreach($blogs as $blog)
                     <div>
-                        Tema: {{ $blog->tema }}
+                        Tema: {{ $blog->tema }}<br>
                     </div>
-                    <hr class="spaziaturahr">
-                @endforeachà
+                    <br>
+                @endforeach
             @endif()
         @endisset()
 
         <hr class="spaziaturahr">
         Di seguito sono elencati i post fatti dall'utente
-        <hr class="spaziaturahr">
+        <br>
+        <br>
 
         @isset($posts)
             @if(count($posts)===0)
@@ -38,9 +39,9 @@
                 @else
                 @foreach($posts as $post)
                     <div>
-                        Testo: {{ $post->testo }}
+                        Testo: {{ $post->testo }} nel blog {{ $post->tema }}
                     </div>
-                    <hr class="spaziaturahr">
+                    <br>
                 @endforeach
             @endif()
         @endisset()

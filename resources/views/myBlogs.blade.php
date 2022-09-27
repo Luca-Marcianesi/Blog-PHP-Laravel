@@ -14,7 +14,8 @@
                         @else
                             privato 
                         @endif() <br>
-                        Di seguito è riportata la lista di tutti i tuoi blog e, per ognuno, lo stato e il tema!
+                        Di seguito è riportata la lista di tutti i tuoi blog e il relativo tema!
+                        Potrai inoltre modificare la visibilità di ognuno di loro.
                         <hr class="spaziaturahr">
                         @if(count($blogs)===0)
                             Attualmente non hai postato nessun blog

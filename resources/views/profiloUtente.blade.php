@@ -20,12 +20,12 @@
         <div>E-mail: {{$utente->email}}</div><br>
         <div>Data di Nascita: {{$utente->data_nascita}}</div><br>
         <div>Biografia: {{$utente->descrizione}}</div>
-        
-
     </div>
+
     <hr class="spaziaturahr">
     @can('isFriend',$utente->id)
         <div style="text-align: center; font-size: large">Attualmente siete amici</div>
+        <hr class="spaziaturahr">
     @endcan
 
         
@@ -38,7 +38,9 @@
     @endcan
 
     @can('richiedereAmicizia',$utente->id)
-        <a href="{{ route('sedRequest',$utente->id) }}" class="highlight" title="richiesta">Invia richiesta</a>
+        <div style="text-align: center; width: auto; height: auto">
+            <a href="{{ route('sedRequest',$utente->id) }}" title="richiesta">Invia richiesta</a>
+        </div>
     @endcan
             
 
@@ -50,10 +52,12 @@
         @endif()
             
          
-         
-        @foreach($blogs as $blog)
-            <a href="{{ route('blog',$blog->id) }}" class="highlight" >Tema: {{$blog->tema}}</a>
         
+        @foreach($blogs as $blog)
+        <div style="text-align: center; font-size: large">
+            <a href="{{ route('blog',$blog->id) }}" class="highlight" >Tema: {{$blog->tema}}</a> 
+        </div>
+        <br>
         @endforeach
 
     @else

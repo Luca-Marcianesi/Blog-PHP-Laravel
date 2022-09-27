@@ -1,13 +1,27 @@
-@extends('layouts.userLayout')
 
-@section('title', 'Nuovo Blog')
+@can('isAdmin')
+@extends('layouts.adminLayout')
+@endcan
+
+
+@can('isStaf')
+@extends('layouts.stafLayout')
+@endcan
+
+
+@can('isUser')
+@extends('layouts.userLayout')
+@endcan
+
+
+@section('title', 'Blog')
 
 @section('content')
 @isset($blog)
 @isset($proprietario)
 @isset($posts)
 <div>
-    <div>Proprietario del blog:{{$proprietario->name}} {{$proprietario->surname}}</div>
+    <div>Proprietario del blog: {{$proprietario->name}} {{$proprietario->surname}}</div>
     <div>Tema:{{$blog->tema}}</div>
 </div>
 
@@ -22,7 +36,6 @@
     <div class="wrap-form">
             {{ Form::open(array('route' => ['newPost', $blog->id], 'class' => 'contact-form')) }}
             
-      
              <div  class="wrap-input">
                 {{ Form::label('testo', 'Cosa ne Pensi?', ['class' => 'label-input']) }}
                 {{ Form::text('testo', '', ['class' => 'input','id' => 'testo']) }}
