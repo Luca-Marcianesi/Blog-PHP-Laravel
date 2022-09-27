@@ -36,15 +36,7 @@ class StafController extends Controller {
                 ->with('utenti',$utenti);
     }
 
-    public function getBlog($id){
-        $blog = Blog::find($id);
-        $post = $this->_GestoreBlog->getPostByBlogId($id);
-
-        return view('blog')
-                ->with('blog',$blog)
-                ->with('posts',$post);
-
-    }
+    
 
     public function deleteBlog(MotivoRequest $request,$id){
         $blog = Blog::find($id);
@@ -91,7 +83,7 @@ class StafController extends Controller {
                     ->select('users.*','post.*')
                     ->get();
 
-        return view('blog')
+        return view('blogStaf')
                 ->with('blog',$blog)
                 ->with('proprietario',$proprietario)
                 ->with('posts',$posts);
