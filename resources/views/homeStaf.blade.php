@@ -31,7 +31,7 @@
     <div  class="wrap-input">
         {{ Form::label('id', 'Id utente', ['class' => 'label-input']) }}
         <br>
-        {{ Form::number('id','', ['class' => 'input','id' => 'id']) }}
+        {{ Form::number('id','', ['class' => 'input', 'id' => 'id']) }}
        
     </div>
     <br>
