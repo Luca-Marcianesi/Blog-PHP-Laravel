@@ -3,15 +3,16 @@
 @section('title', 'Gestione Staf')
 
 @section('content')
+<hr class="spaziaturahr">
+<div  style="text-align: center; font-size: large">
+    <div>
+        <h1>In questa pagina potrai gestire il tuo staff!</h1>
+        <br>
+        <br>
+        <h2>Di seguito è riportato l'elenco degli utenti che fanno parte dello staff del sito <br><br>
+    </div> 
 <div>
-   
-    spazio
-    <br>
-    <br>
-
-    <div ><a href="{{ route('nuovoStaf') }}" class="highlight" >Aggiungi  un membro allo staf</a></div>
-
-    <div>Membri dello staf</div>
+>>>>>>> 3067e78964f40b5e94a495e4b18d7f67c3c1b255
 
     @isset($staf)
     @if(count($staf)===0)
