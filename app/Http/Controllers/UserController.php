@@ -119,7 +119,7 @@ class userController extends Controller {
                     ->select('users.*','post.*')
                     ->get();
 
-        return view('blog')
+        return view('blogUser')
             ->with('blog',$blog)
             ->with('proprietario',$proprietario)
             ->with('posts',$posts);
