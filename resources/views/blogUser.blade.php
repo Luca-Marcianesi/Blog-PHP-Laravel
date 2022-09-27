@@ -1,17 +1,4 @@
-
-@can('isAdmin')
-@extends('layouts.adminLayout')
-@endcan
-
-
-@can('isStaf')
-@extends('layouts.stafLayout')
-@endcan
-
-
-@can('isUser')
 @extends('layouts.userLayout')
-@endcan
 
 
 @section('title', 'Blog')
