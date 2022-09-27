@@ -39,7 +39,11 @@
     <div  class="wrap-input">
         {{ Form::label('idUtente', 'Id utente', ['class' => 'label-input']) }}
         <br>
+<<<<<<< HEAD
+        {{ Form::number('id','', ['class' => 'input', 'id' => 'id']) }}
+=======
         {{ Form::number('idUtente','', ['class' => 'input','id' => 'idUtente']) }}
+>>>>>>> 2549029fff2647ec46b3d737bed74d622c172778
        
     </div>
     <br>
