@@ -65,9 +65,9 @@ class StafController extends Controller {
     }
 
     public function visualizzaUtente(CercaUtenteRequest $request){
-        $utente = User::find($request->id);
-        $blogs = Blog::where('proprietario',$request->id)->get();
-        $posts = Post::where('autore',$request->id)
+        $utente = User::find($request->idUtente);
+        $blogs = Blog::where('proprietario',$request->idUtente)->get();
+        $posts = Post::where('autore',$request->idUtente)
                         ->join('blog', 'blog.id', '=', 'post.blog')
                         ->select('blog.*','post.*')
                         ->get();
@@ -80,13 +80,13 @@ class StafController extends Controller {
     }
 
     public function visualizzaBlog(CercaBlogRequest $request){
-        $blog = Blog::find($request->id);
+        $blog = Blog::find($request->idBlog);
 
         
         if(!empty($blog)){
         $proprietario = User::find($blog->proprietario);
 
-        $posts = Post::Where('blog',$request->id)
+        $posts = Post::Where('blog',$request->idBlog)
                     ->join('users', 'users.id', '=', 'post.autore')
                     ->select('users.*','post.*')
                     ->get();
