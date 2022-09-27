@@ -16,7 +16,6 @@
         <br>
         <br>
         @isset($blogs)
-        {{ $blogs}}
             @if(count($blogs)===0)
                 Attualmente non ha creato nessun blog
                 @else
