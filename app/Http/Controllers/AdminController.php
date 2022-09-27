@@ -80,43 +80,51 @@ class AdminController extends Controller {
                 ->with('numeroBlog',$numeroBlog);
     }
 
+
+
     public function getStatisticheSpecifiche(StatisticheRequest $request){
-        if($request->tipo){
-
-            // Richieste di amicizia del membro
-
-            $utenti = User::where('username', $request->username)
+        $utenti = User::where('username', $request->username)
                             ->get();
 
-            foreach($utenti as $utente){
                             
-            $amicizie = Amicizia::where('destinatario',$utente->id)
-                                ->get();
-
-            return view('statisticheSpecifiche')
-                    ->with('utente',$utente)
-                    ->with('amicizie',$amicizie);
-            }
-
+        if(empty($utenti)){
+            return view('statisticheSpecifiche');
         }
         else{
+            if($request->tipo){
 
-            //Gruppo di amici del membro
-
-            $utenti = User::where('username', $request->username)
-                            ->get();
-
-            foreach($utenti as $utente){
-            
-            $gruppoAmici = $this->_AmiciModel->getAmici($utente->id);
+                // Richieste di amicizia del membro
+                            
+                foreach($utenti as $utente){
                                 
+                    $amicizie = Amicizia::where('destinatario',$utente->id)
+                                    ->get();
 
-            return view('statisticheSpecifiche')
-                ->with('utente',$utente)
-                ->with('gruppoAmici',$gruppoAmici);
+                    return view('statisticheSpecifiche')
+                        ->with('utente',$utente)
+                        ->with('amicizie',$amicizie);
+                    }
             }
+            else{
 
+                //Gruppo di amici del membro
+
+                $utenti = User::where('username', $request->username)
+                                ->get();
+
+                foreach($utenti as $utente){
+                
+                $gruppoAmici = $this->_AmiciModel->getAmici($utente->id);
+                                    
+
+                return view('statisticheSpecifiche')
+                    ->with('utente',$utente)
+                    ->with('gruppoAmici',$gruppoAmici);
+                }
+
+        } 
+
+        }
         }
 
     }
-}
