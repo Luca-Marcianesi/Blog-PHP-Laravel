@@ -7,8 +7,7 @@
    
 
     @isset($utente)
-    @isset($amicizia)
-    @isset($blogs)
+    
 
 
   
@@ -26,6 +25,21 @@
     @can('isFriend',$utente->id)
         <div style="text-align: center; font-size: large">Attualmente siete amici</div>
         <hr class="spaziaturahr">
+        @isset($blogs)
+        @if(@count($blogs)===0)
+            Non ci sono blog pubblicati
+        
+        @endif()
+            
+         
+        
+        @foreach($blogs as $blog)
+        <div style="text-align: center; font-size: large">
+            <a href="{{ route('blog',$blog->id) }}" class="highlight" >Tema: {{$blog->tema}}</a> 
+        </div>
+        <br>
+        @endforeach
+        @endisset()
     @endcan
 
         
@@ -39,35 +53,10 @@
 
     @can('richiedereAmicizia',$utente->id)
         <div style="text-align: center; width: auto; height: auto">
+            <div>Devi far parte del gruppo di amici per visualizzare i blog </div>
             <a href="{{ route('sedRequest',$utente->id) }}" title="richiesta">Invia richiesta</a>
         </div>
     @endcan
-            
-
-    @if($utente->visibilita or $amicizia->stato)
-
-        @if(@empty($blogs))
-            Non ci sono blog pubblicati
-        
-        @endif()
-            
-         
-        
-        @foreach($blogs as $blog)
-        <div style="text-align: center; font-size: large">
-            <a href="{{ route('blog',$blog->id) }}" class="highlight" >Tema: {{$blog->tema}}</a> 
-        </div>
-        <br>
-        @endforeach
-
-    @else
-        Devi far parte del gruppo di amici per visualizzare i blog 
-    
-    @endif() 
-        
-
-    @endisset()
-    @endisset()
     @endisset()
     
     

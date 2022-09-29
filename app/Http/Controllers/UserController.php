@@ -128,23 +128,11 @@ class userController extends Controller {
 
     public function getProfilo($id){
         $utente = User::find($id);
-        $amicizia = Amicizia::where(function ($query)  use ($id){
-                                    $query->where('richiedente', $id)
-                                            ->where('destinatario',auth()->user()->id);
-                                    })
-                                ->orWhere(function ($query)  use ($id){
-                                    $query->where('richiedente', auth()->user()->id)
-                                            ->where('destinatario', $id);
-                                    })
-                                    ->take(1)
-                                    ->get();
-
         $blogs = Blog::where('proprietario',$id)->get();
 
         if($utente->visibilita){
             return view('profiloUtente')
                 ->with('utente',$utente)
-                ->with('amicizia',$amicizia)
                 ->with('blogs',$blogs);
         }
         else{
