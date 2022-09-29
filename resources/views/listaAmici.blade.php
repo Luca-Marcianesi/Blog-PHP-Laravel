@@ -48,7 +48,7 @@
 
     @isset($rifiutate)
     @if(count($rifiutate)===0)
-    <div style="text-align: center; font-size: large"> Nessuna richiesta rifiutata </div>
+    <div class="main_element" style="text-align: center; font-size: large"> Nessuna richiesta rifiutata </div>
     @else
     @foreach($rifiutate as $rifiutata)
     <div class="main_element" style="text-align: center; font-size: large">

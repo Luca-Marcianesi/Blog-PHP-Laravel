@@ -200,7 +200,7 @@ class userController extends Controller {
         $amicizia->save();
 
         $notifica = new Notifica;
-        $notifica->messaggio =  auth()->user()->name . " ". auth()->user()->surname. " non è più tuo amico";
+        $notifica->messaggio =  auth()->user()->name . " " . auth()->user()->surname. "non è più tuo amico";
         $notifica->destinatario = $id_user;
         $notifica->save();
 
@@ -242,5 +242,16 @@ class userController extends Controller {
         return view('notifiche')
                 ->with('notifiche', $notifiche);
     }
+
+
+    public function eliminaNotifica($notifica){
+        $notifica = Notifica::find($notifica);
+        $notifica->visualizzata = true;
+        $notifica->save();
+        $notifica->delete();
+
+        return $this->getNotifiche();
+    }
+
 
 }

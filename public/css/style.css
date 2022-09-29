@@ -379,8 +379,8 @@ nav ul li a:hover{
 
 
 .tema_blog{
-	margin-left: 46%;
-	width: 120px;
+	margin-left: 40%;
+	width: 300px;
 	height: 22px;
 	color: var(--color-scritte);
 	background-color: red;
@@ -388,9 +388,9 @@ nav ul li a:hover{
 }
 
 .stato_blog{
-	margin-left: 46%;
+	margin-left: 40%;
 	height: 22px;
-	width: 120px;
+	width: 300px;
 	color: black;
 	background-color: rebeccapurple;
 
