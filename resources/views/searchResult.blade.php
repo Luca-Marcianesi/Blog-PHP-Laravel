@@ -9,13 +9,10 @@
     @isset($users)
 
     @foreach($users as $user)
-    <div class="main_element">
-        <div class="tema_blog">Nome: {{$user->name}}</div>
-        <div class="stato_blog">Cognome:{{$user->surname}}</div>
-        <a href="{{ route('visualizzaProfilo', [$user->id])}}">Visualizza profilo</a>
-        
-
-        
+    <div class="main_element" style="text-align: center; font-size: large">
+        <div class="tema_blog">Nome: {{$user->name}}</div><br>
+        <div class="stato_blog">Cognome: {{$user->surname}}</div><br>
+        <a href="{{ route('visualizzaProfilo', [$user->id])}}">Visualizza profilo</a>  
     </div>         
     @endforeach
 

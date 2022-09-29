@@ -3,8 +3,8 @@
 @section('title', 'Statistiche Specifiche ')
 
 @section('content')
-<div>
-   
+<hr class="spaziaturahr">
+<div style="text-align: center; font-size: large">
     @isset($utente)
     @isset($amicizie)
 
@@ -12,9 +12,7 @@
 
     @foreach($amicizie as $amicizia)
     <div class="main_element">
-        <div >Nome: {{$amicizia->richiedente}} Stato: {{$amicizia->stato}}</div>
-        
-        
+        <div >Nome: {{$amicizia->richiedente}} Stato: {{$amicizia->stato}}</div>  
     </div>
     @endforeach 
     @endisset() 
@@ -25,7 +23,7 @@
     Il gruppo di amici di {{$utente->name}} {{$utente->surname}} [{{$utente->username}}]
     @foreach($gruppoAmici as $amico)
     <div class="main_element">
-        <div >Nome: {{$amico->name}} Cognome: {{$amico->surname}}</div>
+        <div>Nome: {{$amico->name}} Cognome: {{$amico->surname}}</div>
         
         
     </div>

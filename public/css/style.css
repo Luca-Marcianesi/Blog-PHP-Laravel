@@ -388,7 +388,9 @@ nav ul li a:hover{
 }
 
 .stato_blog{
-	float: right;
+	margin-left: 46%;
+	height: 22px;
+	width: 120px;
 	color: black;
 	background-color: rebeccapurple;
 

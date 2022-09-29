@@ -7,7 +7,8 @@
 @isset($blog)
 @isset($proprietario)
 @isset($posts)
-<div>
+<hr class="spaziaturahr">
+<div style="text-align: center; font-size: large">
     <div>Proprietario del blog: {{$proprietario->name}} {{$proprietario->surname}}</div>
     <div>Tema:{{$blog->tema}}</div>
 </div>

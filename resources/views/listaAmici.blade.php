@@ -9,6 +9,9 @@
     <br>
 
     @isset($amici)
+    @if(count($amici)===0)
+    <div style="text-align: center; font-size: large">Attualmente la tua lista amici è vuota</div>
+    @else
     @foreach($amici as $amico)
     <div class="main_element" style="text-align: center; font-size: large">
         <div >Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</div>
@@ -17,9 +20,10 @@
         <div ><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}" class="highlight" >Visualizza Profilo</a></div>
         <div ><a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}" class="highlight">Elimina Amicizia</a></div>   
     </div>
-    <hr class="spaziaturahr"> 
-    @endforeach 
+    @endforeach
+    @endif
     @endisset() 
+    <hr class="spaziaturahr"> 
     <div style="text-align: center; font-size: large">Amicizie sospese:
     </div>
     
@@ -31,7 +35,7 @@
 
     @else
     @foreach($richieste as $richiesta)
-    <div class="main_element" style="text-align:center">
+    <div class="main_element" style="text-align:center; font-size: large">
         <div> {{$richiesta->name}} {{$richiesta->surname}} ha chiesto di entrare nel tuo gruppo di amici</div>
         <div><a href="{{ route('risposta',[$richiesta->id,true]) }}" class="highlight" >Accetta</a></div>
         <div><a href="{{ route('risposta',[$richiesta->id,false]) }}" class="highlight" >Rifiuta</a></div>     
@@ -43,17 +47,15 @@
     <div style="text-align: center; font-size: large">Amicizie rifiutate:</div>
 
     @isset($rifiutate)
+    @if(count($rifiutate)===0)
+    <div style="text-align: center; font-size: large"> Nessuna richiesta rifiutata </div>
+    @else
     @foreach($rifiutate as $rifiutata)
     <div class="main_element" style="text-align: center; font-size: large">
-        <div>{{$rifiutata->name}} {{$rifiutata->surname}}</div>
-        
+        <div>{{$rifiutata->name}} {{$rifiutata->surname}}</div>    
     </div>     
     @endforeach
-    @empty($rifiutate->first)
-    <div class="main_element" style="text-align: center; font-size: large">
-        <div>Nessuna richiesta rifiutata</div>  
-    </div>   
-    @endempty
+    @endif
     @endisset()
     
     
