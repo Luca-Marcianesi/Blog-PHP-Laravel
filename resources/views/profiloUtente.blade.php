@@ -44,7 +44,8 @@
 
         
     @can('isRifiutata',$utente->id)
-        <div style="text-align: center; font-size: large">La tua richiesta di amicizia è stata rifiutata</div>
+        <div style="text-align: center; font-size: large"> Amicizia rifiutata</div>
+        <a href="{{ route('sedRequest',$utente->id) }}" title="richiesta">Invia di nuovo</a>
     @endcan
 
     @can('isSospesa',$utente->id)

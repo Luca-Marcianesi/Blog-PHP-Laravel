@@ -72,13 +72,29 @@ class GestoreAmici {
                             ->orWhere(function ($query)  use ($id){
                                 $query->where('richiedente', auth()->user()->id)
                                         ->where('destinatario', $id)
-                                        ->where('stato',true);;
+                                        ->where('stato',true);
                                     })
                                     ->get();
         if(count($amicizia) == 0) return false;
         else return true;
     }
 
+    
+    public function getAmicizia($id){
+        $amicizia = Amicizia::where(function ($query)  use ($id){
+                $query->where('richiedente', $id)
+                        ->where('destinatario',auth()->user()->id);
+                       
+
+                     })
+            ->orWhere(function ($query)  use ($id){
+                $query->where('richiedente', auth()->user()->id)
+                        ->where('destinatario', $id);
+                    })
+                    ->get();
+        return $amicizia;
+
+    }
 
     public static function isRifiutata($id){
         $amicizia = Amicizia::where(function ($query)  use ($id){

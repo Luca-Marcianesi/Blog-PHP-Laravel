@@ -170,10 +170,23 @@ class userController extends Controller {
 
     
     public function amicizia($id){
-        $amicizia = new Amicizia;
-        $amicizia->richiedente = auth()->user()->id;
-        $amicizia->destinatario = $id;
-        $amicizia->save();
+        
+        $amiciziaRifiutata = $this->_AmiciModel->getAmicizia($id);
+
+        if(count($amiciziaRifiutata) == 0){
+            $amicizia = new Amicizia;
+            $amicizia->richiedente = auth()->user()->id;
+            $amicizia->destinatario = $id;
+            $amicizia->save();
+        }
+        
+        else{
+            $amiciziaRifiutata->first->delete();
+            $amicizia = new Amicizia;
+            $amicizia->richiedente = auth()->user()->id;
+            $amicizia->destinatario = $id;
+            $amicizia->save();
+        }
 
         return view('homeUser');
     }
