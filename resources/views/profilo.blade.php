@@ -2,26 +2,6 @@
 
 @section('title', 'Profilo')
 
-@section('scripts')
-
-@parent
-
-<script src="{{ asset('js/functions.js') }}" ></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-$(function () {
-    var actionUrl = "{{ route('modificaProfilo') }}";
-    var formId = 'modificaProfilo';
-    
-    $("#modificaProfilo").on('submit', function (event) {
-        event.preventDefault();
-        doFormValidation(actionUrl, formId);
-    });
-});
-</script>
-
-@endsection
-
 @section('content')
 <hr class="spaziaturahr">
 <div>
@@ -70,26 +50,70 @@ Se desideri modificare i dati del tuo profilo clicca qui sotto!<br>
                 <div>
                 {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}<br>
                 {{ Form::text('name', '', ['placeholder' => 'Nuovo nome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'name']) }}
+                @if ($errors->first('name'))
+                <ul>
+                    @foreach ($errors->get('name') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
                 </div>
+
+
                 <br>
                 <br>
+
                 <div>
                 {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}<br>
                 {{ Form::text('surname', '', ['placeholder' => 'Nuovo cognome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'surname']) }}
-                </div>
-                <br>
-                <br>
-                <div>
-                {{ Form::label('email', 'E-mail:', ['class' => 'label-input']) }}
-                <br>
-                {{ Form::text('email', '', ['placeholder' => 'Nuova e-mail', 'maxlength' => 30, 'size' => 35], ['class' => 'input-form', 'id' => 'email']) }}
-                </div>    
-                <br>
-                <br>
-                <div class="container-form-btn">                
-                    {{ Form::submit('Modifica', ['class' => '']) }}
+                @if ($errors->first('surname'))
+                <ul>
+                    @foreach ($errors->get('surname') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
+            
+            
                 </div>
 
+                <br>
+                <br>
+
+                <div>
+                {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-input']) }}<br>
+                {{ Form::date('data_nascita', '', ['id' => 'data_nascita']) }}
+                @if ($errors->first('data_nascita'))
+                <ul>
+                    @foreach ($errors->get('data_nascita') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
+
+                </div>
+
+                <br>
+                <br>
+
+                <div>
+                {{ Form::label('email', 'E-mail:', ['class' => 'label-input']) }}<br>
+                {{ Form::text('email', '', ['placeholder' => 'Nuova e-mail', 'maxlength' => 30, 'size' => 35], ['class' => 'input-form', 'id' => 'email']) }}
+                @if ($errors->first('email'))
+                <ul>
+                    @foreach ($errors->get('email') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
+                </div>
+
+                <br>
+                <br>
+
+                <div class="container-form-btn">                
+                    {{ Form::submit('Modifica') }}
+                </div>
 
                 {{ Form::close() }}
                 

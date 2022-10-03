@@ -161,9 +161,7 @@ class userController extends Controller {
         
         $profilo->save();
 
-      
-
-        return response()->json(['redirect' => route('profilo')]);
+        return view('homeUser');
 
     }
 
@@ -200,7 +198,7 @@ class userController extends Controller {
         $amicizia->save();
 
         $notifica = new Notifica;
-        $notifica->messaggio =  auth()->user()->name . " " . auth()->user()->surname. "non è più tuo amico";
+        $notifica->messaggio = auth()->user()->name . " " . auth()->user()->surname . " " . " non è più tuo amico";
         $notifica->destinatario = $id_user;
         $notifica->save();
 

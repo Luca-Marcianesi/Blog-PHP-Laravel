@@ -30,17 +30,12 @@ class ProfiloRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'name' => 'max:25',
-            'surname' => 'max:25',
-            'email' => '',
+            'name' => ['required', 'string', 'max:20'],
+            'surname' => ['required', 'string', 'max:20'],
+            'email' => ['required', 'string', 'email', 'max:30', 'unique:users'],
+            'data_nascita' => ['required', 'date'],
 
         ];
     }
-
-    protected function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
-    }
-
 
 }

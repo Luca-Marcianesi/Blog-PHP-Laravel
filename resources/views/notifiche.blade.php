@@ -10,8 +10,8 @@
     @else
     @foreach($notifiche as $notifica)
     <div class="main_element" style="text-align:center; font-size: large">
-        Data: {{$notifica->data}}<br>
-        Testo: {{$notifica->messaggio}}<br>
+        Data: {{ $notifica->data }}<br>
+        Testo: {{ $notifica->messaggio }}<br>
         <div ><a href="{{ route('eliminaNotifica',[$notifica->id]) }}" class="highlight">Elimina</a></div>
         <hr class="spaziaturahr">
     </div>     
