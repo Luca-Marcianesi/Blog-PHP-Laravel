@@ -29,11 +29,11 @@
         @if(@count($blogs)===0)
             Non ci sono blog pubblicati
         
-        @endif()
-            
+        @endif()  
          
         
         @foreach($blogs as $blog)
+        
         <div style="text-align: center; font-size: large">
             <a href="{{ route('blog',$blog->id) }}" class="highlight" >Tema: {{$blog->tema}}</a> 
         </div>
