@@ -44,12 +44,14 @@
 
         
     @can('isRifiutata',$utente->id)
-        <div style="text-align: center; font-size: large"> Amicizia rifiutata</div>
-        <a href="{{ route('sedRequest',$utente->id) }}" title="richiesta">Invia di nuovo</a>
+        <div style="text-align: center; font-size: large"> 
+            Amicizia rifiutata <br>
+            <a href="{{ route('sedRequest',$utente->id) }}" title="richiesta">Invia di nuovo</a>
+        </div>
     @endcan
 
     @can('isSospesa',$utente->id)
-        <div>Amicizia in attesa di risposta</div>
+        <div style="text-align: center; font-size: large">Amicizia in attesa di risposta</div>
     @endcan
 
     @can('richiedereAmicizia',$utente->id)

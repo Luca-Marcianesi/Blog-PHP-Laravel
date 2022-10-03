@@ -102,6 +102,9 @@ Route::get('/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
 Route::get('/elimina/{id_amicizia}/{user_id}','UserController@eliminaAmico')
         ->name('eliminaAmico');
 
+Route::get('/elimina/{notifica}','UserController@eliminaNotifica')
+        ->name('eliminaNotifica');
+
 
 // Admin routes
 
