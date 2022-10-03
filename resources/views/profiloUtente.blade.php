@@ -27,7 +27,10 @@
         <hr class="spaziaturahr">
         @isset($blogs)
         @if(@count($blogs)===0)
-            Non ci sono blog pubblicati
+            <div style="text-align: center; font-size: large">
+                Attualmente non ci sono blog pubblicati
+            </div>
+            
         
         @endif()  
          

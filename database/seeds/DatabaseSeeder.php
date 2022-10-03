@@ -21,17 +21,28 @@ class DatabaseSeeder extends Seeder {
                 'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'luca'],
             ['name' => 'staf', 'surname' => 'marcia', 'email' => 'luca@libero.it', 'username' => 'stafstaf',
                 'password' => Hash::make('lucaluca'), 'role' => 'staf','created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'luca'],
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'staf'],
             ['name' => 'admin', 'surname' => 'marcia', 'email' => 'luca@libero.it', 'username' => 'adminadmin',
                 'password' => Hash::make('lucaluca'), 'role' => 'admin','created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'luca'],
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'admin'],
             ['name' => 'pippo', 'surname' => 'coca', 'email' => 'pippo@coca.it', 'username' => 'pippococa',
                 'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'pippo'],
-           
-                
-            
+            ['name' => 'edo', 'surname' => 'taru', 'email' => 'edo@taru.it', 'username' => 'edoedo',
+                'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'edo']
         ]);
+
+
+        DB::table('amicizia')->insert([
+            ['richiedente' => 4, 'destinatario' => 1,
+                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
+            ['richiedente' => 5, 'destinatario' => 1,
+                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")]
+        ]);
+
     }
 
 }

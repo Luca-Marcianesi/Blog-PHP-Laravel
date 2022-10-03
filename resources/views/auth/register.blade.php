@@ -15,7 +15,7 @@
         <br>
         {{ Form::text('name', '', ['placeholder' => 'Inserisci nome', 'maxlength' => 18], ['id' => 'name']) }}
         @if ($errors->first('name'))
-        <ul>
+        <ul class="errors">
             @foreach ($errors->get('name') as $message)
             <li>{{ $message }}</li>
             @endforeach
@@ -29,7 +29,7 @@
         <br>
         {{ Form::text('surname', '', ['placeholder' => 'Inserisci cognome', 'maxlength' => 18], ['id' => 'surname']) }}
         @if ($errors->first('surname'))
-        <ul>
+        <ul class="errors">
             @foreach ($errors->get('surname') as $message)
             <li>{{ $message }}</li>
             @endforeach
@@ -43,7 +43,7 @@
         <br>
         {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30], ['id' => 'email']) }}
         @if ($errors->first('email'))
-        <ul>
+        <ul class="errors">
             @foreach ($errors->get('email') as $message)
             <li>{{ $message }}</li>
             @endforeach
@@ -57,7 +57,7 @@
         <br>
         {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 18], ['id' => 'username']) }}
         @if ($errors->first('username'))
-        <ul>
+        <ul class="errors">
             @foreach ($errors->get('username') as $message)
             <li>{{ $message }}</li>
             @endforeach
@@ -99,7 +99,7 @@
         <br>
         {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 18], ['id' => 'password']) }}
         @if ($errors->first('password'))
-        <ul>
+        <ul class="errors">
             @foreach ($errors->get('password') as $message)
             <li>{{ $message }}</li>
             @endforeach
