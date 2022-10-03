@@ -234,8 +234,6 @@ class userController extends Controller {
 
     public function eliminaNotifica($notifica){
         $notifica = Notifica::find($notifica);
-        $notifica->visualizzata = true;
-        $notifica->save();
         $notifica->delete();
 
         return $this->getNotifiche();

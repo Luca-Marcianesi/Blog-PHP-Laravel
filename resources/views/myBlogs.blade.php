@@ -28,7 +28,8 @@
 
     @foreach($blogs as $blog)
         <div class="tema_blog">Tema: {{$blog->tema}}</div>
-        <hr class="spaziaturahr">
+        <br>
+
         <div>
 
         {{ Form::open(array('route' => ['modificaBlog',$blog->id], 'class' => '')) }}
@@ -48,7 +49,7 @@
             <div class="container-form-btn">                
                 {{ Form::submit('Modifica', ['class' => 'button']) }}
             </div>
-            
+            <hr class="spaziaturahr">
             {{ Form::close() }}
        
         </div>
