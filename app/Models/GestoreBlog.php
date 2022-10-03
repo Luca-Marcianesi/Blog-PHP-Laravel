@@ -21,6 +21,14 @@ class GestoreBlog {
         $messaggi->delete();
     }
 
+    public static function accesso($idUser,$idBlog){
+        $accesso = Accesso::where('blog',$idBlog)
+                            ->where('utente',$idUser)
+                            ->get();
+        if(count($accesso) == 0) return false;
+        else return true;
+    }
+
     public function sedNotifiche($blogId){
         $blog = Blog::find($blogId);
         if($blog->stato){

@@ -175,6 +175,21 @@ nav ul li a:hover{
 	color: black;
 }
 
+/* User dalla ricerca*/
+
+
+.user{
+	max-width: 80%;
+	background-color: transparent;
+	border-style: groove ;
+	border-color: #353535;
+	border-width: 5px;
+	margin-left: 10%;
+	padding-left: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+
+}
 /* Search */
 
 #search {

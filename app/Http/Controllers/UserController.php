@@ -48,7 +48,7 @@ class userController extends Controller {
         $primoMessaggio->save();
 
 
-        return redirect()->route('home');
+        return $this->getMyBlogs();
 
               
     }
@@ -128,27 +128,17 @@ class userController extends Controller {
 
     public function getProfilo($id){
         $utente = User::find($id);
-        $blogs = Blog::where('proprietario',$id)->get();
+        $blogs = Blog::where('proprietario',$id)
+                    ->leftJoin('accesso', 'accesso.blog', '=', 'blog.id')
+                    ->where('stato',true)
+                    ->orWhere('utente',auth()->user()->id)
+                    ->select('blog.*')
+                    ->get();
 
-        if($utente->visibilita){
             return view('profiloUtente')
                 ->with('utente',$utente)
                 ->with('blogs',$blogs);
-        }
-        else{
-            if(count($amicizia) == 0){
-                return view('profiloUtente')
-                    ->with('utente',$utente);
-            }
-            else{
-                return view('profiloUtente')
-                    ->with('utente',$utente)
-                    ->with('amicizia',$amicizia)
-                    ->with('blogs',$blogs);;
-            }
 
-        }
-        
 
         
     }
