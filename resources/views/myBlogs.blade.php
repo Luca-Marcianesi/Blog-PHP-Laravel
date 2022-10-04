@@ -53,6 +53,13 @@
             {{ Form::close() }}
        
         </div>
+
+        @if(!$blog->stato)
+        <div class="container-form-btn">                
+                <a href="{{ route('selezionaAmici',$blog->id) }}" class="highlight" >Seleziona Amici</a>
+            </div>
+        @endif()
+
                 
     @endforeach
 

@@ -252,5 +252,15 @@ class userController extends Controller {
         return $this->getNotifiche();
     }
 
+    
+    public function selezionaAmici($blogId){
+        
+        $amici = $this->_AmiciModel->getAmici(auth()->user()->id);
+
+        return view('selezionaAmici')
+            ->with('amici', $amici);
+
+    }
+
 
 }
