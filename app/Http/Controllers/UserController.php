@@ -17,6 +17,7 @@ use App\Models\Resources\Post;
 use App\Models\Resources\Amicizia;
 use App\Models\GestoreAmici;
 use App\Models\GestoreBlog;
+use App\Models\GestoreNotifiche;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -24,12 +25,14 @@ class userController extends Controller {
 
     protected $_AmiciModel;
     protected $_GestoreBlog;
+    protected $_GestoreNotifiche;
 
 
     public function __construct() {
         $this->middleware('auth');
         $this->_AmiciModel = new GestoreAmici;
         $this->_GestoreBlog= new GestoreBlog;
+        $this->_GestoreNotifiche = new GestoreNotifiche;
     }
 
     public function index() {
@@ -46,8 +49,8 @@ class userController extends Controller {
 
         $primoMessaggio = new Post;
         $primoMessaggio->autore = auth()->user()->id;
-        $primoMessaggio->blog =$blog->id;
-        $primoMessaggio->testo =$request->messaggio;
+        $primoMessaggio->blog = $blog->id;
+        $primoMessaggio->testo = $request->messaggio;
         $primoMessaggio->save();
 
 
@@ -227,11 +230,13 @@ class userController extends Controller {
     }
   
     public function getNotifiche(){
-        $notifiche = Notifica::where('destinatario',auth()->user()->id)
-                                ->get();
+        $notifiche = $this->_GestoreNotifiche->getNotifiche();
+
+        $archiviate = $this->_GestoreNotifiche->getArchiviate();
         
         return view('notifiche')
-                ->with('notifiche', $notifiche);
+                ->with('notifiche', $notifiche)
+                ->with('archiviate', $archiviate);
     }
 
 
@@ -242,6 +247,15 @@ class userController extends Controller {
         return $this->getNotifiche();
     }
 
+    public function archiviaNotifica($notifica){
+        $notifica = Notifica::find($notifica);
+        $notifica->visualizzata = true;
+        $notifica->save();
+
+        return $this->getNotifiche();
+    }
+
+    
     public function selezionaAmici($blogId){
 
         $amici = $this->_AmiciModel->getAmici(auth()->user()->id);

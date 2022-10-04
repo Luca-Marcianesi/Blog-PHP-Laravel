@@ -147,16 +147,4 @@ class GestoreAmici {
         if(count($amicizia) == 0) return true;
         else return false;
     }
-
-
-
-
-    
-
-
-
-    
-
-   
-
 }
