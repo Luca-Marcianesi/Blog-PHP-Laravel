@@ -56,6 +56,10 @@ class AuthServiceProvider extends ServiceProvider
             return  \App\Models\GestoreAmici::richiedereAmicizia($id);
         });
 
+        Gate::define('autorizzato', function ($user,$userId,$blogId) {
+            return  \App\Models\GestoreBlog::accesso($userId,$blogId);
+        });
+
 
     }
 }
