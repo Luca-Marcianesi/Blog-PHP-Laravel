@@ -5,3 +5,7 @@ function togglePopupNorme(){
 function togglePopupProfilo(){
     document.getElementById("modificaProfilo").classList.toggle("active")
 }
+
+function togglePopupNotifiche(){
+    document.getElementById("notifiche-Archiviate").classList.toggle("active")
+}
