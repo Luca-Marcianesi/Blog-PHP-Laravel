@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\NewBlogRequest;
+
 use App\Http\Requests\NewSearchRequest;
 use App\Http\Requests\NewPostRequest;
 use App\Http\Requests\ProfiloRequest;
 use App\Http\Requests\StatoBlogRequest;
 use App\Models\Resources\Blog;
 use App\Models\Resources\Notifica;
+use App\Models\Resources\Accesso;
 use App\User;
 use App\Models\Resources\Post;
 use App\Models\Resources\Amicizia;
@@ -92,7 +95,6 @@ class userController extends Controller {
     }
 
     public function searchFriends(NewSearchRequest $request){
-
         $users = User::where('role','user')
                         ->where('id','!=',auth()->user()->id)
                         ->where(function ($query) use ($request) {
@@ -116,6 +118,7 @@ class userController extends Controller {
                                 ->get();
         return view('searchResult')
             ->with('users', $users);
+            
 
     }
 
@@ -261,12 +264,43 @@ class userController extends Controller {
 
     
     public function selezionaAmici($blogId){
-        
+
         $amici = $this->_AmiciModel->getAmici(auth()->user()->id);
 
+        $blog = Blog::find($blogId);
+
+        $utentiAutorizzati = Accesso::where('blog',$blogId)
+                                ->join('users','users.id','=','accesso.utente')
+                                ->select('users.username','users.name','users.surname')
+                                ->get();
+
         return view('selezionaAmici')
+            ->with('autorizzati',$utentiAutorizzati)
+            ->with('blog',$blog)
             ->with('amici', $amici);
 
+    }
+
+    public function setAccesso($blogId , $userId, $stato){
+
+        if($stato){
+            $accesso = new Accesso;
+            $accesso->utente = $userId;
+            $accesso->blog = $blogId;
+            $accesso->save(); 
+        }
+        else{
+            $accesso = Accesso::where('utente',$userId)
+                                ->get();
+            $accesso->first->delete();
+        }
+
+        
+    
+        return $this->selezionaAmici($blogId);
+  
+
+    
     }
 
 

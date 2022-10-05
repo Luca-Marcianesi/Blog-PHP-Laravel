@@ -96,6 +96,8 @@ Route::get('/blog/{id}', 'UserController@selezionaAmici')
 
 Route::get('/eliminaBlog/{blog}', 'UserController@eliminaBlog')
         ->name('eliminaBlog');
+Route::get('/accessoBlog/{blogId}/{userId}/{stato}', 'UserController@setAccesso')
+        ->name('setAccesso');
 
         
 Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
