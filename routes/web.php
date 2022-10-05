@@ -79,7 +79,7 @@ Route::post('/modificaBlog/{id}','UserController@modificaBlog')
         ->name('modificaBlog')->middleware('can:isUser');
 
 
-Route::get('/blog/{id}','UserController@getBlog')
+Route::get('/blogUtente/{id}','UserController@getBlog')
         ->name('blog')->middleware('can:isUser');
 
 Route::post('/nuvoPost/{id}','UserController@newPost')
@@ -96,6 +96,7 @@ Route::get('/blog/{id}', 'UserController@selezionaAmici')
 
 Route::get('/eliminaBlog/{blog}', 'UserController@eliminaBlog')
         ->name('eliminaBlog');
+        
 Route::get('/accessoBlog/{blogId}/{userId}/{stato}', 'UserController@setAccesso')
         ->name('setAccesso');
 

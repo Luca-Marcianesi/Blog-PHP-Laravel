@@ -92,7 +92,7 @@ class StafController extends Controller {
         
         
         else{
-            return view('blog');
+            return view('homeStaf');
         }
             
         

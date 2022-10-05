@@ -78,7 +78,7 @@ class userController extends Controller {
         $blog = Blog::find($blog);
         $blog->delete();
 
-        return $this->getMyBlogs();
+        return redirect()->route('blog', ['id' => $blog]);
     }
 
     public function newPost(NewPostRequest $request , $id){
@@ -251,7 +251,7 @@ class userController extends Controller {
         $notifica = Notifica::find($notifica);
         $notifica->delete();
 
-        return $this->getNotifiche();
+        return redirect()->route('notifiche');
     }
 
     public function archiviaNotifica($notifica){
@@ -259,7 +259,7 @@ class userController extends Controller {
         $notifica->visualizzata = true;
         $notifica->save();
 
-        return $this->getNotifiche();
+        return redirect()->route('notifiche');
     }
 
     

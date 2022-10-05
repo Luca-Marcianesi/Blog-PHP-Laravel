@@ -597,3 +597,31 @@ nav ul li a:hover{
 	width: 400px;
 	resize: none;
 }
+
+/* STILE BOTTONI CONFERMA/ELIMINA/VARI */
+.bottone_conferma{
+    display:inline-block;
+    padding:0.6em 1em;
+    border:none;
+    margin:0.2em 0.1em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:"arial";
+    font-weight:300;
+    color:#FDFDFD;
+    border-radius:3em;
+    text-align:center;
+    transition: 0.1s;
+    background:rgb(100, 46, 170);
+    cursor:pointer;
+    font-weight:bold;
+    letter-spacing: 0.05em;
+}
+
+  .bottone_conferma:hover{
+    background:rebeccapurple;
+}
+
+  .bottone_conferma:active, .bottone_conferma:focus{
+    background:rgb(169, 80, 217);
+}

@@ -12,8 +12,26 @@
     <div class="main_element" style="text-align:center; font-size: large">
         Data: {{ $notifica->data }}<br>
         Testo: {{ $notifica->messaggio }}<br>
-        <div><a href="{{ route('eliminaNotifica',[$notifica->id]) }}" class="highlight">Elimina</a></div><br>
+        <div><p onclick="togglePopupEliminaNotifica()" style="cursor: pointer">Elimina</p></div>
         <div><a href="{{ route('archiviaNotifica',[$notifica->id]) }}" class="highlight">Archivia</a></div>
+    </div>
+    
+
+    <div id="elimina-notifica" class="popup">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopupEliminaNotifica()">&times;</div>
+            <br>
+            <h2>Conferma</h1>
+            <br>
+            <div style="text-align: center; font-size: large">
+                Sei sicuro di voler cancellare questa notifica?
+            </div>
+            <br> <br>
+            <div>
+            <a href="{{ route('eliminaNotifica', $notifica->id) }}"><button class="bottone_conferma">Si</button></a>
+            </div>
+        </div>  
     </div>
     @endforeach
     @endif

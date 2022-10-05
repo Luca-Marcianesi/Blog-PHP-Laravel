@@ -50,8 +50,8 @@
                 {{ Form::submit('Modifica', ['class' => 'button']) }}
             </div>
             {{ Form::close() }}
-            <div class="container-form-btn">
-                <a href="{{ route('eliminaBlog', $blog->id) }}" class="highlight" >Elimina blog</a>
+            <div style="text-align: center; font-size: large; color: rebeccapurple">
+                <p onclick="togglePopupEliminaBlog()" style="cursor: pointer">Elimina blog</p>
             </div>
             <hr class="spaziaturahr">
        
@@ -59,16 +59,34 @@
 
         @if(!$blog->stato)
         <div class="container-form-btn">                
-                <a href="{{ route('selezionaAmici',$blog->id) }}" class="highlight" >Seleziona Amici</a>
-            </div>
+            <a href="{{ route('selezionaAmici',$blog->id) }}" class="highlight" >Seleziona Amici</a>
+        </div>
         @endif()
 
                 
     @endforeach
 
-    @endisset()
-
     @endif
     </div>
+
+
+    <div id="elimina-blog" class="popup">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopupEliminaBlog()">&times;</div>
+            <br>
+            <h2>Conferma</h1>
+            <br>
+            <div style="text-align: center; font-size: large">
+                Sei sicuro di voler cancellare questo blog? 
+            </div>
+            <br> <br>
+            <div>
+            <a href="{{ route('eliminaBlog', $blog->id) }}"><button class="bottone_conferma">Si</button></a>
+            </div>
+        </div>  
+    </div>
+    @endisset()
 </div>
+
 @endsection
