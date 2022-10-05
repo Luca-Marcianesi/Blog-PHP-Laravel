@@ -49,8 +49,11 @@
             <div class="container-form-btn">                
                 {{ Form::submit('Modifica', ['class' => 'button']) }}
             </div>
-            <hr class="spaziaturahr">
             {{ Form::close() }}
+            <div class="container-form-btn">
+                <a href="{{ route('eliminaBlog', $blog->id) }}" class="highlight" >Elimina blog</a>
+            </div>
+            <hr class="spaziaturahr">
        
         </div>
 

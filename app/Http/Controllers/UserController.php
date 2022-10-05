@@ -71,6 +71,13 @@ class userController extends Controller {
         return $this->getMyBlogs();
     }
 
+    public function eliminaBlog($blog){
+        $blog = Blog::find($blog);
+        $blog->delete();
+
+        return $this->getMyBlogs();
+    }
+
     public function newPost(NewPostRequest $request , $id){
         $post = new Post;
         $post->autore = auth()->user()->id;

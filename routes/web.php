@@ -94,6 +94,9 @@ Route::get('/profilo/{id}', 'UserController@getProfilo')
 Route::get('/blog/{id}', 'UserController@selezionaAmici')
         ->name('selezionaAmici');
 
+Route::get('/eliminaBlog/{blog}', 'UserController@eliminaBlog')
+        ->name('eliminaBlog');
+
         
 Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
         ->name('sedRequest');
