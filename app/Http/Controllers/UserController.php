@@ -120,8 +120,6 @@ class userController extends Controller {
                             }})                               
                             ->get();
         
-
-
         return view('searchResult')
             ->with('users', $users);
             

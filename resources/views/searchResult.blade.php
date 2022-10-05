@@ -8,6 +8,10 @@
 
     @isset($users)
 
+    @if(count($users)== 0)
+    <div><p>Nessun utente corrisponde alle tue specifiche</p></div>
+    @endif
+
     @foreach($users as $user)
     <div class="user" style=" font-size: large">
         <div class="">Nome: {{$user->name}}</div><br>
