@@ -33,15 +33,16 @@
                 @endif
                 <hr style="height: 20px; border: none; background: none">
                 <div class="form-button">                
-                {{ Form::submit('Login', ['class' => 'button']) }}
+                {{ Form::submit('Login', ['class' => 'bottone_conferma']) }}
                 </div>
             </div>
             {{ Form::close() }}
         </div>
         <hr class="spaziaturahr">
+        <hr class="spaziaturahr">
         <div style="margin-left: 40.3%; text-align: center; height: auto; width: 300px">
             <h4 style="color: white"> Non sei ancora registrato?
             <hr style="height: 5px; border: none">
-            <p><a href="{{ route('register') }}" class="highlight" title="Vai alla pagina di registrazione">Registrati</a></h4>
+            <a href="{{ route('register') }}" title="Vai alla pagina di registrazione"><button class="bottone_conferma">Registrati</button></a>
         </div>
 @endsection

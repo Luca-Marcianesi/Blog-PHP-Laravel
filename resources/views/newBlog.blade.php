@@ -36,7 +36,7 @@
             </div>
             <hr class="spaziaturahr">
             <div class="container-form-button">                
-                {{ Form::submit('Crea', ['class' => 'form-button'])}}
+                {{ Form::submit('Crea', ['class' => 'bottone_conferma'])}}
             </div>
             {{ Form::close() }}
         </div>

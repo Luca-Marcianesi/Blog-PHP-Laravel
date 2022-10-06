@@ -44,7 +44,7 @@
     </div>
     <br>
     <div class="container-form-btn">                
-        {{ Form::submit('Cerca utente', ['class' => 'button']) }}
+        {{ Form::submit('Cerca Utente', ['class' => 'bottone_conferma']) }}
     </div>
     
     {{ Form::close() }}
@@ -59,7 +59,7 @@
     </div>
     <br>
     <div class="container-form-btn">                
-        {{ Form::submit('Cerca Blog', ['class' => 'button']) }}
+        {{ Form::submit('Cerca Blog', ['class' => 'bottone_conferma']) }}
     </div>
     
     {{ Form::close() }}

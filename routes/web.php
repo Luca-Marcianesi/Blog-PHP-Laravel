@@ -140,10 +140,8 @@ Route::get('/modificaStaf/{id}','AdminController@getModificaStaf')
 Route::post('/modificaStaf/{id}','AdminController@modificaStaf')
         ->name('modificaStaf')->middleware('can:isAdmin');
 
-
 Route::get('/gestioneStaf','AdminController@getStaf')
         ->name('gestioneStaf');
-
 
 // Staf routes
 
@@ -154,4 +152,6 @@ Route::post('/utente','StafController@visualizzaUtente')
 
 Route::post('/blog','StafController@visualizzaBlog')
         ->name('cercaBlog');
+
+
 

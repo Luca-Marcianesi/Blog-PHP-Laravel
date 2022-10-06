@@ -84,7 +84,7 @@
                 <br>
                 {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 18, 'size' => 22, 'id' => 'password']) }}
                 @if ($errors->first('password'))
-                    <ul>
+                    <ul class="errors">
                     @foreach ($errors->get('password') as $message)
                         <li>{{ $message }}</li>
                     @endforeach
@@ -94,7 +94,7 @@
 
             <br>
             <div class="container-form-btn">                
-                {{ Form::submit('Aggiungi', ['class' => 'button']) }}
+                {{ Form::submit('Aggiungi', ['class' => 'bottone_conferma']) }}
             </div>
             
             {{ Form::close() }}

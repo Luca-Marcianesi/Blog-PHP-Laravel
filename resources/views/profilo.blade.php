@@ -24,7 +24,7 @@
 Se desideri modificare i dati del tuo profilo clicca qui sotto!<br>
 </div>
 <div style="text-align: center; font-size: large; color: rebeccapurple">
-    <p onclick="togglePopupProfilo()" style="cursor: pointer">Modifica Profilo</p>
+    <button class="bottone_conferma" onclick="togglePopupProfilo()">Modifica Profilo</button>
 </div>
  <br>
  <div style="text-align: center; font-size: large">
@@ -112,7 +112,7 @@ Se desideri modificare i dati del tuo profilo clicca qui sotto!<br>
                 <br>
 
                 <div class="container-form-btn">                
-                    {{ Form::submit('Modifica') }}
+                    {{ Form::submit('Modifica', ['class' => 'bottone_conferma']) }}
                 </div>
 
                 {{ Form::close() }}

@@ -17,3 +17,11 @@ function togglePopupEliminaBlog(){
 function togglePopupEliminaNotifica(){
     document.getElementById("elimina-notifica").classList.toggle("active")
 }
+
+function togglePopupEliminaStaf(){
+    document.getElementById("elimina-staf").classList.toggle("active")
+}
+
+function togglePopupModificaStaf(){
+    document.getElementById("modifica-staf").classList.toggle("active")
+}
