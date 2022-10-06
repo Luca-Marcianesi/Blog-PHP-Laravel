@@ -29,9 +29,9 @@ class AppServiceProvider extends ServiceProvider
 
         
         /* creazione di un metodo per eseguire le query per la ricerca degli utenti attraveso una stringa
-         con wild-card * */
-        Builder::macro('orWhereLike', function(string $column, string $search) {
-            return $this->orWhere($column, 'LIKE', $search.'%');
+         con wild-card (*) */
+        Builder::macro('whereLirke', function(string $column, string $search) {
+            return $this->orWhere($column, 'like', $search.'%');
             });
     }
 }

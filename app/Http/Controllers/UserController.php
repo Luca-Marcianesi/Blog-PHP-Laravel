@@ -98,24 +98,28 @@ class userController extends Controller {
         $users = User::where('role','user')
                         ->where('id','!=',auth()->user()->id)
                         ->where(function ($query) use ($request) {
-                                    if(substr($request->name, -1) == '*'){
-                                            $name = rtrim($request->name, "*");
-                                            $query->whereLike('name',$name); 
+                            if (!empty($request->name)) {
+                               if(substr($request->name, -1) == '*'){
+                                    $name = rtrim($request->name, "*");
+                                    $query->orWhere('name','like',$name.'%'); 
                                     }
-                                    else{
-                                        $query->Where('name', $request->name);
+                                else{
+                                    $query->where('name', $request->name);
                                     }
-                                    if(substr($request->surname, -1) == '*'){
-                                            $surname = rtrim($request->surname, "*");
-                                            $query->whereLike('surname',$surname); 
-                                    }
-                                    else{
-                                        $query->Where('surname', $request->surname);
-                                    }
+                            }
+                            if (!empty($request->surname)) {
+                                if(substr($request->surname, -1) == '*'){
+                                    $surname = rtrim($request->surname, "*");
+                                    $query->orWhere('surname','like',$surname.'%'); 
+                                }
+                                else{
+                                    $query->where('surname', $request->surname);
+                                }
 
-               
-                                    })
-                                ->get();
+       
+                            }})                               
+                            ->get();
+        
         return view('searchResult')
             ->with('users', $users);
             
