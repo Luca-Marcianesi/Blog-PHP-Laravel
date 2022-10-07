@@ -38,8 +38,8 @@
     @foreach($richieste as $richiesta)
     <div class="main_element" style="text-align:center; font-size: large">
         <div> {{$richiesta->name}} {{$richiesta->surname}} ha chiesto di entrare nel tuo gruppo di amici</div>
-        <div><a href="{{ route('risposta',[$richiesta->id,true]) }}" class="highlight" >Accetta</a></div>
-        <div><a href="{{ route('risposta',[$richiesta->id,false]) }}" class="highlight" >Rifiuta</a></div>     
+        <div><a href="{{ route('rispostaAmicizia',[$richiesta->id,true]) }}" class="highlight" >Accetta</a></div>
+        <div><a href="{{ route('rispostaAmicizia',[$richiesta->id,false]) }}" class="highlight" >Rifiuta</a></div>     
     </div>     
     @endforeach
     @endif

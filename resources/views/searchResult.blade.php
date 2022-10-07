@@ -25,7 +25,7 @@
         <p>Siete amici<br><br><a class="bottone_conferma" href="{{ route('visualizzaProfilo', [$user->id])}}">Visualizza profilo</a></p>
         @else
         <p>Non siete amici</p>
-        <a class="bottone_conferma" href="{{ route('sedRequest',$user->id) }}" title="richiesta">Invia richiesta</a>
+        <a class="bottone_conferma" href="{{ route('inviaAmicizia',$user->id) }}" title="richiesta">Invia richiesta</a>
         @endcan()
     </div>         
     @endforeach

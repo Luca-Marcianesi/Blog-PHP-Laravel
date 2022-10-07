@@ -608,11 +608,11 @@ nav ul li a:hover{
     text-decoration:none;
     font-family:"arial";
     font-weight:300;
-    color:#FDFDFD;
+    color:rgb(100, 46, 170);
     border-radius:3em;
     text-align:center;
     transition: 0.1s;
-    background:rgb(100, 46, 170);
+    background:#FDFDFD;
     cursor:pointer;
     font-weight:bold;
     letter-spacing: 0.05em;

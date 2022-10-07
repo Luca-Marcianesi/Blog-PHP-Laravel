@@ -49,7 +49,7 @@
     @can('isRifiutata',$utente->id)
         <div style="text-align: center; font-size: large"> 
             Amicizia rifiutata <br>
-            <a href="{{ route('sedRequest',$utente->id) }}" title="richiesta">Invia di nuovo</a>
+            <a href="{{ route('inviaAmicizia',$utente->id) }}" title="richiesta">Invia di nuovo</a>
         </div>
     @endcan
 
@@ -60,7 +60,7 @@
     @can('richiedereAmicizia',$utente->id)
         <div style="text-align: center; width: auto; height: auto">
             <div>Devi far parte del gruppo di amici per visualizzare i blog </div>
-            <a href="{{ route('sedRequest',$utente->id) }}" title="richiesta">Invia richiesta</a>
+            <a href="{{ route('inviaAmicizia',$utente->id) }}" title="richiesta">Invia richiesta</a>
         </div>
     @endcan
     @endisset()

@@ -8,7 +8,7 @@
     <div>
         <h1>In questa pagina hai la possibilità di aggiungere nuovi membri allo staff del sito!</h1>
         <hr class="spaziaturahr">
-        {{ Form::open(array('route' => 'newStaf', 'class' => '')) }}
+        {{ Form::open(array('route' => 'creaStaf', 'class' => '')) }}
 
             <div class="wrap-input">
                 {{ Form::label('name', 'Nome', ['class' => '']) }}<br>
@@ -23,6 +23,7 @@
             </div>
             <br>
             <br>
+
             <div  class="wrap-input">
                 {{ Form::label('surname', 'Cognome', ['class' => '']) }}<br>
                 {{ Form::text('surname', '', ['placeholder' => 'Inserisci cognome', 'maxlength' => 18, 'class' => '','id' => 'surname']) }}
@@ -78,14 +79,14 @@
                 @endif
             </div>
             <br>
-    
+
             <div class="informazioni-richieste">
-                {{ Form::label('passwordStaf', 'Password', ['class' => 'label-input']) }}
+                {{ Form::label('pass', 'Inserisci la password', ['class' => 'label-input']) }}
                 <br>
-                {{ Form::password('passwordStaf','', ['placeholder' => 'Inserisci password', 'maxlength' => 18, 'size' => 22, 'id' => 'passwordStaf']) }}
-                @if ($errors->first('passwordStaf'))
+                {{ Form::password('pass', ['placeholder' => 'Inserisci password', 'maxlength' => 18, 'size' => 22, 'id' => 'pass']) }}
+                @if ($errors->first('pass'))
                     <ul>
-                    @foreach ($errors->get('passwordStaf') as $message)
+                    @foreach ($errors->get('pass') as $message)
                         <li>{{ $message }}</li>
                     @endforeach
                     </ul>

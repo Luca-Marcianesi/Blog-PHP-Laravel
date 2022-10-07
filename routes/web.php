@@ -105,9 +105,9 @@ Route::get('/amici/elimina/{id_amicizia}/{user_id}','UserController@eliminaAmico
         ->name('eliminaAmico');
 
 Route::get('/amici/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
-        ->name('risposta');
+        ->name('rispostaAmicizia');
 
-//Creazione post , visualizzazione  blog altro utente
+//Creazione post , visualizzazione  blog
 
 Route::post('/blogUtente/nuvoPost/{id}','UserController@newPost')
         ->name('newPost')->middleware('can:isUser');
@@ -124,7 +124,7 @@ Route::get('/ricerca/profiloUtente/{id}', 'UserController@getProfilo')
         ->name('visualizzaProfilo');
 
 Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
-        ->name('sedRequest');
+        ->name('inviaAmicizia');
 
 
 
@@ -151,7 +151,7 @@ Route::view('/gestioneStaf/aggiungiStaf','newStaf')
         ->name('nuovoStaf');
 
 Route::post('/gestioneStaf/aggiungiStaf','AdminController@newStaf')
-        ->name('newStaf')->middleware('can:isAdmin');
+        ->name('creaStaf')->middleware('can:isAdmin');
 
 Route::get('/gestioneStaf/eliminaStaf/{id}','AdminController@eliminaStaf')
         ->name('eliminaStaf')->middleware('can:isAdmin');
