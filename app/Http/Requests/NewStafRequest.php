@@ -33,8 +33,8 @@ class NewStafRequest extends FormRequest {
             'name' => ['required', 'string', 'max:20'],
             'surname' => ['required', 'string', 'max:20'],
             'email' => ['required', 'string', 'email', 'max:20', 'unique:users'],
-            'username' => ['required', 'string', 'min:8', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', ],
+            'usernameStaf' => ['required', 'string', 'min:8', 'unique:users'],
+            'passwordStaf' => ['required', 'string', 'min:8', ],
             'data_nascita' => ['required', 'date'],
 
         ];

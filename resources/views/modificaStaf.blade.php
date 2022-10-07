@@ -31,7 +31,7 @@
                 {{ Form::text('surname', '', ['class' => '','id' => 'surname']) }}
                 @if ($errors->first('surname'))
                 <ul class="errors">
-                    @foreach ($errors->get('name') as $message)
+                    @foreach ($errors->get('surname') as $message)
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>

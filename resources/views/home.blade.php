@@ -5,7 +5,7 @@
 @section('content')
             <hr class="spaziaturahr">           
             <section>
-                <div style="float: left; height: 392px; width: 690px">
+                <div style="float: left; height: 392px; width: 690px; font-size: large">
                     <p class="cloud-organization" style="background-image: url('images/products/nuvola-removebg-preview.png')">
                         Condividi i tuoi pensieri,<br>
                         leggi quelli dei tuoi amici<br>
@@ -15,7 +15,7 @@
                         Tutto con semplicità
                     </p>
                 </div>
-                <div class="main_element">
+                <div  style="font-size: large" class="main_element">
                     <div class="unisciti">
                         <h1>Unisciti ad altri utenti</h1>
                         <p> Che tu stia condividendo la tua esperienza,<br>
@@ -31,7 +31,7 @@
                 </div>
                 
                 <div class="main_element ">
-                    <div class="profilo-blog">
+                    <div style="font-size: large" class="profilo-blog">
                         <h1>Chi può vedere il mio profilo e miei blog?</h1>
                         <p> Normalmente il tuo profilo e i tuoi blog <br>
                             sono visibili da tutti ma, <br>andando nella sezione profilo, <br>
