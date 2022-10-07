@@ -54,95 +54,115 @@ Route::post('register', 'Auth\RegisterController@register');
 
 // User routes
 
-Route::view('/profilo','profilo')
+//Ptofilo utente
+
+Route::view('/myProfilo','profilo')
         ->name('profilo')->middleware('can:isUser');
 
-Route::post('/modificaProfilo', 'UserController@modificaProfilo')
+Route::post('/myProfilo/modificaProfilo', 'UserController@modificaProfilo')
         ->name('modificaProfilo');
 
-Route::view('/newBlog', 'newBlog')
+//Creazione , visualizzazione , eliminazione e modifica blog dell'utente loggato
+
+Route::view('/blog/nuovoBlog', 'newBlog')
         ->name('newBlog')->middleware('can:isUser');
+
+Route::post('/blog/nuovoBlog','UserController@newBlog')
+        ->name('newBlog')->middleware('can:isUser');
+
+Route::get('/blog/iMieiBlog','UserController@getMyBlogs')
+        ->name('myBlogs')->middleware('can:isUser');
+
+Route::post('/blog/modificaBlog/{id}','UserController@modificaBlog')
+        ->name('modificaBlog')->middleware('can:isUser');
+
+Route::get('/blog/selezionaAmici/{id}', 'UserController@selezionaAmici')
+        ->name('selezionaAmici');
+
+Route::get('/blog/eliminaBlog/{blog}', 'UserController@eliminaBlog')
+        ->name('eliminaBlog');
+
+Route::get('/blog/accesso/{blogId}/{userId}/{stato}', 'UserController@setAccesso')
+        ->name('setAccesso');
+
+// Visualizzazione, elimina e archivia notifiche
 
 Route::get('/notifiche', 'UserController@getNotifiche')
         ->name('notifiche')->middleware('can:isUser');
 
+Route::get('/notifiche/elimina/{notifica}','UserController@eliminaNotifica')
+        ->name('eliminaNotifica');
+
+Route::get('/notifiche/archivia/{notifica}','UserController@archiviaNotifica')
+        ->name('archiviaNotifica');
+
+//Visualizzazione, elimina  amici
+
 Route::get('/amici','UserController@getAmici')
         ->name('amici')->middleware('can:isUser');
 
-Route::post('/newBlog','UserController@newBlog')
-        ->name('newBlog')->middleware('can:isUser');
+Route::get('/amici/elimina/{id_amicizia}/{user_id}','UserController@eliminaAmico')
+        ->name('eliminaAmico');
 
-Route::get('/myBlogs','UserController@getMyBlogs')
-        ->name('myBlogs')->middleware('can:isUser');
+Route::get('/amici/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
+        ->name('risposta');
 
-Route::post('/modificaBlog/{id}','UserController@modificaBlog')
-        ->name('modificaBlog')->middleware('can:isUser');
+//Creazione post , visualizzazione  blog altro utente
 
+Route::post('/blogUtente/nuvoPost/{id}','UserController@newPost')
+        ->name('newPost')->middleware('can:isUser');
 
 Route::get('/blogUtente/{id}','UserController@getBlog')
         ->name('blog')->middleware('can:isUser');
 
-Route::post('/nuvoPost/{id}','UserController@newPost')
-        ->name('newPost')->middleware('can:isUser');
+//Ricerca utenti e invio amicizia
 
-Route::post('/searchFriends','UserController@searchFriends')
+Route::post('/ricerca','UserController@searchFriends')
         ->name('searchFriends')->middleware('can:isUser');
 
-Route::get('/profilo/{id}', 'UserController@getProfilo')
+Route::get('/ricerca/profiloUtente/{id}', 'UserController@getProfilo')
         ->name('visualizzaProfilo');
 
-Route::get('/blog/{id}', 'UserController@selezionaAmici')
-        ->name('selezionaAmici');
-
-Route::get('/eliminaBlog/{blog}', 'UserController@eliminaBlog')
-        ->name('eliminaBlog');
-        
-Route::get('/accessoBlog/{blogId}/{userId}/{stato}', 'UserController@setAccesso')
-        ->name('setAccesso');
-
-        
 Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
         ->name('sedRequest');
 
 
-Route::get('/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
-        ->name('risposta');
 
-Route::get('/elimina/{id_amicizia}/{user_id}','UserController@eliminaAmico')
-        ->name('eliminaAmico');
 
-Route::get('/elimina/{notifica}','UserController@eliminaNotifica')
-        ->name('eliminaNotifica');
 
-Route::get('/archivia/{notifica}','UserController@archiviaNotifica')
-        ->name('archiviaNotifica');
+
 
 // Admin routes
+
+//Statistiche
 
 Route::get('/statistiche','AdminController@getMainStatistiche')
         ->name('statistiche');
 
-Route::post('/getStatisticheSpecifiche','AdminController@getStatisticheSpecifiche')
+Route::post('/statistiche','AdminController@getStatisticheSpecifiche')
         ->name('statisticheSpecifiche');
 
-Route::view('/aggiungiStaf','newStaf')
-        ->name('nuovoStaf');
-
-Route::post('/newStaf','AdminController@newStaf')
-        ->name('newStaf')->middleware('can:isAdmin');
-
-Route::get('/eliminaStaf/{id}','AdminController@eliminaStaf')
-        ->name('eliminaStaf')->middleware('can:isAdmin');
-
-Route::get('/modificaStaf/{id}','AdminController@getModificaStaf')
-        ->name('getModificaStaf')->middleware('can:isAdmin');
-
-Route::post('/modificaStaf/{id}','AdminController@modificaStaf')
-        ->name('modificaStaf')->middleware('can:isAdmin');
-
+//Aggiungi , modifica , elimina staff
 
 Route::get('/gestioneStaf','AdminController@getStaf')
         ->name('gestioneStaf');
+
+Route::view('/gestioneStaf/aggiungiStaf','newStaf')
+        ->name('nuovoStaf');
+
+Route::post('/gestioneStaf/aggiungiStaf','AdminController@newStaf')
+        ->name('newStaf')->middleware('can:isAdmin');
+
+Route::get('/gestioneStaf/eliminaStaf/{id}','AdminController@eliminaStaf')
+        ->name('eliminaStaf')->middleware('can:isAdmin');
+
+Route::get('/gestioneStaf/modificaStaf/{id}','AdminController@getModificaStaf')
+        ->name('getModificaStaf')->middleware('can:isAdmin');
+
+Route::post('/gestioneStaf/modificaStaf/{id}','AdminController@modificaStaf')
+        ->name('modificaStaf')->middleware('can:isAdmin');
+
+
 
 
 // Staf routes

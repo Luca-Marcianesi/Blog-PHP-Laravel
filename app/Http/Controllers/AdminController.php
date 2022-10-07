@@ -26,8 +26,8 @@ class AdminController extends Controller {
         $staf->name = $request->name;
         $staf->surname = $request->surname;
         $staf->email = $request->email;
-        $staf->username = $request->username;
-        $staf->password = Hash::make($request->password);
+        $staf->username = $request->usernameStaf;
+        $staf->password = Hash::make($request->passwordStaf);
         $staf->data_nascita = $request->data_nascita;
         $staf->role = 'staf';
 
