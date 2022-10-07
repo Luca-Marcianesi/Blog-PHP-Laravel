@@ -42,7 +42,7 @@
                 {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30, 'size' => 35, 'class' => '','id' => 'email']) }}
                 @if ($errors->first('email'))
                 <ul class="errors">
-                    @foreach ($errors->get('name') as $message)
+                    @foreach ($errors->get('email') as $message)
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>
