@@ -25,7 +25,7 @@ class StafController extends Controller {
 
 
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('can:isGestore');
         $this->_GestoreBlog= new GestoreBlog;
     }
 
@@ -64,10 +64,15 @@ class StafController extends Controller {
                         ->select('blog.*','post.*')
                         ->get();
 
-        return view('attivitaUtente')
+        if($this->middleware('can:isAdmin')){
+            return view('attivitaUtente')
                 ->with('user',$utente)
                 ->with('blogs',$blogs)
                 ->with('posts',$posts);
+        }
+        else{
+            return view('who');
+        }
         
     }
 
