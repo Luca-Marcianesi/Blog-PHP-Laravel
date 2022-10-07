@@ -13,7 +13,7 @@
     @endif
 
     @foreach($users as $user)
-    <div class="user" style=" font-size: large">
+    <div class="user" style=" font-size: large; text-align: center">
         <div class="">Nome: {{$user->name}}</div><br>
         <div class="">Cognome: {{$user->surname}}</div><br>
         @can('isFriend',$user->id)
@@ -22,12 +22,10 @@
         <div class="">Data di nascita: {{$user->data_nascita}}</div><br>
         <div class="">Bio: {{$user->descrizione}}</div><br>
 
-
-       
-        <p> Siete amici<a href="{{ route('visualizzaProfilo', [$user->id])}}">Visualizza profilo</a></p>
+        <p>Siete amici<br><br><a class="bottone_conferma" href="{{ route('visualizzaProfilo', [$user->id])}}">Visualizza profilo</a></p>
         @else
         <p>Non siete amici</p>
-        <a href="{{ route('sedRequest',$user->id) }}" title="richiesta">Invia richiesta</a>
+        <a class="bottone_conferma" href="{{ route('sedRequest',$user->id) }}" title="richiesta">Invia richiesta</a>
         @endcan()
     </div>         
     @endforeach

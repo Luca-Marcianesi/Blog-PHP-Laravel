@@ -17,8 +17,9 @@
         <div >Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</div>
         <div>L'amicizia è stata chiesta il {{$amico->data}}</div>
 
-        <div ><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}" class="highlight" >Visualizza Profilo</a></div>
-        <div ><a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}" class="highlight">Elimina Amicizia</a></div>   
+        <div ><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}"><button class="bottone_conferma">Visualizza Profilo</button></a></div>
+        <div ><a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}"><button class="bottone_conferma">Elimina Amicizia</button></a></div>
+        <br>    
     </div>
     @endforeach
     @endif

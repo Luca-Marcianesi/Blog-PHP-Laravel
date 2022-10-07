@@ -49,9 +49,10 @@
             <div class="container-form-btn">                
                 {{ Form::submit('Modifica', ['class' => 'button']) }}
             </div>
+            <br>
             {{ Form::close() }}
-            <div style="text-align: center; font-size: large; color: rebeccapurple">
-                <p onclick="togglePopupEliminaBlog()" style="cursor: pointer">Elimina blog</p>
+            <div style="text-align: center; font-size: large">
+                <button class="bottone_conferma" onclick="togglePopupEliminaBlog()">Elimina blog</button>
             </div>
             <hr class="spaziaturahr">
        

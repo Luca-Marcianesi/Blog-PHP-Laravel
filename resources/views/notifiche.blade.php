@@ -12,8 +12,8 @@
     <div class="main_element" style="text-align:center; font-size: large">
         Data: {{ $notifica->data }}<br>
         Testo: {{ $notifica->messaggio }}<br>
-        <div><p onclick="togglePopupEliminaNotifica()" style="cursor: pointer">Elimina</p></div>
-        <div><a href="{{ route('archiviaNotifica',[$notifica->id]) }}" class="highlight">Archivia</a></div>
+        <div><button class="bottone_conferma" onclick="togglePopupEliminaNotifica()">Elimina</button></div>
+        <div><a href="{{ route('archiviaNotifica',[$notifica->id]) }}"><button class="bottone_conferma">Archivia</button></a></div>
     </div>
     
 
@@ -40,7 +40,7 @@
 
 @isset($archiviate)
 <div style="text-align: center; font-size: large; color: rebeccapurple">
-    <p onclick="togglePopupNotifiche()" style="cursor: pointer">Visualizza notifiche archiviate</p>
+    <button class="bottone_conferma" onclick="togglePopupNotifiche()">Visualizza notifiche archiviate</button>
 </div>
 
 <div id="notifiche-Archiviate" class="popup">

@@ -32,7 +32,7 @@
                 @endif
             </div>
             <br>
-            <div  class="wrap-input">
+            <div>
                 {{ Form::label('surname', 'Cognome', ['class' => '']) }}
                 <br>
                 {{ Form::text('surname', '', ['class' => '','id' => 'surname']) }}
@@ -45,8 +45,8 @@
                 @endif
             </div>
             <br>
-            <div class="container-form-btn">                
-                {{ Form::submit('Cerca', ['class' => 'button']) }}
+            <div>                
+                {{ Form::submit('Cerca', ['class' => 'bottone_conferma']) }}
             </div>
             <hr class="spaziaturahr">
             {{ Form::close() }}

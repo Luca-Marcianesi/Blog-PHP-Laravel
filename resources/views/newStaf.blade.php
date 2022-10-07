@@ -94,7 +94,7 @@
 
             <br>
             <div class="container-form-btn">                
-                {{ Form::submit('Aggiungi', ['class' => 'button']) }}
+                {{ Form::submit('Aggiungi', ['class' => 'bottone_conferma']) }}
             </div>
             
             {{ Form::close() }}

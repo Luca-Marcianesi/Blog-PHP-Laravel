@@ -12,7 +12,7 @@
              <div  class="wrap-element-form">
                 {{ Form::label('tema', 'Inserisci il tema del blog', ['class' => 'label-form']) }}
                 <p class="subtitleform">Di cosa parlerà?</p>
-                {{ Form::textarea('tema', '', ['class' => 'input-form','id' => 'tema', 'placeholder'=> 'Tema del blog']) }}
+                {{ Form::text('tema', '', ['class' => 'input-form','id' => 'tema', 'placeholder'=> 'Tema del blog']) }}
                 @if ($errors->first('tema'))
                 <ul class="errors">
                     @foreach ($errors->get('tema') as $message)
@@ -36,7 +36,7 @@
             </div>
             <hr class="spaziaturahr">
             <div class="container-form-button">                
-                {{ Form::submit('Crea', ['class' => 'form-button'])}}
+                {{ Form::submit('Crea', ['class' => 'bottone_conferma'])}}
             </div>
             {{ Form::close() }}
         </div>
