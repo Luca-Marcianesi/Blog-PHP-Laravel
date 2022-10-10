@@ -54,7 +54,7 @@ class userController extends Controller {
         $primoMessaggio->save();
 
 
-        return $this->getMyBlogs();
+        return redirect()->route('myBlogs') ;
 
               
     }

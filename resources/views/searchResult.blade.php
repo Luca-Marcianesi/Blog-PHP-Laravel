@@ -27,6 +27,7 @@
         <p>Non siete amici</p>
         <a class="bottone_conferma" href="{{ route('inviaAmicizia',$user->id) }}" title="richiesta">Invia richiesta</a>
         @endcan()
+        <hr class="spaziaturahr">
     </div>         
     @endforeach
 

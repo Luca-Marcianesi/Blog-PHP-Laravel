@@ -25,8 +25,8 @@ class NewBlogRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'tema' => 'required | string | max:25',
-            'messaggio' => 'required | string | max:255',
+            'tema' => 'required | string',
+            'messaggio' => 'required | string',
         ];
     }
 
