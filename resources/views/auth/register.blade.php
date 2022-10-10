@@ -81,7 +81,7 @@
     <br>
     <br>
     <div class="informazioni-richieste">
-        {{ Form::label('descrizione', 'Chi sei?', ['class' => 'label-input']) }}
+        {{ Form::label('descrizione', 'Chi sei?') }}
         <br>
         {{ Form::textarea('descrizione', '',  ['class' => 'descrizioneparam', 'placeholder' => 'Inserisci delle informazioni su di te', 'maxlength' => 330, 'id' => 'descrizione']) }}
         @if ($errors->first('descrizione'))

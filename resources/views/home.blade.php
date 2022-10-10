@@ -25,7 +25,7 @@
                     </div>
                     @guest
                     <div class="register_option">
-                        <p class="register_button"><a href="{{ route('register') }}" class="highlight" title="Registrati">Registrati subito</a></p>
+                        <p class="register_button"><a href="{{ route('register') }}" title="Registrati">Registrati subito</a></p>
                      </div>
                     @endguest 
                 </div>

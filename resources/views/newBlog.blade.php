@@ -5,11 +5,11 @@
 @section('content')
 <hr class="spaziaturahr">
 <div>
-    <div style="text-align: center">
+        <div style="text-align: center">
             {{ Form::open(array('route' => 'newBlog', 'class' => 'form')) }}
             <h1>Inizia subito un nuovo blog!<h1>
             <hr class="spaziaturahr">
-             <div class="wrap-input">
+            <div>
                 {{ Form::label('tema', 'Inserisci il tema del blog', ['class' => 'label-form']) }}
                 <p class="subtitleform">Di cosa parlerà?</p>
                 <br>
@@ -24,10 +24,10 @@
                 @endif
             </div>
             <hr class="spaziaturahr">
-            <div  class="wrap-element-form">
+            <div class="wrap-element-form">
                 {{ Form::label('messaggio', 'Primo messaggio', ['class' => 'label-form']) }}
                 <p class="subtitleform">Qual'è la tua opinione?</p>
-                {{ Form::textarea('messaggio', '', ['class' => 'input-form','id' => 'messaggio', 'placeholder'=> 'La mia opinone è ...', 'maxlength' => '10']) }}
+                {{ Form::textarea('messaggio', '', ['class' => 'input-form-nuovoBlog','id' => 'messaggio', 'placeholder'=> 'La mia opinone è ...', 'maxlength' => '255']) }}
                 @if ($errors->first('messaggio'))
                 <ul class="errors">
                     @foreach ($errors->get('messaggio') as $message)
@@ -41,8 +41,7 @@
                 {{ Form::submit('Crea', ['class' => 'bottone_conferma'])}}
             </div>
             {{ Form::close() }}
-        </div>
-    </div>    
+        </div>    
 </div>
 
 @endsection

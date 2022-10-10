@@ -27,7 +27,8 @@
     @isset($blogs)
 
     @foreach($blogs as $blog)
-        <div class="tema_blog">Tema: {{$blog->tema}}</div>
+    <div class="contenitoreblog">
+        <p class="tema_blog">Tema: {{$blog->tema}}</p>
         <br>
 
         <div>
@@ -59,8 +60,8 @@
             <a href="{{ route('selezionaAmici',$blog->id) }}"><button class="bottone_conferma">Seleziona amici</button></a>
         </div>
         @endif()
-        <hr class="spaziaturahr">
-                
+    </div>
+    <hr class="spaziaturahr">
     @endforeach
 
     @endif
