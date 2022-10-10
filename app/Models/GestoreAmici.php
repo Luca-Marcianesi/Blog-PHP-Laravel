@@ -10,7 +10,7 @@ class GestoreAmici {
     
    
 
-    public function getAmici($id) {
+    public function getAmici($id, $xpag = 100) {
         
         return Amicizia::where(function ($query) use ($id) {
                                 $query->where('richiedente', $id)
@@ -28,12 +28,20 @@ class GestoreAmici {
                                 })
                         ->select('users.name','users.surname','amicizia.data','users.id as user_id','amicizia.id as amicizia_id')
                         ->orderBy('users.surname')
-                        ->paginate(2);
+                        ->paginate($xpag);
+    }
+
+    public function getRichiesteRicevute($id){
+        return Amicizia::where('destinatario',$id)
+                            ->join('users', 'users.id', '=', 'amicizia.richiedente')
+                            ->select('users.*','amicizia.*')
+                            ->get();
+
     }
 
 
-    public function getRichiesteRicevute(){
-        return Amicizia::where('destinatario',auth()->user()->id)
+    public function getNuoveAmicizie($id){
+        return Amicizia::where('destinatario',$id)
                             ->where('visualizzata',false)
                             ->where('stato',false)
                             ->join('users', 'users.id', '=', 'amicizia.richiedente')

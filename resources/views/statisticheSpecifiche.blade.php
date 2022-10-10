@@ -8,12 +8,22 @@
 
     @isset($utente)
     @isset($amicizie)
+    @isset($numero)
 
-    Le richieste ricevute da {{$utente->name}} {{$utente->surname}} [{{$utente->username}}]
+
+    Le richieste ricevute da {{$utente->name}} {{$utente->surname}} [{{$utente->username}}] :{{$numero}}
+    @endisset()
 
     @foreach($amicizie as $amicizia)
     <div class="main_element">
-        <div >Nome: {{$amicizia->richiedente}} Stato: {{$amicizia->stato}}</div>  
+        <div >Utente: {{$amicizia->name}} {{$amicizia->surname}}</div>
+        <div>
+            @if($amicizia->stato)
+                Amicizia accettata
+            @else
+                Amicizia rifiutata
+            @endif
+        </div>  
     </div>
     @endforeach 
     @endisset() 

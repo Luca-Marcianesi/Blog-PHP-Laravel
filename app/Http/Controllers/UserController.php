@@ -226,11 +226,11 @@ class userController extends Controller {
 
     public function getAmici(){
 
-        $amici = $this->_AmiciModel->getAmici(auth()->user()->id);
+        $amici = $this->_AmiciModel->getAmici(auth()->user()->id,5);
 
         $rifiutate = $this->_AmiciModel->getAmicizieRifiutate();
 
-        $richieste = $this->_AmiciModel->getRichiesteRicevute();
+        $richieste = $this->_AmiciModel->getNuoveAmicizie(auth()->user()->id);
 
 
         return view('listaAmici')

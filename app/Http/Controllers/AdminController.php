@@ -94,16 +94,18 @@ class AdminController extends Controller {
         else{
             if($request->tipo){
 
-                // Richieste di amicizia del membro
+                // Richieste di amicizia ricevute dal membro
                             
                 foreach($utenti as $utente){
                                 
-                    $amicizie = Amicizia::where('destinatario',$utente->id)
-                                    ->get();
+                    $amicizie = $this->_AmiciModel->getRichiesteRicevute($utente->id);
+
+                    $numero = count($amicizie);
 
                     return view('statisticheSpecifiche')
                         ->with('utente',$utente)
-                        ->with('amicizie',$amicizie);
+                        ->with('amicizie',$amicizie)
+                        ->with('numero',$numero);
                     }
             }
             else{

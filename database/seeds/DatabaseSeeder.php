@@ -57,9 +57,10 @@ class DatabaseSeeder extends Seeder {
             ['richiedente' => 7, 'destinatario' => 1,
                 'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
                 'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
-            ['richiedente' => 8, 'destinatario' => 1,
+            ['richiedente' => 1, 'destinatario' => 8,
                 'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
                 'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
+            
         ]);
 
     }
