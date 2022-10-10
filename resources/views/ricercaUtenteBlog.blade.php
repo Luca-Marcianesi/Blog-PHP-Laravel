@@ -4,8 +4,8 @@
 @section('content')
 <hr class="spaziaturahr">
 <div style="text-align: center; font-size: large">
-    In questa pagina, hai la possibilità di cercare le attività degli utenti <br>
-    registrati oppure i blog che sono stati creati!
+    <h2>In questa pagina, hai la possibilità di cercare le attività degli utenti <br>
+    registrati oppure i blog che sono stati creati!</h2>
     <hr class="spaziaturahr">
 
     {{ Form::open(array('route' => ['attivitaUtente'], 'class' => '')) }}
