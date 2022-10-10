@@ -89,7 +89,8 @@
             </div>
             <br> <br>
             <div>
-                <button class="bottone_conferma">Conferma</button></a>
+                <button class="bottone_conferma" style="cursor: pointer">Conferma</button></a>
+                <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaNotifica()">Annulla</button>
             </div>
             
         </div>  
