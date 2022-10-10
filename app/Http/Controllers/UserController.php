@@ -242,7 +242,7 @@ class userController extends Controller {
         $amicizia->visualizzata = true;
         $amicizia->save();
 
-        return $this->getAmici();  
+        return redirect()->route('amici'); 
         }
         
 
