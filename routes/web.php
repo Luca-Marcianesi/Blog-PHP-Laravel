@@ -12,7 +12,8 @@
  */
 Auth::routes();
 
-Route::view('/', 'home')->name('home');
+Route::view('/', 'home')
+        ->name('home');
 
 Route::view('/where', 'where')
         ->name('where');

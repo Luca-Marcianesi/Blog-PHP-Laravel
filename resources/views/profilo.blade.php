@@ -111,11 +111,11 @@ Se desideri modificare i dati del tuo profilo clicca qui sotto!<br>
                 <br>
                 <br>
 
-                <div class="container-form-btn">                
-                    {{ Form::submit('Modifica', ['class' => 'bottone_conferma']) }}
-                </div>
-
+                <div>                
+                {{ Form::submit('Modifica', ['class' => 'bottone_conferma']) }}
                 {{ Form::close() }}
+                <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupProfilo()">Annulla</button>
+                </div>
                 
             </div>
 </div>

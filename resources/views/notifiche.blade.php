@@ -30,6 +30,7 @@
             <br> <br>
             <div>
             <a href="{{ route('eliminaNotifica', $notifica->id) }}"><button class="bottone_conferma">Si</button></a>
+            <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaNotifica()">Annulla</button>
             </div>
         </div>  
     </div>
@@ -64,6 +65,9 @@
                 <br>
             @endforeach
             @endif
+            <div>
+            <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupNotifiche()">Chiudi</button>
+            </div>
         </div>
 </div>
 @endisset()

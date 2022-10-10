@@ -421,6 +421,7 @@ nav ul li a:hover{
 
   .bottone_conferma:hover{
     background:rebeccapurple;
+	color: white
 }
 
   .bottone_conferma:active, .bottone_conferma:focus{

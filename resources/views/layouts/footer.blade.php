@@ -28,5 +28,10 @@
                     che tutti gli utenti del nostro sito seguano queste semplici linee guida che sono la base per 
                     una corretta e rispettosa interazione. Grazie.
                 </p>
+                <br>
+                <br>
+                <div>
+                    <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupNorme()">Chiudi</button>
+                </div>
             </div>
 </div>

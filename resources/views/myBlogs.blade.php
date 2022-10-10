@@ -80,6 +80,7 @@
             <br> <br>
             <div>
             <a href="{{ route('eliminaBlog', $blog->id) }}"><button class="bottone_conferma">Si</button></a>
+            <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaBlog()">Annulla</button>
             </div>
         </div>  
     </div>

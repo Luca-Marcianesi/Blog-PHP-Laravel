@@ -39,6 +39,7 @@
                 <br> <br>
                 <div>
                 <a href="{{ route('eliminaStaf', $s->id) }}"><button class="bottone_conferma">Si</button></a>
+                <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaStaf()">Annulla</button>
                 </div>
             </div>  
         </div>
