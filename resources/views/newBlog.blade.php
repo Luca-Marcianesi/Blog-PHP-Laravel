@@ -9,10 +9,12 @@
             {{ Form::open(array('route' => 'newBlog', 'class' => 'form')) }}
             <h1>Inizia subito un nuovo blog!<h1>
             <hr class="spaziaturahr">
-             <div  class="wrap-element-form">
+             <div class="wrap-input">
                 {{ Form::label('tema', 'Inserisci il tema del blog', ['class' => 'label-form']) }}
                 <p class="subtitleform">Di cosa parlerà?</p>
-                {{ Form::text('tema', '', ['class' => 'input-form','id' => 'tema', 'placeholder'=> 'Tema del blog']) }}
+                <br>
+                <br>
+                {{ Form::text('tema', '', ['id' => 'tema', 'placeholder'=> 'Tema del blog', 'size' => '105', 'maxlength' => '80']) }}
                 @if ($errors->first('tema'))
                 <ul class="errors">
                     @foreach ($errors->get('tema') as $message)
