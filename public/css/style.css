@@ -104,7 +104,7 @@ footer a:visited{
 }
 
 .profilo-blog{
-	
+	font-size: large;
 	text-align: center;
 }
 
@@ -175,93 +175,6 @@ nav ul li a:hover{
 	color: black;
 }
 
-/* User dalla ricerca*/
-
-
-.user{
-	max-width: 40%;
-	background-color: transparent;
-	border-style: groove ;
-	border-color: #353535;
-	border-width: 5px;
-	margin-left: 30%;
-	padding-left: 2px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-
-}
-/* Search */
-
-#search {
-	float: right;
-	width: 230px;
-	padding: 0;
-}
-
-#search form {
-	height: 41px;
-	margin: 0;
-	padding: 70px 0 0 0px;
-}
-
-#search fieldset {
-	margin: 0;
-	padding: 0;
-	border: none;
-}
-
-#search-text {
-	width: 210px;
-	border: none;
-	text-transform: lowercase;
-	font: bold 1.2em Arial, Helvetica, sans-serif;
-	color: #FFFFFF;
-}
-
-#search-submit {
-	display: none;
-}
-
-/* Menu */
-
-#menu {
-	width: 968px;
-	height: 50px;
-	margin: 0 auto;
-	padding: 0;
-}
-
-#menu ul {
-	margin: 0;
-	padding: 0;
-	padding-left: 10px;
-	list-style: none;
-	line-height: normal;
-}
-
-
-
-#menu a {
-	display: block;
-	margin-top: 10px;
-	margin-right: 3px;
-	padding: 7px 20px 7px 20px;
-	text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13px;
-	color: #FFFFFF;
-	border: none;
-}
-
-#menu a.highlight {
-	color: #e88c8c;
-}
-
-
-#menu a:hover {
-	text-decoration: underline;
-}
-
 /* Who */
 .who{
 	font-size: 35px;
@@ -298,15 +211,6 @@ nav ul li a:hover{
 
 /* Forms */
 
-.formerror {
-    background: none repeat scroll 0 0 #FFECEC;
-    border: 3px solid #f93d00;
-    height: auto;
-    margin: 0 0 1px;
-    text-align: center;
-
-}
-
 .errors {
 	color: white;
         font-size: large;
@@ -315,29 +219,6 @@ nav ul li a:hover{
 .errors ul {
 	line-height: 100%;
 }
-
-
-
-/* Calendar */
-
-
-
-#calendar_wrap {
-	padding: 20px;
-}
-
-#calendar table {
-	width: 100%;
-}
-
-#calendar tbody td {
-	text-align: center;
-}
-
-#calendar #next {
-	text-align: right;
-}
-
 
 .tema_blog{
 	margin-left: 40%;
@@ -348,14 +229,6 @@ nav ul li a:hover{
 
 }
 
-.stato_blog{
-	margin-left: 40%;
-	height: 22px;
-	width: 300px;
-	color: black;
-	background-color: rebeccapurple;
-
-}
 
 /* pop up */
 
@@ -410,9 +283,6 @@ nav ul li a:hover{
 	transform: translate(-50%,-50%) scale(1);
 }
 
-
-
-
 /*  my input form */
 
 .wrap-form{
@@ -465,13 +335,6 @@ nav ul li a:hover{
 	resize: none;
 }
 
-
-.container-login-button{
-	margin-left: 50%;
-	text-align: center;
-	max-width: 300px;
-}
-
 .container-form-button{
 	width: 100%;
   	display: flex;
@@ -488,14 +351,6 @@ nav ul li a:hover{
 	cursor: pointer;
 	outline: none;
 	transition: 0.3s;
-}
-
-.form-button-newblog{
-	color: rebeccapurple;
-	font-size: medium;
-	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;
-	
 }
 
 .form h1{

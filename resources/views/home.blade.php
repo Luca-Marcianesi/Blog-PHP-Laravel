@@ -31,7 +31,7 @@
                 </div>
                 
                 <div class="main_element ">
-                    <div style="font-size: large" class="profilo-blog">
+                    <div class="profilo-blog">
                         <h1>Chi può vedere il mio profilo e miei blog?</h1>
                         <p> Normalmente il tuo profilo e i tuoi blog <br>
                             sono visibili da tutti ma, <br>andando nella sezione profilo, <br>
