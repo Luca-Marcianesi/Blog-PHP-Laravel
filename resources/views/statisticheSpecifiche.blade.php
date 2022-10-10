@@ -34,7 +34,7 @@
     
     @endisset() 
     @isset($utentent)
-    <div>Utente  {{$utentent}} non trovato</div>
+    <div>L'Utente {{$utentent}} da te cercato non è stato trovato, riprova!</div>
     @endisset() 
 
     
