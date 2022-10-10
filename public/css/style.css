@@ -5,8 +5,10 @@ Released for free under a Creative Commons Attribution 2.5 License
 */
 :root{
 --color-scritte: white;
---blu: rgb(82,105,254);
+--color-titolo: black;
+--blu: rgb(82, 105, 254);
 --rosa: rgb(217, 175, 255);
+--po: rgb(254,105,82);
 }
 
 *{
@@ -20,7 +22,7 @@ a {
 }
 
 body {
-	background: linear-gradient(-45deg, var(--blu), var(--rosa));
+	background: linear-gradient(-45deg, var(--rosa), var(--po),var(--blu),red);
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;	
 }
@@ -95,6 +97,7 @@ footer a:visited{
 	padding-bottom: 20px;
 }
 
+
 /* sezioni  */
 
 .unisciti{
@@ -113,7 +116,7 @@ footer a:visited{
 }
 
 .cloud-organization{
-	color:rebeccapurple ;
+	color: var(--color-scritte) ;
 	font-size: large;
 	padding-top: 12%;
 	text-align: center;
@@ -165,7 +168,7 @@ nav ul li{
 
 nav ul li a{
 	font-size: 20px;
-	color: white;
+	color: black;
 	text-transform: uppercase;
 	padding: 5px 10px;
 }

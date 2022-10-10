@@ -5,7 +5,7 @@
 @section('content')
 <hr class="spaziaturahr">
 <div>
-    <h1 style="text-align: center">Questa è la lista delle tue amicizie</h1>
+    <h1 class ="prova-titolo" style="text-align: center">Questa è la lista delle tue amicizie</h1>
     <br>
 
     @isset($amici)
@@ -14,8 +14,8 @@
     @else
     @foreach($amici as $amico)
     <div class="main_element" style="text-align: center; font-size: large">
-        <div >Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</div>
-        <div>L'amicizia è stata chiesta il {{$amico->data}}</div>
+        <div class ="prova" >Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</div>
+        <div class ="prova">L'amicizia è stata chiesta il {{$amico->data}}</div>
 
         <div ><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}"><button class="bottone_conferma">Visualizza Profilo</button></a></div>
         <div ><a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}"><button class="bottone_conferma">Elimina Amicizia</button></a></div>
