@@ -4,8 +4,8 @@
 
 @section('content')
 <hr class="spaziaturahr">
-<div>
-    <div class="main_element" style="text-align: center; font-size: large;">
+<div style="text-align: center; font-size: large;">
+    <div class="main_element">
         <h1> Questi sono i tuoi blogs! </h1>
         <hr class="spaziaturahr">
         Ciao {{Auth::user()->name}} {{Auth::user()->surname}}!,<br>
@@ -19,7 +19,7 @@
                         <hr class="spaziaturahr">
                         @if(count($blogs)===0)
                             Attualmente non hai postato nessun blog
-    
+    </div>
 
     
     @else
@@ -45,25 +45,21 @@
                 </ul>
                 @endif
             </div>
-
-            <div class="container-form-btn">                
-                {{ Form::submit('Modifica', ['class' => 'button']) }}
-            </div>
             <br>
+            <div class="container-form-btn">                
+                {{ Form::submit('Modifica', ['class' => 'bottone_conferma']) }}
+            </div>
             {{ Form::close() }}
             <div style="text-align: center; font-size: large">
                 <button class="bottone_conferma" onclick="togglePopupEliminaBlog()">Elimina blog</button>
             </div>
-            <hr class="spaziaturahr">
-       
         </div>
-
         @if(!$blog->stato)
         <div class="container-form-btn">                
-            <a href="{{ route('selezionaAmici',$blog->id) }}" class="highlight" >Seleziona Amici</a>
+            <a href="{{ route('selezionaAmici',$blog->id) }}"><button class="bottone_conferma">Seleziona amici</button></a>
         </div>
         @endif()
-
+        <hr class="spaziaturahr">
                 
     @endforeach
 
@@ -79,7 +75,7 @@
             <h2>Conferma</h1>
             <br>
             <div style="text-align: center; font-size: large">
-                Sei sicuro di voler cancellare questo blog? 
+                Sei sicuro di voler cancellare questo blog?
             </div>
             <br> <br>
             <div>

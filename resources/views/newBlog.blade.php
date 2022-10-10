@@ -27,7 +27,7 @@
             <div  class="wrap-element-form">
                 {{ Form::label('messaggio', 'Primo messaggio', ['class' => 'label-form']) }}
                 <p class="subtitleform">Qual'è la tua opinione?</p>
-                {{ Form::textarea('messaggio', '', ['class' => 'input-form','id' => 'messaggio', 'placeholder'=> 'La mia opinone è ...']) }}
+                {{ Form::textarea('messaggio', '', ['class' => 'input-form','id' => 'messaggio', 'placeholder'=> 'La mia opinone è ...', 'maxlength' => '10']) }}
                 @if ($errors->first('messaggio'))
                 <ul class="errors">
                     @foreach ($errors->get('messaggio') as $message)
