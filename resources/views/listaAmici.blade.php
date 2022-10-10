@@ -22,6 +22,9 @@
         <br>    
     </div>
     @endforeach
+
+    @include('pagination.paginator', ['paginator' => $amici])
+    
     @endif
     @endisset() 
     <hr class="spaziaturahr"> 

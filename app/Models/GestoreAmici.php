@@ -27,7 +27,8 @@ class GestoreAmici {
                                             ->where('users.id', '!=', $id );
                                 })
                         ->select('users.name','users.surname','amicizia.data','users.id as user_id','amicizia.id as amicizia_id')
-                        ->get();
+                        ->orderBy('users.surname')
+                        ->paginate(2);
     }
 
 

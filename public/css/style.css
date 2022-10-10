@@ -284,8 +284,12 @@ nav ul li a:hover{
 	padding: 60px 20px 0 0;
 }
 
+/* paginazione */
+
 #pagination {
 	text-align :center;
+	border-style: groove;
+	border-color: #353535;
 }
 
 #pagination a {
@@ -312,65 +316,7 @@ nav ul li a:hover{
 	line-height: 100%;
 }
 
-/* Sidebar */
 
-#sidebar {
-	float: left;
-	width: 220px;
-	padding: 60px 0 0 20px;
-	color: #787878;
-}
-
-#sidebar ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#sidebar li {
-	margin: 0;
-	padding: 0;
-}
-
-#sidebar li ul {
-	padding-bottom: 30px;
-}
-
-#sidebar li li {
-	line-height: 35px;
-	border-bottom: 1px dashed #D2D4C9;
-}
-
-#sidebar li li span {
-	display: block;
-	margin-top: -20px;
-	padding: 0;
-	font-size: 11px;
-	font-style: italic;
-}
-
-#sidebar h2 {
-	height: 32px;
-	padding: 8px 0 0 30px;
-	background: url(images/img11.gif) no-repeat left top;
-	letter-spacing: -.5px;
-	color: #FFFFFF;
-}
-
-#sidebar p {
-	padding-bottom: 20px;
-	text-align: justify;
-}
-
-#sidebar a {
-	color: #417FDA;
-	border: none;
-}
-
-#sidebar a:hover {
-	text-decoration: underline;
-	color: #787878;
-}
 
 /* Calendar */
 

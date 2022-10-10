@@ -139,7 +139,7 @@ Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
 Route::get('/statistiche','AdminController@getMainStatistiche')
         ->name('statistiche');
 
-Route::post('/statistiche','AdminController@getStatisticheSpecifiche')
+Route::post('/statistiche/utente','AdminController@getStatisticheSpecifiche')
         ->name('statisticheSpecifiche');
 
 //Aggiungi , modifica , elimina staff

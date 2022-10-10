@@ -5,6 +5,7 @@
 @section('content')
 <hr class="spaziaturahr">
 <div style="text-align: center; font-size: large">
+
     @isset($utente)
     @isset($amicizie)
 
@@ -29,6 +30,10 @@
     </div>
     @endforeach 
     @endisset()
+
+    @isset($utentent)
+    <div>Utente  {{$utentent}} non trovato</div>
+    @endisset() 
     @endisset() 
 
     

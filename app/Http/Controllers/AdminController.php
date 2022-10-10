@@ -87,8 +87,9 @@ class AdminController extends Controller {
                             ->get();
 
                             
-        if(empty($utenti)){
-            return view('statisticheSpecifiche');
+        if(count($utenti)== 0){
+            return view('statisticheSpecifiche')
+                ->with('utentent',$request->username);
         }
         else{
             if($request->tipo){

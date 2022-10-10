@@ -11,7 +11,7 @@
     </head>
     <body>
         <nav id="nav">
-            @include('layouts/_navstaf')
+            @include('layouts/_navgestore')
         </nav>
         <hr class="spaziaturahr">
         <div class="main-content">

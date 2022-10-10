@@ -30,7 +30,17 @@ class DatabaseSeeder extends Seeder {
                 'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'pippo'],
             ['name' => 'edo', 'surname' => 'taru', 'email' => 'edo@taru.it', 'username' => 'edoedo',
                 'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'edo'],
+            ['name' => 'diego', 'surname' => 'migna', 'email' => 'diego@migna.it', 'username' => 'diedie',
+                'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'edo'],
+            ['name' => 'fb', 'surname' => 'fb', 'email' => 'fb@michele.it', 'username' => 'fabioblack',
+                'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'edo'],
+            ['name' => 'dio', 'surname' => 'santo', 'email' => 'dio@santo.it', 'username' => 'dioasanto',
+                'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'edo']
+        
         ]);
 
 
@@ -40,7 +50,16 @@ class DatabaseSeeder extends Seeder {
                 'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
             ['richiedente' => 5, 'destinatario' => 1,
                 'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
-                'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")]
+                'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
+            ['richiedente' => 6, 'destinatario' => 1,
+                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
+            ['richiedente' => 7, 'destinatario' => 1,
+                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
+            ['richiedente' => 8, 'destinatario' => 1,
+                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
         ]);
 
     }
