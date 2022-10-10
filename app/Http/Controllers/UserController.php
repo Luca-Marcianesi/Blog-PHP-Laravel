@@ -268,8 +268,12 @@ class userController extends Controller {
         $notifiche = $this->_GestoreNotifiche->getNotifiche();
 
         $archiviate = $this->_GestoreNotifiche->getArchiviate();
+
+        $richiesteAmicizia = $this->_AmiciModel->getNuoveAmicizie(auth()->user()->id);
+        
         
         return view('notifiche')
+                ->with('amicizieRicevute',$richiesteAmicizia)
                 ->with('notifiche', $notifiche)
                 ->with('archiviate', $archiviate);
     }

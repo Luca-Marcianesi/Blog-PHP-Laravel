@@ -3,6 +3,25 @@
 @section('title', 'Notifiche')
 
 @section('content')
+
+@isset($amicizieRicevute)
+@if(count($amicizieRicevute)==0)
+    <div class="main_element" style="text-align: center; font-size: large">
+        <div>Nessuna richiesta di amicizia ricevuta</div>  
+    </div>
+
+    @else
+    @foreach($amicizieRicevute as $amicizia)
+    <div class="main_element" style="text-align:center; font-size: large">
+        <div> {{$amicizia->name}} {{$amicizia->surname}} ha chiesto di entrare nel tuo gruppo di amici</div>
+        <a href="{{ route('rispostaAmicizia',[$amicizia->id,true]) }}" ><button class="bottone_conferma">Accetta</button></a>
+        <a href="{{ route('rispostaAmicizia',[$amicizia->id,false]) }}" > <button class="bottone_conferma">Rifiuta</button> </a>    
+    </div>     
+    @endforeach
+    @endif
+@endisset()
+
+
 @isset($notifiche)
 <hr class="spaziaturahr">
     @if(count($notifiche)===0)
@@ -15,6 +34,8 @@
         <div><button class="bottone_conferma" onclick="togglePopupEliminaNotifica()">Elimina</button></div>
         <div><a href="{{ route('archiviaNotifica',[$notifica->id]) }}"><button class="bottone_conferma">Archivia</button></a></div>
     </div>
+
+
     
 
     <div id="elimina-notifica" class="popup">

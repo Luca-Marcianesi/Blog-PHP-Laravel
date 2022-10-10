@@ -24,29 +24,9 @@
     @endforeach
 
     @include('pagination.paginator', ['paginator' => $amici])
-    
     @endif
-    @endisset() 
-    <hr class="spaziaturahr"> 
-    <div style="text-align: center; font-size: large">Amicizie sospese:
-    </div>
-    
-    @isset($richieste)
-    @if(count($richieste)==0)
-    <div class="main_element" style="text-align: center; font-size: large">
-        <div>Nessuna amicizia sospesa</div>  
-    </div>
-
-    @else
-    @foreach($richieste as $richiesta)
-    <div class="main_element" style="text-align:center; font-size: large">
-        <div> {{$richiesta->name}} {{$richiesta->surname}} ha chiesto di entrare nel tuo gruppo di amici</div>
-        <div><a href="{{ route('rispostaAmicizia',[$richiesta->id,true]) }}" class="highlight" >Accetta</a></div>
-        <div><a href="{{ route('rispostaAmicizia',[$richiesta->id,false]) }}" class="highlight" >Rifiuta</a></div>     
-    </div>     
-    @endforeach
-    @endif
-    @endisset() 
+    @endisset()     
+   
     <hr class="spaziaturahr">
     <div style="text-align: center; font-size: large">Amicizie rifiutate:</div>
 
