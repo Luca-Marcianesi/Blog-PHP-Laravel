@@ -30,7 +30,7 @@ class StatisticheRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'username' => 'max:25',
+            'username' => 'required |string|',
             'tipo' => '',
 
         ];
