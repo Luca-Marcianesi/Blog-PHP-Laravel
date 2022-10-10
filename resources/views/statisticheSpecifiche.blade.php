@@ -19,7 +19,7 @@
         <div >Utente: {{$amicizia->name}} {{$amicizia->surname}}</div>
         <div>
             @if($amicizia->stato)
-                Amicizia
+                Amicizia accettata
             @else
                 Amicizia rifiutata
             @endif
