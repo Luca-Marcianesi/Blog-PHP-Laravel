@@ -10,4 +10,5 @@
         Questa è la pagina home riservata allo staff del sito!<br>
         Nella sezione in alto troverai tutte le funzionalità dedicate a te!
     </div>
+</div>
 @endsection
