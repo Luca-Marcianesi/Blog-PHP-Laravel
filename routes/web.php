@@ -162,7 +162,7 @@ Route::get('/gestioneStaf/modificaStaf/{id}','AdminController@getModificaStaf')
 Route::post('/gestioneStaf/modificaStaf/{id}','AdminController@modificaStaf')
         ->name('modificaStaf')->middleware('can:isAdmin');
 
-Route::view('/ricerca','ricercaAdmin')
+Route::view('/ricerca','ricercaUtenteBlog')
         ->name('ricerca')->middleware('can:isGestore');
 
 
