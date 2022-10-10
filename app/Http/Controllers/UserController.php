@@ -78,7 +78,7 @@ class userController extends Controller {
         $blog = Blog::find($blog);
         $blog->delete();
 
-        return redirect()->route('blog', ['id' => $blog]);
+        return redirect()->route('myBlogs');
     }
 
     public function newPost(NewPostRequest $request , $id){
@@ -226,7 +226,7 @@ class userController extends Controller {
 
     public function getAmici(){
 
-        $amici = $this->_AmiciModel->getAmici(auth()->user()->id,5);
+        $amici = $this->_AmiciModel->getAmici(auth()->user()->id,3);
 
         $rifiutate = $this->_AmiciModel->getAmicizieRifiutate();
 
