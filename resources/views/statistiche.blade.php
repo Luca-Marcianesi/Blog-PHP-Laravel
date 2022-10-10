@@ -16,8 +16,8 @@
     <div>
         {{ Form::open(array('route' => 'statisticheSpecifiche', 'class' => '')) }}
         <div  class="wrap-input">
-                {{ Form::label('username', 'Nome', ['class' => '']) }}<br>
-                {{ Form::text('username', '', ['class' => '','id' => 'username', 'maxlength' => 18]) }}
+                {{ Form::label('username', 'Username', ['class' => '']) }}<br>
+                {{ Form::text('username', '', ['class' => '','id' => 'username', 'maxlength' => 18, 'placeholder' => 'Cerca utente' ]) }}
                 @if ($errors->first('username'))
                 <ul class="errors">
                     @foreach ($errors->get('username') as $message)

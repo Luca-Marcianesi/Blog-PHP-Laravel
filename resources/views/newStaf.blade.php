@@ -81,19 +81,19 @@
             <br>
 
             <div class="informazioni-richieste">
-                {{ Form::label('pass', 'Inserisci la password', ['class' => 'label-input']) }}
+                {{ Form::label('passwordStaf', 'Inserisci la password', ['class' => 'label-input']) }}
                 <br>
-                {{ Form::password('pass', ['placeholder' => 'Inserisci password', 'maxlength' => 18, 'size' => 22, 'id' => 'pass']) }}
-                @if ($errors->first('pass'))
-                    <ul>
-                    @foreach ($errors->get('pass') as $message)
+                {{ Form::password('passwordStaf', ['placeholder' => 'Inserisci password', 'maxlength' => 18, 'size' => 22, 'id' => 'passwordStaf']) }}
+                @if ($errors->first('passwordStaf'))
+                    <ul class="errors">
+                    @foreach ($errors->get('passwordStaf') as $message)
                         <li>{{ $message }}</li>
                     @endforeach
                     </ul>
                 @endif
-             </div>
+            </div>
 
-            <br>
+            <hr class="spaziaturahr">
             <div class="container-form-btn">                
                 {{ Form::submit('Aggiungi', ['class' => 'bottone_conferma']) }}
             </div>

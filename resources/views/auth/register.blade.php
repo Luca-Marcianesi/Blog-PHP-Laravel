@@ -6,7 +6,7 @@
   
 <h1 style="text-align: center">Non sei ancora registrato?</h1>
 <br>
-<h5 style="text-align: center">Registrati subito per connetterti con i tuoi amici e cominciare a dire la tua opinione!</h5>
+<h3 style="text-align: center">Registrati subito per connetterti con i tuoi amici e cominciare a dire la tua opinione!</h3>
     <hr class="spaziaturahr">
     {{ Form::open(array('route' => 'register')) }}
 
@@ -116,7 +116,7 @@
     <br>
     <br>
     <div style="text-align: center" class="container-form-btn">                
-        {{ Form::submit('Registrati') }}
+        {{ Form::submit('Registrati', ['class' => 'bottone_conferma']) }}
     </div>
 
     {{ Form::close() }}
