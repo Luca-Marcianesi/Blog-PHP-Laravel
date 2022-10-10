@@ -46,19 +46,19 @@ class DatabaseSeeder extends Seeder {
 
         DB::table('amicizia')->insert([
             ['richiedente' => 4, 'destinatario' => 1,
-                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'visualizzata' => 1, 'stato' => 1, 'data' => date("Y-m-d H:i:s"),
                 'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
             ['richiedente' => 5, 'destinatario' => 1,
-                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'visualizzata' => 1, 'stato' => 1, 'data' => date("Y-m-d H:i:s"),
                 'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
             ['richiedente' => 6, 'destinatario' => 1,
-                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'visualizzata' => 1, 'stato' => 1, 'data' => date("Y-m-d H:i:s"),
                 'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
             ['richiedente' => 7, 'destinatario' => 1,
-                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'visualizzata' => 1, 'stato' => 1, 'data' => date("Y-m-d H:i:s"),
                 'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
             ['richiedente' => 1, 'destinatario' => 8,
-                'visualizzata' => 1, 'stato' => 1, 'data' => '2022-09-29 17:44:00',
+                'visualizzata' => 1, 'stato' => 1, 'data' => date("Y-m-d H:i:s"),
                 'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")],
             
         ]);
