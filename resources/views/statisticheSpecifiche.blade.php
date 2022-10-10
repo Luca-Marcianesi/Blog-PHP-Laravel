@@ -31,9 +31,10 @@
     @endforeach 
     @endisset()
 
+    
+    @endisset() 
     @isset($utentent)
     <div>Utente  {{$utentent}} non trovato</div>
-    @endisset() 
     @endisset() 
 
     
