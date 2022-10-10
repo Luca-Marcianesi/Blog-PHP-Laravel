@@ -68,14 +68,21 @@ class userController extends Controller {
 
     public function modificaBlog(StatoBlogRequest $request,$id){
         $blog = Blog::find($id);
+        if($blog == null){
+            return redirect()->route('myBlogs');
+        }
+
         $blog->stato = $request->stato;
         $blog->save();
 
-        return $this->getMyBlogs();
+        return redirect()->route('myBlogs');
     }
 
     public function eliminaBlog($blog){
         $blog = Blog::find($blog);
+        if($blog == null){
+            return redirect()->route('myBlogs');
+        }
         $blog->delete();
 
         return redirect()->route('myBlogs');
@@ -128,8 +135,12 @@ class userController extends Controller {
 
     public function getBlog($id){
         $blog = Blog::find($id);
-
-        $proprietario = User::find($blog->proprietario);
+        
+        if($blog == null){
+            return redirect()->route('myBlogs');
+        }
+        else{
+            $proprietario = User::find($blog->proprietario);
 
         $posts = Post::Where('blog',$id)
                     ->join('users', 'users.id', '=', 'post.autore')
@@ -140,6 +151,7 @@ class userController extends Controller {
             ->with('blog',$blog)
             ->with('proprietario',$proprietario)
             ->with('posts',$posts);
+        }
 
     }
 
@@ -200,7 +212,11 @@ class userController extends Controller {
 
     public function eliminaAmico($id_amicizia,$id_user){
         $amicizia =  Amicizia::find($id_amicizia);
-        $amicizia->stato = false; 
+        if($amicizia == null){
+            return redirect()->route('amici');
+        }
+        else{
+            $amicizia->stato = false; 
         $amicizia->visualizzata = true;
         $amicizia->save();
 
@@ -210,17 +226,25 @@ class userController extends Controller {
         $notifica->save();
 
         return $this->getAmici();
+        }
+        
 
     }
     
 
     public function rispostaAmicizia($id,$risposta){
         $amicizia =  Amicizia::find($id);
-        $amicizia->stato = $risposta; 
+        if($amicizia == null ){
+            return redirect()->route('amici');
+        }
+        else{
+          $amicizia->stato = $risposta; 
         $amicizia->visualizzata = true;
         $amicizia->save();
 
-        return $this->getAmici();
+        return $this->getAmici();  
+        }
+        
 
     }
 
