@@ -20,7 +20,7 @@
                 {{ Form::text('username', '', ['class' => '','id' => 'username', 'maxlength' => 18]) }}
                 @if ($errors->first('username'))
                 <ul class="errors">
-                    @foreach ($errors->get('name') as $message)
+                    @foreach ($errors->get('username') as $message)
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>
