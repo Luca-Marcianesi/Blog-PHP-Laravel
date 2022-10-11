@@ -103,12 +103,22 @@ footer a:visited{
 }
 
 .info-anagrafica{
-	margin-left: 39%;
 	margin-top: 15px;
 	color: white;
 	text-align: center;
 	font-size: 20px;
 	max-width: 350px;
+}
+
+.info-biografia{
+	margin-top: 15px;
+	text-align: center;
+	font-size: 20px;
+	max-width: 350px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: black;
+	color: black;
 }
 
 .titolo{
@@ -313,6 +323,18 @@ nav ul li a:hover{
 	border-color: black;
 	color: black; 
 	margin-left: 38%;
+}
+
+.contenitore_anagrafica{
+	margin-left: 38%;
+	min-height: 150px;
+	min-width: 350px;
+	width: fit-content;
+	height: fit-content;
+	border-style: solid;
+	border-width: 4px;
+	border-color: black;
+	color: black; 
 }
 
 

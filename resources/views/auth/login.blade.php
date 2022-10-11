@@ -36,7 +36,7 @@
                 <hr style="height: 10px; border: none; background: none"></hr>
 
                 <div class="form-button">                
-                {{ Form::submit('Login', ['class' => 'bottone_conferma']) }}
+                {{ Form::submit('Login ►', ['class' => 'bottone_conferma']) }}
                 </div>
             </div>
             {{ Form::close() }}
@@ -45,6 +45,6 @@
         <div style="margin-left: 40.3%; text-align: center; height: auto; width: 300px">
             <p class="sotto-titolo"> Non sei ancora registrato? </p>
             <hr style="height: 5px; border: none">
-            <a href="{{ route('register') }}" title="Vai alla pagina di registrazione"><button class="bottone_conferma">Registrati</button></a>
+            <a href="{{ route('register') }}" title="Vai alla pagina di registrazione"><button class="bottone_conferma">Registrati ►</button></a>
         </div>
 @endsection

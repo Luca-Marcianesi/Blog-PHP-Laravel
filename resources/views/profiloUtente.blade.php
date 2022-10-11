@@ -3,24 +3,32 @@
 @section('title', 'Profilo')
 
 @section('content')
-<div>
+<br>
+<br>
+<p class="titolo">Dati anagrafici</p>
+<br>
+<div style="text-align: center; font-size: 18px">
    
 
     @isset($utente)
         
-        <div style="text-align: center; font-size: large">
-            
-            <p class="titolo">Dati anagrafici</p>
+        <div class="contenitore_anagrafica">
             <p class="info-anagrafica">Nome: {{$utente->name}}</p>
             <p class="info-anagrafica">Cognome: {{$utente->surname}}</p>
             <p class="info-anagrafica">E-mail: {{$utente->email}}</p>
             <p class="info-anagrafica">Data di Nascita: {{$utente->data_nascita}}</p>
-            
+            <br>
         </div>
   
-            
-
-        <div class="info-anagrafica"><p>Biografia: </p> <br> <p>{{$utente->descrizione}}</p> </div>
+        <br>
+        <div style="margin-left: 38%" class="info-biografia">
+            <p style="color: white">
+                Biografia: <br>
+            </p>
+            <p style="color: white">
+                {{$utente->descrizione}}
+            </p>
+        </div>
 
         <hr class="spaziaturahr">
         <hr>
