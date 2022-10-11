@@ -3,14 +3,15 @@
 @section('title', 'I Miei Amici')
 
 @section('content')
-<hr class="spaziaturahr">
-<div>
-    <h1 class ="titolo" style="text-align: center">Questa è la lista delle tue amicizie</h1>
+<br>
+<br>
+<div style="text-align: center; font-size: 18px">
+    <p class="titolo">Questa è la lista delle tue amicizie</p>
     <br>
-
+    <br>
     @isset($amici)
     @if(count($amici)===0)
-    <div style="text-align: center; font-size: large">Attualmente la tua lista amici è vuota</div>
+    <div>Attualmente la tua lista amici è vuota</div>
     @else
     @foreach($amici as $amico)
     <div class="main_element" style="text-align: center; font-size: large">
