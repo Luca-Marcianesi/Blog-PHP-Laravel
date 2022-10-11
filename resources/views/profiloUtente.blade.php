@@ -20,7 +20,7 @@
   
             
 
-        <div class="info-anagrafica">Biografia:  <br> {{$utente->descrizione}}</div>
+        <div class="info-anagrafica"><p>Biografia: </p> <br> <p>{{$utente->descrizione}}</p> </div>
 
         <hr class="spaziaturahr">
         <hr>

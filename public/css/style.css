@@ -103,10 +103,12 @@ footer a:visited{
 }
 
 .info-anagrafica{
+	margin-left: 39%;
 	margin-top: 15px;
 	color: white;
 	text-align: center;
 	font-size: 20px;
+	max-width: 350px;
 }
 
 .titolo{
