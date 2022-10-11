@@ -87,7 +87,6 @@ footer a:visited{
 /* elementi della parte main delle pag*/
 
 .main_element{
-	color: var(--color-scritte);
 	padding-top: 20px;	
 }
 
@@ -106,6 +105,7 @@ footer a:visited{
 	text-align: center;
 	font-size: 30px;
 	font-weight:bold ;
+	color: black;
 }
 
 .sotto-titolo{
@@ -127,6 +127,16 @@ footer a:visited{
 	
 	text-align: center;
 	
+}
+
+.blog-link a{
+	color: white;
+	
+}
+
+.blog-link a:visited{
+	color:white
+
 }
 
 .profilo-blog{
@@ -251,6 +261,7 @@ nav ul li a:hover{
 }
 
 .tema_blog{
+	padding-top: 20px;
 	color: white;
 	text-transform: uppercase;
 }
@@ -340,18 +351,10 @@ nav ul li a:hover{
 }
 
 .label-form{
-	
   	font-size: 20px;
   	line-height: 1,5;
-
 }
 
-.subtitleform{
-	margin-left: 15px;
-	font-size: small;
-	color: black;
-
-}
 
 .input-form-login{
 	height: 300px;
