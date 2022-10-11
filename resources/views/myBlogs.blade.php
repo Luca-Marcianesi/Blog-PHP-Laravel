@@ -22,10 +22,10 @@
 
     @if(count($blogs)===0)
 
-        <hr class="spaziaturahr">
-        <p>Attualmente non hai postato nessun blog.</p>
         <br>
-        <p>Iniziane uno nella sezione NUOVO BLOG!</p>
+        <p class="titolo">Attualmente non hai postato nessun blog.</p>
+        <br>
+        <p class="sotto-titolo">Iniziane uno nella sezione NUOVO BLOG!</p>
     
     @else
 
@@ -53,16 +53,16 @@
             </div>
             <br>
             <div class="container-form-btn">                
-                {{ Form::submit('Modifica', ['class' => 'bottone_conferma']) }}
+                {{ Form::submit('Modifica ►', ['class' => 'bottone_conferma']) }}
             </div>
             {{ Form::close() }}
             <div style="text-align: center; font-size: large">
-                <button class="bottone_conferma" onclick="togglePopupEliminaBlog()">Elimina blog</button>
+                <button class="bottone_conferma" onclick="togglePopupEliminaBlog()">Elimina Blog ►</button>
             </div>
         </div>
         @if(!$blog->stato)
         <div class="container-form-btn">                
-            <a href="{{ route('selezionaAmici',$blog->id) }}"><button class="bottone_conferma">Seleziona amici</button></a>
+            <a href="{{ route('selezionaAmici',$blog->id) }}"><button class="bottone_conferma">Seleziona Amici ►</button></a>
         </div>
         @endif()
     </div>

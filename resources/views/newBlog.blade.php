@@ -15,7 +15,7 @@
         
 
         {{ Form::label('tema', 'Inserisci il tema del blog', ['class' => 'label-form']) }}
-        <p class="sotto-titolo">Di cosa parlerà?</p>
+        <p class="sotto-titolo">Di cosa parlerà?</p><br>
         {{ Form::text('tema', '', ['id' => 'tema', 'placeholder'=> 'Tema del blog', 'size' => '105', 'maxlength' => '80']) }}
         @if ($errors->first('tema'))
         <ul class="errors">
@@ -42,7 +42,7 @@
 
     <hr class="spaziaturahr">
     <div class="container-form-button">                
-        {{ Form::submit('Crea', ['class' => 'bottone_conferma'])}}
+        {{ Form::submit('Crea ►', ['class' => 'bottone_conferma'])}}
     </div>
     {{ Form::close() }}
 </div>    

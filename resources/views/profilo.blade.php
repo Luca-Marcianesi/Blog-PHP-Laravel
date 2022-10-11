@@ -3,37 +3,48 @@
 @section('title', 'Profilo')
 
 @section('content')
-<hr class="spaziaturahr">
-<div>
- <div style="text-align: center; font-size: large">
- <h1> Il tuo profilo utente </h1>
- <hr class="spaziaturahr">
-    Benvenuto {{ Auth::user()->name }} {{ Auth::user()->surname}}!<br>
-    <br>
-    Di seguito sono riportati i tuoi dati inseriti in fase di registrazione:<br>
-    <hr class="spaziaturahr"></hr>
-    Nome: {{ Auth::user()->name}}<br>
-    Cognome: {{ Auth::user()->surname}}<br>
-    E-Mail: {{ Auth::user()->email}}<br>
-    Data di nascita: {{ Auth::user()->data_nascita}}<br>
-    <hr class="spaziaturahr">
-    Biografia: {{ Auth::user()->descrizione}}<br>
- </div>
-<hr class="spaziaturahr">
+<br>
+<br>
 <div style="text-align: center; font-size: large">
-Se desideri modificare i dati del tuo profilo clicca qui sotto!<br>
-</div>
-<div style="text-align: center; font-size: large; color: rebeccapurple">
-    <button class="bottone_conferma" onclick="togglePopupProfilo()">Modifica Profilo</button>
-</div>
- <br>
- <div style="text-align: center; font-size: large">
-    @if(Auth::user()->visibilita)
-        Il tuo account è visibile a tutti
-    @else
-         Il tuo account è visibile solo ai tuoi amici
-    @endif()
- </div>
+    <div>
+    <p class="titolo"> Il tuo profilo utente </p>
+    <br>
+    <br>
+        <p class="sotto-titolo">Benvenuto {{ Auth::user()->name }} {{ Auth::user()->surname}}!</p>
+        <div style="text-align: center; font-size: large">
+        @if(Auth::user()->visibilita)
+            <p class="sotto-titolo">Attualmente il tuo account è visibile a tutti.</p><br>
+        @else
+            <p class="sotto-titolo">Attualmente il tuo account è visibile solo ai tuoi amici.</p><br>
+        @endif()
+        </div>
+        <p class="sotto-titolo">Di seguito sono riportati i tuoi dati inseriti in fase di registrazione:</p>
+
+        <hr class="spaziaturahr"></hr>
+
+        <div class="contenitoredatiprofilo">
+            <p class="sotto-titolo">Nome: {{ Auth::user()->name}}</p><br>
+            <p class="sotto-titolo">Cognome: {{ Auth::user()->surname}}</p><br>
+            <p class="sotto-titolo">E-Mail: {{ Auth::user()->email}}</p><br>
+            <p class="sotto-titolo">Data di nascita: {{ Auth::user()->data_nascita}}</p><br>
+            <hr class="spaziaturahr">
+        </div>
+        <hr class="spaziaturahr">
+        <div class="contenitorebiografia">
+            <p style="color: white; text-align: left; font-size: 20px">Biografia: {{ Auth::user()->descrizione}}
+        </div>
+    <br>
+    </div>
+
+    <hr class="spaziaturahr">
+
+    <div style="text-align: center; font-size: large">
+        <p class="titolo">Se desideri modificare i dati del tuo profilo clicca qui sotto!</p>
+    </div>
+    <br>
+    <div style="text-align: center; font-size: large; color: rebeccapurple">
+        <button class="bottone_conferma" onclick="togglePopupProfilo()">Modifica Profilo ►</button>
+    </div>
 </div>
 
 

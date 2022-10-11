@@ -4,10 +4,13 @@
 
 @section('content')
 
+<br>
+<br>
+<p class="titolo"> Questa è la pagina dedicata alle tue notifiche </p>
 @isset($amicizieRicevute)
 @if(count($amicizieRicevute)==0)
     <div class="main_element" style="text-align: center; font-size: large">
-        <div>Nessuna richiesta di amicizia ricevuta</div>  
+        <p class="sotto-titolo">Nessuna richiesta di amicizia ricevuta</p>  
     </div>
 
     @else
@@ -25,7 +28,9 @@
 @isset($notifiche)
 <hr class="spaziaturahr">
     @if(count($notifiche)===0)
-    <div style="text-align: center; font-size: large">Attualmente non hai nessuna notifica</div>
+    <div style="text-align: center; font-size: large">
+        <p class="sotto-titolo">Attualmente non hai nessuna notifica</p>
+    </div>
     @else
     @foreach($notifiche as $notifica)
     <div class="main_element" style="text-align:center; font-size: large">
@@ -62,7 +67,7 @@
 
 @isset($archiviate)
 <div style="text-align: center; font-size: large; color: rebeccapurple">
-    <button class="bottone_conferma" onclick="togglePopupNotifiche()">Visualizza notifiche archiviate</button>
+    <button class="bottone_conferma" onclick="togglePopupNotifiche()">Visualizza notifiche archiviate ►</button>
 </div>
 
 <div id="notifiche-Archiviate" class="popup">
@@ -74,18 +79,19 @@
             <br>
             @if(count($archiviate)===0)
                 <div style="text-align: center; font-size: large;">
-                Attualmente non hai <br> nessuna notifica archiviata
+                    Attualmente non hai <br> nessuna notifica archiviata
                 </div>
             @else
             @foreach($archiviate as $archiviata)
                 <div style="text-align: center; font-size: large">
-                    <h3>Di seguito troverai la lista delle notifiche da te archiviate</h3><br>
+                    <h3>La lista delle notifiche da te archiviate</h3><br>
                     Messaggio: {{$archiviata->messaggio}}
                 </div>
                 <br>
                 <br>
             @endforeach
             @endif
+            <br>
             <div>
             <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupNotifiche()">Chiudi</button>
             </div>

@@ -43,7 +43,7 @@
             </div>
             <br>
             <div>                
-                {{ Form::submit('Cerca', ['class' => 'bottone_conferma']) }}
+                {{ Form::submit('Cerca ►', ['class' => 'bottone_conferma']) }}
             </div>
             {{ Form::close() }}
         </div>

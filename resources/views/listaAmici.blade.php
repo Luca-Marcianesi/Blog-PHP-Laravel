@@ -4,24 +4,27 @@
 
 @section('content')
 <br>
-<br>
 <div style="text-align: center; font-size: 18px">
     <p class="titolo">Questa è la lista delle tue amicizie</p>
     <br>
     <br>
     @isset($amici)
     @if(count($amici)===0)
-    <div>Attualmente la tua lista amici è vuota</div>
+    <br>
+    <p class="sotto-titolo">Attualmente la tua lista amici è vuota</p>
     @else
     @foreach($amici as $amico)
-    <div class="main_element" style="text-align: center; font-size: large">
-        <div class ="prova" >Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</div>
-        <div class ="prova">L'amicizia è stata chiesta il {{$amico->data}}</div>
-
-        <div ><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}"><button class="bottone_conferma">Visualizza Profilo</button></a></div>
-        <div ><a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}"><button class="bottone_conferma">Elimina Amicizia</button></a></div>
+    <div class="contenitoreamici">
+        <p class="sotto-titolo">Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</p>
+        <br>
+        <p style="text-align: center; color: black; font-size: 20px">L'amicizia è stata chiesta il {{$amico->data}}</p>
+        <br>
+        <div ><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}"><button class="bottone_conferma">Visualizza Profilo ►</button></a></div>
+        <div ><a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}"><button class="bottone_conferma">Elimina Amicizia ►</button></a></div>
         <br>    
     </div>
+    <br>
+    <br>
     @endforeach
 
     @include('pagination.paginator', ['paginator' => $amici])
@@ -29,15 +32,17 @@
     @endisset()     
    
     <hr class="spaziaturahr">
-    <div style="text-align: center; font-size: large">Amicizie rifiutate:</div>
+    <p class="titolo">Amicizie rifiutate:</p>
 
     @isset($rifiutate)
     @if(count($rifiutate)===0)
-    <div class="main_element" style="text-align: center; font-size: large"> Nessuna richiesta rifiutata </div>
+    <div class="main_element">
+        <p class="sotto-titolo">Nessuna richiesta rifiutata</p>
+    </div>
     @else
     @foreach($rifiutate as $rifiutata)
-    <div class="main_element" style="text-align: center; font-size: large">
-        <div>{{$rifiutata->name}} {{$rifiutata->surname}}</div>    
+    <div class="main_element">
+        <p class="sotto-titolo">{{$rifiutata->name}} {{$rifiutata->surname}}</p>    
     </div>     
     @endforeach
     @endif
