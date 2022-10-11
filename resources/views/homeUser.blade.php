@@ -6,21 +6,18 @@
 <hr class="spaziaturahr">
 <div>
     <section>
-        <h1 style="text-align: center">Questa è la pagina home della tua area riservata!<br>
+        <p class="titolo">Questa è la pagina home della tua area riservata!</p>
         <br>
-        <h3 style="text-align: center">In questa pagina puoi ricercare i tuoi amici<br>
-        <h3 style="text-align: center">e, attraverso la barra in alto, usufruire di tutte le funzionalità dedicate a te!
-        <br>
+        <p class="sotto-titolo">In questa pagina puoi ricercare i tuoi amici <br>
+            e, attraverso la barra in alto, usufruire di tutte le funzionalità dedicate a te!</p>
         <hr class="spaziaturahr">
-        <hr class="spaziaturahr">
-        <h3 style="text-align: center">Cerca i tuoi amici!<h3>
+        <p class="cosa-fare">Cerca i tuoi amici!</p>
         <hr class="spaziaturahr">
         <div style="text-align: center">
             {{ Form::open(array('route' => 'searchFriends', 'class' => 'contact-form')) }}
             
-      
              <div>
-                {{ Form::label('name', 'Nome', ['class' => '']) }}
+                {{ Form::label('name', 'Nome', ['class' => 'label-form']) }}
                 <br>
                 {{ Form::text('name', '', ['class' => '','id' => 'name']) }}
                 @if ($errors->first('name'))
@@ -33,7 +30,7 @@
             </div>
             <br>
             <div>
-                {{ Form::label('surname', 'Cognome', ['class' => '']) }}
+                {{ Form::label('surname', 'Cognome', ['class' => 'label-form']) }}
                 <br>
                 {{ Form::text('surname', '', ['class' => '','id' => 'surname']) }}
                 @if ($errors->first('surname'))
@@ -48,7 +45,6 @@
             <div>                
                 {{ Form::submit('Cerca', ['class' => 'bottone_conferma']) }}
             </div>
-            <hr class="spaziaturahr">
             {{ Form::close() }}
         </div>
     </section>

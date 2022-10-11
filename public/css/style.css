@@ -8,7 +8,8 @@ Released for free under a Creative Commons Attribution 2.5 License
 --color-titolo: black;
 --blu: rgb(82, 105, 254);
 --rosa: rgb(217, 175, 255);
---po: rgb(254,105,82);
+--arancio: rgb(254,105,82);
+--rosso: rgb(255,100,0);
 }
 
 *{
@@ -22,9 +23,9 @@ a {
 }
 
 body {
-	background: linear-gradient(-45deg, var(--rosa), var(--po),var(--blu),red);
+	background: linear-gradient(-45deg, red,var(--blu));
 	background-size: 400% 400%;
-	animation: gradient 10s ease infinite;	
+	animation: gradient 20s ease infinite;	
 }
 
 @keyframes gradient {
@@ -68,6 +69,10 @@ footer ul li{
 	padding-left: 40px;
 }
 
+footer a{
+	color: rebeccapurple;
+}
+
 footer a:visited{
 	color: white;
 }
@@ -95,6 +100,24 @@ footer a:visited{
 	size: 1rem;
 	padding-top: 20px;
 	padding-bottom: 20px;
+}
+
+.titolo{
+	text-align: center;
+	font-size: 30px;
+	font-weight:bold ;
+}
+
+.sotto-titolo{
+	text-align: center;
+	font-size: 20px;
+	color: white;
+}
+
+.cosa-fare{
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold
 }
 
 
@@ -317,11 +340,10 @@ nav ul li a:hover{
 }
 
 .label-form{
-	font-family: Arial, Helvetica, sans-serif;
+	
   	font-size: 20px;
-  	color: var(--color-scritte);
   	line-height: 1,5;
-	margin-left: 10px;
+
 }
 
 .subtitleform{

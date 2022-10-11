@@ -5,7 +5,7 @@
 @section('content')
 <hr class="spaziaturahr">
 <div>
-    <h1 class ="prova-titolo" style="text-align: center">Questa è la lista delle tue amicizie</h1>
+    <h1 class ="titolo" style="text-align: center">Questa è la lista delle tue amicizie</h1>
     <br>
 
     @isset($amici)
