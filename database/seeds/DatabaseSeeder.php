@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder {
                 'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'edo'],
             ['name' => 'diego', 'surname' => 'migna', 'email' => 'diego@migna.it', 'username' => 'diedie',
                 'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'edo'],
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'ciao mi chiamo diego faccio l universita e vivo in ancona in casa con edoardo tarulli (purtroppo)'],
             ['name' => 'fb', 'surname' => 'fb', 'email' => 'fb@michele.it', 'username' => 'fabioblack',
                 'password' => Hash::make('lucaluca'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'edo'],
