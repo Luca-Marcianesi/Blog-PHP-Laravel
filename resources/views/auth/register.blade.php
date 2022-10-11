@@ -4,14 +4,14 @@
 
 @section('content')
   
-<h1 style="text-align: center">Non sei ancora registrato?</h1>
+<p class="titolo">Non sei ancora registrato?</p>
 <br>
-<h3 style="text-align: center">Registrati subito per connetterti con i tuoi amici e cominciare a dire la tua opinione!</h3>
+<p class="sotto-titolo">Registrati subito per connetterti con i tuoi amici e cominciare a dire la tua opinione!</p>
     <hr class="spaziaturahr">
     {{ Form::open(array('route' => 'register')) }}
 
     <div class="informazioni-richieste">
-        {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
+        {{ Form::label('name', 'Nome', ['class' => 'label-form']) }}
         <br>
         {{ Form::text('name', '', ['placeholder' => 'Inserisci nome', 'maxlength' => 18], ['id' => 'name']) }}
         @if ($errors->first('name'))
@@ -25,7 +25,7 @@
     <br>
     <br>
     <div class="informazioni-richieste">
-        {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
+        {{ Form::label('surname', 'Cognome', ['class' => 'label-form']) }}
         <br>
         {{ Form::text('surname', '', ['placeholder' => 'Inserisci cognome', 'maxlength' => 18], ['id' => 'surname']) }}
         @if ($errors->first('surname'))
@@ -39,7 +39,7 @@
     <br>
     <br>
     <div class="informazioni-richieste">
-        {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
+        {{ Form::label('email', 'Email', ['class' => 'label-form']) }}
         <br>
         {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30], ['id' => 'email']) }}
         @if ($errors->first('email'))
@@ -53,7 +53,7 @@
     <br>
     <br>
     <div class="informazioni-richieste">
-        {{ Form::label('username', 'Username', ['class' => 'label-input']) }}
+        {{ Form::label('username', 'Username', ['class' => 'label-form']) }}
         <br>
         {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 18], ['id' => 'username']) }}
         @if ($errors->first('username'))
@@ -67,7 +67,7 @@
     <br>
     <br>
     <div class="informazioni-richieste">
-        {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-input']) }}
+        {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-form']) }}
         <br>
         {{ Form::date('data_nascita', '', ['id' => 'data_nascita']) }}
         @if ($errors->first('data_nascita'))
@@ -81,7 +81,7 @@
     <br>
     <br>
     <div class="informazioni-richieste">
-        {{ Form::label('descrizione', 'Chi sei?') }}
+        {{ Form::label('descrizione', 'Chi sei?', ['class' => 'label-form']) }}
         <br>
         {{ Form::textarea('descrizione', '',  ['class' => 'descrizioneparam', 'placeholder' => 'Inserisci delle informazioni su di te', 'maxlength' => 330, 'id' => 'descrizione']) }}
         @if ($errors->first('descrizione'))
@@ -95,7 +95,7 @@
     <br>
     <br>
     <div class="informazioni-richieste">
-        {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
+        {{ Form::label('password', 'Password', ['class' => 'label-form']) }}
         <br>
         {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 18], ['id' => 'password']) }}
         @if ($errors->first('password'))
@@ -109,9 +109,9 @@
     <br>
     <br>
     <div class="informazioni-richieste">
-        {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-input']) }}
+        {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-form']) }}
         <br>
-        {{ Form::password('password_confirmation', ['maxlength' => 18], ['id' => 'password-confirm']) }}
+        {{ Form::password('password_confirmation', ['placeholder' => 'Immetti nuovamente', 'maxlength' => 18], ['id' => 'password-confirm']) }}
     </div>
     <br>
     <br>

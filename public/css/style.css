@@ -157,6 +157,14 @@ footer a:visited{
 	width: 690px
 }
 
+.pollicione{
+	margin-top: 2%;
+	margin-left: 5%;
+	height: 450px;
+	width: 550px;
+	float: left;
+}
+
 
 
 .register_button{
@@ -164,7 +172,7 @@ footer a:visited{
 	background-color: black;
 	padding: 0px 30px;
     color: var(--main-color);
-    font-size: 13px;
+    font-size: 18px;
     font-weight: bold;
 	padding-left: 60px;
 	padding-right: 60px;
@@ -217,8 +225,9 @@ nav ul li a:hover{
 
 /* Who */
 .who{
-	font-size: 35px;
+	font-size: 25px;
 	color: white;
+	text-align: center;
 }
 
 
@@ -360,7 +369,6 @@ nav ul li a:hover{
 	height: 300px;
 	display: block;
 	width: 250px;
-  	font-family: Arial, Helvetica, sans-serif;
   	font-size: 18px;
   	color: black;
   	line-height: 1.2;
@@ -422,7 +430,6 @@ nav ul li a:hover{
 /*Css per la form e la pagina di registrazione */
 .informazioni-richieste{
 	text-align: center;
-	font-size: 20px;
 }
 
 .spaziaturahr{
