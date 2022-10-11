@@ -31,7 +31,7 @@
         </div>
 
         <hr class="spaziaturahr">
-        <hr>
+        <hr style="width: 100%; background-color: black; height: 2px; border: none">
 
         <div style="text-align: center; font-size: large">
             @can('isFriend',$utente->id)

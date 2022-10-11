@@ -144,9 +144,7 @@ footer a:visited{
 /* sezioni  */
 
 .unisciti{
-	
-	text-align: center;
-	
+	text-align: center;	
 }
 
 .blog-link a{
@@ -169,8 +167,8 @@ footer a:visited{
 }
 
 .cloud-organization{
-	color: var(--color-scritte) ;
-	font-size: large;
+	color: var(--color-scritte);
+	font-size: 20px;
 	padding-top: 12%;
 	text-align: center;
 	height: 360px;
