@@ -3,9 +3,12 @@
 @section('title', 'Risultati')
 
 @section('content')
-<div>
+<br>
+<br>
+<p class="titolo">I risultati della tua ricerca:</p>
+<hr class="spaziaturahr">
+<div style="text-align: center; font-size: 18px">
    
-
     @isset($users)
 
     @if(count($users)== 0)
@@ -13,7 +16,7 @@
     @endif
 
     @foreach($users as $user)
-    <div class="user" style=" font-size: large; text-align: center">
+    <div class="contenitore_utenti_cercati">
         <div class="">Nome: {{$user->name}}</div><br>
         <div class="">Cognome: {{$user->surname}}</div><br>
         @can('isFriend',$user->id)
@@ -22,13 +25,15 @@
         <div class="">Data di nascita: {{$user->data_nascita}}</div><br>
         <div class="">Bio: {{$user->descrizione}}</div><br>
 
-        <p>Siete amici<br><br><a class="bottone_conferma" href="{{ route('visualizzaProfilo', [$user->id])}}">Visualizza profilo</a></p>
+        <p class="sotto-titolo">Siete amici<br><br><a href="{{ route('visualizzaProfilo', [$user->id])}}"><button class="bottone_conferma">Visualizza profilo ►</button></a></p><br>
         @else
-        <p>Non siete amici</p>
-        <a class="bottone_conferma" href="{{ route('inviaAmicizia',$user->id) }}" title="richiesta">Invia richiesta</a>
+        <p class="sotto-titolo">Non siete amici</p><br>
+        <a href="{{ route('inviaAmicizia',$user->id) }}" title="richiesta"><button class="bottone_conferma">Invia richiesta ►</button></a>
         @endcan()
-        <hr class="spaziaturahr">
-    </div>         
+        <br>
+        <br>
+    </div>
+    <hr class="spaziaturahr">         
     @endforeach
 
     @endisset()
