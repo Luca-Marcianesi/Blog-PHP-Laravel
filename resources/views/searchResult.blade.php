@@ -35,6 +35,8 @@
     <hr class="spaziaturahr">         
     @endforeach
 
+    @include('pagination.paginator', ['paginator' => $users])
+
     @endisset()
     
     

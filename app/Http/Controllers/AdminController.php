@@ -66,7 +66,7 @@ class AdminController extends Controller {
 
     public function getStaf(){
         $staf = User::where('role','staf')
-                    ->get();
+                    ->paginate(5);
 
         return view('gestioneStaf')
                 ->with('staf',$staf);

@@ -125,7 +125,7 @@ class userController extends Controller {
 
        
                             }})                               
-                            ->get();
+                            ->paginate(3);
         
         return view('searchResult')
             ->with('users', $users);
