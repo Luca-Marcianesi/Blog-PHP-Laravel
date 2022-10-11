@@ -220,6 +220,11 @@ nav ul li a:hover{
 	text-align: center;
 }
 
+/* Where */
+.where{
+	text-align: center;
+}
+
 
 
 /* Static */
@@ -274,6 +279,19 @@ nav ul li a:hover{
 	border-color: black;
 	color: black; 
 	margin-left: 34%;
+}
+
+.contenitore_utenti_cercati{
+	padding-top: 2%;
+	min-height: 150px;
+	min-width: 350px;
+	width: fit-content;
+	height: fit-content;
+	border-style: solid;
+	border-width: 4px;
+	border-color: black;
+	color: black; 
+	margin-left: 38%;
 }
 
 
