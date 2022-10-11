@@ -6,19 +6,32 @@
 @section('content')
 @isset($blog)
 @isset($proprietario)
-@isset($posts)
-<div>
-    <div>Proprietario del blog: {{$proprietario->name}} {{$proprietario->surname}}</div>
-    <div>Tema:{{$blog->tema}}</div>
+
+<div style="text-align: center;">
+    <p class="titolo">Informazioni generali</p>
+    <hr class="spaziaturahr">
+    <p>Proprietario del blog: {{$proprietario->name}} {{$proprietario->surname}}</p>
+    <a href=""><button class="bottone_conferma">Visualizza profilo (non collegato)</button></a>
+    <p>Tema:{{$blog->tema}}</p>
 </div>
 
-<div>
-    @foreach($posts as $post)
-    <div>Autore: {{$post->name}} {{$post->surname}} </div>
-    <div>Data:{{$post->data}}</div>
-    <div>Contenuto:{{$post->testo}}</div>
+<hr class="spaziaturahr">
 
+<p class="titolo">Posts</p>
+
+<div style="text-align: center;">
+    @isset($posts)
+    @foreach($posts as $post)
+    <div class="contenitorepost">
+        <p class="sotto-titolo">Autore: {{$post->name}} {{$post->surname}} </p>
+        <p class="sotto-titolo">Data:{{$post->data}}</p>
+        <p class="sotto-titolo">Contenuto:{{$post->testo}}</p>
+    </div>
+    <hr class="spaziaturahr">
     @endforeach
+    @endisset()
+</div>
+
     @can('isFriend',$proprietario->id)
     <div class="wrap-form">
             {{ Form::open(array('route' => ['newPost', $blog->id], 'class' => 'contact-form')) }}
@@ -44,7 +57,14 @@
         </div>
     @endcan
 </div>
+
+@endisset() 
 @endisset()
-@endisset()
-@endisset()
+
+@isset($blognt)
+<div>
+    <p class="titolo">Il blog con ID = {{$blognt}} non esiste</p>
+    <p class="sotto-titolo"><a  href="{{ route('ricerca') }}">Torna alla pagina di ricerca</a></p>
+</div>
+@endisset
 @endsection
