@@ -34,33 +34,7 @@
             @foreach($blogs as $blog)
             <div class="contenitoreblog">
                 <p class="tema_blog">Tema: {{$blog->tema}}</p>
-                <br>
-
-                <div>
-                    {{ Form::open(array('route' => ['modificaBlog',$blog->id], 'class' => '')) }}
-                    <div  class="wrap-input">
-                        {{ Form::label('stato', 'Visibilità', ['class' => 'label-input']) }}
-                        {{ Form::select('stato',['0' => 'Solo amici selezionati','1' => 'Tutti gli amici'], $blog->stato, ['class' => 'input','id' => 'stato']) }}
-                        @if ($errors->first('stato'))
-                        <ul class="errors">
-                            @foreach ($errors->get('stato') as $message)
-                            <li>{{ $message }}</li>
-                            @endforeach
-                        </ul>
-                        @endif
-                    </div>
-                    <br>
-                    <div class="container-form-btn">                
-                        {{ Form::submit('Modifica', ['class' => 'bottone_conferma']) }}
-                    </div>
-                    {{ Form::close() }}
-                    <br>
-                    <div style="text-align: center; font-size: large">
-                        <a href="{{ route('blog',$blog->id) }}"><button class="bottone_conferma">Visualizza Blog</button></a>
-                        <button class="bottone_conferma" onclick="togglePopupEliminaBlog()">Elimina blog</button>
-                    </div>
-                </div>
-                
+                <br>             
                 
 
             <div  class="wrap-input">
@@ -80,11 +54,12 @@
             </div>
             {{ Form::close() }}
             <div style="text-align: center; font-size: large">
+                <a href="{{ route('blog',$blog->id) }}"><button class="bottone_conferma">Visualizza Blog ►</button></a> 
                 <button class="bottone_conferma" onclick="togglePopupEliminaBlog()">Elimina Blog ►</button>
             </div>
         </div>
         @if(!$blog->stato)
-        <div class="container-form-btn">                
+        <div class="container-form-btn">            
             <a href="{{ route('selezionaAmici',$blog->id) }}"><button class="bottone_conferma">Seleziona Amici ►</button></a>
         </div>
         @endif()
