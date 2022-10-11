@@ -3,24 +3,29 @@
 @section('title', 'I Miei Blog')
 
 @section('content')
-<hr class="spaziaturahr">
 <div style="text-align: center; font-size: large;">
     <div class="main_element">
-        <h1> Questi sono i tuoi blogs! </h1>
-        <hr class="spaziaturahr">
-        Ciao {{Auth::user()->name}} {{Auth::user()->surname}}!,<br>
+        <p class="titolo">Questi sono i tuoi blogs!</p>
+
+        <p class="sotto-titolo"> Ciao {{Auth::user()->name}} {{Auth::user()->surname}}!,<br>
+       
         il tuo account è @if(Auth::user()->visibility())
                             pubblico
                         @else
                             privato 
                         @endif() <br>
                         Di seguito è riportata la lista di tutti i tuoi blog e il relativo tema!
-                        Potrai inoltre modificare la visibilità di ognuno di loro.
+                        Potrai inoltre modificare la visibilità di ognuno di loro.</p>
                         <hr class="spaziaturahr">
-                        @if(count($blogs)===0)
-                            Attualmente non hai postato nessun blog
     </div>
 
+
+    @if(count($blogs)===0)
+
+        <hr class="spaziaturahr">
+        <p>Attualmente non hai postato nessun blog.</p>
+        <br>
+        <p>Iniziane uno nella sezione NUOVO BLOG!</p>
     
     @else
 
@@ -64,26 +69,24 @@
     <hr class="spaziaturahr">
     @endforeach
 
-    @endif
-    </div>
-
-
     <div id="elimina-blog" class="popup">
-        <div class="overlay"></div>
-        <div class="content">
-            <div class="close-btn" onclick="togglePopupEliminaBlog()">&times;</div>
-            <br>
-            <h2>Conferma</h1>
-            <br>
-            <div style="text-align: center; font-size: large">
-                Sei sicuro di voler cancellare questo blog?
-            </div>
-            <br> <br>
-            <div>
-            <a href="{{ route('eliminaBlog', $blog->id) }}"><button class="bottone_conferma">Si</button></a>
-            <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaBlog()">Annulla</button>
-            </div>
-        </div>  
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopupEliminaBlog()">&times;</div>
+                <br>
+                <h2>Conferma</h1>
+                <br>
+                <div style="text-align: center; font-size: large">
+                    Sei sicuro di voler cancellare questo blog?
+                </div>
+                <br> <br>
+                <div>
+                <a href="{{ route('eliminaBlog', $blog->id) }}"><button class="bottone_conferma">Si</button></a>
+                <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaBlog()">Annulla</button>
+                </div>
+            </div>  
+        </div>
+    @endif
     </div>
     @endisset()
 </div>
