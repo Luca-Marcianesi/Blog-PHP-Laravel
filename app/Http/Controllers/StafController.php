@@ -88,7 +88,7 @@ class StafController extends Controller {
                     ->select('users.*','post.*')
                     ->get();
 
-        return view('blogStaf')
+        return view('gestioneBlog')
                 ->with('blog',$blog)
                 ->with('proprietario',$proprietario)
                 ->with('posts',$posts);
@@ -97,7 +97,8 @@ class StafController extends Controller {
         
         
         else{
-            return view('homeStaf');
+            return view('gestioneBlog')
+                    ->with('blognt',$request->idBlog);
         }
             
         

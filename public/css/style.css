@@ -310,6 +310,19 @@ nav ul li a:hover{
 	margin-left: 34%;
 }
 
+.contenitorepost{
+
+	min-height: 100px;
+	min-width: 300px;
+	width: fit-content;
+	height: fit-content;
+	border-style: solid;
+	border-width: 4px;
+	border-color: black;
+	color: black; 
+	margin-left: 41%;
+}
+
 .contenitore_utenti_cercati{
 	padding-top: 2%;
 	min-height: 150px;
