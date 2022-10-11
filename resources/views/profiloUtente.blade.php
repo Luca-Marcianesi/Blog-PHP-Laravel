@@ -7,21 +7,27 @@
    
 
     @isset($utente)
-        <div class="main_element" style="text-align: center; font-size: large">
+        
+        <div style="text-align: center; font-size: large">
             
             <p class="titolo">Dati anagrafici</p>
+            <p class="info-anagrafica">Nome: {{$utente->name}}</p>
+            <p class="info-anagrafica">Cognome: {{$utente->surname}}</p>
+            <p class="info-anagrafica">E-mail: {{$utente->email}}</p>
+            <p class="info-anagrafica">Data di Nascita: {{$utente->data_nascita}}</p>
             
-            <div >Nome: {{$utente->name}}</div><br>
-            <div>Cognome: {{$utente->surname}}</div><br>
-            <div>E-mail: {{$utente->email}}</div><br>
-            <div>Data di Nascita: {{$utente->data_nascita}}</div><br>
-            <div>Biografia: {{$utente->descrizione}}</div>
         </div>
+  
+            
+
+        <div class="info-anagrafica">Biografia:  <br> {{$utente->descrizione}}</div>
 
         <hr class="spaziaturahr">
+        <hr>
 
         <div style="text-align: center; font-size: large">
             @can('isFriend',$utente->id)
+                <hr class="spaziaturahr">
 
                 <p class="sotto-titolo">Attualmente siete amici</p>
             
@@ -36,7 +42,7 @@
                     
                     @foreach($blogs as $blog)
                         <div class="blog-link">
-                            <a href="{{ route('blog',$blog->id) }}" >Tema: {{$blog->tema}}</a> 
+                            <a href="{{ route('blog',$blog->id) }}" ><button class="bottone_conferma"> Tema: {{$blog->tema}} ►</button</a> 
                         </div>
                         <hr class="spaziaturahr">
                         
