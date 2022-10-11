@@ -23,7 +23,6 @@
         <div class="">Email: {{$user->email}}</div><br>
         <div class="">Username: {{$user->username}}</div><br>
         <div class="">Data di nascita: {{$user->data_nascita}}</div><br>
-        <div class="">Bio: {{$user->descrizione}}</div><br>
 
         <p class="sotto-titolo">Siete amici<br><br><a href="{{ route('visualizzaProfilo', [$user->id])}}"><button class="bottone_conferma">Visualizza profilo ►</button></a></p><br>
         @else
