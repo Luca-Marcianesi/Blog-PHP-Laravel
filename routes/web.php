@@ -80,7 +80,7 @@ Route::post('/blog/modificaBlog/{id}','UserController@modificaBlog')
 Route::get('/blog/selezionaAmici/{id}', 'UserController@selezionaAmici')
         ->name('selezionaAmici');
 
-Route::get('/blog/eliminaBlog/{blog}', 'UserController@eliminaBlog')
+Route::post('/blog/eliminaBlog', 'UserController@eliminaBlog')
         ->name('eliminaBlog');
 
 Route::get('/blog/accesso/{blogId}/{userId}/{stato}', 'UserController@setAccesso')

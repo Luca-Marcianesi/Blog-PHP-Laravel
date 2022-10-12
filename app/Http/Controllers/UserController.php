@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\NewBlogRequest;
 
 use App\Http\Requests\NewSearchRequest;
+use App\Http\Requests\BlogID;
 use App\Http\Requests\NewPostRequest;
 use App\Http\Requests\ProfiloRequest;
 use App\Http\Requests\StatoBlogRequest;
@@ -61,7 +62,7 @@ class userController extends Controller {
 
     public function getMyBlogs(){
         $blogs = Blog::where('proprietario',auth()->user()->id)->get();
-        return view('myBlogs')
+        return view('provaEliminazione')
             ->with('blogs', $blogs);
 
     }
@@ -78,14 +79,13 @@ class userController extends Controller {
         return redirect()->route('myBlogs');
     }
 
-    public function eliminaBlog($blog){
-        $blog = Blog::find($blog);
-        if($blog == null){
-            return redirect()->route('myBlogs');
-        }
+    public function eliminaBlog(BlogID $blogid){
+
+
+        $blog = Blog::find($blogid->id);
         $blog->delete();
 
-        return redirect()->route('myBlogs');
+        return response()->json(['redirect' => route('myBlogs')]);
     }
 
     public function newPost(NewPostRequest $request , $id){
