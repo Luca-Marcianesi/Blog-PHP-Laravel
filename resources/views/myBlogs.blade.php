@@ -32,60 +32,89 @@
         @isset($blogs)
 
             @foreach($blogs as $blog)
-            <div class="contenitoreblog">
-                <p class="tema_blog">Tema: {{$blog->tema}}</p>
-                <br>             
-                
-
-            <div  class="wrap-input">
-                {{ Form::label('stato', 'Visibilità', ['class' => 'label-input']) }}
-                {{ Form::select('stato',['0' => 'Solo amici selezionati','1' => 'Tutti gli amici'], $blog->stato, ['class' => 'input','id' => 'stato']) }}
-                @if ($errors->first('stato'))
-                <ul class="errors">
-                    @foreach ($errors->get('stato') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-            <br>
-            <div class="container-form-btn">                
-                {{ Form::submit('Modifica ►', ['class' => 'bottone_conferma']) }}
-            </div>
-            {{ Form::close() }}
-            <div style="text-align: center; font-size: large">
-                <a href="{{ route('blog',$blog->id) }}"><button class="bottone_conferma">Visualizza Blog ►</button></a> 
-                <button class="bottone_conferma" onclick="togglePopupEliminaBlog()">Elimina Blog ►</button>
-            </div>
-        </div>
-        @if(!$blog->stato)
-        <div class="container-form-btn">            
-            <a href="{{ route('selezionaAmici',$blog->id) }}"><button class="bottone_conferma">Seleziona Amici ►</button></a>
-        </div>
-        @endif()
-    </div>
-    <hr class="spaziaturahr">
-    @endforeach
-    
-            <div id="elimina-blog" class="popup">
-                <div class="overlay"></div>
-                <div class="content">
-                    <div class="close-btn" onclick="togglePopupEliminaBlog()">&times;</div>
+                <div class="contenitoreblog">
+                    <p class="tema_blog">Tema: {{$blog->tema}}</p>
                     <br>
-                    <h2>Conferma</h1>
+                    {{ Form::open(array('route' => ['modificaBlog',$blog->id], 'class' => '')) }}          
+                    <div  class="wrap-input">
+                        {{ Form::label('stato', 'Visibilità', ['class' => 'label-input']) }}
+                        {{ Form::select('stato',['0' => 'Solo amici selezionati','1' => 'Tutti gli amici'], $blog->stato, ['class' => 'input','id' => 'stato']) }}
+                        @if ($errors->first('stato'))
+                        <ul class="errors">
+                            @foreach ($errors->get('stato') as $message)
+                            <li>{{ $message }}</li>
+                            @endforeach
+                        </ul>
+                        @endif
+                    </div>
                     <br>
+                    <div class="container-form-btn">                
+                        {{ Form::submit('Modifica ►', ['class' => 'bottone_conferma']) }}
+                    </div>
+                    {{ Form::close() }}
                     <div style="text-align: center; font-size: large">
-                        Sei sicuro di voler cancellare questo blog?
+                        <a href="{{ route('blog',$blog->id) }}"><button class="bottone_conferma">Visualizza Blog ►</button></a>
+                        <button class='delete btn btn-danger' id='del_<?= $blog->id ?>' data-id='<?= $blog->id?>' >Elimina</button>
                     </div>
-                    <br> <br>
-                    <div>
-                        <a href="{{ route('eliminaBlog', $blog->id) }}"><button class="bottone_conferma">Si</button></a>
-                        <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaBlog()">Annulla</button>
-                    </div>
-                </div>  
-            </div>
+                
+                    @if(!$blog->stato)
+                        <div class="container-form-btn">            
+                            <a href="{{ route('selezionaAmici',$blog->id) }}"><button class="bottone_conferma">Seleziona Amici ►</button></a>
+                        </div>
+                    @endif()
+                </div>
+                <hr class="spaziaturahr">
+            @endforeach
         @endisset()
-    @endif
+    @endif()
 </div>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+    });
+
+    $(document).ready(function () {
+
+        // Delete 
+        $('.delete').click(function () {
+            var el = this;
+
+            // Delete id
+            var deleteid = $(this).data('id');
+
+            // Confirm box
+            bootbox.confirm("Sei sicuro di voler eliminare il blog?", function (result) {
+
+                if (result) {
+                    // AJAX Request
+                    $.ajax({
+                        
+                        url: "{{ route('eliminaBlog') }}",
+                        type: 'POST',
+                        data: {id: deleteid},
+                        dataType: "json",
+                        error: function (data) {
+                            
+                                bootbox.alert("blog non eliminato");  
+                            
+        
+                        },
+                        success: function (response) {
+                            bootbox.alert("successo");
+                            window.location.replace(response.redirect);
+
+                        }
+                        
+                    });
+                }
+
+            });
+
+        });
+    });
+</script>
 
 @endsection

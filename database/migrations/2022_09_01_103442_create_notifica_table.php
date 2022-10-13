@@ -20,7 +20,7 @@ class CreateNotificaTable extends Migration
             $table->integer('mittente')->nullable();
             $table->string('messaggio')->nullable();
             $table->boolean('visualizzata')->default(false);
-            $table->datetime('data')->default(Carbon::now());
+            $table->datetime('data');
             $table->timestamps();
         });
     }
