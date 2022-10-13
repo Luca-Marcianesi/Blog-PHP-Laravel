@@ -103,7 +103,6 @@
         
                         },
                         success: function (response) {
-                            bootbox.alert("successo");
                             window.location.replace(response.redirect);
 
                         }
