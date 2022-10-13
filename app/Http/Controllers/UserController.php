@@ -52,6 +52,7 @@ class userController extends Controller {
         $primoMessaggio->autore = auth()->user()->id;
         $primoMessaggio->blog = $blog->id;
         $primoMessaggio->testo = $request->messaggio;
+        $primoMessaggio->data = date("Y-m-d");
         $primoMessaggio->save();
 
 
@@ -62,7 +63,7 @@ class userController extends Controller {
 
     public function getMyBlogs(){
         $blogs = Blog::where('proprietario',auth()->user()->id)->get();
-        return view('provaEliminazione')
+        return view('myBlogs')
             ->with('blogs', $blogs);
 
     }
@@ -93,6 +94,7 @@ class userController extends Controller {
         $post->autore = auth()->user()->id;
         $post->blog = $id;
         $post->testo = $request->testo;
+        $post->data = date("Y-m-d");
         $post->save();
 
         $this->_GestoreBlog->sedNotifiche($id);
@@ -194,6 +196,7 @@ class userController extends Controller {
             $amicizia = new Amicizia;
             $amicizia->richiedente = auth()->user()->id;
             $amicizia->destinatario = $id;
+            $amicizia->data = date("Y-m-d");
             $amicizia->save();
         }
         
@@ -202,6 +205,7 @@ class userController extends Controller {
             $amicizia = new Amicizia;
             $amicizia->richiedente = auth()->user()->id;
             $amicizia->destinatario = $id;
+            $amicizia->data = date("Y-m-d");
             $amicizia->save();
         }
 
@@ -223,6 +227,7 @@ class userController extends Controller {
         $notifica = new Notifica;
         $notifica->messaggio = auth()->user()->name . " " . auth()->user()->surname . " " . " non è più tuo amico";
         $notifica->destinatario = $id_user;
+        $notifica->data = date("Y-m-d");
         $notifica->save();
 
         return $this->getAmici();
