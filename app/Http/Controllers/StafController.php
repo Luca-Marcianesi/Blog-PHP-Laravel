@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewBlogRequest;
+use App\Http\Requests\MotivoRequest;
 use App\Http\Requests\NewSearchRequest;
 use App\Http\Requests\NewPostRequest;
 use App\Http\Requests\ProfiloRequest;

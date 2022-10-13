@@ -15,6 +15,28 @@
     <p>Tema:{{$blog->tema}}</p>
 </div>
 
+<div>
+{{ Form::open(array('route' => ['eliminaBlogGestore',$blog->id], 'class' => '')) }}          
+    <div  class="wrap-input">
+        {{ Form::label('motivo', 'Visibilità', ['class' => 'label-input']) }}
+        {{ Form::text('stato',['0' => 'Solo amici selezionati','1' => 'Tutti gli amici'], $blog->stato, ['class' => 'input','id' => 'stato']) }}
+        @if ($errors->first('stato'))
+        <ul class="errors">
+            @foreach ($errors->get('stato') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+        @endif
+    </div>
+    <br>
+    <div class="container-form-btn">                
+        {{ Form::submit('Modifica ►', ['class' => 'bottone_conferma']) }}
+    </div>
+    {{ Form::close() }}
+</div>
+
+
+
 <hr class="spaziaturahr">
 
 <p class="titolo">Posts</p>

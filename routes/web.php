@@ -171,6 +171,9 @@ Route::view('/ricerca','ricercaUtenteBlog')
 
 // Staf e admin routes
 
+Route::post('/ricerca/eliminaBlog/{$id}','StafController@deleteBlog')
+        ->name('eliminaBlogGestore')->middleware('can:isGestore');
+
 
 
 Route::post('/utente','StafController@visualizzaUtente')

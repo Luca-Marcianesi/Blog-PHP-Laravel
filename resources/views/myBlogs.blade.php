@@ -54,7 +54,7 @@
                     {{ Form::close() }}
                     <div style="text-align: center; font-size: large">
                         <a href="{{ route('blog',$blog->id) }}"><button class="bottone_conferma">Visualizza Blog ►</button></a>
-                        <button class='delete btn btn-danger' id='del_<?= $blog->id ?>' data-id='<?= $blog->id?>' >Elimina</button>
+                        <button class='bottone_elimina' id='del_<?= $blog->id ?>' data-id='<?= $blog->id?>' >Elimina</button>
                     </div>
                 
                     @if(!$blog->stato)
@@ -79,7 +79,7 @@
     $(document).ready(function () {
 
         // Delete 
-        $('.delete').click(function () {
+        $('.bottone_elimina').click(function () {
             var el = this;
 
             // Delete id
