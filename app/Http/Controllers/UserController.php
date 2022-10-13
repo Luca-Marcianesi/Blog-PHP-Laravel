@@ -139,21 +139,27 @@ class userController extends Controller {
     }
 
     public function getProfilo($id){
-        $utente = User::find($id);
+        $utente = User::find($id)
+                    ->join('amicizia', function ($join) {
+                            $join->on('users.id', '=', 'amicizia.destinatario')
+                                    ->where('users.id', '!=',auth()->user()->id )
+                                    ->orOn('users.id', '=', 'amicizia.richiedente')
+                                    ->where('users.id', '!=',auth()->user()->id );
+                            })
+                            ->select('users.*','amicizia.id as amicizia_id')
+                            ->get();
         $blogs = Blog::where('proprietario',$id)
                     ->leftJoin('accesso', 'accesso.blog', '=', 'blog.id')
                     ->where('stato',true)
                     ->orWhere('utente',auth()->user()->id)
                     ->select('blog.*')
                     ->get();
-        $amicizia = $this->_AmiciModel->getAmicizia($id);
-        $idAmicizia = $amicizia->first->id;
+       
         
 
             return view('profiloUtente')
                 ->with('utente',$utente)
-                ->with('blogs',$blogs)
-                ->with('amicizia',$idAmicizia);
+                ->with('blogs',$blogs);
 
 
         
