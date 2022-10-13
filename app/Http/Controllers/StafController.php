@@ -66,15 +66,12 @@ class StafController extends Controller {
                         ->select('blog.*','post.*')
                         ->get();
 
-        if($this->middleware('can:isAdmin')){
-            return view('attivitaUtente')
+       
+        return view('attivitaUtente')
                 ->with('user',$utente)
                 ->with('blogs',$blogs)
                 ->with('posts',$posts);
-        }
-        else{
-            return view('who');
-        }
+        
         
     }
 
