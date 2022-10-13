@@ -146,10 +146,13 @@ class userController extends Controller {
                     ->orWhere('utente',auth()->user()->id)
                     ->select('blog.*')
                     ->get();
+        $amicizia = $this->_AmiciModel->getAmicizia($id);
+        
 
             return view('profiloUtente')
                 ->with('utente',$utente)
-                ->with('blogs',$blogs);
+                ->with('blogs',$blogs)
+                ->with('amicizia',$amicizia);
 
 
         
