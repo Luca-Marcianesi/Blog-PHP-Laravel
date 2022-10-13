@@ -146,8 +146,10 @@ class userController extends Controller {
                                     ->orOn('users.id', '=', 'amicizia.richiedente')
                                     ->where('users.id', '!=',auth()->user()->id );
                             })
-                            ->select('users.*','amicizia.id as amicizia_id')
+                            ->select('users.name','users.surname','users.email','users.data_nascita','users.descrizione','amicizia.id as amicizia_id')
                             ->get();
+
+
         $blogs = Blog::where('proprietario',$id)
                     ->leftJoin('accesso', 'accesso.blog', '=', 'blog.id')
                     ->where('stato',true)
