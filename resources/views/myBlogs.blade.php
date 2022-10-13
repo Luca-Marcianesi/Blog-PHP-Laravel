@@ -93,7 +93,7 @@
                     $.ajax({
                         
                         url: "{{ route('eliminaBlog') }}",
-                        type: 'POST',
+                        type: 'GET',
                         data: {id: deleteid},
                         dataType: "json",
                         error: function (data) {
