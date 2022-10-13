@@ -124,7 +124,7 @@ footer a:visited{
 .titolo{
 	text-align: center;
 	font-size: 30px;
-	font-weight:bold ;
+	font-weight: bold;
 	color: black;
 }
 
@@ -299,6 +299,7 @@ nav ul li a:hover{
 }
 
 .contenitoreblog{
+	overflow: auto;
 	min-height: 250px;
 	min-width: 500px;
 	width: fit-content;
@@ -311,7 +312,7 @@ nav ul li a:hover{
 }
 
 .contenitorepost{
-
+	overflow: auto;
 	min-height: 100px;
 	min-width: 300px;
 	width: fit-content;
@@ -324,6 +325,7 @@ nav ul li a:hover{
 }
 
 .contenitore_utenti_cercati{
+	overflow: auto;
 	padding-top: 2%;
 	min-height: 150px;
 	min-width: 350px;
@@ -337,6 +339,7 @@ nav ul li a:hover{
 }
 
 .contenitore_anagrafica{
+	overflow: auto;
 	margin-left: 38%;
 	min-height: 150px;
 	min-width: 350px;
@@ -349,6 +352,7 @@ nav ul li a:hover{
 }
 
 .contenitoreamici{
+	overflow: auto;
 	margin-left: 38%;
 	padding-top: 1%;
 	min-height: 150px;
@@ -362,6 +366,7 @@ nav ul li a:hover{
 }
 
 .contenitoredatiprofilo{
+	overflow: auto;
 	margin-left: 39%;
 	padding-top: 2%;
 	min-height: 220px;
@@ -375,8 +380,9 @@ nav ul li a:hover{
 }
 
 .contenitorebiografia{
+	overflow: auto;
 	text-align: left;
-	margin-left: 31%;
+	margin-left: 24%;
 	border-style: solid;
 	border-width: 4px;
 	border-color: black;
@@ -384,6 +390,27 @@ nav ul li a:hover{
 	min-width: auto;
 	width: fit-content;
 	min-height: auto;
+}
+
+.contenitoreProprietarioBlog{
+	overflow: auto;
+	overflow: auto;
+	text-align: center;
+	border-style: solid;
+	width: 500px;
+	height: 60px;
+	border-width: 4px;
+	border-color:black;
+	margin-left: 33.5%;
+}
+
+.contenitoreDatiPosts{
+	overflow: auto;
+	padding-top: 1%;
+	text-align: center;
+	border-style: solid;
+	border-width: 4px;
+	border-color:black;
 }
 
 
@@ -401,7 +428,7 @@ nav ul li a:hover{
 }
 
 .popup .content{
-	position: absolute;
+	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%) scale(0);
@@ -590,4 +617,33 @@ nav ul li a:hover{
 
   .bottone_conferma:active, .bottone_conferma:focus{
     background:rgb(169, 80, 217);
+}
+
+
+.bottone_elimina{
+	display:inline-block;
+    padding:0.6em 1em;
+    border:none;
+    margin:0.2em 0.1em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:"arial";
+    font-weight:300;
+    color:white;
+    border-radius:3em;
+    text-align:center;
+    transition: 0.1s;
+    background:red;
+    cursor:pointer;
+    font-weight:bold;
+    letter-spacing: 0.05em;
+}
+
+	.bottone_elimina:hover{
+		background:rgb(164, 0, 0);
+		color: white
+}
+
+	.bottone_elimina:active, .bottone_elimina:focus{
+		background:rgb(169, 80, 217);
 }

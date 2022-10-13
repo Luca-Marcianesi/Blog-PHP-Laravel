@@ -19,12 +19,41 @@
         <br>
         <p style="text-align: center; color: black; font-size: 20px">L'amicizia è stata chiesta il {{$amico->data}}</p>
         <br>
-        <div ><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}"><button class="bottone_conferma">Visualizza Profilo ►</button></a></div>
-        <div ><a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}"><button class="bottone_conferma">Elimina Amicizia ►</button></a></div>
+        <div><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}"><button class="bottone_conferma">Visualizza Profilo ►</button></a></div>
+        <div><button class="bottone_conferma" onclick="togglePopupEliminaAmico()">Elimina Amicizia ►</button></div>
         <br>    
     </div>
     <br>
     <br>
+
+    <div id="elimina-amico" class="popup">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopupEliminaAmico()">&times;</div>
+            <br>
+            <h2>Conferma</h1>
+            <br>
+            <div style="text-align: center; font-size: large">
+                Sei sicuro di voler eliminare "{{$amico->name}} {{$amico->surname}}" dai tuoi amici?"
+            </div>
+            <br> <br>
+            <div>
+                <a href="{{ route('eliminaAmico',[$amico->amicizia_id,$amico->user_id]) }}"><button class="bottone_conferma">Si</button></a>
+                <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaAmico()">Annulla</button>
+            </div>
+        </div>  
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     @endforeach
 
     @include('pagination.paginator', ['paginator' => $amici])
