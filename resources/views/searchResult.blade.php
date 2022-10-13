@@ -38,19 +38,8 @@
                 </div>
                 <hr class="spaziaturahr">         
             @endforeach
-
-<<<<<<< HEAD
-        <p style="text-align: center; font-size: 20px; color: black">Siete amici<br><br><a href="{{ route('visualizzaProfilo', [$user->id])}}"><button title="Visualizza il profilo di questo utente" class="bottone_conferma">Visualizza profilo ►</button></a></p><br>
-        @else
-        <p class="sotto-titolo">Non siete amici</p><br>
-        <a href="{{ route('inviaAmicizia',$user->id) }}" title="Invia la richiesta di amicizia"><button class="bottone_conferma">Invia richiesta ►</button></a>
-        @endcan()
-        <br>
-        <br>
-=======
         @endisset()
         
         
->>>>>>> 48fb5805064c656dd7fe4aaff5068e7a1c8a99fa
     </div>
 @endsection
