@@ -7,26 +7,35 @@
 @isset($blog)
 @isset($proprietario)
 @isset($posts)
-<hr class="spaziaturahr">
-<div style="text-align: center; font-size: large">
-    <div>Proprietario del blog: {{$proprietario->name}} {{$proprietario->surname}}</div>
-    <div>Tema:{{$blog->tema}}</div>
+<br>
+<p class="titolo"> Le caratteristiche del blog selezionato: </p>
+<br>
+<br>
+<div class="contenitoreProprietarioBlog">
+    <p class="sotto-titolo">Proprietario del blog: {{$proprietario->name}} {{$proprietario->surname}}</p>
+    <p class="sotto-titolo">Tema:{{$blog->tema}}</p>
 </div>
+<br>
+<br>
+<p class="titolo"> Di seguito sono elencati tutti i post fatti sul blog selezionato: </p>
+<br>
+<br>
 
-<div>
+<div style="margin-left: 27%; width: 700px;	height: 400px;" class="contenitoreDatiPosts">
     @foreach($posts as $post)
-    <div>Autore: {{$post->name}} {{$post->surname}} </div>
-    <div>Data:{{$post->data}}</div>
-    <div>Contenuto:{{$post->testo}}</div>
-
+    <p class="sotto-titolo">Autore: {{$post->name}} {{$post->surname}} </p>
+    <p class="sotto-titolo">Data:{{$post->data}}</p>
+    <p class="sotto-titolo">Contenuto:{{$post->testo}}</p>
+    <br>
     @endforeach
     @can('isFriend',$proprietario->id)
-    <div class="wrap-form">
+    <div style="text-align: center">
             {{ Form::open(array('route' => ['newPost', $blog->id], 'class' => 'contact-form')) }}
-            
-             <div  class="wrap-input">
-                {{ Form::label('testo', 'Cosa ne Pensi?', ['class' => 'label-input']) }}
-                {{ Form::text('testo', '', ['class' => 'input','id' => 'testo']) }}
+
+            <div>
+                {{ Form::label('testo', 'Cosa ne Pensi?', ['class' => 'label-form']) }}
+                <br>
+                {{ Form::text('testo', '', ['size' => '55'], ['class' => 'input','id' => 'testo']) }}
                 @if ($errors->first('testo'))
                 <ul class="errors">
                     @foreach ($errors->get('testo') as $message)
@@ -35,14 +44,15 @@
                 </ul>
                 @endif
             </div>
-            
-            
+            <br>
             <div class="container-form-btn">                
-                {{ Form::submit('Pubblica post', ['class' => 'button']) }}
-            </div>
+                {{ Form::submit('Pubblica post ►', ['class' => 'bottone_conferma']) }}
             
+            </div>
+            <br>
+            <br>           
             {{ Form::close() }}
-        </div>
+    </div>
     @endcan
 </div>
 @endisset()

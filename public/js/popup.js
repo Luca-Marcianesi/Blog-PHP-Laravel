@@ -25,3 +25,7 @@ function togglePopupEliminaStaf(){
 function togglePopupModificaStaf(){
     document.getElementById("modifica-staf").classList.toggle("active")
 }
+
+function togglePopupEliminaAmico(){
+    document.getElementById("elimina-amico").classList.toggle("active")
+}
