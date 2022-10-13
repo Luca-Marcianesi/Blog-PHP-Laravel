@@ -138,11 +138,13 @@ class userController extends Controller {
 
     }
 
-    public function getAmico($idAmico,$idAmicizia){
-        $utente = User::find($id);
+    public function getProfiloAmico($idAmico,$idAmicizia){
+        
+
+        $utente = User::find($idAmico);
 
 
-        $blogs = Blog::where('proprietario',$id)
+        $blogs = Blog::where('proprietario',$idAmico)
                     ->leftJoin('accesso', 'accesso.blog', '=', 'blog.id')
                     ->where('stato',true)
                     ->orWhere('utente',auth()->user()->id)
@@ -151,7 +153,7 @@ class userController extends Controller {
        
         
 
-            return view('prova')
+            return view('profiloUtente')
                 ->with('utente',$utente)
                 ->with('blogs',$blogs)
                 ->with('amicizia',$idAmicizia);
@@ -170,12 +172,14 @@ class userController extends Controller {
                     ->orWhere('utente',auth()->user()->id)
                     ->select('blog.*')
                     ->get();
-       
         
-
-            return view('profiloUtente')
+       
+             return view('profiloUtente')
                 ->with('utente',$utente)
                 ->with('blogs',$blogs);
+        
+
+           
 
 
         

@@ -18,7 +18,8 @@
                         <br>
                         <p>L'amicizia è stata chiesta il {{$amico->data}}</p>
                         <br>
-                        <div><a href="{{ route('amico',[$amico->user_id, $amico->amicizia_id]) }}"><button class="bottone_conferma">Visualizza Profilo ►</button></a></div>
+                        <a href="{{ route('getAmico',[$amico->user_id, $amico->amicizia_id]) }}" >Profilo</a>
+                    
                         <br>    
                     </div>
                     <br>

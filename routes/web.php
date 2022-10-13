@@ -102,8 +102,8 @@ Route::get('/notifiche/archivia/{notifica}','UserController@archiviaNotifica')
 Route::get('/amici','UserController@getAmici')
         ->name('amici')->middleware('can:isUser');
 
-Route::get('/amici/amico/{$idAmico}/{$idAmicizia}','UserController@getAmico')
-        ->name('amico')->middleware('can:isUser');
+Route::get('/amico/{idamico}/{idamicizia}','UserController@getProfiloAmico')
+                ->name('getAmico');
 
 Route::post('/amici/elimina','UserController@eliminaAmico')
         ->name('eliminaAmico');
@@ -184,6 +184,9 @@ Route::post('/utente','StafController@visualizzaUtente')
 
 Route::post('/blog','StafController@visualizzaBlog')
         ->name('cercaBlog');
+
+
+
 
 
 

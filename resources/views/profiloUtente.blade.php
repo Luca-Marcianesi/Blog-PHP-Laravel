@@ -38,6 +38,7 @@
                 <p class="sotto-titolo">Attualmente siete amici</p>
                 @isset($amicizia)
                 <button class="bottone_elimina" id='del_<?= $utente->id?>' data-user='<?= $utente->id?>' data-amicizia='<?= $amicizia?>'>Elimina amico</button>
+
                 @endisset()
                 <br>
                 <hr style="width: 100%; background-color: black; height: 2px; border: none">
@@ -91,23 +92,23 @@
             var el = this;
 
             // Delete id
-            var amiciziauser = $(this).data('user');
             var amiciziaid = $(this).data('amicizia');
+            var userid = $(this).data('user');
 
             // Confirm box
-            bootbox.confirm("Sei sicuro di voler eliminare questo amico?" function (result) {
+            bootbox.confirm("Sei sicuro di voler eliminare l'amico?", function (result) {
 
                 if (result) {
                     // AJAX Request
                     $.ajax({
                         
                         url: "{{ route('eliminaAmico') }}",
-                        type: 'GET',
-                        data: {id_user: amiciziauser, id_amicizia: amiciziaid},
+                        type: 'POST',
+                        data: {id_amicizia: amiciziaid ,id_user : userid},
                         dataType: "json",
                         error: function (data) {
-                            
-                                bootbox.alert(" " + data.status);  
+
+                                bootbox.alert("amico non eliminato"+data.status);  
                             
         
                         },

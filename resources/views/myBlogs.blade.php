@@ -94,12 +94,12 @@
                     $.ajax({
                         
                         url: "{{ route('eliminaBlog') }}",
-                        type: 'GET',
+                        type: 'POST',
                         data: {id: deleteid},
                         dataType: "json",
                         error: function (data) {
-                            
-                                bootbox.alert("blog non eliminato");  
+
+                                bootbox.alert("blog non eliminato"+data.status);  
                             
         
                         },
