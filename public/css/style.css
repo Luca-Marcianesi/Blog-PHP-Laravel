@@ -641,7 +641,7 @@ nav ul li a:hover{
 
 	.bottone_elimina:hover{
 		background:rgb(164, 0, 0);
-		color: white
+		color: white;
 }
 
 	.bottone_elimina:active, .bottone_elimina:focus{
