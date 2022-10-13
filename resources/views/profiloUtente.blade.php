@@ -34,10 +34,13 @@
 
         <div style="text-align: center; font-size: large">
             @can('isFriend',$utente->id)
-                <br>
-
+                
                 <p class="sotto-titolo">Attualmente siete amici</p>
-                <br> 
+                @isset($amicizia)
+                <button class="bottone_elimina" id='del_<?= $utente->id?>' data-user='<?= $utente->id?>' data-amicizia='<?= $amicizia?>'>Elimina amico</button>
+                @endisset()
+                <br>
+                <hr style="width: 100%; background-color: black; height: 2px; border: none">
                 @isset($blogs)
 
                     @if(@count($blogs)===0)
@@ -71,7 +74,7 @@
                 </p>
             @endcan
         </div>
-    @endisset()  
+    @endisset()
 </div>
 
 <script>
@@ -92,7 +95,7 @@
             var amiciziaid = $(this).data('amicizia');
 
             // Confirm box
-            bootbox.confirm("Sei sicuro di voler questo amico?", function (result) {
+            bootbox.confirm("Sei sicuro di voler eliminare questo amico?" function (result) {
 
                 if (result) {
                     // AJAX Request
@@ -100,11 +103,11 @@
                         
                         url: "{{ route('eliminaAmico') }}",
                         type: 'GET',
-                        data: {user:},
+                        data: {id_user: amiciziauser, id_amicizia: amiciziaid},
                         dataType: "json",
                         error: function (data) {
                             
-                                bootbox.alert("amico non eliminato");  
+                                bootbox.alert(" " + data.status);  
                             
         
                         },
@@ -121,5 +124,5 @@
         });
     });
 </script>
-
+ 
 @endsection

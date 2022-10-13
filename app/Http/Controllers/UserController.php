@@ -151,7 +151,7 @@ class userController extends Controller {
        
         
 
-            return view('profiloUtente')
+            return view('prova')
                 ->with('utente',$utente)
                 ->with('blogs',$blogs)
                 ->with('amicizia',$idAmicizia);

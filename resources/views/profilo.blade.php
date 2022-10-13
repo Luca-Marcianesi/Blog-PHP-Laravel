@@ -23,15 +23,15 @@
         <hr class="spaziaturahr"></hr>
 
         <div class="contenitoredatiprofilo">
-            <p class="sotto-titolo">Nome: {{ Auth::user()->name}}</p><br>
-            <p class="sotto-titolo">Cognome: {{ Auth::user()->surname}}</p><br>
-            <p class="sotto-titolo">E-Mail: {{ Auth::user()->email}}</p><br>
-            <p class="sotto-titolo">Data di nascita: {{ Auth::user()->data_nascita}}</p><br>
+            <p>Nome: {{ Auth::user()->name}}</p><br>
+            <p>Cognome: {{ Auth::user()->surname}}</p><br>
+            <p>E-Mail: {{ Auth::user()->email}}</p><br>
+            <p>Data di nascita: {{ Auth::user()->data_nascita}}</p><br>
             <hr class="spaziaturahr">
         </div>
         <hr class="spaziaturahr">
         <div class="contenitorebiografia">
-            <p style="color: white; text-align: left; font-size: 20px">Biografia: {{ Auth::user()->descrizione}}
+            <p>Biografia: {{ Auth::user()->descrizione}}
         </div>
     <br>
     </div>

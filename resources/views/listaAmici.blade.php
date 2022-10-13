@@ -14,11 +14,11 @@
             @else
                 @foreach($amici as $amico)
                     <div class="contenitoreamici">
-                        <p class="sotto-titolo">Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</p>
+                        <p>Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</p>
                         <br>
-                        <p style="text-align: center; color: black; font-size: 20px">L'amicizia è stata chiesta il {{$amico->data}}</p>
+                        <p>L'amicizia è stata chiesta il {{$amico->data}}</p>
                         <br>
-                        <div><a href="{{ route('visualizzaProfilo',[$amico->user_id]) }}"><button class="bottone_conferma">Visualizza Profilo ►</button></a></div>
+                        <div><a href="{{ route('amico',[$amico->user_id, $amico->amicizia_id]) }}"><button class="bottone_conferma">Visualizza Profilo ►</button></a></div>
                         <br>    
                     </div>
                     <br>

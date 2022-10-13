@@ -362,6 +362,8 @@ nav ul li a:hover{
 }
 
 .contenitoreamici{
+	background-color: white;
+	font-size: 20px;
 	overflow: auto;
 	margin-left: 38%;
 	padding-top: 1%;
@@ -376,6 +378,8 @@ nav ul li a:hover{
 }
 
 .contenitoredatiprofilo{
+	font-size: 20px;
+	background-color: white;
 	overflow: auto;
 	margin-left: 39%;
 	padding-top: 2%;
@@ -390,6 +394,7 @@ nav ul li a:hover{
 }
 
 .contenitorebiografia{
+	font-size: 20px;
 	background-color: white;
 	overflow: auto;
 	text-align: left;
