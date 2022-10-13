@@ -215,7 +215,7 @@ class userController extends Controller {
         $notifica->data = date("Y-m-d");
         $notifica->save();
 
-        return $this->getAmici();
+        return response()->json(['redirect' => route('amici')]);
         }
         
 
