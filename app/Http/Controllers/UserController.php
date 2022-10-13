@@ -19,6 +19,7 @@ use App\Models\Resources\Amicizia;
 use App\Models\GestoreAmici;
 use App\Models\GestoreBlog;
 use App\Models\GestoreNotifiche;
+use App\Models\GestoreRicerca;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -27,6 +28,7 @@ class userController extends Controller {
     protected $_AmiciModel;
     protected $_GestoreBlog;
     protected $_GestoreNotifiche;
+    protected $_RicercaModel;
 
 
     public function __construct() {
@@ -34,6 +36,7 @@ class userController extends Controller {
         $this->_AmiciModel = new GestoreAmici;
         $this->_GestoreBlog= new GestoreBlog;
         $this->_GestoreNotifiche = new GestoreNotifiche;
+        $this->_RicercaModel = new GestoreRicerca;
     }
 
     public function index() {
@@ -104,30 +107,7 @@ class userController extends Controller {
     }
 
     public function searchFriends(NewSearchRequest $request){
-        $users = User::where('role','user')
-                        ->where('id','!=',auth()->user()->id)
-                        ->where(function ($query) use ($request) {
-                            if (!empty($request->name)) {
-                               if(substr($request->name, -1) == '*'){
-                                    $name = rtrim($request->name, "*");
-                                    $query->orWhere('name','like',$name.'%'); 
-                                    }
-                                else{
-                                    $query->where('name', $request->name);
-                                    }
-                            }
-                            if (!empty($request->surname)) {
-                                if(substr($request->surname, -1) == '*'){
-                                    $surname = rtrim($request->surname, "*");
-                                    $query->orWhere('surname','like',$surname.'%'); 
-                                }
-                                else{
-                                    $query->where('surname', $request->surname);
-                                }
-
-       
-                            }})                               
-                            ->paginate(3);
+       $users = $this->_RicercaModel->cercaAmici(auth()->user()->id,$request->name , $request->surname ,  3);
         
         return view('searchResult')
             ->with('users', $users);

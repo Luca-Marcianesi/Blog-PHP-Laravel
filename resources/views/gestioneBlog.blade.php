@@ -16,13 +16,13 @@
 </div>
 
 <div>
-{{ Form::open(array('route' => ['eliminaBlogGestore',$blog->id], 'class' => '')) }}          
+{{ Form::open(array('route' => ['eliminaBlogGestore',$blog->id], 'id'=>'eliminablog','class' => '')) }}          
     <div  class="wrap-input">
         {{ Form::label('motivo', 'Visibilità', ['class' => 'label-input']) }}
-        {{ Form::text('stato',['0' => 'Solo amici selezionati','1' => 'Tutti gli amici'], $blog->stato, ['class' => 'input','id' => 'stato']) }}
-        @if ($errors->first('stato'))
+        {{ Form::text('motivo', '', ['id' => 'motivo', 'placeholder'=> 'Motivazione', 'size' => '105', 'maxlength' => '80']) }}
+        @if ($errors->first('motivo'))
         <ul class="errors">
-            @foreach ($errors->get('stato') as $message)
+            @foreach ($errors->get('motivo') as $message)
             <li>{{ $message }}</li>
             @endforeach
         </ul>
@@ -60,31 +60,6 @@
 
     @endisset()
 </div>
-
-    @can('isFriend',$proprietario->id)
-    <div class="wrap-form">
-            {{ Form::open(array('route' => ['newPost', $blog->id], 'class' => 'contact-form')) }}
-            
-             <div  class="wrap-input">
-                {{ Form::label('testo', 'Cosa ne Pensi?', ['class' => 'label-input']) }}
-                {{ Form::text('testo', '', ['class' => 'input','id' => 'testo']) }}
-                @if ($errors->first('testo'))
-                <ul class="errors">
-                    @foreach ($errors->get('testo') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-            
-            
-            <div class="container-form-btn">                
-                {{ Form::submit('Pubblica post', ['class' => 'button']) }}
-            </div>
-            
-            {{ Form::close() }}
-        </div>
-    @endcan
 </div>
 
 @endisset() 
@@ -96,4 +71,55 @@
     <p class="sotto-titolo"><a  href="{{ route('ricerca') }}">Torna alla pagina di ricerca</a></p>
 </div>
 @endisset
+
+
+<script>
+    $.ajaxSetup({
+        headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+    });
+
+    $(document).ready(function () {
+
+        
+
+        var form = new FormData(document.getElementById('eliminablog'));
+
+        // Delete 
+        $('.bottone_elimina').click(function () {
+
+            var form = new FormData(document.getElementById(formId));
+            
+
+            // Confirm box
+            bootbox.confirm("Sei sicuro di voler eliminare il blog?", function (result) {
+
+                if (result) {
+                    // AJAX Request
+                    $.ajax({
+                        
+                        url: "{{ route('eliminaBlog') }}",
+                        type: 'GET',
+                        data: {id: deleteid},
+                        dataType: "json",
+                        error: function (data) {
+                            
+                                bootbox.alert("blog non eliminato");  
+                            
+        
+                        },
+                        success: function (response) {
+                            window.location.replace(response.redirect);
+
+                        }
+                        
+                    });
+                }
+
+            });
+
+        });
+    });
+</script>
 @endsection
