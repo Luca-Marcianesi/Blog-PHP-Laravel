@@ -106,13 +106,15 @@ footer a:visited{
 
 .info-anagrafica{
 	margin-top: 15px;
-	color: white;
+	color: black;
 	text-align: center;
 	font-size: 20px;
 	max-width: 350px;
 }
 
 .info-biografia{
+	margin-left: 38.5%;
+	background-color: white;
 	margin-top: 15px;
 	text-align: center;
 	font-size: 20px;
@@ -331,6 +333,7 @@ nav ul li a:hover{
 }
 
 .contenitore_utenti_cercati{
+	background-color: white;
 	overflow: auto;
 	padding-top: 2%;
 	min-height: 150px;
@@ -345,8 +348,9 @@ nav ul li a:hover{
 }
 
 .contenitore_anagrafica{
+	background-color: white;
 	overflow: auto;
-	margin-left: 38%;
+	margin-left: 38.5%;
 	min-height: 150px;
 	min-width: 350px;
 	width: fit-content;
@@ -386,9 +390,10 @@ nav ul li a:hover{
 }
 
 .contenitorebiografia{
+	background-color: white;
 	overflow: auto;
 	text-align: left;
-	margin-left: 24%;
+	margin-left: 25%;
 	border-style: solid;
 	border-width: 4px;
 	border-color: black;
@@ -607,19 +612,19 @@ nav ul li a:hover{
     text-decoration:none;
     font-family:"arial";
     font-weight:300;
-    color:rgb(100, 46, 170);
+    color:white;
     border-radius:3em;
     text-align:center;
     transition: 0.1s;
-    background:#FDFDFD;
+    background:rgb(100, 46, 170);
     cursor:pointer;
     font-weight:bold;
     letter-spacing: 0.05em;
 }
 
   .bottone_conferma:hover{
-    background:rebeccapurple;
-	color: white
+    background:rgb(153, 51, 151);
+	color: white;
 }
 
   .bottone_conferma:active, .bottone_conferma:focus{
