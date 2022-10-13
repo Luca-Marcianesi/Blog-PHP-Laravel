@@ -147,12 +147,13 @@ class userController extends Controller {
                     ->select('blog.*')
                     ->get();
         $amicizia = $this->_AmiciModel->getAmicizia($id);
+        $idAmicizia = $amicizia->first->id;
         
 
             return view('profiloUtente')
                 ->with('utente',$utente)
                 ->with('blogs',$blogs)
-                ->with('amicizia',$amicizia);
+                ->with('amicizia',$idAmicizia);
 
 
         
