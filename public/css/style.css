@@ -124,7 +124,7 @@ footer a:visited{
 .titolo{
 	text-align: center;
 	font-size: 30px;
-	font-weight:bold ;
+	font-weight: bold;
 	color: black;
 }
 
@@ -617,4 +617,33 @@ nav ul li a:hover{
 
   .bottone_conferma:active, .bottone_conferma:focus{
     background:rgb(169, 80, 217);
+}
+
+
+.bottone_elimina{
+	display:inline-block;
+    padding:0.6em 1em;
+    border:none;
+    margin:0.2em 0.1em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:"arial";
+    font-weight:300;
+    color:white;
+    border-radius:3em;
+    text-align:center;
+    transition: 0.1s;
+    background:red;
+    cursor:pointer;
+    font-weight:bold;
+    letter-spacing: 0.05em;
+}
+
+	.bottone_elimina:hover{
+		background:rgb(164, 0, 0);
+		color: white
+}
+
+	.bottone_elimina:active, .bottone_elimina:focus{
+		background:rgb(169, 80, 217);
 }
