@@ -21,14 +21,21 @@
 
 <div style="text-align: center;">
     @isset($posts)
-    @foreach($posts as $post)
-    <div class="contenitorepost">
-        <p class="sotto-titolo">Autore: {{$post->name}} {{$post->surname}} </p>
-        <p class="sotto-titolo">Data:{{$post->data}}</p>
-        <p class="sotto-titolo">Contenuto:{{$post->testo}}</p>
-    </div>
-    <hr class="spaziaturahr">
-    @endforeach
+        @foreach($posts as $post)
+            post
+            <div class="contenitorepost">
+                <p class="sotto-titolo">Autore: {{$post->name}} {{$post->surname}} </p>
+                <p class="sotto-titolo">Data:{{$post->data}}</p>
+                <p class="sotto-titolo">Contenuto:{{$post->testo}}</p>
+            </div>
+            <hr class="spaziaturahr">
+        @endforeach
+        @if(count($posts)== 0)
+            <p>
+                Non sono stati pubblicati ancora post
+            </p>
+        @endif()
+
     @endisset()
 </div>
 
