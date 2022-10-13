@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\NewBlogRequest;
 
 use App\Http\Requests\NewSearchRequest;
+use App\Http\Requests\EliminaAmicoRequest;
 use App\Http\Requests\BlogID;
 use App\Http\Requests\NewPostRequest;
 use App\Http\Requests\ProfiloRequest;
@@ -145,10 +146,13 @@ class userController extends Controller {
                     ->orWhere('utente',auth()->user()->id)
                     ->select('blog.*')
                     ->get();
+        $amicizia = $this->_AmiciModel->getAmicizia($id);
+        
 
             return view('profiloUtente')
                 ->with('utente',$utente)
-                ->with('blogs',$blogs);
+                ->with('blogs',$blogs)
+                ->with('amicizia',$amicizia);
 
 
         
@@ -194,8 +198,8 @@ class userController extends Controller {
 
     
 
-    public function eliminaAmico($id_amicizia,$id_user){
-        $amicizia =  Amicizia::find($id_amicizia);
+    public function eliminaAmico(EliminaAmicoRequest $request){
+        $amicizia =  Amicizia::find($request->id_amicizia);
         if($amicizia == null){
             return redirect()->route('amici');
         }
@@ -206,7 +210,7 @@ class userController extends Controller {
 
         $notifica = new Notifica;
         $notifica->messaggio = auth()->user()->name . " " . auth()->user()->surname . " " . " non è più tuo amico";
-        $notifica->destinatario = $id_user;
+        $notifica->destinatario = $request->id_user;
         $notifica->data = date("Y-m-d");
         $notifica->save();
 

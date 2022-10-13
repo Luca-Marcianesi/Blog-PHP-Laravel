@@ -102,7 +102,7 @@ Route::get('/notifiche/archivia/{notifica}','UserController@archiviaNotifica')
 Route::get('/amici','UserController@getAmici')
         ->name('amici')->middleware('can:isUser');
 
-Route::get('/amici/elimina/{id_amicizia}/{user_id}','UserController@eliminaAmico')
+Route::post('/amici/elimina','UserController@eliminaAmico')
         ->name('eliminaAmico');
 
 Route::get('/amici/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
