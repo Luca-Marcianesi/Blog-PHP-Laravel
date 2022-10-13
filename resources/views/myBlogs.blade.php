@@ -16,7 +16,7 @@
                         @endif() <br>
                         Di seguito è riportata la lista di tutti i tuoi blog e il relativo tema!
                         Potrai inoltre modificare la visibilità di ognuno di loro.</p>
-                        <hr class="spaziaturahr">
+                        <br>
     </div>
 
 
@@ -38,7 +38,7 @@
                     {{ Form::open(array('route' => ['modificaBlog',$blog->id], 'class' => '')) }}          
                     <div  class="wrap-input">
                         {{ Form::label('stato', 'Visibilità', ['class' => 'label-input']) }}
-                        {{ Form::select('stato',['0' => 'Solo amici selezionati','1' => 'Tutti gli amici'], $blog->stato, ['class' => 'input','id' => 'stato']) }}
+                        {{ Form::select('stato',['0' => 'Solo amici selezionati','1' => 'Tutti gli amici'], $blog->stato, ['class' => 'input','id' => 'stato', 'title' => 'Imposta chi può vedere questo blog']) }}
                         @if ($errors->first('stato'))
                         <ul class="errors">
                             @foreach ($errors->get('stato') as $message)
@@ -49,21 +49,22 @@
                     </div>
                     <br>
                     <div class="container-form-btn">                
-                        {{ Form::submit('Modifica ►', ['class' => 'bottone_conferma']) }}
+                        {{ Form::submit('Modifica ►', ['class' => 'bottone_conferma', 'title' => 'Modifica questo blog']) }}
                     </div>
                     {{ Form::close() }}
                     <div style="text-align: center; font-size: large">
-                        <a href="{{ route('blog',$blog->id) }}"><button class="bottone_conferma">Visualizza Blog ►</button></a>
-                        <button class='bottone_elimina' id='del_<?= $blog->id ?>' data-id='<?= $blog->id?>' >Elimina</button>
+                        <a href="{{ route('blog',$blog->id) }}"><button class="bottone_conferma" title="Visualizza le informazioni su questo blog">Visualizza Blog ►</button></a>
+                        <button title="Elimina questo blog" class='bottone_elimina' id='del_<?= $blog->id ?>' data-id='<?= $blog->id?>'>Elimina</button>
                     </div>
                 
                     @if(!$blog->stato)
                         <div class="container-form-btn">            
-                            <a href="{{ route('selezionaAmici',$blog->id) }}"><button class="bottone_conferma">Seleziona Amici ►</button></a>
+                            <a title="Scegli chi dei tuoi amici può vedere questo blog" href="{{ route('selezionaAmici',$blog->id) }}"><button class="bottone_conferma">Seleziona Amici ►</button></a>
                         </div>
                     @endif()
+                    <br>
                 </div>
-                <hr class="spaziaturahr">
+                <br>
             @endforeach
         @endisset()
     @endif()

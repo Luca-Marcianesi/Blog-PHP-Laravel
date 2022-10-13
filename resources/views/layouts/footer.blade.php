@@ -1,11 +1,11 @@
 <footer>
             <div>
                 <ul>
-                    <li style="font-size: 18px"><a href="https://policies.google.com/terms?hl=it" target="_blank">Termini di servizio </a></li>
+                    <li title="Clicca per visionare la pagina contenente i termini di servizio" style="font-size: 18px"><a href="https://policies.google.com/terms?hl=it" target="_blank">Termini di servizio </a></li>
                     <li>|</li>
-                    <li style="font-size: 18px"><a href="https://policies.google.com/privacy?hl=it" target="_blank">Privacy </a></li>
+                    <li title="Clicca per visionare la pagina contenente tutte le norme sulla privacy" style="font-size: 18px"><a href="https://policies.google.com/privacy?hl=it" target="_blank">Privacy </a></li>
                     <li>|</li>
-                    <li style="cursor: pointer; font-size: 18px" onclick="togglePopupNorme()">Norme relative ai contenuti</li>
+                    <li title="Clicca per visionare le regole per l'utilizzo del nostro sito" style="cursor: pointer; font-size: 18px" onclick="togglePopupNorme()">Norme relative ai contenuti</li>
                 </ul>
             </div>
 </footer>

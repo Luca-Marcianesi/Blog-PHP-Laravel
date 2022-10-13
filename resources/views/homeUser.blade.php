@@ -10,9 +10,10 @@
         <br>
         <p class="sotto-titolo">In questa pagina puoi ricercare i tuoi amici <br>
             e, attraverso la barra in alto, usufruire di tutte le funzionalità dedicate a te!</p>
-        <hr class="spaziaturahr">
+        <br>
+        <br>
         <p class="cosa-fare">Cerca i tuoi amici!</p>
-        <hr class="spaziaturahr">
+        <br>
         <div style="text-align: center">
             {{ Form::open(array('route' => 'searchFriends', 'class' => 'contact-form')) }}
             
@@ -43,7 +44,7 @@
             </div>
             <br>
             <div>                
-                {{ Form::submit('Cerca ►', ['class' => 'bottone_conferma']) }}
+                {{ Form::submit('Cerca ►', ['class' => 'bottone_conferma', 'title' => 'Cerca i tuoi amici o persone di tuo interesse iscritte al sito']) }}
             </div>
             {{ Form::close() }}
         </div>

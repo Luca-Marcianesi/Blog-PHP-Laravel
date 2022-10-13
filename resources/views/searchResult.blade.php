@@ -26,10 +26,10 @@
         <p class="sotto-titolo">Username: {{$user->username}}</p><br>
         <p class="sotto-titolo">Data di nascita: {{$user->data_nascita}}</p><br>
 
-        <p style="text-align: center; font-size: 20px; color: black">Siete amici<br><br><a href="{{ route('visualizzaProfilo', [$user->id])}}"><button class="bottone_conferma">Visualizza profilo ►</button></a></p><br>
+        <p style="text-align: center; font-size: 20px; color: black">Siete amici<br><br><a href="{{ route('visualizzaProfilo', [$user->id])}}"><button title="Visualizza il profilo di questo utente" class="bottone_conferma">Visualizza profilo ►</button></a></p><br>
         @else
         <p class="sotto-titolo">Non siete amici</p><br>
-        <a href="{{ route('inviaAmicizia',$user->id) }}" title="richiesta"><button class="bottone_conferma">Invia richiesta ►</button></a>
+        <a href="{{ route('inviaAmicizia',$user->id) }}" title="Invia la richiesta di amicizia"><button class="bottone_conferma">Invia richiesta ►</button></a>
         @endcan()
         <br>
         <br>

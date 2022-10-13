@@ -67,7 +67,7 @@
 
 @isset($archiviate)
 <div style="text-align: center; font-size: large; color: rebeccapurple">
-    <button class="bottone_conferma" onclick="togglePopupNotifiche()">Visualizza notifiche archiviate ►</button>
+    <button title="Clicca per visualizzare la lista delle notifiche da te archiviate" class="bottone_conferma" onclick="togglePopupNotifiche()">Visualizza notifiche archiviate ►</button>
 </div>
 
 <div id="notifiche-Archiviate" class="popup">

@@ -35,12 +35,10 @@
 
         <div style="text-align: center; font-size: large">
             @can('isFriend',$utente->id)
-                <hr class="spaziaturahr">
+                <br>
 
                 <p class="sotto-titolo">Attualmente siete amici</p>
-            
-                <hr class="spaziaturahr">
-                
+                <br>
                 @isset($blogs)
 
                     @if(@count($blogs)===0)

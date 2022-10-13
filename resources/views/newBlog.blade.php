@@ -42,7 +42,7 @@
 
     <hr class="spaziaturahr">
     <div class="container-form-button">                
-        {{ Form::submit('Crea ►', ['class' => 'bottone_conferma'])}}
+        {{ Form::submit('Crea ►', ['class' => 'bottone_conferma', 'title' => 'Conferma la creazione di questo blog'])}}
     </div>
     {{ Form::close() }}
 </div>    

@@ -279,10 +279,12 @@ nav ul li a:hover{
 	text-align :center;
 	border-style: groove;
 	border-color: #353535;
+	border-left: none;
+	border-right: none;
 }
 
 #pagination a {
-	border-bottom:none
+	border: none
 }
 
 /* Forms */
