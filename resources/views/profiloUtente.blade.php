@@ -21,15 +21,14 @@
         </div>
   
         <br>
-        <div style="margin-left: 38%" class="info-biografia">
-            <p style="color: white">
+        <div class="info-biografia">
+            <p>
                 Biografia: <br>
             </p>
-            <p style="color: white">
+            <p>
                 {{$utente->descrizione}}
             </p>
         </div>
-
         <hr class="spaziaturahr">
         <hr style="width: 100%; background-color: black; height: 2px; border: none">
 
@@ -38,7 +37,7 @@
                 <br>
 
                 <p class="sotto-titolo">Attualmente siete amici</p>
-                <br>
+                <br> 
                 @isset($blogs)
 
                     @if(@count($blogs)===0)
@@ -72,7 +71,55 @@
                 </p>
             @endcan
         </div>
-    @endisset()
-    
+    @endisset()  
 </div>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+    });
+
+    $(document).ready(function () {
+
+        // Delete 
+        $('.bottone_elimina').click(function () {
+            var el = this;
+
+            // Delete id
+            var amiciziauser = $(this).data('user');
+            var amiciziaid = $(this).data('amicizia');
+
+            // Confirm box
+            bootbox.confirm("Sei sicuro di voler questo amico?", function (result) {
+
+                if (result) {
+                    // AJAX Request
+                    $.ajax({
+                        
+                        url: "{{ route('eliminaAmico') }}",
+                        type: 'GET',
+                        data: {user:},
+                        dataType: "json",
+                        error: function (data) {
+                            
+                                bootbox.alert("amico non eliminato");  
+                            
+        
+                        },
+                        success: function (response) {
+                            window.location.replace(response.redirect);
+
+                        }
+                        
+                    });
+                }
+
+            });
+
+        });
+    });
+</script>
+
 @endsection
