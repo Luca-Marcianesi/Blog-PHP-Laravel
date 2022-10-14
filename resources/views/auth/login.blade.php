@@ -5,12 +5,13 @@
 @section('content')   
     
     <hr style="width: 100%; height: 50px; border: none">
-    <p class="titolo">Accedi</p>
-    <br>
-    <div class="wrap-form">
+    <div class="contenitoreLogin">
+        <p class="titolo">Accedi</p>
+        <hr class="spaziaturahr">
+        <div>
             {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
             
-            <div class="input-form-login">
+            <div>
                 {{ Form::label('username', 'Username', ['class' => 'label-form']) }}<br>
                 {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 18], ['class' => 'input','id' => 'username']) }}
                 @if ($errors->first('username'))
@@ -41,6 +42,7 @@
             </div>
             {{ Form::close() }}
         </div>
+    </div>
         <hr class="spaziaturahr">
         <div style="margin-left: 40.3%; text-align: center; height: auto; width: 300px">
             <p class="sotto-titolo"> Non sei ancora registrato? </p>

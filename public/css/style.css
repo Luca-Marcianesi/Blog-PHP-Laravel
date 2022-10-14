@@ -113,10 +113,11 @@ footer a:visited{
 }
 
 .info-biografia{
+	overflow: auto;
 	margin-left: 38.5%;
 	background-color: white;
 	margin-top: 15px;
-	text-align: center;
+	text-align: left;
 	font-size: 20px;
 	max-width: 350px;
 	border-style: solid;
@@ -306,6 +307,17 @@ nav ul li a:hover{
 	text-transform: uppercase;
 }
 
+.contenitoreLogin{
+	padding-top: 2%;
+	text-align: center;
+	width: 350px;
+	height: 500px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: black;
+	color: black;
+}
+
 .contenitoreblog{
 	overflow: auto;
 	min-height: 250px;
@@ -396,16 +408,15 @@ nav ul li a:hover{
 .contenitorebiografia{
 	font-size: 20px;
 	background-color: white;
-	overflow-x: auto;
-	overflow-y: none;
+	overflow: auto;
 	text-align: left;
-	margin-left: 41%;
+	margin-left: 39%;
 	border-style: solid;
 	border-width: 4px;
 	border-color: black;
 	color: black;
 	min-width: auto;
-	width: 300px;
+	width: 350px;
 	min-height: auto;
 }
 
@@ -443,6 +454,50 @@ nav ul li a:hover{
 	margin-left: 40.5%;
 	width: 300px;
 	height: 200px;
+}
+
+.contenitoreNotifiche{
+	margin-left: 39%;
+	overflow: auto;
+	padding-top: 1%;
+	background-color: white;
+	text-align: center;
+	font-size: 20px;
+	border-style: solid;
+	border-color: black;
+	border-width: 4px;
+	width: 350px;
+	height: 250px;
+}
+
+.contenitoreAttivitaUtente{
+	overflow: auto;
+	background-color: white;
+	text-align: center;
+	font-size: 20px;
+	border-style: solid;
+	border-color: black;
+	border-width: 4px;
+}
+
+.contenitoreGestioneBlog{
+	overflow: auto;
+	background-color: white;
+	text-align: center;
+	font-size: 20px;
+	border-style: solid;
+	border-color: black;
+	border-width: 4px;
+}
+
+.contenitoreStatistiche{
+	overflow: auto;
+	background-color: white;
+	text-align: center;
+	font-size: 20px;
+	border-style: solid;
+	border-color: black;
+	border-width: 4px;
 }
 
 

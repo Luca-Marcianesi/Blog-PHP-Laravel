@@ -8,9 +8,7 @@
     <h1>In questa pagina puoi consultare le principali statistiche del sito!</h1> <br>
     <hr class="spaziaturahr">
     @isset($numeroBlog)
-    <div>
-        Questo è il numero dei blog attualmente presenti nel sito: {{$numeroBlog}}
-    </div>
+        <p class="sotto-titolo">Questo è il numero dei blog attualmente presenti nel sito: {{$numeroBlog}}</p>
     <hr class="spaziaturahr">
     @endisset() 
     <div>
@@ -41,7 +39,7 @@
             </div>
             <br>
             <div class="container-form-btn">                
-                {{ Form::submit('Cerca', ['class' => 'button']) }}
+                {{ Form::submit('Cerca ►', ['class' => 'bottone_conferma']) }}
             </div>
             
             {{ Form::close() }}

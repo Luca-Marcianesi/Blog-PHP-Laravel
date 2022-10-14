@@ -103,7 +103,7 @@ class userController extends Controller {
 
         $this->_GestoreBlog->sedNotifiche($id);
 
-        return view('homeUser');
+        return redirect()->view('homeUser');
 
     }
 

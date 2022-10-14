@@ -13,7 +13,7 @@
 <br>
 <div class="contenitoreProprietarioBlog">
     <p class="sotto-titolo">Proprietario del blog: {{$proprietario->name}} {{$proprietario->surname}}</p>
-    <p class="sotto-titolo">Tema:{{$blog->tema}}</p>
+    <p class="sotto-titolo">Tema: {{$blog->tema}}</p>
 </div>
 <br>
 <br>
@@ -47,7 +47,6 @@
             <br>
             <div class="container-form-btn">                
                 {{ Form::submit('Pubblica post ►', ['class' => 'bottone_conferma']) }}
-            
             </div>
             <br>
             <br>           

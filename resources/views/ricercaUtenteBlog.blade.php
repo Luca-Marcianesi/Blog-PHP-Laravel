@@ -13,7 +13,7 @@
     <div  class="wrap-input">
         {{ Form::label('idUtente', 'Id utente', ['class' => 'label-input']) }}
         <br>
-        {{ Form::number('idUtente','', ['class' => 'input','id' => 'idUtente']) }}
+        {{ Form::number('idUtente','', ['placeholder' => 'Inserisci Id utente', 'class' => 'input','id' => 'idUtente']) }}
         @if ($errors->first('idUtente'))
         <ul class="errors">
             @foreach ($errors->get('idUtente') as $message)
@@ -35,7 +35,7 @@
     <div  class="wrap-input">
         {{ Form::label('idBlog', 'Id blog', ['class' => 'label-input']) }}
         <br>
-        {{ Form::number('idBlog','', ['class' => 'input','id' => 'idBlog']) }}
+        {{ Form::number('idBlog','', ['placeholder' => 'Inserisci id blog'], ['class' => 'input','id' => 'idBlog']) }}
         @if ($errors->first('idBlog'))
         <ul class="errors">
             @foreach ($errors->get('idBlog') as $message)

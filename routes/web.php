@@ -130,12 +130,7 @@ Route::get('/ricerca/profiloUtente/{id}', 'UserController@getProfilo')
 Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
         ->name('inviaAmicizia');
 
-
-
-
-
-
-
+        
 // Admin routes
 
 //Statistiche
@@ -176,8 +171,6 @@ Route::view('/ricerca','ricercaUtenteBlog')
 
 Route::post('/ricerca/eliminaBlog/{$id}','StafController@deleteBlog')
         ->name('eliminaBlogGestore')->middleware('can:isGestore');
-
-
 
 Route::post('/utente','StafController@visualizzaUtente')
         ->name('attivitaUtente');

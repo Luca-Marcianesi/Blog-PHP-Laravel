@@ -7,18 +7,20 @@
 @isset($blog)
 @isset($proprietario)
 
-<div style="text-align: center;">
-    <p class="titolo">Informazioni generali</p>
-    <hr class="spaziaturahr">
-    <p>Proprietario del blog: {{$proprietario->name}} {{$proprietario->surname}}</p>
-    <a href=""><button class="bottone_conferma">Visualizza profilo (non collegato)</button></a>
-    <p>Tema:{{$blog->tema}}</p>
-</div>
+<p class="titolo">Informazioni generali</p>
+<hr class="spaziaturahr">
 
-<div>
+<div style="width: 400px; height: 200px; margin-left: 37%; padding-top: 1%" class="contenitoreGestioneBlog">    
+    <p>Proprietario del blog:<br> {{$proprietario->name}} {{$proprietario->surname}}</p><br>
+    <p>Tema:{{$blog->tema}}</p><br>
+    <a href=""><button class="bottone_conferma">Visualizza profilo (non collegato)</button></a>    
+</div>
+<hr class="spaziaturahr">
+
+<div style="text-align: center">
 {{ Form::open(array('route' => ['eliminaBlogGestore',$blog->id], 'id'=>'eliminablog','class' => '')) }}          
-    <div  class="wrap-input">
-        {{ Form::label('motivo', 'Visibilità', ['class' => 'label-input']) }}
+    <div>
+        {{ Form::label('motivo', 'Visibilità', ['class' => 'label-form']) }}<br><br>
         {{ Form::text('motivo', '', ['id' => 'motivo', 'placeholder'=> 'Motivazione', 'size' => '105', 'maxlength' => '80']) }}
         @if ($errors->first('motivo'))
         <ul class="errors">
@@ -29,7 +31,7 @@
         @endif
     </div>
     <br>
-    <div class="container-form-btn">                
+    <div>                
         {{ Form::submit('Modifica ►', ['class' => 'bottone_conferma']) }}
     </div>
     {{ Form::close() }}
@@ -40,15 +42,19 @@
 <hr class="spaziaturahr">
 
 <p class="titolo">Posts</p>
-
+<br>
+<br>
 <div style="text-align: center;">
     @isset($posts)
         @foreach($posts as $post)
-            post
-            <div class="contenitorepost">
-                <p class="sotto-titolo">Autore: {{$post->name}} {{$post->surname}} </p>
-                <p class="sotto-titolo">Data:{{$post->data}}</p>
-                <p class="sotto-titolo">Contenuto:{{$post->testo}}</p>
+            <div style="width: 300px; height: 150px; margin-left: 40%; padding-top: 1%" class="contenitoreGestioneBlog">
+                <p>
+                    Autore: {{$post->name}} {{$post->surname}}
+                    <br>
+                    Data:{{$post->data}}
+                    <br>
+                    Contenuto:<br>{{$post->testo}}
+                </p>
             </div>
             <hr class="spaziaturahr">
         @endforeach
@@ -66,9 +72,9 @@
 @endisset()
 
 @isset($blognt)
-<div>
-    <p class="titolo">Il blog con ID = {{$blognt}} non esiste</p>
-    <p class="sotto-titolo"><a  href="{{ route('ricerca') }}">Torna alla pagina di ricerca</a></p>
+<div style="text-align: center">
+    <p class="titolo">Il blog con Id = {{$blognt}} non esiste </p> <br> <br>
+    <a href="{{ route('ricerca') }}"><button class="bottone_conferma">Torna alla pagina di ricerca</button></a>
 </div>
 @endisset
 

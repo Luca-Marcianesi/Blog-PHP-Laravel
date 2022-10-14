@@ -10,7 +10,7 @@
     @endcan
     <li><a href="{{ route('ricerca') }}" title="Vai alla pagina di ricerca">Ricerca</a></li>
     @auth
-        <li><a href="" class="highlight" title="Esci dal sito" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+        <li><a href="" class="highlight" title="Esci dalla tua area riservata" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
         </form>

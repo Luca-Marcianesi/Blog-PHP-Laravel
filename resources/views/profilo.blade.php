@@ -29,7 +29,7 @@
             <p>Data di nascita: {{ Auth::user()->data_nascita}}</p><br>
             <hr class="spaziaturahr">
         </div>
-        <hr class="spaziaturahr">
+        <br>
         <div class="contenitorebiografia">
             <p>Biografia: {{ Auth::user()->descrizione}}
         </div>

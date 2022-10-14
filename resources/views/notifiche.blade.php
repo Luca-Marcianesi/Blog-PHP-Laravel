@@ -26,20 +26,23 @@
 
 
 @isset($notifiche)
-<hr class="spaziaturahr">
+<br>
+<br>
     @if(count($notifiche)===0)
     <div style="text-align: center; font-size: large">
         <p class="sotto-titolo">Attualmente non hai nessuna notifica</p>
     </div>
     @else
     @foreach($notifiche as $notifica)
-    <div class="main_element" style="text-align:center; font-size: large">
+    <div class="contenitoreNotifiche">
         Data: {{ $notifica->data }}<br>
         Testo: {{ $notifica->messaggio }}<br>
+        <br>
         <div><button class="bottone_conferma" onclick="togglePopupEliminaNotifica()">Elimina</button></div>
         <div><a href="{{ route('archiviaNotifica',[$notifica->id]) }}"><button class="bottone_conferma">Archivia</button></a></div>
     </div>
-
+    <br>
+    <br>
 
     
 

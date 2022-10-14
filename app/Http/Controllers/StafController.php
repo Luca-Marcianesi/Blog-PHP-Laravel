@@ -61,6 +61,8 @@ class StafController extends Controller {
 
     public function visualizzaUtente(CercaUtenteRequest $request){
         $utente = User::find($request->idUtente);
+        if(!empty($utente)){
+
         $blogs = Blog::where('proprietario',$request->idUtente)->get();
         $posts = Post::where('autore',$request->idUtente)
                         ->join('blog', 'blog.id', '=', 'post.blog')
@@ -72,6 +74,11 @@ class StafController extends Controller {
                 ->with('user',$utente)
                 ->with('blogs',$blogs)
                 ->with('posts',$posts);
+        }
+        else{
+            return view('attivitaUtente')
+                    ->with('utentent', $request->idUtente);
+        }
         
         
     }

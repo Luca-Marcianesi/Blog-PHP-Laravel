@@ -23,10 +23,7 @@
         <br>
         <div class="info-biografia">
             <p>
-                Biografia: <br>
-            </p>
-            <p>
-                {{$utente->descrizione}}
+                Biografia: {{$utente->descrizione}}
             </p>
         </div>
         <hr class="spaziaturahr">
@@ -45,7 +42,7 @@
                 @isset($blogs)
 
                     @if(@count($blogs)===0)
-                        <p>Attualmente non ci sono blog pubblicati</p> 
+                        <p class="sotto-titolo">Attualmente non ci sono blog pubblicati</p> 
                     @endif()  
                     
                     
