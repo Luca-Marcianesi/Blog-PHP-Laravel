@@ -342,13 +342,9 @@ class userController extends Controller {
                                 ->get();
             $accesso->first->delete();
         }
-
-        
-    
-        return $this->selezionaAmici($blogId);
+      
+        return redirect()->route('selezionaAmici', [$blogId]);
   
-
-    
     }
 
 

@@ -4,14 +4,14 @@
 
     <!-- Link alla prima pagina -->
     @if (!$paginator->onFirstPage())
-        <a title="Vai alla pagina iniziale" href="{{ $paginator->url(1) }}">Inizio</a> |
+        <a style="color: red" title="Vai alla pagina iniziale" href="{{ $paginator->url(1) }}">Inizio</a> |
     @else
         Inizio |
     @endif
 
     <!-- Link alla pagina precedente -->
     @if ($paginator->currentPage() != 1)
-        <a title="Vai alla pagina precedente" href="{{ $paginator->previousPageUrl() }}">&lt; Precedente</a> |
+        <a style="color: blue" title="Vai alla pagina precedente" href="{{ $paginator->previousPageUrl() }}">&lt; Precedente</a> |
     @else
         &lt; Precedente |
     @endif
@@ -25,7 +25,7 @@
 
     <!-- Link all'ultima pagina -->
     @if ($paginator->hasMorePages())
-        <a title="Vai all'ultima pagina" href="{{ $paginator->url($paginator->lastPage()) }}">Fine</a>
+        <a style="color: red" title="Vai all'ultima pagina" href="{{ $paginator->url($paginator->lastPage()) }}">Fine</a>
     @else
         Fine
     @endif

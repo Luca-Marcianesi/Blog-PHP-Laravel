@@ -62,7 +62,7 @@
             
             @can('isRifiutata',$utente->id)
                 <p>Amicizia rifiutata <br>
-                <a href="{{ route('inviaAmicizia',$utente->id) }}" title="richiesta">Invia di nuovo</a></p>
+                <a href="{{ route('inviaAmicizia',$utente->id) }}" title="Invia nuovamente la richiesta di amicizia"><button class="bottone_conferma">Invia di nuovo ►</button></a></p>
             @endcan
 
             @can('isSospesa',$utente->id)

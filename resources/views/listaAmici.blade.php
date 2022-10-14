@@ -15,12 +15,13 @@
                 @foreach($amici as $amico)
                     <div class="contenitoreamici">
                         <p>Nome: {{$amico->name}}<br> Cognome: {{$amico->surname}}</p>
-                        <br>
+                        
                         <p>L'amicizia è stata chiesta il {{$amico->data}}</p>
+                        
+                        <a href="{{ route('getAmico',[$amico->user_id, $amico->amicizia_id]) }}"><button title="Visualizza il profilo di questo utente" class="bottone_conferma">Profilo ►</button></a>
                         <br>
-                        <a href="{{ route('getAmico',[$amico->user_id, $amico->amicizia_id]) }}" >Profilo</a>
-                    
-                        <br>    
+                        <br>
+                            
                     </div>
                     <br>
                     <br>
