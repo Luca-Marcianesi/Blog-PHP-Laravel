@@ -329,7 +329,7 @@ class userController extends Controller {
 
     }
 
-    public function setAccesso($blogId , $userId, $stato){
+    public function setAccesso($blogId, $userId, $stato){
 
         if($stato){
             $accesso = new Accesso;
@@ -338,8 +338,7 @@ class userController extends Controller {
             $accesso->save(); 
         }
         else{
-            $accesso = Accesso::where('utente',$userId)
-                                ->get();
+            $accesso = Accesso::where('utente',$userId)->get();
             $accesso->first->delete();
         }
       
