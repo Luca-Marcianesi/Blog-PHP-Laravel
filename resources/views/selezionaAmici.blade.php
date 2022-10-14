@@ -27,7 +27,7 @@
 
 @can('autorizzato',[$amico->user_id,$blog->id])
 
-<a href="{{ route('setAccesso',[$blog->id,$amico->user_id,false]) }}"><button class="bottone_elimina">Elimina Accesso</button></a>
+<a href="{{ route('setAccesso',[$blog->id,$amico->user_id,0]) }}"><button class="bottone_elimina">Elimina Accesso</button></a>
 @else
 <a href="{{ route('setAccesso',[$blog->id,$amico->user_id,true]) }}"><button class="bottone_conferma">Concedi Accesso</button></a>
 @endcan()
