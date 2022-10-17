@@ -35,7 +35,7 @@ class userController extends Controller {
     public function __construct() {
         $this->middleware('auth');
         $this->_AmiciModel = new GestoreAmici;
-        $this->_GestoreBlog= new GestoreBlog;
+        $this->_GestoreBlog = new GestoreBlog;
         $this->_GestoreNotifiche = new GestoreNotifiche;
         $this->_RicercaModel = new GestoreRicerca;
     }
@@ -240,6 +240,10 @@ class userController extends Controller {
         $notifica->destinatario = $request->id_user;
         $notifica->data = date("Y-m-d");
         $notifica->save();
+
+
+        $this->_GestoreBlog->elimanaAccessi(auth()->user()->id,$request->id_user);
+        $this->_GestoreBlog->elimanaAccessi($request->id_user,auth()->user()->id);
 
         return response()->json(['redirect' => route('amici')]);
         }

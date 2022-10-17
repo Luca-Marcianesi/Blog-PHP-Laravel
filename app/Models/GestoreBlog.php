@@ -29,6 +29,20 @@ class GestoreBlog {
         else return true;
     }
 
+    public function elimanaAccessi($id1 , $id2){
+        $accessiUtente1 = Blog::where('proprietario',$id2)
+                                ->join('accesso', function ($join) use ($id1){
+                                    $join->on('blog.id', '=', 'accesso.blog')
+                                            ->where('accesso.utente', '!=', $id1 );
+                                })
+                                ->get();
+
+        foreach($accessiUtente1 as $accesso){
+            $accesso->delete();
+        }
+                                            
+    }
+
     public function sedNotifiche($blogId){
         $blog = Blog::find($blogId);
         if($blog->stato){
