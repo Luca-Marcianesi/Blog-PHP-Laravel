@@ -42,9 +42,10 @@
                 </div>
             @else
                 @foreach($rifiutate as $rifiutata)
-                <div class="main_element">
+                <div>
                     <p class="sotto-titolo">{{$rifiutata->name}} {{$rifiutata->surname}}</p>    
-                </div>     
+                </div>
+                <br>     
                 @endforeach
             @endif()
         @endisset()
