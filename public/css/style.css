@@ -308,10 +308,11 @@ nav ul li a:hover{
 }
 
 .contenitoreLogin{
+	margin-left: 39%;
 	padding-top: 2%;
 	text-align: center;
 	width: 350px;
-	height: 500px;
+	height: 400px;
 	border-style: solid;
 	border-width: 4px;
 	border-color: black;
@@ -500,6 +501,17 @@ nav ul li a:hover{
 	border-width: 4px;
 }
 
+.contenitoreStaff{
+	padding-top: 2%;
+	overflow: auto;
+	background-color: white;
+	text-align: center;
+	font-size: 20px;
+	border-style: solid;
+	border-color: black;
+	border-width: 4px;
+}
+
 
 /* pop up */
 
@@ -575,6 +587,15 @@ nav ul li a:hover{
 .label-form{
   	font-size: 20px;
   	line-height: 1,5;
+	color: black;
+}
+
+.input-login{
+	line-height: 1,5;
+	font-size: 20px;
+	border-style: solid;
+	border-color: black;
+	border-width: 4px;
 	color: black;
 }
 

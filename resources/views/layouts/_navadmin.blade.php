@@ -1,8 +1,8 @@
 <ul>
-    <li><a href="{{ route('home') }}" title="Va alla Home di Sito">Home Sito</a></li>
-    <li><a href="{{ route('admin') }}" title="Va alla Home di Admin">Home Admin</a></li>
-    <li><a href="{{ route('gestioneStaf') }}" title="Aggiungi un membro">Gestione Staf</a></li>
-    <li><a href="{{ route('statistiche') }}" title="Vai alle statistiche">Statistiche</a></li>
+    <li><a href="{{ route('home') }}" title="Torna alla pagina Home del sito">Home Sito</a></li>
+    <li><a href="{{ route('admin') }}" title="Vai alla pagina di benvenuto">Home Admin</a></li>
+    <li><a href="{{ route('gestioneStaf') }}" title="Gestisci lo staff del sito">Gestione Staf</a></li>
+    <li><a href="{{ route('statistiche') }}" title="Vai alla pagina delle statistiche">Statistiche</a></li>
     <li><a href="{{ route('ricerca') }}" title="Vai alla pagina di ricerca">Ricerca</a></li>
     
     @auth

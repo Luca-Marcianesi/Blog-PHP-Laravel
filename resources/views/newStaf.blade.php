@@ -6,7 +6,7 @@
 <hr class="spaziaturahr">
 <div style="text-align: center; font-size: large">
     <div>
-        <h1>In questa pagina hai la possibilità di aggiungere nuovi membri allo staff del sito!</h1>
+        <p class="titolo">In questa pagina hai la possibilità di aggiungere nuovi membri allo staff del sito!</p>
         <hr class="spaziaturahr">
         {{ Form::open(array('route' => 'creaStaf', 'class' => '')) }}
 

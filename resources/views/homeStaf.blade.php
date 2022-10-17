@@ -6,9 +6,11 @@
 <div style="text-align: center; font-size: large">
     <h1> Benvenuto <br> {{ Auth::user()->name }} {{ Auth::user()->surname }}!</h1>
     <hr class="spaziaturahr">
-    <div style="font-size: large">
+    <div>
+        <p class="sotto-titolo">
         Questa è la pagina home riservata allo staff del sito!<br>
         Nella sezione in alto troverai tutte le funzionalità dedicate a te!
+        </p>
     </div>
 </div>
 @endsection

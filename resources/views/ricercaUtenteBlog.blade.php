@@ -4,8 +4,8 @@
 @section('content')
 <hr class="spaziaturahr">
 <div style="text-align: center; font-size: large">
-    <h2>In questa pagina, hai la possibilità di cercare le attività degli utenti <br>
-    registrati oppure i blog che sono stati creati!</h2>
+    <p class="titolo">In questa pagina, hai la possibilità di cercare le attività degli utenti <br>
+    registrati oppure i blog che sono stati creati!</p>
     <hr class="spaziaturahr">
 
     {{ Form::open(array('route' => ['attivitaUtente'], 'class' => '')) }}
@@ -24,7 +24,7 @@
     </div>
     <br>
     <div class="container-form-btn">                
-        {{ Form::submit('Cerca Utente', ['class' => 'bottone_conferma']) }}
+        {{ Form::submit('Cerca Utente ►', ['class' => 'bottone_conferma']) }}
     </div>
     
     {{ Form::close() }}
@@ -46,7 +46,7 @@
     </div>
     <br>
     <div class="container-form-btn">                
-        {{ Form::submit('Cerca Blog', ['class' => 'bottone_conferma']) }}
+        {{ Form::submit('Cerca Blog ►', ['class' => 'bottone_conferma']) }}
     </div>
 
     
