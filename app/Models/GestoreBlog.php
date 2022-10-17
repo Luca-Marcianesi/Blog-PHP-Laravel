@@ -33,7 +33,7 @@ class GestoreBlog {
         $accessiUtente1 = Blog::where('proprietario',$id2)
                                 ->join('accesso', function ($join) use ($id1){
                                     $join->on('blog.id', '=', 'accesso.blog')
-                                            ->where('accesso.utente', '!=', $id1 );
+                                            ->where('accesso.utente', '=', $id1 );
                                 })
                                 ->get();
 
