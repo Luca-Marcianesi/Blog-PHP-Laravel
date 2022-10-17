@@ -6,25 +6,27 @@
 <hr class="spaziaturahr">
 <div  style="text-align: center; font-size: large">
     <div>
-        <h1>In questa pagina potrai gestire il tuo staff!</h1>
+        <p class="titolo">In questa pagina potrai gestire il tuo staff!</p>
         <br>
         <br>
-        <h2>Di seguito è riportato l'elenco degli utenti che fanno parte dello staff del sito <br><br>
+        <p class="sotto-titolo">
+            Di seguito è riportato l'elenco degli utenti che fanno parte dello staff del sito
+        </p>
+        <br><br>
     </div> 
 
     @isset($staf)
     @if(count($staf)===0)
-        Attualmente non sono presenti membri nello staff
+        <p class="sotto-titolo">Attualmente non sono presenti membri nello staff</p>
         @else
         @foreach($staf as $s)
-            <div class="main_element">
-                <div>Nome: {{$s->name}} <br> Cognome: {{$s->surname}}</div> <br>
-                <div><a href="{{ route('modificaStaf',[$s->id]) }}"><button class="bottone_conferma">Modifica</button></a></div>
-                <div>
-                    <button class="bottone_conferma" onclick="togglePopupEliminaStaf()">Elimina</button>
-                </div>
-                <hr class="spaziaturahr">
+            <div style="width: 400px; height: 220px; margin-left: 37%" class="contenitoreStaff">
+                <p>Nome: {{$s->name}} <br> Cognome: {{$s->surname}}</p> <br>
+                <a href="{{ route('modificaStaf',[$s->id]) }}"><button class="bottone_conferma">Modifica ►</button></a><br>
+                <button class="bottone_elimina" onclick="togglePopupEliminaStaf()">Elimina ►</button>
             </div>
+            <br>
+            <br>
 
         <div id="elimina-staf" class="popup">
             <div class="overlay"></div>
@@ -54,8 +56,8 @@
     @endisset()
     <hr class="spaziaturahr">
     <div>
-        <h3>Se desideri aggiungere un nuovo membro allo staff puoi farlo qui:</h3><br>
-        <a href="{{ route('nuovoStaf') }}"><button class="bottone_conferma">Aggiungi</button></a>
+        <p class="sotto-titolo">Se desideri aggiungere un nuovo membro allo staff puoi farlo qui:</p><br>
+        <a href="{{ route('nuovoStaf') }}"><button class="bottone_conferma">Aggiungi ►</button></a>
     </div>
     
         

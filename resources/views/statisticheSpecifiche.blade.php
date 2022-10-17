@@ -55,7 +55,7 @@
     </p>
     <br>
     <br>
-    <a href="{{ route('statistiche') }}"><button class="bottone_conferma">Torna alle statistiche</button></a>
+    <a href="{{ route('statistiche') }}"><button class="bottone_conferma">Torna alle statistiche ►</button></a>
     @endisset()
 
 </div>
