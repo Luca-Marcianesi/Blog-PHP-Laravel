@@ -30,14 +30,14 @@ class GestoreBlog {
     }
 
     public function elimanaAccessi($id1 , $id2){
-        $accessiUtente1 = Blog::where('proprietario',$id2)
-                                ->join('accesso', function ($join) use ($id1){
-                                    $join->on('blog.id', '=', 'accesso.blog')
-                                            ->where('accesso.utente', '=', $id1 );
-                                })
-                                ->get();
 
-        foreach($accessiUtente1 as $accesso){
+        $accessi = Accesso::where('utente',$id1)
+                        ->join('blog', function ($join) use ($id2){
+                            $join->on('blog.id', '=', 'accesso.blog')
+                                    ->where('blog.proprietario', '=', $id2 );
+                        })
+                        ->get();
+        foreach($accessi as $accesso){
             $accesso->delete();
         }
                                             
