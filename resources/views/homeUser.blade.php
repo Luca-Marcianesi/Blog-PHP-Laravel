@@ -43,7 +43,8 @@
                 @endif
             </div>
             <br>
-            <div>                
+            <br>
+            <div style="font-size: 18px">                
                 {{ Form::submit('Cerca ►', ['class' => 'bottone_conferma', 'title' => 'Cerca i tuoi amici o persone di tuo interesse iscritte al sito']) }}
             </div>
             {{ Form::close() }}

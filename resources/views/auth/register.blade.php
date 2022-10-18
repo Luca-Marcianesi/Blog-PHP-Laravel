@@ -8,7 +8,16 @@
 <br>
 <p class="sotto-titolo">Registrati subito per connetterti con i tuoi amici e cominciare a dire la tua opinione!</p>
     <hr class="spaziaturahr">
+
     {{ Form::open(array('route' => 'register')) }}
+
+<div>
+
+    <div style="width: 600px; height: 750px; float: right; margin-left: 8%">
+        <img style="height: 250px" src="/images/products/discussion.gif"></img><br>
+        <img style="height: 250px" src="/images/products/discussion.gif"></img><br>
+        <img style="height: 250px" src="/images/products/discussion.gif"></img><br>
+    </div>
 
     <div class="contenitoreRegistrati" style="text-align:center">
         <p class="titolo">Registrati</p>
@@ -121,7 +130,7 @@
         </div>
 
     </div>
-
+</div>
     {{ Form::close() }}
 @endsection
 
