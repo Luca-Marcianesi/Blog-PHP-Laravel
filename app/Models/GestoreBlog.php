@@ -29,18 +29,23 @@ class GestoreBlog {
         else return true;
     }
 
-    public function elimanaAccessi($id1 , $id2){
+    public function elimanaAccessi($idPossessoreAccesso , $idProprietarioBlog){
 
-        $accessi = Accesso::where('utente',$id1)
-                        ->join('blog', function ($join) use ($id2){
-                            $join->on('accesso.blog', '=', 'blog.id')
-                                    ->where('blog.proprietario', '=', $id2 );
-                        })
+        $blogs = Blog::where('proprietario',$idProprietarioBlog)
+                    ->select('id')
+                    ->get();
+            
+
+        $accessi = Accesso::where('utente',$idPossessoreAccesso)
+                        ->whereIn('blog',$blogs)
                         ->get();
+
         foreach($accessi as $accesso){
             $accesso->delete();
         }
-                                            
+        
+        //Accesso::destroy($accessi->pluck('id'));
+        return $accessi;                                    
     }
 
     public function sedNotifiche($blogId){

@@ -350,5 +350,14 @@ class userController extends Controller {
   
     }
 
+    public function prova(){
+        $this->_GestoreBlog->elimanaAccessi(1,6);
+        $prova = $this->_GestoreBlog->elimanaAccessi(6,1);
+
+        return view('prova')
+                ->with('prova',$prova);
+
+    }
+
 
 }
