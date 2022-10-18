@@ -176,11 +176,14 @@ Route::post('/ricerca/eliminaBlog/{id}','StafController@deleteBlog')
         ->name('eliminaBlogGestore')->middleware('can:isGestore');
 
 
-Route::get('/ricerca/post/elimina/{id}','StafController@motivoPost')
+Route::get('/ricerca/post/elimina/{id}/{idBlog}','StafController@motivoPost')
         ->name('inserisciMotivoPost')->middleware('can:isGestore');
 
 Route::post('/ricerca/eliminaPost/{id}','StafController@deletePost')
         ->name('eliminaPostGestore')->middleware('can:isGestore');
+
+Route::get('blog/{id}','StafController@tornaAlBlog')
+        ->name('tornaAlBlog')->middleware('can:isGestore');
 
 
 

@@ -13,11 +13,10 @@
 <div style="width: 400px; height: 200px; margin-left: 37%; padding-top: 1%" class="contenitoreGestioneBlog">    
     <p>Proprietario del blog:<br> {{$proprietario->name}} {{$proprietario->surname}}</p><br>
     <p>Tema:{{$blog->tema}}</p><br>
-    <a href=""><button class="bottone_conferma">Visualizza profilo (non collegato)</button></a>    
+    <a href="{{ route('inserisciMotivoBlog',$blog->id) }}"><button title="Elimina questo blog" class='bottone_elimina' >Elimina</button></a>
+
 </div>
 <hr class="spaziaturahr">
-
-<a href="{{ route('inserisciMotivoBlog',$blog->id) }}"><button title="Elimina questo blog" class='bottone_elimina' >Elimina</button></a>
 
 
 
@@ -37,7 +36,7 @@
                     <br>
                     Contenuto:<br>{{$post->testo}}
                 </p>
-                <a href="{{ route('inserisciMotivoPost',$post->id) }}"><button title="Elimina questo post" class='bottone_elimina' >Elimina</button></a>
+                <a href="{{ route('inserisciMotivoPost',[$post->id,$blog->id]) }}"><button title="Elimina questo post" class='bottone_elimina' >Elimina</button></a>
             </div>
             <hr class="spaziaturahr">
         @endforeach

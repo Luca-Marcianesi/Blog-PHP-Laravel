@@ -53,6 +53,7 @@ class StafController extends Controller {
 
     public function deletePost(MotivoRequest $request,$id){
         $post = Post::find($id);
+        $blog = $post->blog;
         $notifica = new Notifica;
         $notifica->destinatario = $post->autore;
         $notifica->messaggio = "Il tuo post" . $post->messaggio . "è stato cancellato perchè:" . $request->motivo;
@@ -60,7 +61,7 @@ class StafController extends Controller {
         $notifica->save();
         $post->delete();
 
-        return redirect()->route('ricerca');
+        return redirect()->route('tornaAlBlog',[$blog]);
     }
 
     public function visualizzaUtente(CercaUtenteRequest $request){
@@ -84,6 +85,26 @@ class StafController extends Controller {
                     ->with('utentent', $request->idUtente);
         }
         
+        
+    }
+
+    public function tornaAlBlog($idBlog){
+
+        $blog = Blog::find($idBlog);
+
+        
+       
+        $proprietario = User::find($blog->proprietario);
+
+        $posts = Post::Where('blog',$idBlog)
+                    ->join('users', 'users.id', '=', 'post.autore')
+                    ->select('users.*','post.*')
+                    ->get();
+
+        return view('gestioneBlog')
+                ->with('blog',$blog)
+                ->with('proprietario',$proprietario)
+                ->with('posts',$posts);
         
     }
 
@@ -120,9 +141,10 @@ class StafController extends Controller {
                 ->with('blog',$id);
     }
 
-    public function motivoPost($id){
+    public function motivoPost($idpost , $idBlog){
         return view('eliminaBlog-Post-gestore')
-                ->with('post',$id);
+                ->with('blogId',$idBlog)
+                ->with('post',$idpost);
     }
 
 

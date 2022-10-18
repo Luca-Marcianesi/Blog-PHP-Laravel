@@ -20,15 +20,18 @@
         {{ Form::text('motivo', '', ['class' => 'input', 'id' => 'motivo', 'placeholder'=> 'Motivazione', 'size' => '105', 'maxlength' => '80']) }}
     </div>
     <br>
-    <div>                
+    <div>
+                       
         {{ Form::submit('Elimina Blog ►', ['class' => 'bottone_conferma']) }}
     </div>
     {{ Form::close() }}
+    <a href="{{ route('tornaAlBlog',$blog) }}"><button class='bottone_conferma'>Indietro</button></a>  
 </div>
 
 @endisset()
 
 @isset($post)
+@isset($blogId)
 
 <div style="text-align: center">
 {{ Form::open(array('route' => ['eliminaPostGestore', $post],'class' => '')) }}          
@@ -38,13 +41,16 @@
         {{ Form::text('motivo', '', ['class' => 'input', 'id' => 'motivo', 'placeholder'=> 'Motivazione', 'size' => '105', 'maxlength' => '80']) }}
     </div>
     <br>
-    <div>                
+    <div>   
+                 
         {{ Form::submit('Elimina Post ►', ['class' => 'bottone_conferma']) }}
     </div>
     {{ Form::close() }}
+    <a href="{{ route('tornaAlBlog',$blogId) }}"><button class='bottone_conferma'>Indietro</button></a> 
 </div>
-
-@endisset($post)
+  
+@endisset()
+@endisset()
 
 
 
