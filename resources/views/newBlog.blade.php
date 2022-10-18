@@ -39,6 +39,19 @@
         </ul>
         @endif
     </div>
+    <hr class="spaziaturahr">
+
+    <div  class="wrap-input">
+        {{ Form::label('stato', 'Visibilità', ['class' => 'label-input']) }}
+        {{ Form::select('stato',['0' => 'Solo amici selezionati','1' => 'Tutti gli amici'], 1 , ['class' => 'input','id' => 'stato', 'title' => 'Imposta chi può vedere questo blog']) }}
+        @if ($errors->first('stato'))
+        <ul class="errors">
+            @foreach ($errors->get('stato') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+        @endif
+    </div>
 
     <hr class="spaziaturahr">
     <div class="container-form-button">                

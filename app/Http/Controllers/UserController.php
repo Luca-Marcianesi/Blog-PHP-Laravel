@@ -50,6 +50,7 @@ class userController extends Controller {
         $blog = new Blog;
         $blog->proprietario = auth()->user()->id;
         $blog->tema = $request->tema;
+        $blog->stato = $request->stato;
         $blog->save();
 
         $primoMessaggio = new Post;

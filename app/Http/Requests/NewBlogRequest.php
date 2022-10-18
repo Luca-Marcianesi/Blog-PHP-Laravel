@@ -27,6 +27,7 @@ class NewBlogRequest extends FormRequest {
         return [
             'tema' => 'required | string',
             'messaggio' => 'required | string',
+            'stato'=> 'required'
         ];
     }
 
