@@ -786,3 +786,48 @@ nav ul li a:hover{
 	.bottone_elimina:active, .bottone_elimina:focus{
 		background:rgb(169, 80, 217);
 }
+
+/* bottone notifiche homeUser */
+
+.icon-button {
+	position: absolute;
+	top: 100px;
+	right: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	color: rebeccapurple;
+	background: #dddddd;
+	border: none;
+	outline: none;
+	border-radius: 50%;
+  }
+
+  .icon-button a:visited {
+	color: rebeccapurple;
+  }
+
+  
+  .icon-button:hover {
+	cursor: pointer;
+  }
+  
+  .icon-button:active {
+	background: #cccccc;
+  }
+  
+  .icon-button__badge {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	width: 45px;
+	height: 45px;
+	background: rebeccapurple;
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+  }

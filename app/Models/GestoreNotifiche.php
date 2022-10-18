@@ -13,6 +13,12 @@ class GestoreNotifiche {
                             ->get();
         }
 
+        public function numeroNotifiche() {
+                return Notifica::where('destinatario', auth()->user()->id)
+                                ->where('visualizzata', false)
+                                ->count();
+            }
+
         public function getArchiviate() {
                 return Notifica::where('destinatario', auth()->user()->id)
                                 ->where('visualizzata', true)

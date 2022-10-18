@@ -17,9 +17,17 @@ class GestoreBlog {
     public function deleteBlogByBlogId($blogId) {
         $blog = Blog::find($blogId);
         $blog->delete();
-        $messaggi = getMessaggiByBlogId($blogId);
-        $messaggi->delete();
+        $this->deleteBlogPostByBlogId($blogId);
+       
     }
+
+    public function deleteBlogPostByBlogId($blogId) {
+       $posts = Post::where('blog',$blogId)
+                    ->delete();
+                  
+    }
+
+    
 
     public static function accesso($idUser,$idBlog){
         $accesso = Accesso::where('blog',$idBlog)
@@ -42,10 +50,7 @@ class GestoreBlog {
 
         foreach($accessi as $accesso){
             $accesso->delete();
-        }
-        
-        //Accesso::destroy($accessi->pluck('id'));
-        return $accessi;                                    
+        }                                 
     }
 
     public function sedNotifiche($blogId){

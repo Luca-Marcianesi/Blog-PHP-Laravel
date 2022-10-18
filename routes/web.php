@@ -24,7 +24,7 @@ Route::view('/who', 'who')
 Route::view('/admin', 'homeAdmin')
         ->name('admin')->middleware('can:isAdmin');
 
-Route::view('/user', 'homeUser')
+Route::get('/user', 'UserController@home')
         ->name('user')->middleware('can:isUser');
 
 Route::view('/staf', 'homeStaf')
@@ -172,14 +172,34 @@ Route::view('/ricerca','ricercaUtenteBlog')
 
 // Staf e admin routes
 
-Route::post('/ricerca/eliminaBlog/{$id}','StafController@deleteBlog')
+Route::get('/ricerca/blog/elimina/{id}','StafController@motivoBlog')
+        ->name('inserisciMotivoBlog')->middleware('can:isGestore');
+
+Route::post('/ricerca/eliminaBlog/{id}','StafController@deleteBlog')
         ->name('eliminaBlogGestore')->middleware('can:isGestore');
+
+
+Route::get('/ricerca/post/elimina/{id}/{idBlog}','StafController@motivoPost')
+        ->name('inserisciMotivoPost')->middleware('can:isGestore');
+
+Route::post('/ricerca/eliminaPost/{id}','StafController@deletePost')
+        ->name('eliminaPostGestore')->middleware('can:isGestore');
+
+Route::get('blog/{id}','StafController@tornaAlBlog')
+        ->name('tornaAlBlog')->middleware('can:isGestore');
+
+
+
+
 
 Route::post('/utente','StafController@visualizzaUtente')
         ->name('attivitaUtente');
 
 Route::post('/blog','StafController@visualizzaBlog')
         ->name('cercaBlog');
+
+Route::get('/prova','UserController@prova')
+        ->name('prova');
 
 
 

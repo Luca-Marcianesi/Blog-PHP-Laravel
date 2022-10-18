@@ -13,29 +13,10 @@
 <div style="width: 400px; height: 200px; margin-left: 37%; padding-top: 1%" class="contenitoreGestioneBlog">    
     <p>Proprietario del blog:<br> {{$proprietario->name}} {{$proprietario->surname}}</p><br>
     <p>Tema:{{$blog->tema}}</p><br>
-    <a href=""><button class="bottone_conferma">Visualizza profilo (non collegato)</button></a>    
+    <a href="{{ route('inserisciMotivoBlog',$blog->id) }}"><button title="Elimina questo blog" class='bottone_elimina' >Elimina</button></a>
+
 </div>
 <hr class="spaziaturahr">
-
-<div style="text-align: center">
-{{ Form::open(array('route' => ['eliminaBlogGestore',$blog->id], 'id'=>'eliminablog','class' => '')) }}          
-    <div>
-        {{ Form::label('motivo', 'Visibilità', ['class' => 'label-form']) }}<br><br>
-        {{ Form::text('motivo', '', ['id' => 'motivo', 'placeholder'=> 'Motivazione', 'size' => '105', 'maxlength' => '80']) }}
-        @if ($errors->first('motivo'))
-        <ul class="errors">
-            @foreach ($errors->get('motivo') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div>
-    <br>
-    <div>                
-        {{ Form::submit('Modifica ►', ['class' => 'bottone_conferma']) }}
-    </div>
-    {{ Form::close() }}
-</div>
 
 
 
@@ -55,6 +36,7 @@
                     <br>
                     Contenuto:<br>{{$post->testo}}
                 </p>
+                <a href="{{ route('inserisciMotivoPost',[$post->id,$blog->id]) }}"><button title="Elimina questo post" class='bottone_elimina' >Elimina</button></a>
             </div>
             <hr class="spaziaturahr">
         @endforeach
@@ -78,54 +60,4 @@
 </div>
 @endisset
 
-
-<script>
-    $.ajaxSetup({
-        headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-    });
-
-    $(document).ready(function () {
-
-        
-
-        var form = new FormData(document.getElementById('eliminablog'));
-
-        // Delete 
-        $('.bottone_elimina').click(function () {
-
-            var form = new FormData(document.getElementById(formId));
-            
-
-            // Confirm box
-            bootbox.confirm("Sei sicuro di voler eliminare il blog?", function (result) {
-
-                if (result) {
-                    // AJAX Request
-                    $.ajax({
-                        
-                        url: "{{ route('eliminaBlog') }}",
-                        type: 'GET',
-                        data: {id: deleteid},
-                        dataType: "json",
-                        error: function (data) {
-                            
-                                bootbox.alert("blog non eliminato");  
-                            
-        
-                        },
-                        success: function (response) {
-                            window.location.replace(response.redirect);
-
-                        }
-                        
-                    });
-                }
-
-            });
-
-        });
-    });
-</script>
 @endsection

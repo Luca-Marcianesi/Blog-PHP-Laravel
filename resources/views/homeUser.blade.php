@@ -4,10 +4,20 @@
 
 @section('content')
 <hr class="spaziaturahr">
-<div>
+<div> 
+    @isset($notifiche)
+        <div style="text-align: center">
+            <button type="button" class="icon-button">
+                <a href="{{ route('notifiche') }}"><span class="material-icons">notifications</span></a>
+                <span class="icon-button__badge">{{$notifiche}}</span>
+            </button>
+        </div>
+        @endisset()
     <section>
         <p class="titolo">Questa è la pagina home della tua area riservata!</p>
-        <br>
+
+
+       
         <p class="sotto-titolo">In questa pagina puoi ricercare i tuoi amici <br>
             e, attraverso la barra in alto, usufruire di tutte le funzionalità dedicate a te!</p>
         <br>
