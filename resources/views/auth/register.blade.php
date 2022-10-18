@@ -10,7 +10,12 @@
     <hr class="spaziaturahr">
     {{ Form::open(array('route' => 'register')) }}
 
-    <div class="informazioni-richieste">
+    <div class="contenitoreRegistrati" style="text-align:center">
+        <p class="titolo">Registrati</p>
+        <br>
+        <br>
+
+        <div style="float: left; margin-left: 14%">
         {{ Form::label('name', 'Nome', ['class' => 'label-form']) }}
         <br>
         {{ Form::text('name', '', ['placeholder' => 'Inserisci nome', 'maxlength' => 18], ['id' => 'name']) }}
@@ -21,10 +26,8 @@
             @endforeach
         </ul>
         @endif
-    </div>
-    <br>
-    <br>
-    <div class="informazioni-richieste">
+        </div>
+
         {{ Form::label('surname', 'Cognome', ['class' => 'label-form']) }}
         <br>
         {{ Form::text('surname', '', ['placeholder' => 'Inserisci cognome', 'maxlength' => 18], ['id' => 'surname']) }}
@@ -35,10 +38,11 @@
             @endforeach
         </ul>
         @endif
-    </div>
-    <br>
-    <br>
-    <div class="informazioni-richieste">
+
+        <br>
+        <br>
+
+        <div style="float: left; margin-left: 14%">
         {{ Form::label('email', 'Email', ['class' => 'label-form']) }}
         <br>
         {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30], ['id' => 'email']) }}
@@ -49,10 +53,8 @@
             @endforeach
         </ul>
         @endif
-    </div>
-    <br>
-    <br>
-    <div class="informazioni-richieste">
+        </div>
+
         {{ Form::label('username', 'Username', ['class' => 'label-form']) }}
         <br>
         {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 18], ['id' => 'username']) }}
@@ -63,10 +65,9 @@
             @endforeach
         </ul>
         @endif
-    </div>
-    <br>
-    <br>
-    <div class="informazioni-richieste">
+
+        <hr style="border: none; height: 40px; width: 50%; color: none; background-color: none"></hr>
+
         {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-form']) }}
         <br>
         {{ Form::date('data_nascita', '', ['id' => 'data_nascita']) }}
@@ -77,10 +78,9 @@
             @endforeach
         </ul>
         @endif
-    </div>
-    <br>
-    <br>
-    <div class="informazioni-richieste">
+
+        <hr style="border: none; height: 40px; width: 50%; color: none; background-color: none"></hr>
+
         {{ Form::label('descrizione', 'Chi sei?', ['class' => 'label-form']) }}
         <br>
         {{ Form::textarea('descrizione', '',  ['class' => 'descrizioneparam', 'placeholder' => 'Inserisci delle informazioni su di te', 'maxlength' => 330, 'id' => 'descrizione']) }}
@@ -91,10 +91,10 @@
             @endforeach
         </ul>
         @endif
-    </div>
-    <br>
-    <br>
-    <div class="informazioni-richieste">
+
+        <hr style="border: none; height: 40px; width: 50%; color: none; background-color: none"></hr>
+
+        <div style="float: left; margin-left: 14%">
         {{ Form::label('password', 'Password', ['class' => 'label-form']) }}
         <br>
         {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 18], ['id' => 'password']) }}
@@ -105,18 +105,21 @@
             @endforeach
         </ul>
         @endif
-    </div>
-    <br>
-    <br>
-    <div class="informazioni-richieste">
+        </div>
+
+        <div>
         {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-form']) }}
         <br>
         {{ Form::password('password_confirmation', ['placeholder' => 'Immetti nuovamente', 'maxlength' => 18], ['id' => 'password-confirm']) }}
-    </div>
-    <br>
-    <br>
-    <div style="text-align: center" class="container-form-btn">                
+        </div>
+
+        <br>
+        <br>
+        
+        <div style="text-align: center">
         {{ Form::submit('Registrati', ['class' => 'bottone_conferma']) }}
+        </div>
+
     </div>
 
     {{ Form::close() }}
