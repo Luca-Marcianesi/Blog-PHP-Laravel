@@ -44,6 +44,17 @@ class userController extends Controller {
         return view('profilo');
     }
 
+    public function home(){ 
+
+        $numeroNotifiche = $this->_GestoreNotifiche->numeroNotifiche();
+
+
+        return view('homeUser')
+                ->with('notifiche',$numeroNotifiche);
+
+              
+    }
+
 
     public function newBlog(NewBlogRequest $request){ 
 
