@@ -47,6 +47,8 @@ class StafController extends Controller {
         $notifica->data = date("Y-m-d");
         $notifica->save();
         $this->_GestoreBlog->deleteBlogByBlogId($id);
+
+        return redirect()->route('ricerca');
     }
 
     public function deletePost(MotivoRequest $request,$id){
@@ -57,6 +59,8 @@ class StafController extends Controller {
         $notifica->data = date("Y-m-d");
         $notifica->save();
         $post->delete();
+
+        return reditect()->route('ricerca');
     }
 
     public function visualizzaUtente(CercaUtenteRequest $request){
