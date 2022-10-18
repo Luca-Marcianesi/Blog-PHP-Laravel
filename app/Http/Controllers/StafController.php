@@ -60,7 +60,7 @@ class StafController extends Controller {
         $notifica->save();
         $post->delete();
 
-        return reditect()->route('ricerca');
+        return redirect()->route('ricerca');
     }
 
     public function visualizzaUtente(CercaUtenteRequest $request){
@@ -113,6 +113,16 @@ class StafController extends Controller {
         }
             
         
+    }
+
+    public function motivoBlog($id){
+        return view('eliminaBlog-Post-gestore')
+                ->with('blog',$id);
+    }
+
+    public function motivoPost($id){
+        return view('eliminaBlog-Post-gestore')
+                ->with('post',$id);
     }
 
 

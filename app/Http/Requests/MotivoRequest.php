@@ -25,7 +25,7 @@ class MotivoRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'motivo' => 'string | max:25',
+            'motivo' => 'required | string | max:50',
         ];
     }
 
