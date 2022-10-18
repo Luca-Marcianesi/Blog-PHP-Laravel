@@ -323,9 +323,7 @@ nav ul li a:hover{
 }
 
 .contenitoreRegistrati{
-	background-image: url(/images/products/nuvole.webp);
-	background-size: contain;
-	margin-left: 34%;
+	margin-left: 12%;
 	padding-top: 2%;
 	text-align: center;
 	width: 500px;
@@ -421,6 +419,20 @@ nav ul li a:hover{
 	border-width: 4px;
 	border-color: black;
 	color: black;
+}
+
+.contenitoreModificaDatiProfilo{
+	padding-top: 2%;
+	margin-left: 37%;
+	font-size: 18px;
+	text-align: center;
+	border-style: solid;
+	border-width: 4px;
+	border-color: black;
+	color: black;
+	overflow: auto;
+	height: 640px;
+	width: 400px;
 }
 
 .contenitorebiografia{
@@ -653,6 +665,7 @@ nav ul li a:hover{
 }
 
 .container-form-button{
+	font-size: 18px;
 	width: 100%;
   	display: flex;
   	flex-wrap: wrap;
@@ -663,7 +676,7 @@ nav ul li a:hover{
 
 .form-button{
 	color: rebeccapurple;
-	font-size: medium;
+	font-size: 18px;
 	font-family: Arial, Helvetica, sans-serif;
 	cursor: pointer;
 	outline: none;
