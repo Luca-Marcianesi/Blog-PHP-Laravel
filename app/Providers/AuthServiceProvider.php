@@ -44,6 +44,9 @@ class AuthServiceProvider extends ServiceProvider
             return $user->visibility();
         });
 
+        Gate::define('utenteVisibile',function ($user,$id) {
+            return  \App\Models\GestoreRicerca::accountVisibile($id);
+        });
         
 
         Gate::define('isFriend', function ($user,$id) {
