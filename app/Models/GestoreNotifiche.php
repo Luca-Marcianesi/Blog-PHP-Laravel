@@ -10,6 +10,7 @@ class GestoreNotifiche {
         public function getNotifiche() {
             return Notifica::where('destinatario', auth()->user()->id)
                             ->where('visualizzata', false)
+                            ->orderBy('data','desc')
                             ->get();
         }
 

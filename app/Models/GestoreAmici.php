@@ -50,6 +50,16 @@ class GestoreAmici {
 
     }
 
+    public function getNumNuoveAmicizie($id){
+        return Amicizia::where('destinatario',$id)
+                            ->where('visualizzata',false)
+                            ->where('stato',false)
+                            ->join('users', 'users.id', '=', 'amicizia.richiedente')
+                            ->select('users.*','amicizia.*')
+                            ->count();
+
+    }
+
     public function getAmicizieRifiutate(){
 
         return Amicizia::where(function ($query)  {

@@ -47,10 +47,13 @@ class userController extends Controller {
     public function home(){ 
 
         $numeroNotifiche = $this->_GestoreNotifiche->numeroNotifiche();
+        $richiesteAmicizia = $this->_AmiciModel->getNumNuoveAmicizie(auth()->user()->id);
+
+        $numeroTot =$numeroNotifiche + $richiesteAmicizia;
 
 
         return view('homeUser')
-                ->with('notifiche',$numeroNotifiche);
+                ->with('notifiche',$numeroTot);
 
               
     }
