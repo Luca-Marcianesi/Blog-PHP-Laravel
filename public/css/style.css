@@ -308,10 +308,7 @@ nav ul li a:hover{
 }
 
 .contenitoreLogin{
-	background-image: url(/images/products/message.webp);
-	background-size: contain;
-	background-position: 50%;
-	margin-left: 39%;
+	margin-left: 55%;
 	padding-top: 2%;
 	text-align: center;
 	width: 350px;
