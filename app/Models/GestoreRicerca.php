@@ -36,4 +36,12 @@ class GestoreRicerca {
                             ->get();          
 
     }
+
+
+    public static function accountVisibile($id){
+        $utente = User::find($id);
+        return $utente->visibilita;
+    }
+
+
 }
