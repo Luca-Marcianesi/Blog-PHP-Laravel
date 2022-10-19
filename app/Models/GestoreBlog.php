@@ -105,6 +105,7 @@ class GestoreBlog {
             foreach($idAccesso as $id ){
                     $notifica = new Notifica;
                     $notifica->destinatario = $id->id;
+                    $notifica->data = date("Y-m-d h-m-s");
                     $notifica->messaggio = "Un nuovo messaggio sul blog ". $blog->tema;
                     $notifica->save();
             }
