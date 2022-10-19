@@ -2,9 +2,16 @@
 
 @section('title', 'Login')
 
-@section('content')   
+@section('content')
+<hr style="width: 100%; height: 50px; border: none">
+
+<div>
+
+    <div style="heigth: 700px ;float:left; margin-left: 12%">
+        <img style="color: trasparent; width: 500px" alt="Discussione animazione" src="/images/products/talking.gif"></img>
+    </div>
     
-    <hr style="width: 100%; height: 50px; border: none">
+
     <div class="contenitoreLogin">
         <p class="titolo">Accedi</p>
         <br>
@@ -36,19 +43,20 @@
             @endif
 
             <hr style="height: 30px; border: none; background: none"></hr>
-
-            <div class="form-button">                
+                
             {{ Form::submit('Login ►', ['class' => 'bottone_conferma']) }}
-            </div>
         
         {{ Form::close() }}
         
     </div>
 
-    <hr class="spaziaturahr">
-    <div style="margin-left: 40.3%; text-align: center; height: auto; width: 300px">
+    <br>
+    <br>
+    <div style="margin-left: 56.8%; text-align: center; height: auto; width: 300px">
         <p class="sotto-titolo"> Non sei ancora registrato? </p>
         <hr style="height: 10px; border: none"></hr>
         <a href="{{ route('register') }}" title="Vai alla pagina di registrazione"><button style="font-size: 18px" class="bottone_conferma">Registrati ►</button></a>
     </div>
+
+</div>
 @endsection
