@@ -539,6 +539,16 @@ nav ul li a:hover{
 	border-width: 4px;
 }
 
+.contenitoreModificaAggiungiStaff{
+	padding-top: 2%;
+	overflow: auto;
+	text-align: center;
+	font-size: 20px;
+	border-style: solid;
+	border-color: black;
+	border-width: 4px;
+}
+
 .contenitoreNotificaDiAmicizia{
 	margin-left: 30.5%;
 	padding-top: 2%;

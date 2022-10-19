@@ -14,37 +14,42 @@
     <p>Proprietario del blog:<br> {{$proprietario->name}} {{$proprietario->surname}}</p><br>
     <p>Tema:{{$blog->tema}}</p><br>
     <a href="{{ route('inserisciMotivoBlog',$blog->id) }}"><button title="Elimina questo blog" class='bottone_elimina' >Elimina</button></a>
-
 </div>
-<hr class="spaziaturahr">
+<br>
+<br>
+<hr style="height: 1px; width: 100%; border-style: solid; border-color: black; border-width: 2px"></hr>
 
-
-
-<hr class="spaziaturahr">
+<br>
+<br>
 
 <p class="titolo">Posts</p>
 <br>
 <br>
 <div style="text-align: center;">
     @isset($posts)
+        @if(count($posts)== 0)
+            <p class="sotto-titolo">
+                Non sono stati pubblicati ancora post
+            </p>
+        @else
         @foreach($posts as $post)
-            <div style="width: 300px; height: 150px; margin-left: 40%; padding-top: 1%" class="contenitoreGestioneBlog">
+            <div style="width: 400px; height: 250px; margin-left: 37%; padding-top: 1%" class="contenitoreGestioneBlog">
                 <p>
                     Autore: {{$post->name}} {{$post->surname}}
                     <br>
+                    <br>
                     Data:{{$post->data}}
                     <br>
-                    Contenuto:<br>{{$post->testo}}
+                    <br>
+                    Contenuto: {{$post->testo}}
                 </p>
+                <br>
                 <a href="{{ route('inserisciMotivoPost',[$post->id,$blog->id]) }}"><button title="Elimina questo post" class='bottone_elimina' >Elimina</button></a>
             </div>
-            <hr class="spaziaturahr">
+            <br>
+            <br>
         @endforeach
-        @if(count($posts)== 0)
-            <p>
-                Non sono stati pubblicati ancora post
-            </p>
-        @endif()
+        @endif
 
     @endisset()
 </div>

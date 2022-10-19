@@ -9,6 +9,7 @@
 <p class="titolo"> Questa è la pagina dedicata alle tue notifiche </p>
 <br>
 <br>
+
 @isset($amicizieRicevute)
 @if(count($amicizieRicevute)==0)
     <div class="main_element" style="text-align: center; font-size: large">
@@ -40,34 +41,15 @@
         Data: {{ $notifica->data }}<br>
         Testo: {{ $notifica->messaggio }}<br>
         <br>
-        <div><button class="bottone_elimina" onclick="togglePopupEliminaNotifica()">Elimina</button></div>
         <div><a href="{{ route('archiviaNotifica',[$notifica->id]) }}"><button class="bottone_conferma">Archivia</button></a></div>
     </div>
     <br>
     <br>
 
-    
-
-    <div id="elimina-notifica" class="popup">
-        <div class="overlay"></div>
-        <div class="content">
-            <div class="close-btn" onclick="togglePopupEliminaNotifica()">&times;</div>
-            <br>
-            <h2>Conferma</h1>
-            <br>
-            <div style="text-align: center; font-size: large">
-                Sei sicuro di voler cancellare questa notifica?
-            </div>
-            <br> <br>
-            <div>
-            <a href="{{ route('eliminaNotifica', $notifica->id) }}"><button class="bottone_conferma">Si</button></a>
-            <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaNotifica()">Annulla</button>
-            </div>
-        </div>  
-    </div>
     @endforeach
     @endif
 @endisset()
+
 <hr class="spaziaturahr">
 
 @isset($archiviate)
@@ -83,14 +65,16 @@
             <p class="titolo">Notifiche Archiviate</p>
             @if(count($archiviate)===0)
                 <div>
-                    <p class="sotto-titolo">Attualmente non hai <br> nessuna notifica archiviata</p>
+                    <p style="font-size: 18px; color: black">Attualmente non hai <br> nessuna notifica archiviata</p>
                 </div>
             @else
+            <p style="font-size: 18px">La lista delle notifiche da te archiviate:</p><br>
             @foreach($archiviate as $archiviata)
                 <div style="text-align: center; font-size: 18px">
-                    La lista delle notifiche da te archiviate:</p><br>
                     <div style="border-style: solid; border-width: 4px; border-color: black">
-                    Messaggio: {{$archiviata->messaggio}}
+                    Messaggio: {{$archiviata->messaggio}}<br>
+                    Ricevuto il: {{$archiviata->data}}<br>
+                    <a href= "{{ route('eliminaNotifica',[$archiviata->id]) }}"><button class="bottone_elimina">Elimina</button></a>
                     </div>
                 </div>
                 <br>

@@ -23,35 +23,14 @@
             <div style="width: 400px; height: 220px; margin-left: 37%" class="contenitoreStaff">
                 <p>Nome: {{$s->name}} <br> Cognome: {{$s->surname}}</p> <br>
                 <a href="{{ route('modificaStaf',[$s->id]) }}"><button class="bottone_conferma">Modifica ►</button></a><br>
-                <button class="bottone_elimina" onclick="togglePopupEliminaStaf()">Elimina ►</button>
+                <button class="bottone_elimina">Elimina ►</button>
             </div>
             <br>
             <br>
 
-        <div id="elimina-staf" class="popup">
-            <div class="overlay"></div>
-            <div class="content">
-                <div class="close-btn" onclick="togglePopupEliminaStaf()">&times;</div>
-                <br>
-                <h2>Conferma</h1>
-                <br>
-                <div style="text-align: center; font-size: large">
-                    Sei sicuro di voler eliminare "{{ $s->name }} {{ $s->surname }}" dallo staff?
-                </div>
-                <br> <br>
-                <div>
-                <a href="{{ route('eliminaStaf', $s->id) }}"><button class="bottone_conferma">Si</button></a>
-                <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupEliminaStaf()">Annulla</button>
-                </div>
-            </div>  
-        </div>
         @include('pagination.paginator', ['paginator' => $staf])
 
-
-
-
-
-    @endforeach
+        @endforeach
     @endif()
     @endisset()
     <hr class="spaziaturahr">
