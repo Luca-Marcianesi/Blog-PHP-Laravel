@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Resources\Blog;
 use App\Models\Resources\Amicizia;
 use App\Http\Requests\NewStafRequest;
+use App\Http\Requests\BlogID;
 use App\Http\Requests\StatisticheRequest;
 use App\Http\Requests\ModificaStafRequest;
 use App\User;
@@ -36,12 +37,15 @@ class AdminController extends Controller {
         return $this->getStaf();
     }
 
-    public function eliminaStaf($id){
-        $staf =  User::find($id);
+    public function eliminaStaf(BlogID $id){
+        $staf =  User::find($id->id);
+        $staf->name = "lolo";
         $staf->delete();
         
-        return $this->getStaf();
+        return response()->json(['redirect' => route('gestioneStaf')]);
     }
+
+    
 
     public function getModificaStaf($id){
         $staf = User::find($id);
