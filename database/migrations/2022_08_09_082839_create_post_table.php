@@ -19,7 +19,7 @@ class CreatePostTable extends Migration
             $table->integer('autore');
             $table->integer('blog');
             $table->string('testo',255);
-            $table->date('data');
+            $table->datetime('data');
             $table->boolean('visualizzato')->default(false);
             $table->timestamps();
         });
