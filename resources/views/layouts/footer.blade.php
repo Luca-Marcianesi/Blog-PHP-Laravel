@@ -15,23 +15,22 @@
             <div class="content">
                 <div class="close-btn" onclick="togglePopupNorme()">&times;</div>
                 <br>
-                <h1>Norme</h1>
+                <p style="font-family: 'Times New Roman', Times, serif" class="titolo">Norme</p>
                 <br>
-                <p>
-                    <u>Leggere con attenzione</u><br>
-                    <br>
+                <p style="font-family: 'Times New Roman', Times, serif" class="sotto-titolo">Leggere con attenzione</p><br>
+                <p style="font-family: 'Times New Roman', Times, serif; color: black; font-size: 18px">
                     Ci impegniamo a mantenere un comportamento idoneo all'interno del nostro sito web, non
                     tolleriamo alcuna forma di razzismo, sessismo e parole/pensieri che possano offendere
                     le persone che si stanno godendo l'esperienza offerta dal nostro sito. Il nostro obbiettivo 
                     è fare in modo che gli utenti possano scambiarsi opinioni e parlare liberamente per condividere
                     il proprio pensiero rispettandosi a vicenda. Questo aspetto per noi è fondamentale e ci aspettiamo
                     che tutti gli utenti del nostro sito seguano queste semplici linee guida che sono la base per 
-                    una corretta e rispettosa interazione. Grazie.
+                    una corretta e rispettosa interazione. Grazie.<br>
                 </p>
                 <br>
                 <br>
                 <div>
-                    <button class="bottone_conferma" style="cursor: pointer" onclick="togglePopupNorme()">Chiudi</button>
+                    <button class="bottone_conferma" style="cursor: pointer; font-size: 18px" onclick="togglePopupNorme()">Chiudi</button>
                 </div>
             </div>
 </div>
