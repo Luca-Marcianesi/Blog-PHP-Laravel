@@ -27,6 +27,22 @@ class GestoreBlog {
                   
     }
 
+    public static function puoPostare($id){
+        $amicizia = Amicizia::where(function ($query)  use ($id){
+                                $query->where('richiedente', $id)
+                                        ->where('destinatario',auth()->user()->id)
+                                        ->where('stato',true);
+                                     })
+                            ->orWhere(function ($query)  use ($id){
+                                $query->where('richiedente', auth()->user()->id)
+                                        ->where('destinatario', $id)
+                                        ->where('stato',true);
+                                    })
+                                    ->get();
+        if(count($amicizia) == 0 and $id != auth()->user()->id) return false;
+        else return true;
+    }
+
     
 
     public static function accesso($idUser,$idBlog){
@@ -72,6 +88,7 @@ class GestoreBlog {
             foreach($idAmici as $id ){
                 $notifica = new Notifica;
                 $notifica->destinatario = $id->id;
+                $notifica->data = date("Y-m-d h-m-s");
                 $notifica->messaggio = "Un nuovo messaggio sul blog ". $blog->tema;
                 $notifica->save();
 

@@ -68,7 +68,7 @@ class userController extends Controller {
         $primoMessaggio->autore = auth()->user()->id;
         $primoMessaggio->blog = $blog->id;
         $primoMessaggio->testo = $request->messaggio;
-        $primoMessaggio->data = date("Y-m-d");
+        $primoMessaggio->data = date("Y-m-d h-m-s");
         $primoMessaggio->save();
 
 
@@ -110,12 +110,12 @@ class userController extends Controller {
         $post->autore = auth()->user()->id;
         $post->blog = $id;
         $post->testo = $request->testo;
-        $post->data = date("Y-m-d");
+        $post->data = date("Y-m-d h-m-s");
         $post->save();
 
         $this->_GestoreBlog->sedNotifiche($id);
 
-        return redirect()->view('homeUser');
+        return redirect()->route('blog',[$id]);
 
     }
 

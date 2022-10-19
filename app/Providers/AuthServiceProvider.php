@@ -53,6 +53,10 @@ class AuthServiceProvider extends ServiceProvider
             return  \App\Models\GestoreAmici::isFriend($id);
         });
 
+        Gate::define('puoPostare', function ($user,$id) {
+            return  \App\Models\GestoreBlog::puoPostare($id);
+        });
+
         Gate::define('isRifiutata', function ($user,$id) {
             return  \App\Models\GestoreAmici::isRifiutata($id);
         });

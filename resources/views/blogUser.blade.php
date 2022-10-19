@@ -28,7 +28,8 @@
     <p class="sotto-titolo">Contenuto:{{$post->testo}}</p>
     <br>
     @endforeach
-    @can('isFriend',$proprietario->id)
+</div>
+    @can('puoPostare',$proprietario->id)
     <div style="text-align: center">
             {{ Form::open(array('route' => ['newPost', $blog->id], 'class' => 'contact-form')) }}
 
@@ -53,7 +54,7 @@
             {{ Form::close() }}
     </div>
     @endcan
-</div>
+
 @endisset()
 @endisset()
 @endisset()
