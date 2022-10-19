@@ -7,6 +7,8 @@
 <br>
 <br>
 <p class="titolo"> Questa è la pagina dedicata alle tue notifiche </p>
+<br>
+<br>
 @isset($amicizieRicevute)
 @if(count($amicizieRicevute)==0)
     <div class="main_element" style="text-align: center; font-size: large">
@@ -15,8 +17,8 @@
 
     @else
     @foreach($amicizieRicevute as $amicizia)
-    <div class="main_element" style="text-align:center; font-size: large">
-        <div> {{$amicizia->name}} {{$amicizia->surname}} ha chiesto di entrare nel tuo gruppo di amici</div>
+    <div class="contenitoreNotificaDiAmicizia">
+        <p>L'utente "{{$amicizia->name}} {{$amicizia->surname}}" ha chiesto di entrare nel tuo gruppo di amici</p>
         <a href="{{ route('rispostaAmicizia',[$amicizia->id,true]) }}" ><button class="bottone_conferma">Accetta</button></a>
         <a href="{{ route('rispostaAmicizia',[$amicizia->id,false]) }}" > <button class="bottone_conferma">Rifiuta</button> </a>    
     </div>     
@@ -38,7 +40,7 @@
         Data: {{ $notifica->data }}<br>
         Testo: {{ $notifica->messaggio }}<br>
         <br>
-        <div><button class="bottone_conferma" onclick="togglePopupEliminaNotifica()">Elimina</button></div>
+        <div><button class="bottone_elimina" onclick="togglePopupEliminaNotifica()">Elimina</button></div>
         <div><a href="{{ route('archiviaNotifica',[$notifica->id]) }}"><button class="bottone_conferma">Archivia</button></a></div>
     </div>
     <br>
@@ -78,17 +80,18 @@
         <div class="content">
             <div class="close-btn" onclick="togglePopupNotifiche()">&times;</div>
             <br>
-            <h2>Notifiche Archiviate</h1>
-            <br>
+            <p class="titolo">Notifiche Archiviate</p>
             @if(count($archiviate)===0)
-                <div style="text-align: center; font-size: large;">
-                    Attualmente non hai <br> nessuna notifica archiviata
+                <div>
+                    <p class="sotto-titolo">Attualmente non hai <br> nessuna notifica archiviata</p>
                 </div>
             @else
             @foreach($archiviate as $archiviata)
-                <div style="text-align: center; font-size: large">
-                    <h3>La lista delle notifiche da te archiviate</h3><br>
+                <div style="text-align: center; font-size: 18px">
+                    La lista delle notifiche da te archiviate:</p><br>
+                    <div style="border-style: solid; border-width: 4px; border-color: black">
                     Messaggio: {{$archiviata->messaggio}}
+                    </div>
                 </div>
                 <br>
                 <br>
