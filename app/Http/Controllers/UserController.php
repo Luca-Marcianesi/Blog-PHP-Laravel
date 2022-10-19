@@ -55,6 +55,12 @@ class userController extends Controller {
               
     }
 
+    public function getmodificaProfilo(){
+        $utente = User::find(auth()->user()->id);
+        return view('modificaProfilo')
+                ->with('user',$utente);
+    }
+
 
     public function newBlog(NewBlogRequest $request){ 
 
@@ -201,11 +207,13 @@ class userController extends Controller {
 
 
         $profilo = User::find(auth()->user()->id);
-        $profilo->fill($request->validated());    
+        //$profilo->fill($request->validated());
+        
+        $profilo->visibilita = $request->stato;
         
         $profilo->save();
 
-        return view('homeUser');
+        return redirect()->route('profilo');
 
     }
 

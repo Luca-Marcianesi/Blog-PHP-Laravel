@@ -3,6 +3,7 @@
 @section('title', 'Modifica Profilo')
 
 @section('content')
+@isset($user)
 <br>
 <br>
 <p class="titolo"> Modifica i dati del tuo profilo </p>
@@ -14,7 +15,7 @@
 
     <div>
     {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}<br>
-    {{ Form::text('name', '', ['placeholder' => 'Nuovo nome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'name']) }}
+    {{ Form::text('name', $user->name , ['placeholder' => 'Nuovo nome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'name']) }}
     @if ($errors->first('name'))
     <ul>
         @foreach ($errors->get('name') as $message)
@@ -28,7 +29,7 @@
 
     <div>
     {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}<br>
-    {{ Form::text('surname', '', ['placeholder' => 'Nuovo cognome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'surname']) }}
+    {{ Form::text('surname', $user->surname, ['placeholder' => 'Nuovo cognome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'surname']) }}
     @if ($errors->first('surname'))
     <ul>
         @foreach ($errors->get('surname') as $message)
@@ -42,7 +43,7 @@
 
     <div>
     {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-input']) }}<br>
-    {{ Form::date('data_nascita', '', ['id' => 'data_nascita']) }}
+    {{ Form::date('data_nascita', $user->data_nascita, ['id' => 'data_nascita']) }}
     @if ($errors->first('data_nascita'))
     <ul>
         @foreach ($errors->get('data_nascita') as $message)
@@ -55,15 +56,15 @@
     <br>
 
     <div>
-    {{ Form::label('email', 'E-mail:', ['class' => 'label-input']) }}<br>
-    {{ Form::text('email', '', ['placeholder' => 'Nuova e-mail', 'maxlength' => 30, 'size' => 35], ['class' => 'input-form', 'id' => 'email']) }}
-    @if ($errors->first('email'))
-    <ul>
-        @foreach ($errors->get('email') as $message)
-        <li>{{ $message }}</li>
-        @endforeach
-    </ul>
-    @endif
+        {{ Form::label('stato', 'Visibilità', ['class' => 'label-input']) }}
+        {{ Form::select('stato',['0' => 'Account privato','1' => 'Account pubblico'], $user->visibilita, ['class' => 'input','id' => 'stato', 'title' => 'Imposta chi può vedere questo blog']) }}
+        @if ($errors->first('stato'))
+        <ul >
+            @foreach ($errors->get('stato') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+        @endif
     </div>
 
     <br>
@@ -74,5 +75,5 @@
     {{ Form::close() }}   
 </div>
 
-
+@endisset()
 @endsection

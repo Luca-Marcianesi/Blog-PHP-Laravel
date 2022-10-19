@@ -32,7 +32,7 @@ class ProfiloRequest extends FormRequest {
         return [
             'name' => ['required', 'string', 'max:20'],
             'surname' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:30', 'unique:users'],
+            'stato' => ['required','integer'],
             'data_nascita' => ['required', 'date'],
 
         ];

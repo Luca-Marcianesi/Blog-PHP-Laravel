@@ -60,7 +60,7 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::view('/myProfilo','profilo')
         ->name('profilo')->middleware('can:isUser');
 
-Route::view('/myProfilo/modificaProfilo', 'modificaProfilo')
+Route::get('/myProfilo/modificaProfilo', 'UserController@getmodificaProfilo')
         ->name('modificaProfilo')->middleware('can:isUser');
 
 Route::post('/myProfilo/modificaProfilo', 'UserController@modificaProfilo')
