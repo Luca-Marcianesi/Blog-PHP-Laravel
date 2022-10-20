@@ -23,7 +23,7 @@
             <div style="width: 400px; height: 220px; margin-left: 37%" class="contenitoreStaff">
                 <p>Nome: {{$s->name}} <br> Cognome: {{$s->surname}}</p> <br>
                 <a href="{{ route('modificaStaf',[$s->id]) }}"><button class="bottone_conferma">Modifica ►</button></a><br>
-                <button class="bottone_elimina">Elimina ►</button>
+                <button title="Elimina questo blog" class='bottone_elimina' id='del_<?= $s->id ?>' data-id='<?= $s->id?>'>Elimina</button>
             </div>
             <br>
             <br>
@@ -42,4 +42,51 @@
         
     
 </div>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+    });
+
+    $(document).ready(function () {
+
+        // Delete 
+        $('.bottone_elimina').click(function () {
+            var el = this;
+
+            // Delete id
+            var deleteid = $(this).data('id');
+
+            // Confirm box
+            bootbox.confirm("Sei sicuro di voler eliminare questo membro?", function (result) {
+
+                if (result) {
+                    // AJAX Request
+                    $.ajax({
+                        
+                        url: "{{ route('eliminaStaf') }}",
+                        type: 'POST',
+                        data: {id: deleteid},
+                        dataType: "json",
+                        error: function (data) {
+
+                                bootbox.alert("staf non eliminato"+data.status);  
+                            
+        
+                        },
+                        success: function (response) {
+                            window.location.replace(response.redirect);
+
+                        }
+                        
+                    });
+                }
+
+            });
+
+        });
+    });
+</script>
 @endsection

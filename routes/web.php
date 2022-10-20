@@ -155,7 +155,7 @@ Route::view('/gestioneStaf/aggiungiStaf','newStaf')
 Route::post('/gestioneStaf/aggiungiStaf','AdminController@newStaf')
         ->name('creaStaf')->middleware('can:isAdmin');
 
-Route::get('/gestioneStaf/eliminaStaf/{id}','AdminController@eliminaStaf')
+Route::post('/gestioneStaf/elimina','AdminController@eliminaStaf')
         ->name('eliminaStaf')->middleware('can:isAdmin');
 
 Route::get('/gestioneStaf/modificaStaf/{id}','AdminController@getModificaStaf')
