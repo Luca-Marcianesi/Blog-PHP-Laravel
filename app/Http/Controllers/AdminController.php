@@ -10,6 +10,7 @@ use App\Http\Requests\NewStafRequest;
 use App\Http\Requests\BlogID;
 use App\Http\Requests\StatisticheRequest;
 use App\Http\Requests\ModificaStafRequest;
+use App\Http\Requests\ModificaPasswordRequest;
 use App\User;
 use App\Models\GestoreAmici;
 
@@ -57,14 +58,24 @@ class AdminController extends Controller {
         $staf = User::find($id);
         $staf->name = $request->name;
         $staf->surname = $request->surname;
-        if(!empty($request->password)){
-           $staf->password = Hash::make($request->password); 
-        }
-        
         $staf->data_nascita = $request->data_nascita;
         $staf->save();
 
         return $this->getStaf();
+    }
+
+    public function modificaPassword(ModificaPasswordRequest $request, $id){
+        $staf = User::find($id);
+        $staf->password = Hash::make($request->password);
+        $staf->save();
+
+        return $this->getStaf();
+    }
+
+    public function getModificaPassword($id){
+        $staf = User::find($id);
+        return view('modificaStaffPassword')
+                ->with('staf',$staf);
     }
 
 

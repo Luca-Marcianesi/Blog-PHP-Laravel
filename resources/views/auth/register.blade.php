@@ -129,7 +129,7 @@
         <br>
         <br>
         
-        {{ Form::submit('Registrati', ['class' => 'bottone_conferma']) }}
+        {{ Form::submit('Registrati ►', ['class' => 'bottone_conferma']) }}
         
     </div>
 </div>

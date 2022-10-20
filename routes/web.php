@@ -66,6 +66,12 @@ Route::get('/myProfilo/modificaProfilo', 'UserController@getmodificaProfilo')
 Route::post('/myProfilo/modificaProfilo', 'UserController@modificaProfilo')
         ->name('modificaProfilo');
 
+Route::get('/myProfilo/modificaProfilo/modificaPassword', 'UserController@getmodificaPassword')
+        ->name('getmodificaUserPassword')->middleware('can:isUser');
+
+Route::post('/myProfilo/modificaProfilo/modificaPassword', 'UserController@modificaPassword')
+        ->name('modificaUserPassword');
+
 //Creazione , visualizzazione , eliminazione e modifica blog dell'utente loggato
 
 Route::view('/blog/nuovoBlog', 'newBlog')
@@ -163,6 +169,12 @@ Route::get('/gestioneStaf/modificaStaf/{id}','AdminController@getModificaStaf')
 
 Route::post('/gestioneStaf/modificaStaf/{id}','AdminController@modificaStaf')
         ->name('modificaStaf')->middleware('can:isAdmin');
+
+Route::get('/gestioneStaf/modificaStaf/modificaPassword/{id}','AdminController@getModificaPassword')
+        ->name('getModificaStaffPassword')->middleware('can:isAdmin');
+
+Route::post('/gestioneStaf/modificaStaf/modificaPassword/{id}','AdminController@modificaPassword')
+        ->name('modificaStaffPassword')->middleware('can:isAdmin');
 
 Route::view('/ricerca','ricercaUtenteBlog')
         ->name('ricerca')->middleware('can:isGestore');

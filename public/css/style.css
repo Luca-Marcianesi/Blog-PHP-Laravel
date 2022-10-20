@@ -328,6 +328,20 @@ nav ul li a:hover{
 	color: black;
 }
 
+.contenitoreModificaPassword{
+	font-family: 'Times New Roman', Times, serif;
+	padding-top: 2%;
+	text-align: center;
+	margin-left: 40%;
+	border-style: solid;
+	border-width: 4px;
+	border-color: black;
+	color: black;
+	overflow: auto;
+	width: 300px;
+	height: 300px;
+}
+
 .contenitoreRegistrati{
 	overflow: auto;
 	margin-left: 12%;

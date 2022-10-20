@@ -36,14 +36,21 @@
         <br>
     </div>
 
-    <hr class="spaziaturahr">
-
-    <div style="text-align: center; font-size: large">
-        <p class="titolo">Se desideri modificare i dati del tuo profilo clicca qui sotto!</p>
-    </div>
     <br>
-    <div style="text-align: center; font-size: large; color: rebeccapurple">
+
+    <div style="text-align: center">
+        <p class="sotto-titolo">Se desideri modificare i dati del tuo profilo clicca qui sotto!</p>
+        <br>
         <a href="{{route('modificaProfilo')}}"><button class="bottone_conferma">Modifica Profilo ►</button></a>
+    </div>
+
+    <br>
+    <br>
+
+    <div style="text-align: center">
+        <p class="sotto-titolo">Se desideri modificare la password del tuo account clicca qui sotto!</p>
+        <br>
+        <a href="{{ route('getmodificaUserPassword')}}"><button class="bottone_conferma">Modifica Password ►</button></a>
     </div>
 </div>
 

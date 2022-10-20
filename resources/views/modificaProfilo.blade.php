@@ -17,7 +17,7 @@
     {{ Form::label('name', 'Nome') }}<br>
     {{ Form::text('name', $user->name , ['placeholder' => 'Nuovo nome', 'maxlength' => 15], ['class' => 'input-form', 'id' => 'name']) }}
     @if ($errors->first('name'))
-    <ul>
+    <ul class="errors">
         @foreach ($errors->get('name') as $message)
         <li>{{ $message }}</li>
         @endforeach
@@ -31,7 +31,7 @@
     {{ Form::label('surname', 'Cognome') }}<br>
     {{ Form::text('surname', $user->surname, ['placeholder' => 'Nuovo cognome', 'maxlength' => 15], ['class' => 'input-form', 'id' => 'surname']) }}
     @if ($errors->first('surname'))
-    <ul>
+    <ul class="errors">
         @foreach ($errors->get('surname') as $message)
         <li>{{ $message }}</li>
         @endforeach
@@ -45,7 +45,7 @@
     {{ Form::label('data_nascita', 'Data di nascita') }}<br>
     {{ Form::date('data_nascita', $user->data_nascita, ['id' => 'data_nascita']) }}
     @if ($errors->first('data_nascita'))
-    <ul>
+    <ul class="errors">
         @foreach ($errors->get('data_nascita') as $message)
         <li>{{ $message }}</li>
         @endforeach
@@ -60,7 +60,7 @@
         <br>
         {{ Form::select('stato',['0' => 'Account privato','1' => 'Account pubblico'], $user->visibilita, ['class' => 'input','id' => 'stato', 'title' => 'Imposta chi può vedere questo blog']) }}
         @if ($errors->first('stato'))
-        <ul >
+        <ul class="errors">
             @foreach ($errors->get('stato') as $message)
             <li>{{ $message }}</li>
             @endforeach

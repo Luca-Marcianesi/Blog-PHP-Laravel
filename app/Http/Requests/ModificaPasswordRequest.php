@@ -5,7 +5,12 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ModificaStafRequest extends FormRequest {
+// Aggiunti per response JSON
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
+use Symfony\Component\HttpFoundation\Response;
+
+class ModificaPasswordRequest extends FormRequest {
 
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +30,7 @@ class ModificaStafRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'name' => ['required', 'string'],
-            'surname'=> ['required', 'string'],
-            'data_nascita'=> ['required', 'date'],
-            'password'=> ['required', 'string'],
+            'password' => ['required', 'string', 'confirmed'],
         ];
     }
 

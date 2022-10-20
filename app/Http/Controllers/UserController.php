@@ -11,6 +11,7 @@ use App\Http\Requests\BlogID;
 use App\Http\Requests\NewPostRequest;
 use App\Http\Requests\ProfiloRequest;
 use App\Http\Requests\StatoBlogRequest;
+use App\Http\Requests\ModificaPasswordRequest;
 use App\Models\Resources\Blog;
 use App\Models\Resources\Notifica;
 use App\Models\Resources\Accesso;
@@ -23,6 +24,7 @@ use App\Models\GestoreNotifiche;
 use App\Models\GestoreRicerca;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class userController extends Controller {
 
@@ -61,6 +63,12 @@ class userController extends Controller {
     public function getmodificaProfilo(){
         $utente = User::find(auth()->user()->id);
         return view('modificaProfilo')
+                ->with('user',$utente);
+    }
+
+    public function getmodificaPassword(){
+        $utente = User::find(auth()->user()->id);
+        return view('modificaPassword')
                 ->with('user',$utente);
     }
 
@@ -198,12 +206,7 @@ class userController extends Controller {
              return view('profiloUtente')
                 ->with('utente',$utente)
                 ->with('blogs',$blogs);
-        
-
-           
-
-
-        
+       
     }
 
     public function modificaProfilo(ProfiloRequest $request){
@@ -215,6 +218,18 @@ class userController extends Controller {
         
         $profilo->visibilita = $request->stato;
         
+        $profilo->save();
+
+        return redirect()->route('profilo');
+
+    }
+
+    public function modificaPassword(ModificaPasswordRequest $request){
+
+        $profilo = User::find(auth()->user()->id);
+        
+        $profilo->password = Hash::make($request->password);
+
         $profilo->save();
 
         return redirect()->route('profilo');

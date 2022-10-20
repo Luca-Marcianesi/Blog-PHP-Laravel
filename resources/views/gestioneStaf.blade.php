@@ -20,9 +20,10 @@
         <p class="sotto-titolo">Attualmente non sono presenti membri nello staff</p>
         @else
         @foreach($staf as $s)
-            <div style="width: 400px; height: 280px; margin-left: 37%" class="contenitoreStaff">
+            <div style="width: 480px; height: 300px; margin-left: 35%" class="contenitoreStaff">
                 <p>Nome: {{$s->name}} <br> Cognome: {{$s->surname}}</p> <br>
-                <a href="{{ route('modificaStaf',[$s->id]) }}"><button class="bottone_conferma">Modifica ►</button></a><br>
+                <a href="{{ route('modificaStaf',[$s->id]) }}"><button class="bottone_conferma">Modifica Profilo ►</button></a><br>
+                <a href="{{ route('getModificaStaffPassword', [$s->id]) }}"><button class="bottone_conferma">Modifica Password ►</button></a>
                 <button title="Elimina questo blog" class='bottone_elimina' id='del_<?= $s->id ?>' data-id='<?= $s->id?>'>Elimina ►</button>
             </div>
             <br>
@@ -38,9 +39,8 @@
         <p class="sotto-titolo">Se desideri aggiungere un nuovo membro allo staff puoi farlo qui:</p><br>
         <a href="{{ route('nuovoStaf') }}"><button class="bottone_conferma">Aggiungi ►</button></a>
     </div>
-    
-        
-    
+
+
 </div>
 
 <script>
