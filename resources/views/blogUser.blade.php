@@ -25,7 +25,11 @@
     @foreach($posts as $post)
     <div class="contenitorePost">
         <p>Autore: {{$post->name}} {{$post->surname}} </p>
-        <p>Data: {{$post->data}}</p>
+        <p>Data: <?php 
+                $date = date_create($post->data);
+                echo date_format($date, 'd-m-Y H:i');
+                ?>
+        <!-- {{$post->data}}  cambiando il formato non siamo riusciti a mantenere le {{}} per "sanificare"--> 
         <p>Contenuto: {{$post->testo}}</p>
     </div>
     <br>

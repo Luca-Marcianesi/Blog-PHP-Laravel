@@ -157,6 +157,7 @@ class userController extends Controller {
         $posts = Post::Where('blog',$id)
                     ->join('users', 'users.id', '=', 'post.autore')
                     ->select('users.*','post.*')
+                    ->orderBy('data','asc')
                     ->get();
 
         return view('blogUser')
