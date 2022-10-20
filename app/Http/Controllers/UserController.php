@@ -230,7 +230,7 @@ class userController extends Controller {
             $amicizia = new Amicizia;
             $amicizia->richiedente = auth()->user()->id;
             $amicizia->destinatario = $id;
-            $amicizia->data = date("Y-m-d H:i:s");
+            $amicizia->data = date("Y-m-d");
             $amicizia->save();
         }
         
@@ -239,7 +239,7 @@ class userController extends Controller {
             $amicizia = new Amicizia;
             $amicizia->richiedente = auth()->user()->id;
             $amicizia->destinatario = $id;
-            $amicizia->data = date("Y-m-d H:i:s");
+            $amicizia->data = date("Y-m-d");
             $amicizia->save();
         }
 
