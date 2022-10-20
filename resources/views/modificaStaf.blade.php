@@ -8,7 +8,7 @@
 <p class="titolo"> In questa sezione puoi modificare il tuo staff! </p>
 <hr class="spaziaturahr"></hr>
 
-    <div style="width: 400px; height: 500px; margin-left: 36.5%" class="contenitoreModificaAggiungiStaff">
+    <div style="width: 400px; height: 400px; margin-left: 36.5%" class="contenitoreModificaAggiungiStaff">
 
         @isset($staf)
 
@@ -41,7 +41,7 @@
             <br>
             <br>
 
-            {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-input']) }}
+            {{ Form::label('data_nascita', 'Data di nascita') }}
             <br>
             {{ Form::date('data_nascita', $staf->data_nascita, ['class' => 'input','id' => 'data_nascita']) }}
             @if ($errors->first('data_nascita'))
@@ -55,7 +55,7 @@
             <br>
             <br>
 
-            {{ Form::label('password', 'Nuova Password', ['class' => 'label-input']) }}
+            {{ Form::label('password', 'Nuova Password') }}
             <br>
             {{ Form::password('password', ['placeholder' => 'Inserisci password'], ['class' => 'w3-input w3-border w3-margin-bottom', 'id' => 'password']) }}
             @if ($errors->first('password'))

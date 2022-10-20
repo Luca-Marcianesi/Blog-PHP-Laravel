@@ -21,17 +21,23 @@
 <br>
 <br>
 
-<div style="margin-left: 27%; width: 700px;	height: 400px;" class="contenitoreDatiPosts">
+<div class="contenitoreDatiPosts">
     @foreach($posts as $post)
-    <p class="sotto-titolo">Autore: {{$post->name}} {{$post->surname}} </p>
-    <p class="sotto-titolo">Data:{{$post->data}}</p>
-    <p class="sotto-titolo">Contenuto:{{$post->testo}}</p>
+    <div class="contenitorePost">
+        <p>Autore: {{$post->name}} {{$post->surname}} </p>
+        <p>Data: {{$post->data}}</p>
+        <p>Contenuto: {{$post->testo}}</p>
+    </div>
     <br>
     @endforeach
 </div>
+
+
+<br>
+<br>
     @can('puoPostare',$proprietario->id)
     <div style="text-align: center">
-            {{ Form::open(array('route' => ['newPost', $blog->id], 'class' => 'contact-form')) }}
+            {{ Form::open(array('route' => ['newPost', $blog->id])) }}
 
             <div>
                 {{ Form::label('testo', 'Cosa ne Pensi?', ['class' => 'label-form']) }}

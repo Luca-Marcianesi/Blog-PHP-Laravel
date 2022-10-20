@@ -11,7 +11,7 @@
 <br>
 <br>
 
-<div style="width: 400px; height: 800px; margin-left: 36%" class="contenitoreModificaAggiungiStaff">
+<div style="width: 400px; height: 550px; margin-left: 36%" class="contenitoreModificaAggiungiStaff">
         
         {{ Form::open(array('route' => 'creaStaf', 'class' => '')) }}
 
@@ -67,7 +67,7 @@
         <br>
         <br>
 
-        {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-input']) }}
+        {{ Form::label('data_nascita', 'Data di nascita') }}
         <br>
         {{ Form::date('data_nascita', '', ['class' => 'input','id' => 'data_nascita']) }}
         @if ($errors->first('data_nascita'))
@@ -81,7 +81,7 @@
         <br>
         <br>
 
-        {{ Form::label('passwordStaf', 'Inserisci la password', ['class' => 'label-input']) }}
+        {{ Form::label('passwordStaf', 'Inserisci la password') }}
         <br>
         {{ Form::password('passwordStaf', ['placeholder' => 'Inserisci password', 'maxlength' => 18, 'size' => 22, 'id' => 'passwordStaf']) }}
         @if ($errors->first('passwordStaf'))
