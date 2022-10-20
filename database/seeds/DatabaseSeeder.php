@@ -43,6 +43,21 @@ class DatabaseSeeder extends Seeder {
         
         ]);
 
+        //utenti predefiniti
+
+        DB::table('users')->insert([
+            ['name' => 'user', 'surname' => 'user', 'email' => 'user@gmail.it', 'username' => 'useruser',
+                'password' => Hash::make('useruser'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'user'],
+            ['name' => 'staf', 'surname' => 'staf', 'email' => 'staf@libero.it', 'username' => 'stafstaf',
+                'password' => Hash::make('stafstaf'), 'role' => 'staf','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'staf'],
+            ['name' => 'admin', 'surname' => 'admin', 'email' => 'admin@gmail.it', 'username' => 'adminadmin',
+                'password' => Hash::make('adminadmin'), 'role' => 'admin','created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),'data_nascita' => date("Y-m-d H:i:s"), 'descrizione'=> 'admin'],
+        
+        ]);
+
 
         DB::table('amicizia')->insert([
             ['richiedente' => 4, 'destinatario' => 1,
