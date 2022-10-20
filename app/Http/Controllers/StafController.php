@@ -44,7 +44,7 @@ class StafController extends Controller {
         $notifica = new Notifica;
         $notifica->destinatario = $blog->proprietario;
         $notifica->messaggio = "Il tuo blog" . $blog->tema . "è stato cancellato perchè:" . $request->motivo;
-        $notifica->data = date("Y-m-d H-m-s");
+        $notifica->data = date("Y-m-d H:i:s");
         $notifica->save();
         $this->_GestoreBlog->deleteBlogByBlogId($id);
 
@@ -57,7 +57,7 @@ class StafController extends Controller {
         $notifica = new Notifica;
         $notifica->destinatario = $post->autore;
         $notifica->messaggio = "Il tuo post" . $post->messaggio . "è stato cancellato perchè:" . $request->motivo;
-        $notifica->data = date("Y-m-d H-m-s");
+        $notifica->data = date("Y-m-d H:i:s");
         $notifica->save();
         $post->delete();
 
