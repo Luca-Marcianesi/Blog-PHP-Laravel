@@ -20,7 +20,7 @@ class CreateAmiciziaTable extends Migration
             $table->integer('destinatario');
             $table->boolean('visualizzata')->default(false);
             $table->boolean('stato')->default(false);
-            $table->date('data');
+            $table->datetime('data');
 
             $table->timestamps();
         });
