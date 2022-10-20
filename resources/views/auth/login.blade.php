@@ -7,8 +7,8 @@
 
 <div>
 
-    <div style="heigth: 700px ;float:left; margin-left: 12%">
-        <img style="color: trasparent; width: 500px" alt="Discussione animazione" src="/images/products/talking.gif"></img>
+    <div style="height: 650px; float:left; margin-left: 20%">
+        <img style="height: 400px ;width: 500px" alt="Discussione animazione" src="/images/products/talking.gif"></img>
     </div>
     
 

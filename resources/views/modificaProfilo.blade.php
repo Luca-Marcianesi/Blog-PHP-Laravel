@@ -57,6 +57,7 @@
 
     <div>
         {{ Form::label('stato', 'Visibilità', ['class' => 'label-input']) }}
+        <br>
         {{ Form::select('stato',['0' => 'Account privato','1' => 'Account pubblico'], $user->visibilita, ['class' => 'input','id' => 'stato', 'title' => 'Imposta chi può vedere questo blog']) }}
         @if ($errors->first('stato'))
         <ul >

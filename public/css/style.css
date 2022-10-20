@@ -181,6 +181,13 @@ footer a:visited{
 	width: 690px
 }
 
+.staff-Organization{
+	margin-left: 31%;
+	background-image: url(/images/products/staffBadge.png);
+	width: 600px;
+	height: 430px;
+}
+
 .pollicione{
 	margin-top: 2%;
 	margin-left: 5%;
@@ -309,11 +316,12 @@ nav ul li a:hover{
 }
 
 .contenitoreLogin{
+	overflow: auto;
 	margin-left: 55%;
 	padding-top: 2%;
 	text-align: center;
 	width: 350px;
-	height: 400px;
+	height: 300px;
 	border-style: solid;
 	border-width: 4px;
 	border-color: black;
@@ -321,6 +329,7 @@ nav ul li a:hover{
 }
 
 .contenitoreRegistrati{
+	overflow: auto;
 	margin-left: 12%;
 	padding-top: 2%;
 	text-align: center;
@@ -420,7 +429,6 @@ nav ul li a:hover{
 }
 
 .contenitoreModificaDatiProfilo{
-	padding-top: 2%;
 	margin-left: 37%;
 	font-size: 18px;
 	text-align: center;
@@ -429,7 +437,7 @@ nav ul li a:hover{
 	border-color: black;
 	color: black;
 	overflow: auto;
-	height: 640px;
+	height: 500px;
 	width: 400px;
 }
 
@@ -540,7 +548,7 @@ nav ul li a:hover{
 }
 
 .contenitoreModificaAggiungiStaff{
-	padding-top: 2%;
+	padding-top: 3%;
 	overflow: auto;
 	text-align: center;
 	font-size: 20px;

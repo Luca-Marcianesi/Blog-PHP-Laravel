@@ -21,10 +21,10 @@
 
     <div class="contenitoreRegistrati" style="text-align:center">
         <p class="titolo">Registrati</p>
-        <br>
-        <br>
 
-        <div style="float: left; margin-left: 14%">
+        <br>
+        <br>
+        
         {{ Form::label('name', 'Nome', ['class' => 'label-form']) }}
         <br>
         {{ Form::text('name', '', ['placeholder' => 'Inserisci nome', 'maxlength' => 18], ['id' => 'name']) }}
@@ -35,7 +35,9 @@
             @endforeach
         </ul>
         @endif
-        </div>
+
+        <br>
+        <br>
 
         {{ Form::label('surname', 'Cognome', ['class' => 'label-form']) }}
         <br>
@@ -51,32 +53,6 @@
         <br>
         <br>
 
-        <div style="float: left; margin-left: 14%">
-        {{ Form::label('email', 'Email', ['class' => 'label-form']) }}
-        <br>
-        {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30], ['id' => 'email']) }}
-        @if ($errors->first('email'))
-        <ul class="errors">
-            @foreach ($errors->get('email') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-        </div>
-
-        {{ Form::label('username', 'Username', ['class' => 'label-form']) }}
-        <br>
-        {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 18], ['id' => 'username']) }}
-        @if ($errors->first('username'))
-        <ul class="errors">
-            @foreach ($errors->get('username') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-
-        <hr style="border: none; height: 40px; width: 50%; color: none; background-color: none"></hr>
-
         {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-form']) }}
         <br>
         {{ Form::date('data_nascita', '', ['id' => 'data_nascita']) }}
@@ -88,7 +64,36 @@
         </ul>
         @endif
 
-        <hr style="border: none; height: 40px; width: 50%; color: none; background-color: none"></hr>
+        <br>
+        <br>
+
+        
+        {{ Form::label('username', 'Username', ['class' => 'label-form']) }}
+        <br>
+        {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 18], ['id' => 'username']) }}
+        @if ($errors->first('username'))
+        <ul class="errors">
+            @foreach ($errors->get('username') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+        @endif
+
+        <br>
+        <br>
+
+        {{ Form::label('email', 'Email', ['class' => 'label-form']) }}
+        <br>
+        {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30], ['id' => 'email']) }}
+        @if ($errors->first('email'))
+        <ul class="errors">
+            @foreach ($errors->get('email') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+        @endif
+
+        <hr style="border: none; height: 30px; width: 50%; color: none; background-color: none"></hr>
 
         {{ Form::label('descrizione', 'Chi sei?', ['class' => 'label-form']) }}
         <br>
@@ -101,9 +106,9 @@
         </ul>
         @endif
 
-        <hr style="border: none; height: 40px; width: 50%; color: none; background-color: none"></hr>
+        <br>
+        <br>
 
-        <div style="float: left; margin-left: 14%">
         {{ Form::label('password', 'Password', ['class' => 'label-form']) }}
         <br>
         {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 18], ['id' => 'password']) }}
@@ -114,21 +119,18 @@
             @endforeach
         </ul>
         @endif
-        </div>
 
-        <div>
-        {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-form']) }}
         <br>
+        <br>
+
+        {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-form']) }}<br>
         {{ Form::password('password_confirmation', ['placeholder' => 'Immetti nuovamente', 'maxlength' => 18], ['id' => 'password-confirm']) }}
-        </div>
 
         <br>
         <br>
         
-        <div style="text-align: center; font-size: 18px">
         {{ Form::submit('Registrati', ['class' => 'bottone_conferma']) }}
-        </div>
-
+        
     </div>
 </div>
     {{ Form::close() }}

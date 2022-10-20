@@ -11,7 +11,7 @@
 <br>
 <br>
 
-<div style="width: 400px; height: 800px; margin-left: 36%" class="contenitoreModificaAggiungiStaff">
+<div style="width: 400px; height: 550px; margin-left: 36%" class="contenitoreModificaAggiungiStaff">
         
         {{ Form::open(array('route' => 'creaStaf', 'class' => '')) }}
 

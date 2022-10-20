@@ -8,7 +8,7 @@
 <p class="titolo"> In questa sezione puoi modificare il tuo staff! </p>
 <hr class="spaziaturahr"></hr>
 
-    <div style="width: 400px; height: 500px; margin-left: 36.5%" class="contenitoreModificaAggiungiStaff">
+    <div style="width: 400px; height: 400px; margin-left: 36.5%" class="contenitoreModificaAggiungiStaff">
 
         @isset($staf)
 
