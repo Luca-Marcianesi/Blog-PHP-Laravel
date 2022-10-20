@@ -11,7 +11,7 @@
     {{ Form::open(array('route' => ['attivitaUtente'], 'class' => '')) }}
 
     <div  class="wrap-input">
-        {{ Form::label('idUtente', 'Id utente', ['class' => 'label-input']) }}
+        {{ Form::label('idUtente', 'Id utente') }}
         <br>
         {{ Form::number('idUtente','', ['placeholder' => 'Inserisci Id utente', 'class' => 'input','id' => 'idUtente']) }}
         @if ($errors->first('idUtente'))
@@ -33,7 +33,7 @@
     {{ Form::open(array('route' => ['cercaBlog'], 'class' => '')) }}
 
     <div  class="wrap-input">
-        {{ Form::label('idBlog', 'Id blog', ['class' => 'label-input']) }}
+        {{ Form::label('idBlog', 'Id blog') }}
         <br>
         {{ Form::number('idBlog','', ['placeholder' => 'Inserisci id blog'], ['class' => 'input','id' => 'idBlog']) }}
         @if ($errors->first('idBlog'))

@@ -25,7 +25,7 @@
         <p class="cosa-fare">Cerca i tuoi amici!</p>
         <br>
         <div style="text-align: center">
-            {{ Form::open(array('route' => 'searchFriends', 'class' => 'contact-form')) }}
+            {{ Form::open(array('route' => 'searchFriends')) }}
             
              <div>
                 {{ Form::label('name', 'Nome', ['class' => 'label-form']) }}

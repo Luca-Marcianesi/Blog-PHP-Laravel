@@ -27,7 +27,7 @@
             <br>
             <br>
             <div  class="wrap-input">
-                {{ Form::label('tipo', 'Tipo ricerca', ['class' => 'label-input']) }} <br>
+                {{ Form::label('tipo', 'Tipo ricerca') }} <br>
                 {{ Form::select('tipo',['0' => 'Gruppo di amici del membro','1' => 'Richieste di amicizia del membro'], '0', ['class' => 'input','id' => 'tipo']) }}
                 @if ($errors->first('tipo'))
                 <ul class="errors">

@@ -41,7 +41,7 @@
             <br>
             <br>
 
-            {{ Form::label('data_nascita', 'Data di nascita', ['class' => 'label-input']) }}
+            {{ Form::label('data_nascita', 'Data di nascita') }}
             <br>
             {{ Form::date('data_nascita', $staf->data_nascita, ['class' => 'input','id' => 'data_nascita']) }}
             @if ($errors->first('data_nascita'))
@@ -55,7 +55,7 @@
             <br>
             <br>
 
-            {{ Form::label('password', 'Nuova Password', ['class' => 'label-input']) }}
+            {{ Form::label('password', 'Nuova Password') }}
             <br>
             {{ Form::password('password', ['placeholder' => 'Inserisci password'], ['class' => 'w3-input w3-border w3-margin-bottom', 'id' => 'password']) }}
             @if ($errors->first('password'))

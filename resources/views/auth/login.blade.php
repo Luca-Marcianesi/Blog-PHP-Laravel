@@ -17,7 +17,7 @@
         <br>
         <br>
         
-        {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
+        {{ Form::open(array('route' => 'login')) }}
         
         
             {{ Form::label('username', 'Username', ['class' => 'label-form']) }}<br>

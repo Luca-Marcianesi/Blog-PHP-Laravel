@@ -42,7 +42,7 @@
     <br>
     <br>
     <div style="font-size: 18px">
-        {{ Form::label('stato', 'Visibilità', ['class' => 'label-input']) }}
+        {{ Form::label('stato', 'Visibilità') }}
         {{ Form::select('stato',['0' => 'Solo amici selezionati','1' => 'Tutti gli amici'], 1 , ['class' => 'input','id' => 'stato', 'title' => 'Imposta chi può vedere questo blog']) }}
         @if ($errors->first('stato'))
         <ul class="errors">

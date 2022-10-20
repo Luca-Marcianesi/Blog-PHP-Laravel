@@ -20,10 +20,10 @@
         <p class="sotto-titolo">Attualmente non sono presenti membri nello staff</p>
         @else
         @foreach($staf as $s)
-            <div style="width: 400px; height: 220px; margin-left: 37%" class="contenitoreStaff">
+            <div style="width: 400px; height: 280px; margin-left: 37%" class="contenitoreStaff">
                 <p>Nome: {{$s->name}} <br> Cognome: {{$s->surname}}</p> <br>
                 <a href="{{ route('modificaStaf',[$s->id]) }}"><button class="bottone_conferma">Modifica ►</button></a><br>
-                <button title="Elimina questo blog" class='bottone_elimina' id='del_<?= $s->id ?>' data-id='<?= $s->id?>'>Elimina</button>
+                <button title="Elimina questo blog" class='bottone_elimina' id='del_<?= $s->id ?>' data-id='<?= $s->id?>'>Elimina ►</button>
             </div>
             <br>
             <br>

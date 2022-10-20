@@ -25,10 +25,10 @@ class ModificaStafRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'name' => 'required|string | max:25',
-            'surname'=>'required |string | max:25',
-            'data_nascita'=>'required | date',
-            'password'=>'string | max:25'
+            'name' => ['required', 'string', 'max:20'],
+            'surname'=> ['required', 'string', 'max:20'],
+            'data_nascita'=> ['required', 'date'],
+            'password'=> ['string', 'max:20'],
         ];
     }
 

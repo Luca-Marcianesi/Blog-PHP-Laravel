@@ -354,18 +354,31 @@ nav ul li a:hover{
 	margin-left: 34%;
 }
 
-.contenitorepost{
+.contenitorePost{
+	background-color: white;
+	font-size: 20px;
+	margin-left: 12%;
 	overflow: auto;
-	min-height: 100px;
-	min-width: 300px;
-	width: fit-content;
-	height: fit-content;
+	width: 600px;
+	height: 130px;
 	border-style: solid;
 	border-width: 4px;
 	border-color: black;
 	color: black; 
-	margin-left: 41%;
 }
+
+.contenitoreMotivazione{
+	padding-top: 2%;
+	margin-left: 24%;
+	width: 800px;
+	height: 250px;
+	text-align: center;
+	font-size: 18px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: black;
+}
+
 
 .contenitore_utenti_cercati{
 	background-color: white;
@@ -475,6 +488,9 @@ nav ul li a:hover{
 	border-style: solid;
 	border-width: 4px;
 	border-color:black;
+	margin-left: 24%;
+	width: 800px;
+	height: 600px;
 }
 
 .contenitoreSelezioneAmici{
