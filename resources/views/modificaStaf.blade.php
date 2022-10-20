@@ -16,7 +16,7 @@
         
 
             {{ Form::label('name', 'Nome', ['class' => '']) }}<br>
-            {{ Form::text('name', $staf->name, ['placeholder' => 'Inserisci nome'],  ['class' => '','id' => 'name']) }}
+            {{ Form::text('name', $staf->name, ['placeholder' => 'Inserisci nome', 'maxlength' => 15],  ['class' => '','id' => 'name']) }}
             @if ($errors->first('name'))
             <ul class="errors">
                 @foreach ($errors->get('name') as $message)
@@ -29,7 +29,7 @@
             <br>
 
             {{ Form::label('surname', 'Cognome', ['class' => '']) }}<br>
-            {{ Form::text('surname', $staf->surname, ['placeholder' => 'Inserisci cognome'], ['class' => '','id' => 'surname']) }}
+            {{ Form::text('surname', $staf->surname, ['placeholder' => 'Inserisci cognome', 'maxlength' => 15], ['class' => '','id' => 'surname']) }}
             @if ($errors->first('surname'))
             <ul class="errors">
                 @foreach ($errors->get('surname') as $message)
@@ -57,7 +57,7 @@
 
             {{ Form::label('password', 'Nuova Password') }}
             <br>
-            {{ Form::password('password', ['placeholder' => 'Inserisci password'], ['class' => 'w3-input w3-border w3-margin-bottom', 'id' => 'password']) }}
+            {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 10], ['id' => 'password']) }}
             @if ($errors->first('password'))
                 <ul class="errors">
                 @foreach ($errors->get('password') as $message)

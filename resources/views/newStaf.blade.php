@@ -16,7 +16,7 @@
         {{ Form::open(array('route' => 'creaStaf', 'class' => '')) }}
 
         {{ Form::label('name', 'Nome', ['class' => '']) }}<br>
-        {{ Form::text('name', '', ['placeholder' => 'Inserisci nome', 'maxlength' => 18, 'class' => '','id' => 'name']) }}
+        {{ Form::text('name', '', ['placeholder' => 'Inserisci nome', 'maxlength' => 15, 'class' => '','id' => 'name']) }}
         @if ($errors->first('name'))
         <ul class="errors">
             @foreach ($errors->get('name') as $message)
@@ -29,7 +29,7 @@
         <br>
 
         {{ Form::label('surname', 'Cognome', ['class' => '']) }}<br>
-        {{ Form::text('surname', '', ['placeholder' => 'Inserisci cognome', 'maxlength' => 18, 'class' => '','id' => 'surname']) }}
+        {{ Form::text('surname', '', ['placeholder' => 'Inserisci cognome', 'maxlength' => 15, 'class' => '','id' => 'surname']) }}
         @if ($errors->first('surname'))
         <ul class="errors">
             @foreach ($errors->get('surname') as $message)
@@ -42,7 +42,7 @@
         <br>
 
         {{ Form::label('email', 'Email', ['class' => '']) }}<br>
-        {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30, 'size' => 35, 'class' => '','id' => 'email']) }}
+        {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30, 'size' => 40, 'class' => '','id' => 'email']) }}
         @if ($errors->first('email'))
         <ul class="errors">
             @foreach ($errors->get('email') as $message)
@@ -55,7 +55,7 @@
         <br>
 
         {{ Form::label('usernameStaf', 'Username', ['class' => '']) }}<br>
-        {{ Form::text('usernameStaf', '', ['placeholder' => 'Inserisci username', 'maxlength' => 18, 'class' => '','id' => 'usernameStaf']) }}
+        {{ Form::text('usernameStaf', '', ['placeholder' => 'Inserisci username', 'maxlength' => 10, 'class' => '','id' => 'usernameStaf']) }}
         @if ($errors->first('usernameStaf'))
         <ul class="errors">
             @foreach ($errors->get('usernameStaf') as $message)
@@ -83,7 +83,7 @@
 
         {{ Form::label('passwordStaf', 'Inserisci la password') }}
         <br>
-        {{ Form::password('passwordStaf', ['placeholder' => 'Inserisci password', 'maxlength' => 18, 'size' => 22, 'id' => 'passwordStaf']) }}
+        {{ Form::password('passwordStaf', ['placeholder' => 'Inserisci password', 'maxlength' => 10, 'id' => 'passwordStaf']) }}
         @if ($errors->first('passwordStaf'))
             <ul class="errors">
             @foreach ($errors->get('passwordStaf') as $message)

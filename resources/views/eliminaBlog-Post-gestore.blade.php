@@ -23,7 +23,7 @@
     <br>
     <br>
     <div>             
-        {{ Form::submit('Elimina ►', ['class' => 'bottone_elimina']) }}
+        {{ Form::submit('Elimina', ['class' => 'bottone_elimina']) }}
     </div>
     {{ Form::close() }}
     <a href="{{ route('tornaAlBlog',$blog) }}"><button class='bottone_conferma'>◄ Indietro</button></a>  
@@ -50,7 +50,7 @@
     <br>
     <div>   
                  
-        {{ Form::submit('Elimina ►', ['class' => 'bottone_elimina']) }}
+        {{ Form::submit('Elimina', ['class' => 'bottone_elimina']) }}
     </div>
     {{ Form::close() }}
     <a href="{{ route('tornaAlBlog',$blogId) }}"><button class='bottone_conferma'>◄ Indietro</button></a> 

@@ -15,7 +15,7 @@
 
     <div>
     {{ Form::label('name', 'Nome') }}<br>
-    {{ Form::text('name', $user->name , ['placeholder' => 'Nuovo nome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'name']) }}
+    {{ Form::text('name', $user->name , ['placeholder' => 'Nuovo nome', 'maxlength' => 15], ['class' => 'input-form', 'id' => 'name']) }}
     @if ($errors->first('name'))
     <ul>
         @foreach ($errors->get('name') as $message)
@@ -29,7 +29,7 @@
 
     <div>
     {{ Form::label('surname', 'Cognome') }}<br>
-    {{ Form::text('surname', $user->surname, ['placeholder' => 'Nuovo cognome', 'maxlength' => 18], ['class' => 'input-form', 'id' => 'surname']) }}
+    {{ Form::text('surname', $user->surname, ['placeholder' => 'Nuovo cognome', 'maxlength' => 15], ['class' => 'input-form', 'id' => 'surname']) }}
     @if ($errors->first('surname'))
     <ul>
         @foreach ($errors->get('surname') as $message)

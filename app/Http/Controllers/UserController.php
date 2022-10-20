@@ -210,7 +210,8 @@ class userController extends Controller {
 
 
         $profilo = User::find(auth()->user()->id);
-        //$profilo->fill($request->validated());
+        
+        $profilo->fill($request->validated());
         
         $profilo->visibilita = $request->stato;
         

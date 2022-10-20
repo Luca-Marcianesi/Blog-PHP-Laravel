@@ -27,7 +27,7 @@
         
         {{ Form::label('name', 'Nome', ['class' => 'label-form']) }}
         <br>
-        {{ Form::text('name', '', ['placeholder' => 'Inserisci nome', 'maxlength' => 18], ['id' => 'name']) }}
+        {{ Form::text('name', '', ['placeholder' => 'Inserisci nome', 'maxlength' => 15], ['id' => 'name']) }}
         @if ($errors->first('name'))
         <ul class="errors">
             @foreach ($errors->get('name') as $message)
@@ -41,7 +41,7 @@
 
         {{ Form::label('surname', 'Cognome', ['class' => 'label-form']) }}
         <br>
-        {{ Form::text('surname', '', ['placeholder' => 'Inserisci cognome', 'maxlength' => 18], ['id' => 'surname']) }}
+        {{ Form::text('surname', '', ['placeholder' => 'Inserisci cognome', 'maxlength' => 15], ['id' => 'surname']) }}
         @if ($errors->first('surname'))
         <ul class="errors">
             @foreach ($errors->get('surname') as $message)
@@ -70,7 +70,7 @@
         
         {{ Form::label('username', 'Username', ['class' => 'label-form']) }}
         <br>
-        {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 18], ['id' => 'username']) }}
+        {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 10], ['id' => 'username']) }}
         @if ($errors->first('username'))
         <ul class="errors">
             @foreach ($errors->get('username') as $message)
@@ -84,7 +84,7 @@
 
         {{ Form::label('email', 'Email', ['class' => 'label-form']) }}
         <br>
-        {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30], ['id' => 'email']) }}
+        {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30, 'size' => 40], ['id' => 'email']) }}
         @if ($errors->first('email'))
         <ul class="errors">
             @foreach ($errors->get('email') as $message)
@@ -97,7 +97,7 @@
 
         {{ Form::label('descrizione', 'Chi sei?', ['class' => 'label-form']) }}
         <br>
-        {{ Form::textarea('descrizione', '',  ['class' => 'descrizioneparam', 'placeholder' => 'Inserisci delle informazioni su di te', 'maxlength' => 330, 'id' => 'descrizione']) }}
+        {{ Form::textarea('descrizione', '',  ['class' => 'descrizioneparam', 'placeholder' => 'Inserisci delle informazioni su di te', 'maxlength' => 300, 'id' => 'descrizione']) }}
         @if ($errors->first('descrizione'))
         <ul class="errors">
             @foreach ($errors->get('descrizione') as $message)
@@ -111,7 +111,7 @@
 
         {{ Form::label('password', 'Password', ['class' => 'label-form']) }}
         <br>
-        {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 18], ['id' => 'password']) }}
+        {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 10], ['id' => 'password']) }}
         @if ($errors->first('password'))
         <ul class="errors">
             @foreach ($errors->get('password') as $message)
@@ -124,7 +124,7 @@
         <br>
 
         {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-form']) }}<br>
-        {{ Form::password('password_confirmation', ['placeholder' => 'Immetti nuovamente', 'maxlength' => 18], ['id' => 'password-confirm']) }}
+        {{ Form::password('password_confirmation', ['placeholder' => 'Immetti nuovamente', 'maxlength' => 10], ['id' => 'password-confirm']) }}
 
         <br>
         <br>

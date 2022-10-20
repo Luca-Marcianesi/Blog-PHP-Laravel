@@ -21,9 +21,9 @@
         
         
             {{ Form::label('username', 'Username', ['class' => 'label-form']) }}<br>
-            {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 18], ['class' => 'input-login','id' => 'username']) }}
+            {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 10], ['class' => 'input-login','id' => 'username']) }}
             @if ($errors->first('username'))
-            <ul style="font-size: 18px">
+            <ul class="errors">
                 @foreach ($errors->get('username') as $message)
                 <li>{{ $message }}</li>
                 @endforeach
@@ -33,9 +33,9 @@
             <hr style="height: 30px; border: none; background: none"></hr>
         
             {{ Form::label('password', 'Password', ['class' => 'label-form']) }}<br>
-            {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 18], ['class' => 'input', 'id' => 'password']) }}
+            {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 10], ['class' => 'input', 'id' => 'password']) }}
             @if ($errors->first('password'))
-            <ul style="font-size: 18px">
+            <ul class="errors">
                 @foreach ($errors->get('password') as $message)
                 <li>{{ $message }}</li>
                 @endforeach

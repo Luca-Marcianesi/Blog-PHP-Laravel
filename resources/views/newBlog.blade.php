@@ -16,7 +16,7 @@
 
         {{ Form::label('tema', 'Inserisci il tema del blog', ['class' => 'label-form']) }}
         <p class="sotto-titolo">Di cosa parlerà?</p><br>
-        {{ Form::text('tema', '', ['id' => 'tema', 'placeholder'=> 'Tema del blog', 'size' => '105', 'maxlength' => '80']) }}
+        {{ Form::text('tema', '', ['id' => 'tema', 'placeholder'=> 'Tema del blog', 'size' => '105', 'maxlength' => '50']) }}
         @if ($errors->first('tema'))
         <ul class="errors">
             @foreach ($errors->get('tema') as $message)
@@ -30,7 +30,7 @@
     <div class="wrap-element-form">
         {{ Form::label('messaggio', 'Primo messaggio', ['class' => 'label-form']) }}
         <p class="sotto-titolo">Qual'è la tua opinione?</p>
-        {{ Form::textarea('messaggio', '', ['class' => 'input-form-nuovoBlog','id' => 'messaggio', 'placeholder'=> 'La mia opinone è ...', 'maxlength' => '255']) }}
+        {{ Form::textarea('messaggio', '', ['class' => 'input-form-nuovoBlog','id' => 'messaggio', 'placeholder'=> 'La mia opinone è ...', 'maxlength' => '300']) }}
         @if ($errors->first('messaggio'))
         <ul class="errors">
             @foreach ($errors->get('messaggio') as $message)

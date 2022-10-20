@@ -30,8 +30,8 @@ class ProfiloRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'name' => ['required', 'string', 'max:20'],
-            'surname' => ['required', 'string', 'max:20'],
+            'name' => ['required', 'string'],
+            'surname' => ['required', 'string'],
             'stato' => ['required','integer'],
             'data_nascita' => ['required', 'date'],
 
