@@ -54,11 +54,11 @@
         <br>
         <br>
 
-        {{ Form::label('usernameStaf', 'Username', ['class' => '']) }}<br>
-        {{ Form::text('usernameStaf', '', ['placeholder' => 'Inserisci username', 'maxlength' => 15, 'class' => '','id' => 'usernameStaf']) }}
-        @if ($errors->first('usernameStaf'))
+        {{ Form::label('username', 'Username', ['class' => '']) }}<br>
+        {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 15, 'class' => '','id' => 'username']) }}
+        @if ($errors->first('username'))
         <ul class="errors">
-            @foreach ($errors->get('usernameStaf') as $message)
+            @foreach ($errors->get('username') as $message)
             <li>{{ $message }}</li>
             @endforeach
         </ul>
@@ -81,12 +81,12 @@
         <br>
         <br>
 
-        {{ Form::label('passwordStaf', 'Inserisci la password') }}
+        {{ Form::label('password', 'Inserisci la password') }}
         <br>
-        {{ Form::password('passwordStaf', ['placeholder' => 'Inserisci password', 'maxlength' => 15, 'id' => 'passwordStaf']) }}
-        @if ($errors->first('passwordStaf'))
+        {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 15, 'id' => 'password']) }}
+        @if ($errors->first('password'))
             <ul class="errors">
-            @foreach ($errors->get('passwordStaf') as $message)
+            @foreach ($errors->get('password') as $message)
                 <li>{{ $message }}</li>
             @endforeach
             </ul>

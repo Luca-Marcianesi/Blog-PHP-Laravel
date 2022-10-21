@@ -46,6 +46,14 @@
         <br>
         <br>
         {{ Form::text('motivo', '', ['class' => 'input', 'id' => 'motivo', 'placeholder'=> 'Inserisci il motivo per il quale vuoi eliminare questo post', 'size' => '105', 'maxlength' => '80']) }}
+        @if ($errors->first('motivo'))
+        <ul class="errors">
+            @foreach ($errors->get('motivo') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+        @endif
+    
     </div>
     <br>
     <div>   
