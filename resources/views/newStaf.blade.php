@@ -42,7 +42,7 @@
         <br>
 
         {{ Form::label('email', 'Email', ['class' => '']) }}<br>
-        {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail', 'maxlength' => 30, 'size' => 40, 'class' => '','id' => 'email']) }}
+        {{ Form::text('email', '', ['placeholder' => 'Inserisci e-mail','autocomplete'=>'off', 'maxlength' => 30, 'size' => 40, 'class' => '','id' => 'email']) }}
         @if ($errors->first('email'))
         <ul class="errors">
             @foreach ($errors->get('email') as $message)
@@ -83,7 +83,7 @@
 
         {{ Form::label('password', 'Inserisci la password') }}
         <br>
-        {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 15, 'id' => 'password']) }}
+        {{ Form::password('password', ['placeholder' => 'Inserisci password','autocomplete'=>'off', 'maxlength' => 15, 'id' => 'password']) }}
         @if ($errors->first('password'))
             <ul class="errors">
             @foreach ($errors->get('password') as $message)
@@ -106,5 +106,11 @@
     {{ Form::close() }}
 
 </div>
+<script>
+    $( document ).ready(function() {
+    $('input').attr('autocomplete','off');
+});
+</script>
+
 
 @endsection

@@ -19,6 +19,7 @@ class CreateNotificaTable extends Migration
             $table->integer('destinatario');
             $table->integer('mittente')->nullable();
             $table->string('messaggio')->nullable();
+            $table->integer('riferimento')->default(0);
             $table->boolean('visualizzata')->default(false);
             $table->datetime('data');
             $table->timestamps();
