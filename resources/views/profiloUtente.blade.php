@@ -27,8 +27,6 @@
             </p>
         </div>
         <br>
-        <a href="{{ route('user') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
-        <hr class="spaziaturahr"></hr>
         <hr style="width: 100%; background-color: black; height: 2px; border: none">
 
         <div style="text-align: center; font-size: large">
@@ -45,7 +43,12 @@
 
                     @if(@count($blogs)===0)
                         <p class="sotto-titolo">Attualmente non ci sono blog pubblicati</p> 
-                    @endif()  
+                    @endif()
+                    <br>
+                    <br>
+                    
+                    
+                    <a href="{{ route('user') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
                     
                     
                     @foreach($blogs as $blog)
