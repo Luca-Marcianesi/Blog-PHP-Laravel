@@ -87,6 +87,7 @@ class GestoreBlog {
             
             foreach($idAmici as $id ){
                 $notifica = new Notifica;
+                $notifica->riferimento = $blog->id;
                 $notifica->destinatario = $id->id;
                 $notifica->data = date("Y-m-d H:i:s");
                 $notifica->messaggio = "Un nuovo messaggio sul blog ". $blog->tema;
@@ -104,6 +105,7 @@ class GestoreBlog {
 
             foreach($idAccesso as $id ){
                     $notifica = new Notifica;
+                    $notifica->riferimento = $blog->id;
                     $notifica->destinatario = $id->id;
                     $notifica->data = date("Y-m-d H:i:s");
                     $notifica->messaggio = "Un nuovo messaggio sul blog ". $blog->tema;
