@@ -25,7 +25,7 @@ class NewPostRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'testo' => 'required|string | max:255',
+            'testo' => ['required', 'string'],
             
         ];
     }

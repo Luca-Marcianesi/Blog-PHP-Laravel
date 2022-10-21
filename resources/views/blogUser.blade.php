@@ -27,6 +27,9 @@
 <br>
 
 <div class="contenitoreDatiPosts">
+    @if(count($posts)===0)
+    <p class="sotto-titolo">Attualmente non sono stati pubblicati post su questo blog</p>
+    @else
     @foreach($posts as $post)
     <div class="contenitorePost">
         <p>Autore: {{$post->name}} {{$post->surname}} </p>
@@ -40,6 +43,7 @@
     </div>
     <br>
     @endforeach
+    @endif
 </div>
 
 
@@ -52,7 +56,7 @@
             <div>
                 {{ Form::label('testo', 'Cosa ne Pensi?', ['class' => 'label-form']) }}
                 <br>
-                {{ Form::text('testo', '', ['placeholder' => 'Scrivi cosa ne pensi', 'size' => '55', 'maxlength' => 300], ['class' => 'input','id' => 'testo']) }}
+                {{ Form::text('testo', '', ['placeholder' => 'Scrivi cosa ne pensi', 'size' => '55', 'maxlength' => '300'], ['class' => 'input','id' => 'testo']) }}
                 @if ($errors->first('testo'))
                 <ul class="errors">
                     @foreach ($errors->get('testo') as $message)

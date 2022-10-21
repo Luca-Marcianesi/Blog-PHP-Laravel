@@ -41,7 +41,12 @@
         Data: {{ $notifica->data }}<br>
         Testo: {{ $notifica->messaggio }}<br>
         <br>
-        <div><a href="{{ route('archiviaNotifica',[$notifica->id]) }}"><button class="bottone_conferma">Archivia</button></a></div>
+        <div>
+            <a href="{{ route('archiviaNotifica',[$notifica->id]) }}"><button class="bottone_conferma">Archivia ►</button></a><br>
+            @if($notifica->riferimento != 0)
+            <a href="{{ route('blog', [$notifica->riferimento]) }}"><button class="bottone_conferma">Visualizza ►</button></a>
+            @endif
+        </div>
     </div>
     <br>
     <br>
@@ -71,7 +76,7 @@
             <p style="font-size: 18px">La lista delle notifiche da te archiviate:</p><br>
             @foreach($archiviate as $archiviata)
                 <div style="text-align: center; font-size: 18px">
-                    <div style="border-style: solid; border-width: 4px; border-color: black">
+                    <div style="overlow: auto ;border-style: solid; border-width: 4px; border-color: black">
                     Messaggio: {{$archiviata->messaggio}}<br>
                     Ricevuto il: {{$archiviata->data}}<br>
                     <a href= "{{ route('eliminaNotifica',[$archiviata->id]) }}"><button class="bottone_elimina">Elimina</button></a>
