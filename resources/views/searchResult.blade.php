@@ -16,6 +16,7 @@
                 <div>
                     <p class="sotto-titolo">Nessun utente corrisponde alle tue specifiche</p>
                 </div>
+                <br>
             @endif
 
             @foreach($users as $user)
@@ -52,8 +53,11 @@
                 </div>
                 <br>         
             @endforeach
-        @endisset()
-        
-        
+        @endisset()    
     </div>
+
+    <div style="text-align: center">
+    <a href="{{ route('user') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
+    </div>
+
 @endsection

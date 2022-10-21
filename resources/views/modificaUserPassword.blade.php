@@ -39,8 +39,14 @@
     {{ Form::submit('Conferma ►', ['class' => 'bottone_conferma']) }}
 
 </div>
-
 {{ Form::close() }}
+
+<br>
+<br>
+
+<div style="text-align: center">
+<a href="{{ route('profilo') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
+</div>
 
 
 @endisset()

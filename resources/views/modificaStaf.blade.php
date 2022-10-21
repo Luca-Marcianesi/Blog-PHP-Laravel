@@ -3,10 +3,11 @@
 @section('title', 'Staf')
 
 @section('content')
-
-<hr class="spaziaturahr"></hr>
+<br>
+<br>
 <p class="titolo"> In questa sezione puoi modificare il tuo staff! </p>
-<hr class="spaziaturahr"></hr>
+<br>
+<br>
 
     <div style="width: 400px; height: 400px; margin-left: 36.5%" class="contenitoreModificaAggiungiStaff">
 
@@ -55,23 +56,15 @@
             <br>
             <br>
 
-            {{ Form::label('password', 'Nuova Password') }}
-            <br>
-            {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 10], ['id' => 'password']) }}
-            @if ($errors->first('password'))
-                <ul class="errors">
-                @foreach ($errors->get('password') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-                </ul>
-            @endif
-
-             <br>
-             <br>
-
             {{ Form::submit('Conferma', ['class' => 'bottone_conferma']) }}
     </div>
     {{ Form::close() }}
+    <br>
+    <br>
+
+    <div style="text-align: center">
+    <a href="{{ route('gestioneStaf') }}"><button class="bottone_conferma">◄ Indietro</button></a>
+    </div>
 
 @endisset()
 @endsection

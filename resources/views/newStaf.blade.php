@@ -13,7 +13,7 @@
 
 <div style="width: 400px; height: 550px; margin-left: 36%" class="contenitoreModificaAggiungiStaff">
         
-        {{ Form::open(array('route' => 'creaStaf', 'class' => '')) }}
+        {{ Form::open(array('route' => 'creaStaf')) }}
 
         {{ Form::label('name', 'Nome', ['class' => '']) }}<br>
         {{ Form::text('name', '', ['placeholder' => 'Inserisci nome', 'maxlength' => 15, 'class' => '','id' => 'name']) }}
@@ -55,7 +55,7 @@
         <br>
 
         {{ Form::label('usernameStaf', 'Username', ['class' => '']) }}<br>
-        {{ Form::text('usernameStaf', '', ['placeholder' => 'Inserisci username', 'maxlength' => 10, 'class' => '','id' => 'usernameStaf']) }}
+        {{ Form::text('usernameStaf', '', ['placeholder' => 'Inserisci username', 'maxlength' => 15, 'class' => '','id' => 'usernameStaf']) }}
         @if ($errors->first('usernameStaf'))
         <ul class="errors">
             @foreach ($errors->get('usernameStaf') as $message)
@@ -83,7 +83,7 @@
 
         {{ Form::label('passwordStaf', 'Inserisci la password') }}
         <br>
-        {{ Form::password('passwordStaf', ['placeholder' => 'Inserisci password', 'maxlength' => 10, 'id' => 'passwordStaf']) }}
+        {{ Form::password('passwordStaf', ['placeholder' => 'Inserisci password', 'maxlength' => 15, 'id' => 'passwordStaf']) }}
         @if ($errors->first('passwordStaf'))
             <ul class="errors">
             @foreach ($errors->get('passwordStaf') as $message)
@@ -92,6 +92,12 @@
             </ul>
         @endif
         
+        <br>
+        <br>
+
+        {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-form']) }}<br>
+        {{ Form::password('password_confirmation', ['placeholder' => 'Immetti nuovamente', 'maxlength' => 15], ['id' => 'password-confirm']) }}
+
         <br>
         <br>
 

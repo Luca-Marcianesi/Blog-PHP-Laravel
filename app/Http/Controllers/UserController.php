@@ -68,7 +68,7 @@ class userController extends Controller {
 
     public function getmodificaPassword(){
         $utente = User::find(auth()->user()->id);
-        return view('modificaPassword')
+        return view('modificaUserPassword')
                 ->with('user',$utente);
     }
 

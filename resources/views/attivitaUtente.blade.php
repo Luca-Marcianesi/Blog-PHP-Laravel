@@ -15,6 +15,8 @@
             Cognome: {{ $user->surname }}
         </div>
         <hr class="spaziaturahr">
+        <a href="{{ route('ricerca') }}"><button class="bottone_conferma">◄ Indietro</button></a>
+        <hr class="spaziaturahr">
         <p class="titolo">Di seguito sono elencati i blog creati dall'utente</p>
         <br>
         <br>
@@ -57,7 +59,7 @@
 @isset($utentent)
 <div style="text-align: center">
     <p class="titolo">L'utente con Id = {{$utentent}} non esiste</p> <br><br>
-    <a href="{{ route('ricerca') }}"><button class="bottone_conferma">Torna alla pagina di ricerca</button></a>
+    <a href="{{ route('ricerca') }}"><button class="bottone_conferma">◄ Indietro</button></a>
 </div>
 @endisset
 @endsection

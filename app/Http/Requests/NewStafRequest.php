@@ -30,11 +30,11 @@ class NewStafRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'name' => ['required', 'string', 'max:20'],
-            'surname' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:20', 'unique:users'],
-            'usernameStaf' => ['required', 'string', 'min:8', 'unique:users'],
-            'passwordStaf' => ['required', 'string', 'min:8'],
+            'name' => ['required', 'string'],
+            'surname' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'unique:users'],
+            'usernameStaf' => ['required', 'string', 'unique:users'],
+            'passwordStaf' => ['required', 'string', 'confirmed'],
             'data_nascita' => ['required', 'date'],
 
         ];

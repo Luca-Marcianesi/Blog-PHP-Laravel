@@ -26,7 +26,9 @@
                 Biografia: {{$utente->descrizione}}
             </p>
         </div>
-        <hr class="spaziaturahr">
+        <br>
+        <a href="{{ route('user') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
+        <hr class="spaziaturahr"></hr>
         <hr style="width: 100%; background-color: black; height: 2px; border: none">
 
         <div style="text-align: center; font-size: large">
@@ -68,7 +70,7 @@
 
             @can('richiedereAmicizia',$utente->id)
                 <p>Devi far parte del gruppo di amici per visualizzare i blog 
-                <a href="{{ route('inviaAmicizia',$utente->id) }}" title="richiesta">Invia richiesta</a>
+                <a href="{{ route('inviaAmicizia',$utente->id) }}" title="richiesta"><button class="bottone_conferma">Invia richiesta ►</button></a>
                 </p>
             @endcan
         </div>

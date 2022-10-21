@@ -4,7 +4,7 @@
 
     <!-- Link alla prima pagina -->
     @if (!$paginator->onFirstPage())
-        <a style="color: red" title="Vai alla pagina iniziale" href="{{ $paginator->url(1) }}">Inizio</a> |
+        <a style="color: rgb(204, 204, 0)" title="Vai alla pagina iniziale" href="{{ $paginator->url(1) }}">Inizio</a> |
     @else
         Inizio |
     @endif
@@ -25,7 +25,7 @@
 
     <!-- Link all'ultima pagina -->
     @if ($paginator->hasMorePages())
-        <a style="color: red" title="Vai all'ultima pagina" href="{{ $paginator->url($paginator->lastPage()) }}">Fine</a>
+        <a style="color: rgb(204, 204, 0)" title="Vai all'ultima pagina" href="{{ $paginator->url($paginator->lastPage()) }}">Fine</a>
     @else
         Fine
     @endif

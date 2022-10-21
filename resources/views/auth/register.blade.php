@@ -70,7 +70,7 @@
         
         {{ Form::label('username', 'Username', ['class' => 'label-form']) }}
         <br>
-        {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 10], ['id' => 'username']) }}
+        {{ Form::text('username', '', ['placeholder' => 'Inserisci username', 'maxlength' => 15], ['id' => 'username']) }}
         @if ($errors->first('username'))
         <ul class="errors">
             @foreach ($errors->get('username') as $message)
@@ -111,7 +111,7 @@
 
         {{ Form::label('password', 'Password', ['class' => 'label-form']) }}
         <br>
-        {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 10], ['id' => 'password']) }}
+        {{ Form::password('password', ['placeholder' => 'Inserisci password', 'maxlength' => 15], ['id' => 'password']) }}
         @if ($errors->first('password'))
         <ul class="errors">
             @foreach ($errors->get('password') as $message)
@@ -124,7 +124,7 @@
         <br>
 
         {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-form']) }}<br>
-        {{ Form::password('password_confirmation', ['placeholder' => 'Immetti nuovamente', 'maxlength' => 10], ['id' => 'password-confirm']) }}
+        {{ Form::password('password_confirmation', ['placeholder' => 'Immetti nuovamente', 'maxlength' => 15], ['id' => 'password-confirm']) }}
 
         <br>
         <br>

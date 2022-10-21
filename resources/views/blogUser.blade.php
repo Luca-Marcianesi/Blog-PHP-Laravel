@@ -29,7 +29,8 @@
                 $date = date_create($post->data);
                 echo date_format($date, 'd-m-Y H:i');
                 ?>
-        <!-- {{$post->data}}  cambiando il formato non siamo riusciti a mantenere le {{}} per "sanificare"--> 
+        </p>
+        <!-- {{$post->data}} cambiando il formato non siamo riusciti a mantenere le graffe per "sanificare"--> 
         <p>Contenuto: {{$post->testo}}</p>
     </div>
     <br>
@@ -46,7 +47,7 @@
             <div>
                 {{ Form::label('testo', 'Cosa ne Pensi?', ['class' => 'label-form']) }}
                 <br>
-                {{ Form::text('testo', '', ['size' => '55'], ['class' => 'input','id' => 'testo']) }}
+                {{ Form::text('testo', '', ['placeholder' => 'Scrivi cosa ne pensi', 'size' => '55'], ['class' => 'input','id' => 'testo']) }}
                 @if ($errors->first('testo'))
                 <ul class="errors">
                     @foreach ($errors->get('testo') as $message)

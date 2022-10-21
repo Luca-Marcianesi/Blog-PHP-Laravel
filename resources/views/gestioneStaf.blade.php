@@ -24,7 +24,7 @@
                 <p>Nome: {{$s->name}} <br> Cognome: {{$s->surname}}</p> <br>
                 <a href="{{ route('modificaStaf',[$s->id]) }}"><button class="bottone_conferma">Modifica Profilo ►</button></a><br>
                 <a href="{{ route('getModificaStaffPassword', [$s->id]) }}"><button class="bottone_conferma">Modifica Password ►</button></a>
-                <button title="Elimina questo blog" class='bottone_elimina' id='del_<?= $s->id ?>' data-id='<?= $s->id?>'>Elimina ►</button>
+                <button title="Elimina questo blog" class='bottone_elimina' id='del_<?= $s->id ?>' data-id='<?= $s->id?>'>Elimina</button>
             </div>
             <br>
             <br>
@@ -34,7 +34,7 @@
         @endforeach
     @endif()
     @endisset()
-    <hr class="spaziaturahr">
+    <br>
     <div>
         <p class="sotto-titolo">Se desideri aggiungere un nuovo membro allo staff puoi farlo qui:</p><br>
         <a href="{{ route('nuovoStaf') }}"><button class="bottone_conferma">Aggiungi ►</button></a>
