@@ -5,11 +5,13 @@
 @section('content')
 <hr class="spaziaturahr">
 <div style="text-align: center; font-size: large">
-    <h1>In questa pagina puoi consultare le principali statistiche del sito!</h1> <br>
-    <hr class="spaziaturahr">
+    <p class="titolo">In questa pagina puoi consultare le principali statistiche del sito!</p> <br>
+    <br>
+    <br>
     @isset($numeroBlog)
         <p class="sotto-titolo">Questo è il numero dei blog attualmente presenti nel sito: {{$numeroBlog}}</p>
-    <hr class="spaziaturahr">
+    <br>
+    <br>
     @endisset() 
     <div>
         {{ Form::open(array('route' => 'statisticheSpecifiche', 'class' => '')) }}

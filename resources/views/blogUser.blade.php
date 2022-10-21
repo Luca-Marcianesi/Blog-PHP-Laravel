@@ -17,6 +17,11 @@
 </div>
 <br>
 <br>
+<div style="text-align: center">
+<a href="{{ route('myBlogs') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
+</div>
+<br>
+<br>
 <p class="titolo"> Di seguito sono elencati tutti i post fatti sul blog selezionato: </p>
 <br>
 <br>
@@ -47,7 +52,7 @@
             <div>
                 {{ Form::label('testo', 'Cosa ne Pensi?', ['class' => 'label-form']) }}
                 <br>
-                {{ Form::text('testo', '', ['placeholder' => 'Scrivi cosa ne pensi', 'size' => '55'], ['class' => 'input','id' => 'testo']) }}
+                {{ Form::text('testo', '', ['placeholder' => 'Scrivi cosa ne pensi', 'size' => '55', 'maxlength' => 300], ['class' => 'input','id' => 'testo']) }}
                 @if ($errors->first('testo'))
                 <ul class="errors">
                     @foreach ($errors->get('testo') as $message)

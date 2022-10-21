@@ -13,7 +13,7 @@
     <p class="titolo">Queste sono le richieste di amicizia ricevute da "{{$utente->name}} {{$utente->surname}}" [{{$utente->username}}]
     <br>
     <br>
-    <p class="sotto-titolo">Fino ad ora "{{$utente->name}} {{$utente->surname}}" ha ricevuto {{$numero}} richieste:
+    <p class="sotto-titolo">Fino ad ora "{{$utente->name}} {{$utente->surname}}" ha ricevuto {{$numero}} richieste
     @endisset()
     <hr class="spaziaturahr">
     @foreach($amicizie as $amicizia)
@@ -37,25 +37,33 @@
     <p class="titolo">Queste sono le informazioni correnti sugli amici di "{{$utente->name}} {{$utente->surname}}" </p>
     <br>
     <br>
-    <p class="sotto-titolo">Il gruppo di amici di "{{$utente->name}} {{$utente->surname}}" [{{$utente->username}}]:</p>
+    <p class="sotto-titolo">Il gruppo di amici di "{{$utente->name}} {{$utente->surname}}" [{{$utente->username}}]</p>
     <hr class="spaziaturahr">
     @foreach($gruppoAmici as $amico)
     <div style="width: 600px; margin-left: 30%" class="contenitoreStatistiche">
         <p>Nome: {{$amico->name}} Cognome: {{$amico->surname}}</p>
     </div>
-    <hr class="spaziaturahr">
+    <br>
+    <br>
     @endforeach 
     @endisset()
+    @endisset()
 
-    
-    @endisset() 
+    <br>
+
+    <div style="text-align: center">
+    <a href="{{ route('statistiche') }}"><button class="bottone_conferma">◄ Indietro</button></a>
+    </div>
+
     @isset($utentent)
     <p class="titolo">
         L'Utente "{{$utentent}}" da te cercato non è stato trovato, riprova!
     </p>
     <br>
     <br>
-    <a href="{{ route('statistiche') }}"><button class="bottone_conferma">Torna alle statistiche ►</button></a>
+    <div style="text-align: center">
+    <a href="{{ route('statistiche') }}"><button class="bottone_conferma">◄ Indietro</button></a>
+    </div>
     @endisset()
 
 </div>

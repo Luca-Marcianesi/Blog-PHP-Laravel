@@ -56,7 +56,7 @@ class StafController extends Controller {
         $blog = $post->blog;
         $notifica = new Notifica;
         $notifica->destinatario = $post->autore;
-        $notifica->messaggio = "Il tuo post" . $post->messaggio . "è stato cancellato perchè:" . $request->motivo;
+        $notifica->messaggio = "Il tuo post " . $post->testo . " è stato cancellato perchè: ".$request->motivo;
         $notifica->data = date("Y-m-d H:i:s");
         $notifica->save();
         $post->delete();

@@ -382,10 +382,11 @@ nav ul li a:hover{
 }
 
 .contenitoreMotivazione{
+	overflow: auto;
 	padding-top: 2%;
 	margin-left: 24%;
 	width: 800px;
-	height: 250px;
+	height: 400px;
 	text-align: center;
 	font-size: 18px;
 	border-style: solid;
