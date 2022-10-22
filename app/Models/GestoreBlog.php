@@ -10,11 +10,12 @@ use App\Models\Resources\Accesso;
 
 class GestoreBlog {
 
-    public function getPostByBlogId($blogId) {
+    public function getPostByBlogId($blogId, $ordine = 'desc') {
 
-        return Post::where('blog',$idBlog)
+        return Post::where('blog',$blogId)
                     ->join('users', 'users.id', '=', 'post.autore')
                     ->select('users.*','post.*')
+                    ->orderBy('data',$ordine)
                     ->get();
     }
 
@@ -31,6 +32,16 @@ class GestoreBlog {
         $blog->delete();
         $this->deleteBlogPostByBlogId($blogId);
        
+    }
+
+    public function getBlogVisibili($utenteId , $utenteLoggatoId){
+
+        return Blog::where('proprietario',$utenteId)
+                    ->leftJoin('accesso', 'accesso.blog', '=', 'blog.id')
+                    ->where('stato',true)
+                    ->orWhere('utente', $utenteLoggatoId)
+                    ->select('blog.*')
+                    ->get();
     }
 
     public function deleteBlogPostByBlogId($blogId) {

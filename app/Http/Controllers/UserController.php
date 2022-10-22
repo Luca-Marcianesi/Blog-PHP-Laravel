@@ -49,6 +49,7 @@ class userController extends Controller {
     public function home(){ 
 
         $numeroNotifiche = $this->_GestoreNotifiche->numeroNotifiche();
+
         $richiesteAmicizia = $this->_AmiciModel->getNumNuoveAmicizie(auth()->user()->id);
 
         $numeroTot =$numeroNotifiche + $richiesteAmicizia;
@@ -61,13 +62,17 @@ class userController extends Controller {
     }
 
     public function getmodificaProfilo(){
+
         $utente = User::find(auth()->user()->id);
+
         return view('modificaProfilo')
                 ->with('user',$utente);
     }
 
     public function getmodificaPassword(){
+
         $utente = User::find(auth()->user()->id);
+
         return view('modificaUserPassword')
                 ->with('user',$utente);
     }
@@ -95,13 +100,16 @@ class userController extends Controller {
     }
 
     public function getMyBlogs(){
+
         $blogs = Blog::where('proprietario',auth()->user()->id)->get();
+
         return view('myBlogs')
             ->with('blogs', $blogs);
 
     }
 
     public function modificaBlog(StatoBlogRequest $request,$id){
+
         $blog = Blog::find($id);
         if($blog == null){
             return redirect()->route('myBlogs');
@@ -123,6 +131,7 @@ class userController extends Controller {
     }
 
     public function newPost(NewPostRequest $request , $id){
+
         $post = new Post;
         $post->autore = auth()->user()->id;
         $post->blog = $id;
@@ -137,6 +146,7 @@ class userController extends Controller {
     }
 
     public function searchFriends(NewSearchRequest $request){
+
        $users = $this->_RicercaModel->cercaAmici(auth()->user()->id,$request->name , $request->surname ,  3);
         
         return view('searchResult')
@@ -146,6 +156,7 @@ class userController extends Controller {
     }
 
     public function getBlog($id){
+
         $blog = Blog::find($id);
         
         if($blog == null){
@@ -154,11 +165,7 @@ class userController extends Controller {
         else{
             $proprietario = User::find($blog->proprietario);
 
-        $posts = Post::Where('blog',$id)
-                    ->join('users', 'users.id', '=', 'post.autore')
-                    ->select('users.*','post.*')
-                    ->orderBy('data','asc')
-                    ->get();
+        $posts = $this->_GestoreBlog->getPostByBlogId($id,'asc');
 
         return view('blogUser')
             ->with('blog',$blog)
@@ -174,12 +181,8 @@ class userController extends Controller {
         $utente = User::find($idAmico);
 
 
-        $blogs = Blog::where('proprietario',$idAmico)
-                    ->leftJoin('accesso', 'accesso.blog', '=', 'blog.id')
-                    ->where('stato',true)
-                    ->orWhere('utente',auth()->user()->id)
-                    ->select('blog.*')
-                    ->get();
+        $blogs = $this->_GestoreBlog->getBlogVisibili($idAmico , auth()->user()->id );
+        
        
         
 
@@ -195,15 +198,8 @@ class userController extends Controller {
     public function getProfilo($id){
         $utente = User::find($id);
 
-
-        $blogs = Blog::where('proprietario',$id)
-                    ->leftJoin('accesso', 'accesso.blog', '=', 'blog.id')
-                    ->where('stato',true)
-                    ->orWhere('utente',auth()->user()->id)
-                    ->select('blog.*')
-                    ->get();
+        $blogs = $this->_GestoreBlog->getBlogVisibili($id , auth()->user()->id );
         
-       
              return view('profiloUtente')
                 ->with('utente',$utente)
                 ->with('blogs',$blogs);
@@ -236,8 +232,6 @@ class userController extends Controller {
         return redirect()->route('profilo');
 
     }
-
-
     
     public function amicizia($id){
         
@@ -263,8 +257,6 @@ class userController extends Controller {
         return view('homeUser');
     }
 
-    
-
     public function eliminaAmico(EliminaAmicoRequest $request){
         $amicizia =  Amicizia::find($request->id_amicizia);
         if($amicizia == null){
@@ -289,8 +281,7 @@ class userController extends Controller {
         }
         
 
-    }
-    
+    }   
 
     public function rispostaAmicizia($id,$risposta){
         $amicizia =  Amicizia::find($id);
@@ -361,10 +352,7 @@ class userController extends Controller {
 
         $blog = Blog::find($blogId);
 
-        $utentiAutorizzati = Accesso::where('blog',$blogId)
-                                ->join('users','users.id','=','accesso.utente')
-                                ->select('users.username','users.name','users.surname')
-                                ->get();
+        $utentiAutorizzati = $this->_AmiciModel->getUtentiAutorizzati($blogId);
 
         return view('selezionaAmici')
             ->with('autorizzati',$utentiAutorizzati)
@@ -388,15 +376,6 @@ class userController extends Controller {
       
         return redirect()->route('selezionaAmici', [$blogId]);
   
-    }
-
-    public function prova(){
-        $this->_GestoreBlog->elimanaAccessi(1,6);
-        $prova = $this->_GestoreBlog->elimanaAccessi(6,1);
-
-        return view('prova')
-                ->with('prova',$prova);
-
     }
 
 

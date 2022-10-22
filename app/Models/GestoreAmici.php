@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Resources\Amicizia;
+use App\Models\Resources\Accesso;
 use App\User;
 
 class GestoreAmici {
@@ -29,6 +30,13 @@ class GestoreAmici {
                         ->select('users.name','users.surname','amicizia.data','users.id as user_id','amicizia.id as amicizia_id')
                         ->orderBy('users.surname')
                         ->paginate($xpag);
+    }
+
+    public function getUtentiAutorizzati($blogId){
+        return Accesso::where('blog',$blogId)
+                ->join('users','users.id','=','accesso.utente')
+                ->select('users.username','users.name','users.surname')
+                ->get();
     }
 
     public function getRichiesteRicevute($id){
