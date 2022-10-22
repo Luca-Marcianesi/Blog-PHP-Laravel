@@ -26,55 +26,60 @@ class StafController extends Controller {
 
 
     public function __construct() {
+
         $this->middleware('can:isGestore');
         $this->_GestoreBlog= new GestoreBlog;
     }
 
     public function cercaUtente(UtenteRequest $request){
+
         $utenti = User::where('username',$request->username)
                         ->get();
         return view('elencoUtenti')
                 ->with('utenti',$utenti);
     }
 
-    
-
     public function deleteBlog(MotivoRequest $request,$id){
+
         $blog = Blog::find($id);
+
         $notifica = new Notifica;
         $notifica->destinatario = $blog->proprietario;
         $notifica->riferimento = $blog->id;
         $notifica->messaggio = "Il tuo blog" . $blog->tema . "è stato cancellato perchè:" . $request->motivo;
         $notifica->data = date("Y-m-d H:i:s");
         $notifica->save();
+
         $this->_GestoreBlog->deleteBlogByBlogId($id);
 
         return redirect()->route('ricerca');
     }
 
     public function deletePost(MotivoRequest $request,$id){
+
         $post = Post::find($id);
+
         $blog = $post->blog;
+
         $notifica = new Notifica;
         $notifica->riferimento = $blog;
         $notifica->destinatario = $post->autore;
         $notifica->messaggio = "Il tuo post " . $post->testo . " è stato cancellato perchè: ".$request->motivo;
         $notifica->data = date("Y-m-d H:i:s");
         $notifica->save();
+
         $post->delete();
 
         return redirect()->route('tornaAlBlog',[$blog]);
     }
 
     public function visualizzaUtente(CercaUtenteRequest $request){
+
         $utente = User::find($request->idUtente);
         if(!empty($utente)){
 
         $blogs = Blog::where('proprietario',$request->idUtente)->get();
-        $posts = Post::where('autore',$request->idUtente)
-                        ->join('blog', 'blog.id', '=', 'post.blog')
-                        ->select('blog.*','post.*')
-                        ->get();
+        $posts = $this->_GestoreBlog->getPostByAutore($request->idUtente);
 
        
         return view('attivitaUtente')
@@ -97,11 +102,9 @@ class StafController extends Controller {
         
        
         $proprietario = User::find($blog->proprietario);
+        
 
-        $posts = Post::Where('blog',$idBlog)
-                    ->join('users', 'users.id', '=', 'post.autore')
-                    ->select('users.*','post.*')
-                    ->get();
+        $posts = $this->_GestoreBlog->getPostByBlogId($idBlog);
 
         return view('gestioneBlog')
                 ->with('blog',$blog)
@@ -117,10 +120,7 @@ class StafController extends Controller {
         if(!empty($blog)){
         $proprietario = User::find($blog->proprietario);
 
-        $posts = Post::Where('blog',$request->idBlog)
-                    ->join('users', 'users.id', '=', 'post.autore')
-                    ->select('users.*','post.*')
-                    ->get();
+        $posts =  $this->_GestoreBlog->getPostByBlogId($request->idBlog);
 
         return view('gestioneBlog')
                 ->with('blog',$blog)
@@ -138,12 +138,12 @@ class StafController extends Controller {
         
     }
 
-    public function motivoBlog($id){
+    public function inserisciMotivoBlog($id){
         return view('eliminaBlog-Post-gestore')
                 ->with('blog',$id);
     }
 
-    public function motivoPost($idpost , $idBlog){
+    public function inserisciMotivoPost($idpost , $idBlog){
         return view('eliminaBlog-Post-gestore')
                 ->with('blogId',$idBlog)
                 ->with('post',$idpost);

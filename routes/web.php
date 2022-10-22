@@ -130,7 +130,7 @@ Route::get('/blogUtente/{id}','UserController@getBlog')
 
 //Ricerca utenti e invio amicizia
 
-Route::post('/ricerca','UserController@searchFriends')
+Route::post('/ricercaAmici','UserController@searchFriends')
         ->name('searchFriends')->middleware('can:isUser');
 
 Route::get('/ricerca/profiloUtente/{id}', 'UserController@getProfilo')
@@ -153,10 +153,10 @@ Route::post('/statistiche/utente','AdminController@getStatisticheSpecifiche')
 //Aggiungi , modifica , elimina staff
 
 Route::get('/gestioneStaf','AdminController@getStaf')
-        ->name('gestioneStaf');
+        ->name('gestioneStaf')->middleware('can:isAdmin');
 
 Route::view('/gestioneStaf/aggiungiStaf','newStaf')
-        ->name('nuovoStaf');
+        ->name('nuovoStaf')->middleware('can:isAdmin');
 
 Route::post('/gestioneStaf/aggiungiStaf','AdminController@newStaf')
         ->name('creaStaf')->middleware('can:isAdmin');
@@ -176,42 +176,37 @@ Route::get('/gestioneStaf/modificaStaf/modificaPassword/{id}','AdminController@g
 Route::post('/gestioneStaf/modificaStaf/modificaPassword/{id}','AdminController@modificaPassword')
         ->name('modificaStaffPassword')->middleware('can:isAdmin');
 
-Route::view('/ricerca','ricercaUtenteBlog')
-        ->name('ricerca')->middleware('can:isGestore');
 
 
 
 
 // Staf e admin routes
 
-Route::get('/ricerca/blog/elimina/{id}','StafController@motivoBlog')
+Route::view('/ricerca','ricercaUtenteBlog')
+        ->name('ricerca')->middleware('can:isGestore');
+
+Route::get('/ricerca/blog/elimina/{id}','StafController@inserisciMotivoBlog')
         ->name('inserisciMotivoBlog')->middleware('can:isGestore');
 
 Route::post('/ricerca/eliminaBlog/{id}','StafController@deleteBlog')
         ->name('eliminaBlogGestore')->middleware('can:isGestore');
 
 
-Route::get('/ricerca/post/elimina/{id}/{idBlog}','StafController@motivoPost')
+Route::get('/ricerca/post/elimina/{id}/{idBlog}','StafController@inserisciMotivoPost')
         ->name('inserisciMotivoPost')->middleware('can:isGestore');
 
 Route::post('/ricerca/eliminaPost/{id}','StafController@deletePost')
         ->name('eliminaPostGestore')->middleware('can:isGestore');
 
-Route::get('blog/{id}','StafController@tornaAlBlog')
+Route::get('/blog/{id}','StafController@tornaAlBlog')
         ->name('tornaAlBlog')->middleware('can:isGestore');
 
 
-
-
-
-Route::post('/utente','StafController@visualizzaUtente')
+Route::post('/cercaUtente','StafController@visualizzaUtente')
         ->name('attivitaUtente');
 
-Route::post('/blog','StafController@visualizzaBlog')
+Route::post('/ricercaBlog','StafController@visualizzaBlog')
         ->name('cercaBlog');
-
-Route::get('/prova','UserController@prova')
-        ->name('prova');
 
 
 

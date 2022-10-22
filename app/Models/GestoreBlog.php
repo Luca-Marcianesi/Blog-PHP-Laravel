@@ -11,10 +11,22 @@ use App\Models\Resources\Accesso;
 class GestoreBlog {
 
     public function getPostByBlogId($blogId) {
-        return Post::where('blog', $blogId)->get();
+
+        return Post::where('blog',$idBlog)
+                    ->join('users', 'users.id', '=', 'post.autore')
+                    ->select('users.*','post.*')
+                    ->get();
+    }
+
+    public function getPostByAutore($autore){
+        return Post::where('autore',$autore)
+                    ->join('blog', 'blog.id', '=', 'post.blog')
+                    ->select('blog.*','post.*')
+                    ->get();
     }
 
     public function deleteBlogByBlogId($blogId) {
+
         $blog = Blog::find($blogId);
         $blog->delete();
         $this->deleteBlogPostByBlogId($blogId);
@@ -22,12 +34,14 @@ class GestoreBlog {
     }
 
     public function deleteBlogPostByBlogId($blogId) {
+
        $posts = Post::where('blog',$blogId)
                     ->delete();
                   
     }
 
     public static function puoPostare($id){
+
         $amicizia = Amicizia::where(function ($query)  use ($id){
                                 $query->where('richiedente', $id)
                                         ->where('destinatario',auth()->user()->id)
@@ -42,8 +56,6 @@ class GestoreBlog {
         if(count($amicizia) == 0 and $id != auth()->user()->id) return false;
         else return true;
     }
-
-    
 
     public static function accesso($idUser,$idBlog){
         $accesso = Accesso::where('blog',$idBlog)
