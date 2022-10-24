@@ -35,9 +35,8 @@
                 <p class="sotto-titolo">Attualmente siete amici</p>
                 @isset($amicizia)
                 <button class="bottone_elimina" id='del_<?= $utente->id?>' data-user='<?= $utente->id?>' data-amicizia='<?= $amicizia?>'>Elimina amico</button>
-
-                @endisset()
                 <br>
+                @endisset()
                 <hr style="width: 100%; background-color: black; height: 2px; border: none">
                 @isset($blogs)
 
@@ -53,7 +52,11 @@
                     
                     @foreach($blogs as $blog)
                         <div class="blog-link">
-                            <a href="{{ route('blog',$blog->id) }}" ><button class="bottone_conferma"> Tema: {{$blog->tema}} ►</button</a> 
+                            @isset($amicizia)
+                                <a href="{{ route('blogAmico',[$blog->id,$amicizia]) }}" ><button class="bottone_conferma"> Tema: {{$blog->tema}} ►</button</a>
+                            @else
+                                <a href="{{ route('ricercaBlogUtente',[$blog->id]) }}" ><button class="bottone_conferma"> Tema: {{$blog->tema}} ►</button</a>
+                            @endisset()
                         </div>
                         <hr class="spaziaturahr">
                         

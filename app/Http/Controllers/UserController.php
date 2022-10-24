@@ -131,18 +131,29 @@ class userController extends Controller {
     }
 
     public function newPost(NewPostRequest $request , $id){
+        $blog = Blog::find($id);
 
         $post = new Post;
         $post->autore = auth()->user()->id;
         $post->blog = $id;
-        $post->testo = $request->testo;
+        $post->testo = $blog->proprietario;
         $post->data = date("Y-m-d H:i:s");
         $post->save();
 
+       
+
+
         $this->_GestoreBlog->sedNotifiche($id);
 
-        return redirect()->route('blog',[$id]);
+        if($blog->proprietario == auth()->user()->id){
+            
+            return redirect()->route('blog',[$id]);
+        }
+        else{
+            return redirect()->route('ricercaBlogUtente',[$id]);
+            
 
+        }
     }
 
     public function searchFriends(NewSearchRequest $request){
@@ -155,25 +166,67 @@ class userController extends Controller {
 
     }
 
-    public function getBlog($id){
+    public function blogCambiato($id){
 
         $blog = Blog::find($id);
-        
-        if($blog == null){
-            return redirect()->route('myBlogs');
-        }
-        else{
-            $proprietario = User::find($blog->proprietario);
+        $proprietario = User::find($blog->proprietario);
 
         $posts = $this->_GestoreBlog->getPostByBlogId($id,'asc');
 
-        return view('blogUser')
+        return view('blogUser-link-notifiche')
             ->with('blog',$blog)
             ->with('proprietario',$proprietario)
             ->with('posts',$posts);
-        }
+    }
+
+
+    public function blogAmico($id, $amicizia){
+
+        $blog = Blog::find($id);
+        $proprietario = User::find($blog->proprietario);
+
+        $posts = $this->_GestoreBlog->getPostByBlogId($id,'asc');
+
+        return view('blogUser-link-amico')
+            ->with('idamico', $proprietario->id)
+            ->with('idamicizia',$amicizia)
+            ->with('blog',$blog)
+            ->with('proprietario',$proprietario)
+            ->with('posts',$posts);
+    }
+
+    
+
+    public function getBlog($id){
+
+        $blog = Blog::find($id);
+        $proprietario = User::find($blog->proprietario);
+
+        $posts = $this->_GestoreBlog->getPostByBlogId($id,'asc');
+
+        return view('blogUser-link-myBlog')
+            ->with('blog',$blog)
+            ->with('proprietario',$proprietario)
+            ->with('posts',$posts);
+        
 
     }
+
+    public function getBlogUtente($id){
+
+        $blog = Blog::find($id);
+        $proprietario = User::find($blog->proprietario);
+
+        $posts = $this->_GestoreBlog->getPostByBlogId($id,'asc');
+
+        return view('blogUser-link-profilo')
+            ->with('blog',$blog)
+            ->with('proprietario',$proprietario)
+            ->with('posts',$posts);
+        
+
+    }
+    
 
     public function getProfiloAmico($idAmico,$idAmicizia){
         
