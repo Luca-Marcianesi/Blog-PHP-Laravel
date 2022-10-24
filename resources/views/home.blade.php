@@ -6,7 +6,7 @@
 <hr class="spaziaturahr"></hr>         
     <section>
         <div style="float: left; height: 392px; width: 690px; font-size: large">
-            <p class="cloud-organization" style="background-image: url('images/products/nuvola-removebg-preview.png')">
+            <p class="cloud-organization" style="background-image: url('css/images/nuvola-removebg-preview.png')">
                 Condividi i tuoi pensieri,<br>
                 leggi quelli dei tuoi amici<br>
                 e discutete su un argomento<br>

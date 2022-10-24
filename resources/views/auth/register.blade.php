@@ -14,9 +14,9 @@
 <div>
 
     <div style="width: 600px; height: 750px; float: right; margin-left: 8%">
-        <img style="height: 250px" src="/images/products/discussion.gif"></img><br>
-        <img style="height: 250px" src="/images/products/discussion.gif"></img><br>
-        <img style="height: 250px" src="/images/products/discussion.gif"></img><br>
+        <img style="height: 250px" src="css/images/discussion.gif"></img><br>
+        <img style="height: 250px" src="css/images/discussion.gif"></img><br>
+        <img style="height: 250px" src="css/images/discussion.gif"></img><br>
     </div>
 
     <div class="contenitoreRegistrati" style="text-align:center">

@@ -19,7 +19,7 @@
 </div>
 
 <div style="position: relative; text-align: center; ">
-    <img alt="Badge dello staff" src="/images/products/staffBadge.png">
+    <img alt="Badge dello staff" src="css/images/staffBadge.png">
     <div style="position: absolute; top: 56.7%; left: 55%; transform: translate(-50%, -50%); font-size: 19px"> 
     {{ Auth::user()->name }} 
     </div>

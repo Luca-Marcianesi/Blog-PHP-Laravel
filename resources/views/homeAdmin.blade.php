@@ -18,7 +18,7 @@
 <br>
 
 <div style="margin-left: 36.5%">
-    <img style="width: 350px; height: 300px" alt="Amministratore del sito" src="/images/products/amministratore.png"></img>
+    <img style="width: 350px; height: 300px" alt="Amministratore del sito" src="css/images/amministratore.png"></img>
 </div>
 
 

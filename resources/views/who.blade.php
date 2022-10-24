@@ -5,7 +5,7 @@
 @section('content')
 
 <div>
-<img class="pollicione" src="images/products/pollicione-removebg-preview(1).png" alt="Pollice in su">
+<img class="pollicione" src="css/images/pollicione-removebg-preview(1).png" alt="Pollice in su">
 </div>
 
 <div class="static">
