@@ -136,7 +136,7 @@ class userController extends Controller {
         $post = new Post;
         $post->autore = auth()->user()->id;
         $post->blog = $id;
-        $post->testo = $blog->proprietario;
+        $post->testo = $request->testo;
         $post->data = date("Y-m-d H:i:s");
         $post->save();
 
