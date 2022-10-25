@@ -167,19 +167,6 @@ class userController extends Controller {
 
     }
 
-    public function blogCambiato($id){
-
-        $blog = Blog::find($id);
-        $proprietario = User::find($blog->proprietario);
-
-        $posts = $this->_GestoreBlog->getPostByBlogId($id,'asc');
-
-        return view('blogUser-link-notifiche')
-            ->with('blog',$blog)
-            ->with('proprietario',$proprietario)
-            ->with('posts',$posts);
-    }
-
 
     public function blogAmico($id, $amicizia){
 
@@ -203,9 +190,12 @@ class userController extends Controller {
         $blog = Blog::find($id);
         $proprietario = User::find($blog->proprietario);
 
+        $indietro = url()->previous();
+
         $posts = $this->_GestoreBlog->getPostByBlogId($id,'asc');
 
-        return view('blogUser-link-myBlog')
+        return view('blogUser')
+            ->with('indietro', $indietro)
             ->with('blog',$blog)
             ->with('proprietario',$proprietario)
             ->with('posts',$posts);

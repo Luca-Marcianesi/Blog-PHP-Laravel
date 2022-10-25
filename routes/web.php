@@ -83,8 +83,8 @@ Route::post('/blog/nuovoBlog','UserController@newBlog')
 Route::get('/iMieiBlog','UserController@getMyBlogs')
         ->name('myBlogs')->middleware('can:isUser');
 
-Route::get('/iMieiBlog/blog/{id}','UserController@getBlog')
-        ->name('mioBlog')->middleware('can:isUser');
+Route::get('/blog/{id}','UserController@getBlog')
+        ->name('getBlog')->middleware('can:isUser');
 
 Route::post('/blog/modificaBlog/{id}','UserController@modificaBlog')
         ->name('modificaBlog')->middleware('can:isUser');
@@ -206,16 +206,11 @@ Route::get('/ricerca/blog/elimina/{id}','StafController@inserisciMotivoBlog')
 Route::post('/ricerca/eliminaBlog/{id}','StafController@deleteBlog')
         ->name('eliminaBlogGestore')->middleware('can:isGestore');
 
-
 Route::get('/ricerca/post/elimina/{id}/{idBlog}','StafController@inserisciMotivoPost')
         ->name('inserisciMotivoPost')->middleware('can:isGestore');
 
 Route::post('/ricerca/eliminaPost/{id}','StafController@deletePost')
         ->name('eliminaPostGestore')->middleware('can:isGestore');
-
-Route::get('/blog/{id}','StafController@tornaAlBlog')
-        ->name('tornaAlBlog')->middleware('can:isGestore');
-
 
 Route::post('/cercaUtente','StafController@visualizzaUtente')
         ->name('attivitaUtente');

@@ -5,6 +5,7 @@
 
 @section('content')
 @isset($blog)
+@isset($indietro)
 
 
 <p class="titolo">In questa pagina puoi eliminare il blog selezionato</p>
@@ -26,7 +27,7 @@
         {{ Form::submit('Elimina', ['class' => 'bottone_elimina']) }}
     </div>
     {{ Form::close() }}
-    <a href="{{ route('tornaAlBlog',$blog) }}"><button class='bottone_conferma'>◄ Indietro</button></a>  
+    <a href="{{ route($indietro) }}"><button class='bottone_conferma'>◄ Indietro</button></a>  
 </div>
 
 @endisset()
@@ -61,9 +62,10 @@
         {{ Form::submit('Elimina', ['class' => 'bottone_elimina']) }}
     </div>
     {{ Form::close() }}
-    <a href="{{ route('tornaAlBlog',$blogId) }}"><button class='bottone_conferma'>◄ Indietro</button></a> 
+    <a href="{{ route($indietro) }}"><button class='bottone_conferma'>◄ Indietro</button></a> 
 </div>
-  
+
+@endisset()
 @endisset()
 @endisset()
 
