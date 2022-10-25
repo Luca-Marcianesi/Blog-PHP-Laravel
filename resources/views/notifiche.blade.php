@@ -44,7 +44,7 @@
         <div>
             <a href="{{ route('archiviaNotifica',[$notifica->id]) }}"><button class="bottone_conferma">Archivia ►</button></a><br>
             @if($notifica->riferimento != 0)
-            <a href="{{ route('novitaBlog', [$notifica->riferimento]) }}"><button class="bottone_conferma">Visualizza ►</button></a>
+            <a href="{{ route('getBlog', [$notifica->riferimento]) }}"><button class="bottone_conferma">Visualizza ►</button></a>
             @endif
         </div>
     </div>

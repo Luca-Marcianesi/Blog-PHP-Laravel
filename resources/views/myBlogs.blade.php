@@ -53,7 +53,7 @@
                     </div>
                     {{ Form::close() }}
                     <div style="text-align: center; font-size: large">
-                        <a href="{{ route('blog',$blog->id) }}"><button class="bottone_conferma" title="Visualizza le informazioni su questo blog">Visualizza Blog ►</button></a>
+                        <a href="{{ route('getBlog',$blog->id) }}"><button class="bottone_conferma" title="Visualizza le informazioni su questo blog">Visualizza Blog ►</button></a>
                         <button title="Elimina questo blog" class='bottone_elimina' id='del_<?= $blog->id ?>' data-id='<?= $blog->id?>'>Elimina</button>
                     </div>
                 
