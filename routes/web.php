@@ -140,7 +140,7 @@ Route::get('/blogUtente/{id}','UserController@getBlog')
 
 //Ricerca utenti e invio amicizia
 
-Route::post('/ricercaAmici','UserController@searchFriends')
+Route::get('/ricercaAmici','UserController@searchFriends')
         ->name('searchFriends')->middleware('can:isUser');
 
 Route::get('/ricerca/profiloUtente/{id}', 'UserController@getProfilo')

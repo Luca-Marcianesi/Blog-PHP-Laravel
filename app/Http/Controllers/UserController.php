@@ -25,6 +25,7 @@ use App\Models\GestoreRicerca;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Routing\UrlGenerator;
 
 class userController extends Controller {
 
@@ -251,11 +252,14 @@ class userController extends Controller {
     public function getProfilo($id){
         $utente = User::find($id);
 
+        $indietro = url()->previous();
+
         $blogs = $this->_GestoreBlog->getBlogVisibili($id , auth()->user()->id );
         
              return view('profiloUtente')
                 ->with('utente',$utente)
-                ->with('blogs',$blogs);
+                ->with('blogs',$blogs)
+                ->with('indietro',$indietro);
        
     }
 
