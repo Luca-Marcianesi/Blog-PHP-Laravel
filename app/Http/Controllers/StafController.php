@@ -17,6 +17,7 @@ use App\Models\Resources\Post;
 use App\Models\Resources\Amicizia;
 use App\Models\GestoreAmici;
 use App\Models\GestoreBlog;
+use Illuminate\Routing\UrlGenerator;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -120,9 +121,12 @@ class StafController extends Controller {
         if(!empty($blog)){
         $proprietario = User::find($blog->proprietario);
 
+        $indietro = url()->previous();
+
         $posts =  $this->_GestoreBlog->getPostByBlogId($request->idBlog);
 
         return view('gestioneBlog')
+                ->with('inditro',$indietro)
                 ->with('blog',$blog)
                 ->with('proprietario',$proprietario)
                 ->with('posts',$posts);
