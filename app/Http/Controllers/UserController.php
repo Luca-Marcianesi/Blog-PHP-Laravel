@@ -161,7 +161,7 @@ class userController extends Controller {
 
        $users = $this->_RicercaModel->cercaAmici(auth()->user()->id,$request->name , $request->surname ,  3);
         
-        return view('searchResult')
+        return view('risultatiRicerca')
             ->with('users', $users);
             
 
