@@ -126,7 +126,7 @@ class StafController extends Controller {
         $posts =  $this->_GestoreBlog->getPostByBlogId($request->idBlog);
 
         return view('gestioneBlog')
-                ->with('inditro',$indietro)
+                ->with('indietro',$indietro)
                 ->with('blog',$blog)
                 ->with('proprietario',$proprietario)
                 ->with('posts',$posts);
