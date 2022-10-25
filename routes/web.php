@@ -80,8 +80,11 @@ Route::view('/blog/nuovoBlog', 'newBlog')
 Route::post('/blog/nuovoBlog','UserController@newBlog')
         ->name('newBlog')->middleware('can:isUser');
 
-Route::get('/blog/iMieiBlog','UserController@getMyBlogs')
+Route::get('/iMieiBlog','UserController@getMyBlogs')
         ->name('myBlogs')->middleware('can:isUser');
+
+Route::get('/iMieiBlog/blog/{id}','UserController@getBlog')
+        ->name('mioBlog')->middleware('can:isUser');
 
 Route::post('/blog/modificaBlog/{id}','UserController@modificaBlog')
         ->name('modificaBlog')->middleware('can:isUser');
@@ -100,6 +103,10 @@ Route::get('/blog/accesso/{blogId}/{userId}/{stato}', 'UserController@setAccesso
 Route::get('/notifiche', 'UserController@getNotifiche')
         ->name('notifiche')->middleware('can:isUser');
 
+ Route::get('/notifiche/novitàBlog/{id}', 'UserController@blogCambiato')
+        ->name('novitaBlog')->middleware('can:isUser');
+        
+       
 Route::get('/notifiche/elimina/{notifica}','UserController@eliminaNotifica')
         ->name('eliminaNotifica');
 
@@ -116,6 +123,9 @@ Route::get('/amico/{idamico}/{idamicizia}','UserController@getProfiloAmico')
 
 Route::post('/amici/elimina','UserController@eliminaAmico')
         ->name('eliminaAmico');
+
+Route::get('/amici/amico/visualizzaBlog/{id}/{idamicizia}','UserController@blogAmico')
+        ->name('blogAmico')->middleware('can:isUser');
 
 Route::get('/amici/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
         ->name('rispostaAmicizia');
@@ -135,6 +145,11 @@ Route::post('/ricercaAmici','UserController@searchFriends')
 
 Route::get('/ricerca/profiloUtente/{id}', 'UserController@getProfilo')
         ->name('visualizzaProfilo');
+
+Route::get('/ricerca/profiloUtente/blog/{id}', 'UserController@getBlogUtente')
+        ->name('ricercaBlogUtente');
+
+        
 
 Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
         ->name('inviaAmicizia');
