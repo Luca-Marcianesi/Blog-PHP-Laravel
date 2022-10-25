@@ -27,7 +27,6 @@
             <p>Cognome: {{ Auth::user()->surname}}</p><br>
             <p>E-Mail: {{ Auth::user()->email}}</p><br>
             <p>Data di nascita: {{ Auth::user()->data_nascita}}</p><br>
-            <hr class="spaziaturahr">
         </div>
         <br>
         <div class="contenitorebiografia">
