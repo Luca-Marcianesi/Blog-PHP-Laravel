@@ -121,12 +121,10 @@ class StafController extends Controller {
         if(!empty($blog)){
         $proprietario = User::find($blog->proprietario);
 
-        $indietro = url()->previous();
 
         $posts =  $this->_GestoreBlog->getPostByBlogId($request->idBlog);
 
         return view('gestioneBlog')
-                ->with('indietro',$indietro)
                 ->with('blog',$blog)
                 ->with('proprietario',$proprietario)
                 ->with('posts',$posts);
@@ -143,12 +141,20 @@ class StafController extends Controller {
     }
 
     public function inserisciMotivoBlog($id){
+
+        $indietro = url()->previous(); 
+
         return view('eliminaBlog-Post-gestore')
+                ->with('indietro',$indietro)
                 ->with('blog',$id);
     }
 
     public function inserisciMotivoPost($idpost , $idBlog){
+
+        $indietro = url()->previous();
+
         return view('eliminaBlog-Post-gestore')
+                ->with('indietro',$indietro)
                 ->with('blogId',$idBlog)
                 ->with('post',$idpost);
     }
