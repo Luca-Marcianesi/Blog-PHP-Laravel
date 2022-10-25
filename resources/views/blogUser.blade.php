@@ -17,7 +17,9 @@
 </div>
 <br>
 <br>
-@yield('link-indietro')
+@isset($indietro)
+<a href="{{$indietro}}"><button class='bottone_conferma'>◄ Indietro</button></a>
+@endisset()
 <br>
 <br>
 <p class="titolo"> Di seguito sono elencati tutti i post fatti sul blog selezionato: </p>
