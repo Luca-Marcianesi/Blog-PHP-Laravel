@@ -437,12 +437,12 @@ nav ul li a:hover{
 	font-size: 20px;
 	background-color: white;
 	overflow: auto;
-	margin-left: 39%;
+	margin-left: 37%;
 	padding-top: 2%;
 	min-height: 220px;
 	min-width: 300px;
-	width: 350px;
-	height: 220px;
+	width: 400px;
+	height: 360px;
 	border-style: solid;
 	border-width: 4px;
 	border-color: black;
@@ -467,13 +467,13 @@ nav ul li a:hover{
 	background-color: white;
 	overflow: auto;
 	text-align: left;
-	margin-left: 39%;
+	margin-left: 37%;
 	border-style: solid;
 	border-width: 4px;
 	border-color: black;
 	color: black;
 	min-width: auto;
-	width: 350px;
+	width: 400px;
 	min-height: auto;
 }
 

@@ -51,10 +51,6 @@
 
     <br>
 
-    <div style="text-align: center">
-    <a href="{{ route('statistiche') }}"><button class="bottone_conferma">◄ Indietro</button></a>
-    </div>
-
     @isset($utentent)
     <p class="titolo">
         L'Utente "{{$utentent}}" da te cercato non è stato trovato, riprova!
