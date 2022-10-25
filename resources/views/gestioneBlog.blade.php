@@ -35,7 +35,7 @@
     @isset($posts)
         @if(count($posts)== 0)
             <p class="sotto-titolo">
-                Non sono stati pubblicati ancora post
+                Attualmente non è presente alcun post su questo blog
             </p>
         @else
         @foreach($posts as $post)
