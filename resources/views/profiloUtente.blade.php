@@ -19,10 +19,6 @@
             <p class="info-anagrafica">Data di Nascita: {{$utente->data_nascita}}</p>
             <br>
         </div>
-
-        @isset($indietro)
-        <a href="{{$indietro}}"><button class='bottone_conferma'>◄ Indietro</button></a>
-        @endisset()
   
         <br>
         <div class="info-biografia">
