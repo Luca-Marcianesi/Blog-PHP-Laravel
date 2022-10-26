@@ -63,5 +63,11 @@
     </div>
     @endisset()
 
+    <div style="text-align: center">
+        <a href="{{ route('amici') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
+    </div>
+
+    
+
 </div>
 @endsection
