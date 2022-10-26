@@ -106,11 +106,11 @@
     {{ Form::close() }}
 
 </div>
-<script>
-    $( document ).ready(function() {
-    $('input').attr('autocomplete','off');
-});
-</script>
+
+<div style="text-align: center">
+        <a href="{{ route('gestioneStaf') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
+    </div>
+
 
 
 @endsection
