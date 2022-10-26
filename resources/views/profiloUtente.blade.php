@@ -56,11 +56,7 @@
                     
                     @foreach($blogs as $blog)
                         <div class="blog-link">
-                            @isset($amicizia)
-                                <a href="{{ route('getBlog', [$blog->id]) }}" ><button class="bottone_conferma"> Tema: {{$blog->tema}} ►</button</a>
-                            @else
-                                <a href="{{ route('ricercaBlogUtente',[$blog->id]) }}" ><button class="bottone_conferma"> Tema: {{$blog->tema}} ►</button</a>
-                            @endisset()
+                            <a href="{{ route('getBlog', [$blog->id]) }}" ><button class="bottone_conferma"> Tema: {{$blog->tema}} ►</button</a> 
                         </div>
                         <hr class="spaziaturahr">
                         

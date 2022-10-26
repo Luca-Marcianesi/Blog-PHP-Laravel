@@ -132,7 +132,6 @@ class userController extends Controller {
     }
 
     public function newPost(NewPostRequest $request , $id){
-        $blog = Blog::find($id);
 
         $post = new Post;
         $post->autore = auth()->user()->id;
@@ -141,20 +140,10 @@ class userController extends Controller {
         $post->data = date("Y-m-d H:i:s");
         $post->save();
 
-       
-
-
         $this->_GestoreBlog->sedNotifiche($id);
 
-        if($blog->proprietario == auth()->user()->id){
-            
-            return redirect()->route('blog',[$id]);
-        }
-        else{
-            return redirect()->route('ricercaBlogUtente',[$id]);
-            
-
-        }
+        return redirect()->route('getBlog',[$id]);
+        
     }
 
     public function searchFriends(NewSearchRequest $request){
