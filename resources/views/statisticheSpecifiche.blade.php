@@ -27,7 +27,8 @@
             @endif
         </p>  
     </div>
-    <hr class="spaziaturahr">
+    <br>
+    <br>
     @endforeach 
     @endisset() 
 
