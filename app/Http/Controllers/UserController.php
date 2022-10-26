@@ -140,7 +140,7 @@ class userController extends Controller {
         $post->data = date("Y-m-d H:i:s");
         $post->save();
 
-        $this->_GestoreBlog->sedNotifiche($id);
+        $this->_GestoreBlog->sedNotifiche($id , auth()->user()->username);
 
         return redirect()->route('getBlog',[$id]);
         
@@ -273,6 +273,7 @@ class userController extends Controller {
         $amicizia->save();
 
         $notifica = new Notifica;
+        $notifica->mittente = auth()->user()->name. " ". auth()->user()->surname;
         $notifica->messaggio = auth()->user()->name . " " . auth()->user()->surname . " " . " non è più tuo amico";
         $notifica->destinatario = $request->id_user;
         $notifica->data = date("Y-m-d H:i:s");

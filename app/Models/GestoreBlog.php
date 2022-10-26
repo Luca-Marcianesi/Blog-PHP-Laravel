@@ -92,7 +92,7 @@ class GestoreBlog {
         }                                 
     }
 
-    public function sedNotifiche($blogId){
+    public function sedNotifiche($blogId, $mittente){
         $blog = Blog::find($blogId);
         if($blog->stato){
             //manda  la notifica tutti gli amici
@@ -111,6 +111,7 @@ class GestoreBlog {
             foreach($idAmici as $id ){
                 $notifica = new Notifica;
                 $notifica->riferimento = $blog->id;
+                $notifica-> mittente = $mittente;
                 $notifica->destinatario = $id->id;
                 $notifica->data = date("Y-m-d H:i:s");
                 $notifica->messaggio = "Un nuovo messaggio sul blog ". $blog->tema;

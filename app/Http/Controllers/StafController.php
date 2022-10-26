@@ -47,6 +47,7 @@ class StafController extends Controller {
         $notifica = new Notifica;
         $notifica->destinatario = $blog->proprietario;
         $notifica->riferimento = $blog->id;
+        $notifica->mittente = auth()->user()->role;
         $notifica->messaggio = "Il tuo blog" . $blog->tema . "è stato cancellato perchè:" . $request->motivo;
         $notifica->data = date("Y-m-d H:i:s");
         $notifica->save();
@@ -65,6 +66,7 @@ class StafController extends Controller {
         $notifica = new Notifica;
         $notifica->riferimento = $blog;
         $notifica->destinatario = $post->autore;
+        $notifica->mittente = auth()->user()->role;
         $notifica->messaggio = "Il tuo post " . $post->testo . " è stato cancellato perchè: ".$request->motivo;
         $notifica->data = date("Y-m-d H:i:s");
         $notifica->save();
