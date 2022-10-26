@@ -144,12 +144,7 @@ Route::get('/ricercaAmici','UserController@searchFriends')
         ->name('searchFriends')->middleware('can:isUser');
 
 Route::get('/ricerca/profiloUtente/{id}', 'UserController@getProfilo')
-        ->name('visualizzaProfilo');
-
-Route::get('/ricerca/profiloUtente/blog/{id}', 'UserController@getBlogUtente')
-        ->name('ricercaBlogUtente');
-
-        
+        ->name('visualizzaProfilo');   
 
 Route::get('/aggiungiAmico/{id}', 'UserController@amicizia')
         ->name('inviaAmicizia');
