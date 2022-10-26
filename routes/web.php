@@ -207,10 +207,10 @@ Route::get('/ricerca/post/elimina/{id}/{idBlog}','StafController@inserisciMotivo
 Route::post('/ricerca/eliminaPost/{id}','StafController@deletePost')
         ->name('eliminaPostGestore')->middleware('can:isGestore');
 
-Route::post('/cercaUtente','StafController@visualizzaUtente')
+Route::get('/cercaUtente','StafController@visualizzaUtente')
         ->name('attivitaUtente');
 
-Route::post('/ricercaBlog','StafController@visualizzaBlog')
+Route::get('/ricercaBlog','StafController@visualizzaBlog')
         ->name('cercaBlog');
 
 

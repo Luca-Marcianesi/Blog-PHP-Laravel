@@ -8,7 +8,7 @@
     registrati oppure i blog che sono stati creati!</p>
     <hr class="spaziaturahr">
 
-    {{ Form::open(array('route' => ['attivitaUtente'], 'class' => '')) }}
+    {{ Form::open(array('route' => ['attivitaUtente'], 'method' => 'get')) }}
 
     <div  class="wrap-input">
         {{ Form::label('idUtente', 'Id utente') }}
@@ -30,7 +30,7 @@
     {{ Form::close() }}
     <hr class="spaziaturahr">
 
-    {{ Form::open(array('route' => ['cercaBlog'], 'class' => '')) }}
+    {{ Form::open(array('route' => ['cercaBlog'], 'method' => 'get')) }}
 
     <div  class="wrap-input">
         {{ Form::label('idBlog', 'Id blog') }}
