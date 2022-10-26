@@ -53,6 +53,7 @@
                 </div>
                 <br>         
             @endforeach
+            @include('pagination.paginator', ['paginator' => $users])
         @endisset()    
     </div>
 

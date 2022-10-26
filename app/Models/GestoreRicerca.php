@@ -9,7 +9,7 @@ class GestoreRicerca {
     
     
 
-    public function cercaAmici($myId , $nome , $cognome , $xpag = 100){
+    public function cercaAmici($myId , $nome , $cognome , $xpag = 4){
         return User::where('role','user')
                         ->where('id','!=',$myId)
                         ->where(function ($query) use ($nome,$cognome) {
@@ -33,7 +33,7 @@ class GestoreRicerca {
 
        
                             }})                               
-                            ->get();          
+                            ->paginate($xpag);;          
 
     }
 
