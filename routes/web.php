@@ -55,7 +55,7 @@ Route::post('register', 'Auth\RegisterController@register');
 
 // User routes
 
-//Ptofilo utente
+//Profilo utente
 
 Route::view('/myProfilo','profilo')
         ->name('profilo')->middleware('can:isUser');
