@@ -124,8 +124,6 @@ Route::get('/amico/{idamico}/{idamicizia}','UserController@getProfiloAmico')
 Route::post('/amici/elimina','UserController@eliminaAmico')
         ->name('eliminaAmico');
 
-Route::get('/amici/amico/visualizzaBlog/{id}/{idamicizia}','UserController@blogAmico')
-        ->name('blogAmico')->middleware('can:isUser');
 
 Route::get('/amici/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
         ->name('rispostaAmicizia');
