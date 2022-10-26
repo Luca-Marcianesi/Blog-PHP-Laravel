@@ -17,7 +17,7 @@ class CreateNotificaTable extends Migration
         Schema::create('notifica', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('destinatario');
-            $table->integer('mittente')->nullable();
+            $table->string('mittente')->nullable();
             $table->string('messaggio')->nullable();
             $table->integer('riferimento')->default(0);
             $table->boolean('visualizzata')->default(false);
