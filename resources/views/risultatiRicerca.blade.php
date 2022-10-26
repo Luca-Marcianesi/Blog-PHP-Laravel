@@ -56,6 +56,9 @@
             @include('pagination.paginator', ['paginator' => $users])
         @endisset()    
     </div>
+    <br>
+    <br>
+    
 
     <div style="text-align: center">
     <a href="{{ route('user') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
