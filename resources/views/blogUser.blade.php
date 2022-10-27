@@ -81,8 +81,12 @@
 @endisset()
 
 @else
+<hr class="spaziaturahr">
 <div style="text-align: center">
-<p>Il blog non è più disponibile</p>
+<p class="titolo">Mi dispiace, il blog non è più disponibile perchè è stato eliminato dal suo proprietario o da parte dello staff</p>
+<br>
+<br>
+<a href="{{ route('notifiche') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
 </div>
 
 
