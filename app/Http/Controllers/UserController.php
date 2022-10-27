@@ -142,7 +142,7 @@ class userController extends Controller {
 
         $this->_GestoreBlog->sedNotifiche($id , auth()->user()->username);
 
-        return redirect()->route('getBlog',[$id]);
+        return redirect()->route('notifiche');
         
     }
 
@@ -161,17 +161,18 @@ class userController extends Controller {
     public function getBlog($id){
 
         $blog = Blog::find($id);
-
+        $indietro = url()->previous();
         
         if(empty($blog)){
-            return view('blogUser');
+            return view('blogUser')
+                ->with('indietro', $indietro);
                     
         }
         else{
 
         $proprietario = User::find($blog->proprietario);
 
-        $indietro = url()->previous();
+        
 
         $posts = $this->_GestoreBlog->getPostByBlogId($id,'asc');
 
