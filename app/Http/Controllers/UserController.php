@@ -161,6 +161,14 @@ class userController extends Controller {
     public function getBlog($id){
 
         $blog = Blog::find($id);
+
+        
+        if(count($amiciziaRifiutata) == 0){
+            return view('blogUser');
+                    
+        }
+        else{
+
         $proprietario = User::find($blog->proprietario);
 
         $indietro = url()->previous();
@@ -172,7 +180,7 @@ class userController extends Controller {
             ->with('blog',$blog)
             ->with('proprietario',$proprietario)
             ->with('posts',$posts);
-        
+        }
 
     }
     

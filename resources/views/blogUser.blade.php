@@ -79,5 +79,12 @@
 
 @endisset()
 @endisset()
+
+@else
+<div style="text-align: center">
+<p>Il blog non è più disponibile</p>
+</div>
+
+
 @endisset()
 @endsection
