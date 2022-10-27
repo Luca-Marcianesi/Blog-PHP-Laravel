@@ -211,7 +211,7 @@ Route::get('/cercaUtente','StafController@visualizzaUtente')
 Route::get('/ricercaBlog','StafController@visualizzaBlog')
         ->name('cercaBlog');
 
-Route::get('tornaAlBlog','StafController@tornaAlBlog')
+Route::get('/tornaAlBlog/{id}','StafController@tornaAlBlog')
         ->name('tornaAlBlog');
 
 
