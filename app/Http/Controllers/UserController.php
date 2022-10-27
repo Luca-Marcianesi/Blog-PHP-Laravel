@@ -163,7 +163,7 @@ class userController extends Controller {
         $blog = Blog::find($id);
 
         
-        if(count($amiciziaRifiutata) == 0){
+        if(count($blog) == 0){
             return view('blogUser');
                     
         }
