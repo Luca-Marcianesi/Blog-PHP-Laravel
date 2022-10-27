@@ -38,15 +38,19 @@
                             <p>Username: {{$user->username}}</p><br>
                             <p>Data di nascita: {{$user->data_nascita}}</p><br>
                             <p>Non siete amici</p><br>
-                            <a href="{{ route('inviaAmicizia',$user->id) }}" title="richiesta">
-                            <button class="bottone_conferma">Invia richiesta ►</button></a>
+                            
                         @else
                             <p>Account privato</p><br>
                             <p>Non siete amici</p><br>
-                            <a href="{{ route('inviaAmicizia',$user->id) }}" title="richiesta">
-                            <button class="bottone_conferma">Invia richiesta ►</button></a>
+                            
                         
                         @endcan()
+                        @can('isSospesa',$user->id)
+                            <p>Amicizia in attesa di risposta</p>
+                        @else
+                            <a href="{{ route('inviaAmicizia',$user->id) }}" title="richiesta">
+                            <button class="bottone_conferma">Invia richiesta ►</button></a>
+                        @endcan
                     @endcan()
                     <br>
                     <br>
