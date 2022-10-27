@@ -94,6 +94,16 @@ class GestoreBlog {
 
     public function sedNotifiche($blogId, $mittente){
         $blog = Blog::find($blogId);
+
+        $notifica = new Notifica;
+        $notifica->riferimento = $blog->id;
+        $notifica-> mittente = $mittente;
+        $notifica->destinatario = $blog->proprietario;
+        $notifica->data = date("Y-m-d H:i:s");
+        $notifica->messaggio = "Un nuovo messaggio sul blog ". $blog->tema;
+        $notifica->save();
+
+
         if($blog->stato){
             //manda  la notifica tutti gli amici
             $idAmici = Amicizia::where(function ($query) use ($blog) {
