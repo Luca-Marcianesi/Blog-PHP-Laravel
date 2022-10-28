@@ -28,7 +28,6 @@ class ModificaStafRequest extends FormRequest {
             'name' => ['required', 'string'],
             'surname'=> ['required', 'string'],
             'data_nascita'=> ['required', 'date'],
-            'password'=> ['required', 'string'],
         ];
     }
 
