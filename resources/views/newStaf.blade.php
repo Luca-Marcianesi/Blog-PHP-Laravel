@@ -106,10 +106,12 @@
     {{ Form::close() }}
 
 </div>
+<br>
+<br>
 
 <div style="text-align: center">
         <a href="{{ route('gestioneStaf') }}"><button class='bottone_conferma'>◄ Indietro</button></a>
-    </div>
+</div>
 
 
 

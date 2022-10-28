@@ -58,9 +58,6 @@
     </p>
     <br>
     <br>
-    <div style="text-align: center">
-    <a href="{{ route('statistiche') }}"><button class="bottone_conferma">◄ Indietro</button></a>
-    </div>
     @endisset()
 
     <div style="text-align: center">
