@@ -133,8 +133,6 @@ Route::get('/amici/risposta/{id}/{risposta}','UserController@rispostaAmicizia')
 Route::post('/blogUtente/nuvoPost/{id}','UserController@newPost')
         ->name('newPost')->middleware('can:isUser');
 
-Route::get('/blogUtente/{id}','UserController@getBlog')
-        ->name('blog')->middleware('can:isUser');
 
 //Ricerca utenti e invio amicizia
 
