@@ -7,7 +7,7 @@
                     <li>|</li>
                     <li title="Clicca per visionare le regole per l'utilizzo del nostro sito" style="cursor: pointer; font-size: 18px" onclick="togglePopupNorme()">Norme relative ai contenuti</li>
                     <li>|</li>
-                    <li title="Clicca per visionare la documentazione sul sito web" style="cursor: pointer; font-size: 18px"><a href="css/Tecnologie_Web_Blog.pdf">Documentazione</a></li>
+                    <li title="Clicca per visionare la documentazione sul sito web" style="cursor: pointer; font-size: 18px"><a target="_blank" href="../public/Tecnologie_Web__Blog.pdf">Documentazione</a></li>
                 </ul>
             </div>
 </footer>
