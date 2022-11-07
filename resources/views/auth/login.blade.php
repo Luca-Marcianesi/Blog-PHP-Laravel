@@ -42,7 +42,7 @@
             </ul>
             @endif
 
-            <hr style="height: 30px; border: none; background: none"></hr>
+            <hr style="height: 40px; border: none; background: none"></hr>
                 
             {{ Form::submit('Login ►', ['class' => 'bottone_conferma']) }}
         
