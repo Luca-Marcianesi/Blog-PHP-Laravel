@@ -6,6 +6,8 @@
                     <li title="Clicca per visionare la pagina contenente tutte le norme sulla privacy" style="font-size: 18px"><a href="https://policies.google.com/privacy?hl=it" target="_blank">Privacy </a></li>
                     <li>|</li>
                     <li title="Clicca per visionare le regole per l'utilizzo del nostro sito" style="cursor: pointer; font-size: 18px" onclick="togglePopupNorme()">Norme relative ai contenuti</li>
+                    <li>|</li>
+                    <li title="Clicca per visionare la documentazione sul sito web" style="cursor: pointer; font-size: 18px"><a href="css/Tecnologie_Web_Blog.pdf">Documentazione</a></li>
                 </ul>
             </div>
 </footer>
